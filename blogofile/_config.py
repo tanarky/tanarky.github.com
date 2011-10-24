@@ -50,6 +50,6 @@ blog.timezone = "US/Eastern"
 import logging
 def post_build():
     if os.path.isdir("_site"):
-        os.rename("_site", "html")
+        os.rename("_site", os.path.join("..", "blog"))
     else:
         logging.error("build failed. because _site dir not exists.")
