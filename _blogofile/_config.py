@@ -19,7 +19,7 @@
 #  If you're hosting a blogofile powered site as a subdirectory of a larger
 #  non-blogofile site, then you would set the site_url to the full URL
 #  including that subdirectory: "http://www.yoursite.com/path/to/blogofile-dir"
-site.url = "http://www.yoursite.com"
+site.url = "http://tanarky.com"
 
 #### Blog Settings ####
 blog = controllers.blog
@@ -50,6 +50,6 @@ blog.timezone = "US/Eastern"
 import logging
 def post_build():
     if os.path.isdir("_site"):
-        os.rename("_site", os.path.join("..", "blog"))
+        os.system("cp -pR _site/* ../")
     else:
         logging.error("build failed. because _site dir not exists.")
