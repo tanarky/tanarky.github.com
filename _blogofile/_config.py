@@ -48,8 +48,11 @@ blog.description = "Your Blog's short description"
 blog.timezone = "US/Eastern"
 
 import logging
+import subprocess
 def post_build():
     if os.path.isdir("_site"):
-        os.system("cp -pR _site/* ../")
+        #os.system("cp -pR _site/* ../")
+        subprocess.call("/bin/cp -pr _site/* ../", shell=True)
+        #subprocess.call("pwd")
     else:
         logging.error("build failed. because _site dir not exists.")
