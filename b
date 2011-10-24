@@ -1,1 +1,1 @@
-blogofile/_site
+blogofile/html
