@@ -7,17 +7,17 @@
      xmlns:wfw="http://wellformedweb.org/CommentAPI/"
      >
   <channel>
-    <title>Your Blog's Name</title>
+    <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
-    <description>Your Blog's short description</description>
-    <pubDate>Mon, 24 Oct 2011 07:20:30 GMT</pubDate>
+    <description>tanarky website</description>
+    <pubDate>Mon, 24 Oct 2011 15:53:46 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Post 2</title>
       <link>http://tanarky.com/blog/2009/07/24/post-2</link>
-      <pubDate>Fri, 24 Jul 2009 16:20:00 EDT</pubDate>
+      <pubDate>Fri, 24 Jul 2009 16:20:00 JST</pubDate>
       <category><![CDATA[Category 2]]></category>
       <category><![CDATA[Category 1]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/07/24/post-2</guid>
@@ -27,11 +27,14 @@
     <item>
       <title>Post 1</title>
       <link>http://tanarky.com/blog/2009/07/23/post-1</link>
-      <pubDate>Thu, 23 Jul 2009 15:22:00 EDT</pubDate>
+      <pubDate>Thu, 23 Jul 2009 15:22:00 JST</pubDate>
       <category><![CDATA[Category 1]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/07/23/post-1</guid>
       <description>Post 1</description>
-      <content:encoded><![CDATA[<p>This is post #1</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>This is post #1</p>
+<p>あああ</p>
+<p>いいい</p>
+<p>ううう</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

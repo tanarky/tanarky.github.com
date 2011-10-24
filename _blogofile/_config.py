@@ -38,21 +38,32 @@ blog.path = "/blog"
 
 ## blog_name -- Your Blog's name.
 # This is used repeatedly in default blog templates
-blog.name = "Your Blog's Name"
+blog.name = "tanarky.com"
 
 ## blog_description -- A short one line description of the blog
 # used in the RSS/Atom feeds.
-blog.description = "Your Blog's short description"
+blog.description = "tanarky website"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
-blog.timezone = "US/Eastern"
+blog.timezone = "Asia/Tokyo"
+
+
+## 背景白
+filters.syntax_highlight.style   = "murphy"
+## 背景黒
+#filters.syntax_highlight.style   = "monokai"
+filters.syntax_highlight.css_dir = "/css"
+filters.syntax_highlight.preload_styles = ["murphy","monokai"]
 
 import logging
 import subprocess
 def post_build():
     if os.path.isdir("_site"):
-        #os.system("cp -pR _site/* ../")
-        subprocess.call("/bin/cp -pr _site/* ../", shell=True)
-        #subprocess.call("pwd")
+        subprocess.call("mkdir -p css js img _site/css _site/js _site/img", shell=True)
+        subprocess.call("cp css/* _site/css/", shell=True)
+        subprocess.call("cp js/*  _site/js/",  shell=True)
+        subprocess.call("cp img/*  _site/img/",shell=True)
+        subprocess.call("rm -rf ../blog",      shell=True)
+        subprocess.call("cp -pr _site/* ../",  shell=True)
     else:
         logging.error("build failed. because _site dir not exists.")

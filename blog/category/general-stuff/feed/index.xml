@@ -7,17 +7,17 @@
      xmlns:wfw="http://wellformedweb.org/CommentAPI/"
      >
   <channel>
-    <title>Your Blog's Name</title>
+    <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
-    <description>Your Blog's short description</description>
-    <pubDate>Mon, 24 Oct 2011 07:20:29 GMT</pubDate>
+    <description>tanarky website</description>
+    <pubDate>Mon, 24 Oct 2011 15:53:46 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Syntax highlight test</title>
       <link>http://tanarky.com/blog/2009/08/29/syntax-highlight-test</link>
-      <pubDate>Sat, 29 Aug 2009 15:25:00 EDT</pubDate>
+      <pubDate>Sat, 29 Aug 2009 15:25:00 JST</pubDate>
       <category><![CDATA[General Stuff]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/29/syntax-highlight-test</guid>
       <description>Syntax highlight test</description>
@@ -31,7 +31,7 @@
     <item>
       <title>Post 7</title>
       <link>http://tanarky.com/blog/2009/08/29/post-7</link>
-      <pubDate>Sat, 29 Aug 2009 15:25:00 EDT</pubDate>
+      <pubDate>Sat, 29 Aug 2009 15:25:00 JST</pubDate>
       <category><![CDATA[General Stuff]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/29/post-7</guid>
       <description>Post 7</description>
@@ -40,7 +40,7 @@
     <item>
       <title>Post 6</title>
       <link>http://tanarky.com/blog/2009/08/29/post-6</link>
-      <pubDate>Sat, 29 Aug 2009 15:24:00 EDT</pubDate>
+      <pubDate>Sat, 29 Aug 2009 15:24:00 JST</pubDate>
       <category><![CDATA[General Stuff]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/29/post-6</guid>
       <description>Post 6</description>
@@ -49,7 +49,7 @@
     <item>
       <title>Post 5</title>
       <link>http://tanarky.com/blog/2009/08/29/post-5</link>
-      <pubDate>Sat, 29 Aug 2009 15:23:00 EDT</pubDate>
+      <pubDate>Sat, 29 Aug 2009 15:23:00 JST</pubDate>
       <category><![CDATA[General Stuff]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/29/post-5</guid>
       <description>Post 5</description>
@@ -58,7 +58,7 @@
     <item>
       <title>Post 4</title>
       <link>http://tanarky.com/blog/2009/08/29/post-4</link>
-      <pubDate>Sat, 29 Aug 2009 15:22:00 EDT</pubDate>
+      <pubDate>Sat, 29 Aug 2009 15:22:00 JST</pubDate>
       <category><![CDATA[General Stuff]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/29/post-4</guid>
       <description>Post 4</description>

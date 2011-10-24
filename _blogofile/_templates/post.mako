@@ -13,15 +13,14 @@
            category_links.append("<a href='%s'>%s</a>" % (category.path, category.name))
 %>
 ${", ".join(category_links)}
+
+
 % if bf.config.blog.disqus.enabled:
  | <a href="${post.permalink}#disqus_thread">View Comments</a>
 % endif
-</small><p/>
+
+</small>
   <div class="post_prose">
-    ${self.post_prose(post)}
+    ${post.content}
   </div>
 </div>
-
-<%def name="post_prose(post)">
-  ${post.content}
-</%def>

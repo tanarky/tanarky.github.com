@@ -4,10 +4,10 @@
   xmlns:thr="http://purl.org/syndication/thread/1.0"
   xml:lang="en"
    >
-  <title type="text">Your Blog's Name</title>
-  <subtitle type="text">Your Blog's short description</subtitle>
+  <title type="text">tanarky.com</title>
+  <subtitle type="text">tanarky website</subtitle>
 
-  <updated>2011-10-24T07:20:30Z</updated>
+  <updated>2011-10-24T15:53:46Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
@@ -144,6 +144,9 @@ I kå Glas frässa, ond des macht mr nix!
     <published>2009-07-23T15:22:00Z</published>
     <category scheme="http://tanarky.com/blog" term="Category 1" />
     <summary type="html"><![CDATA[Post 1]]></summary>
-    <content type="html" xml:base="http://tanarky.com/blog/2009/07/23/post-1"><![CDATA[<p>This is post #1</p>]]></content>
+    <content type="html" xml:base="http://tanarky.com/blog/2009/07/23/post-1"><![CDATA[<p>This is post #1</p>
+<p>あああ</p>
+<p>いいい</p>
+<p>ううう</p>]]></content>
   </entry>
 </feed>

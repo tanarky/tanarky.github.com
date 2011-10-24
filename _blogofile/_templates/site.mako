@@ -1,33 +1,38 @@
 <%inherit file="base.mako" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    ${self.head()}
+    <%include file="head.mako" />
   </head>
   <body>
-    <div id="content">
-      ${self.header()}
-      <div id="main_block">
-        <div id="prose_block">
+    <%include file="header.mako" />
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span13">
           ${next.body()}
-        </div><!-- End Prose Block -->
-      </div><!-- End Main Block -->
-      <div id="footer">
-        ${self.footer()}
-      </div> <!-- End Footer -->
-    </div> <!-- End Content -->
+        </div>
+
+        <div class="span3">
+          <div class="well">
+            <h5>Recent Articles</h5>
+            <ul>
+              % for post in bf.config.blog.posts[:5]:
+              <li><a href="${post.path}">${post.title}</a></li>
+              % endfor
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span16">
+        <%include file="footer.mako" />
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
-<%def name="head()">
-  <%include file="head.mako" />
-</%def>
-<%def name="header()">
-  <%include file="header.mako" />
-</%def>
-<%def name="footer()">
-  <hr/>
-  This is a footer that appears on every page.
-  <%include file="footer.mako" />
-</%def>

@@ -7,17 +7,17 @@
      xmlns:wfw="http://wellformedweb.org/CommentAPI/"
      >
   <channel>
-    <title>Your Blog's Name</title>
+    <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
-    <description>Your Blog's short description</description>
-    <pubDate>Mon, 24 Oct 2011 07:20:30 GMT</pubDate>
+    <description>tanarky website</description>
+    <pubDate>Mon, 24 Oct 2011 15:53:46 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Post 3 - Unicode Test - How about some 日本語テスト</title>
       <link>http://tanarky.com/blog/2009/08/22/post-3---unicode-test---how-about-some-日本語テスト</link>
-      <pubDate>Sat, 22 Aug 2009 15:22:00 EDT</pubDate>
+      <pubDate>Sat, 22 Aug 2009 15:22:00 JST</pubDate>
       <category><![CDATA[Unicode]]></category>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/22/post-3---unicode-test---how-about-some-日本語テスト</guid>
       <description>Post 3 - Unicode Test - How about some 日本語テスト</description>
