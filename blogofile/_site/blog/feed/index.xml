@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Your Blog's Name</title>
+    <link>http://www.yoursite.com/blog</link>
+    <description>Your Blog's short description</description>
+    <pubDate>Mon, 24 Oct 2011 02:48:33 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Syntax highlight test</title>
+      <link>http://www.yoursite.com/blog/2009/08/29/syntax-highlight-test</link>
+      <pubDate>Sat, 29 Aug 2009 15:25:00 EDT</pubDate>
+      <category><![CDATA[General Stuff]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/syntax-highlight-test</guid>
+      <description>Syntax highlight test</description>
+      <content:encoded><![CDATA[<p>This post contains some highlighted python code:</p>
+<div class="pygments_murphy"><pre><span class="kn">import</span> <span class="nn">this</span>
+
+<p><span class="k">if</span> <span class="n"><strong>name</strong></span> <span class="o">==</span> <span class="s">&quot;main&quot;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 7</title>
+      <link>http://www.yoursite.com/blog/2009/08/29/post-7</link>
+      <pubDate>Sat, 29 Aug 2009 15:25:00 EDT</pubDate>
+      <category><![CDATA[General Stuff]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-7</guid>
+      <description>Post 7</description>
+      <content:encoded><![CDATA[<p>This is post #7</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 6</title>
+      <link>http://www.yoursite.com/blog/2009/08/29/post-6</link>
+      <pubDate>Sat, 29 Aug 2009 15:24:00 EDT</pubDate>
+      <category><![CDATA[General Stuff]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-6</guid>
+      <description>Post 6</description>
+      <content:encoded><![CDATA[<p>This is post #6</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 5</title>
+      <link>http://www.yoursite.com/blog/2009/08/29/post-5</link>
+      <pubDate>Sat, 29 Aug 2009 15:23:00 EDT</pubDate>
+      <category><![CDATA[General Stuff]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-5</guid>
+      <description>Post 5</description>
+      <content:encoded><![CDATA[<p>This is post #5</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 4</title>
+      <link>http://www.yoursite.com/blog/2009/08/29/post-4</link>
+      <pubDate>Sat, 29 Aug 2009 15:22:00 EDT</pubDate>
+      <category><![CDATA[General Stuff]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-4</guid>
+      <description>Post 4</description>
+      <content:encoded><![CDATA[<p>This is post #4</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 3 - Unicode Test - How about some 日本語テスト</title>
+      <link>http://www.yoursite.com/blog/2009/08/22/post-3---unicode-test---how-about-some-日本語テスト</link>
+      <pubDate>Sat, 22 Aug 2009 15:22:00 EDT</pubDate>
+      <category><![CDATA[Unicode]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/22/post-3---unicode-test---how-about-some-日本語テスト</guid>
+      <description>Post 3 - Unicode Test - How about some 日本語テスト</description>
+      <content:encoded><![CDATA[<p>Anglo-Saxon Rune Poem:</p>
+<p>ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ
+ᛋᚳᛖᚪᛚ᛫ᚦᛖᚪᚻ᛫ᛗᚪᚾᚾᚪ᛫ᚷᛖᚻᚹᛦᛚᚳ᛫ᛗᛁᚳᛚᚢᚾ᛫ᚻᛦᛏ᛫ᛞᚫᛚᚪᚾ
+ᚷᛁᚠ᛫ᚻᛖ᛫ᚹᛁᛚᛖ᛫ᚠᚩᚱ᛫ᛞᚱᛁᚻᛏᚾᛖ᛫ᛞᚩᛗᛖᛋ᛫ᚻᛚᛇᛏᚪᚾ᛬</p>
+<p>Tamil poetry:</p>
+<p>யாமறிந்த மொழிகளிலே தமிழ்மொழி போல் இனிதாவது எங்கும் காணோம்,
+பாமரராய் விலங்குகளாய், உலகனைத்தும் இகழ்ச்சிசொலப் பான்மை கெட்டு,
+நாமமது தமிழரெனக் கொண்டு இங்கு வாழ்ந்திடுதல் நன்றோ? சொல்லீர்!
+தேமதுரத் தமிழோசை உலகமெலாம் பரவும்வகை செய்தல் வேண்டும்.</p>
+<p>I can eat glass:
+私はガラスを食べられます。それは私を傷つけません。
+Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։
+I kå Glas frässa, ond des macht mr nix!
+᚛᚛ᚉᚑᚅᚔᚉᚉᚔᚋ ᚔᚈᚔ ᚍᚂᚐᚅᚑ ᚅᚔᚋᚌᚓᚅᚐ᚜
+אני יכול לאכול זכוכית וזה לא מזיק לי
+काचं शक्नोम्यत्तुम् । नोपहिनस्ति माम् ॥ </p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 2</title>
+      <link>http://www.yoursite.com/blog/2009/07/24/post-2</link>
+      <pubDate>Fri, 24 Jul 2009 16:20:00 EDT</pubDate>
+      <category><![CDATA[Category 2]]></category>
+      <category><![CDATA[Category 1]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/07/24/post-2</guid>
+      <description>Post 2</description>
+      <content:encoded><![CDATA[<p>This is post #2</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Post 1</title>
+      <link>http://www.yoursite.com/blog/2009/07/23/post-1</link>
+      <pubDate>Thu, 23 Jul 2009 15:22:00 EDT</pubDate>
+      <category><![CDATA[Category 1]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/07/23/post-1</guid>
+      <description>Post 1</description>
+      <content:encoded><![CDATA[<p>This is post #1</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
