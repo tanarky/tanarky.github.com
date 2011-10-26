@@ -16,6 +16,7 @@ import operator
 import urlparse
 import hashlib
 import codecs
+import logging,stat
 
 import pytz
 import yaml
@@ -75,13 +76,13 @@ class Post(object):
     """
     Class to describe a blog post and associated metadata
     """
-    def __init__(self, source, filename="Untitled"):
+    def __init__(self, source, filename="Untitled", updated=None):
         self.source = source
         self.yaml = None
         self.title = None
         self.__timezone = bf.config.controllers.blog.timezone
         self.date = None
-        self.updated = None
+        self.updated = updated
         self.categories = set()
         self.tags = set()
         self.permalink = None
@@ -170,6 +171,7 @@ class Post(object):
 
         if not self.date:
             self.date = datetime.datetime.now(pytz.timezone(self.__timezone))
+
         if not self.updated:
             self.updated = self.date
 
@@ -331,7 +333,10 @@ def parse_posts(directory):
             logger.exception(u"Error reading post: {0}".format(post_path))
             raise
         try:
-            p = Post(src, filename=post_fn)
+            logging.error(os.stat(post_path)[stat.ST_MTIME])
+            mtime = os.stat(post_path)[stat.ST_MTIME]
+            updated = pytz.timezone('Asia/Tokyo').localize(datetime.datetime.utcfromtimestamp(mtime))
+            p = Post(src, filename=post_fn, updated=updated)
         except PostParseException as e:
             logger.warning(u"{0} : Skipping this post.".format(e.value))
             continue
