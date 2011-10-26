@@ -1,4 +1,5 @@
 import docutils.core
+import logging
 
 config = {
     'name': "reStructuredText",
@@ -8,4 +9,7 @@ config = {
 
 
 def run(content):
-    return docutils.core.publish_parts(content, writer_name='html')['html_body']
+    overrides = {'initial_header_level': 2}
+    ret = docutils.core.publish_parts(content, writer_name='html4css1',
+                                      settings_overrides=overrides)
+    return ret['html_body']

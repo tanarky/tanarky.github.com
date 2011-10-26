@@ -7,7 +7,7 @@
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
 
-  <updated>2011-10-26T04:42:02Z</updated>
+  <updated>2011-10-26T14:56:37Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
@@ -30,7 +30,8 @@
 
 <p><span class="k">if</span> <span class="n"><strong>name</strong></span> <span class="o">==</span> <span class="s">&quot;main&quot;</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">&quot;Hello, World!&quot;</span>
-</pre></div></p>]]></content>
+</pre></div></p>
+<p>あああ</p>]]></content>
   </entry>
   <entry>
     <author>

@@ -12,6 +12,83 @@ div.post_prose { margin-top: 20px }
 div.post_meta { color: #888 }
 .row { background-color:#fff; margin:0 -20px 0 -20px;padding-top:20px; box-shadow:0 3px 10px rgba(0, 0, 0, 0.5)}
 .blog_post_title { text-shadow: 3px 3px 3px #ccc }
+
+table.docinfo,
+table.field-list { border-collapse: collapse } 
+
+table.docinfo tr th,
+table.field-list tr th
+{
+border-right:1px solid #aaa;
+background-color: #f5f5f5;
+}
+
+div.dedication,
+div.abstract{ text-align: center }
+div.dedication p.topic-title,
+div.abstract p.topic-title{ font-weight:bold }
+
+/*
+ * 
+ */
+.attention .first,
+.caution .first,
+.danger .first,
+.error .first,
+.note .first,
+.hint .first,
+.tip .first,
+.tip .first,
+.important .first,
+.warning .first{
+  font-weight:bold
+}
+.attention,
+.caution,
+.danger,
+.error,
+.note,
+.hint,
+.tip,
+.important,
+.warning {
+    background-repeat: repeat-x;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 18px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-image: none;
+    box-shadow: none;
+    padding: 10px;
+    color: #404040;
+}
+.attention,
+.caution,
+.warning {
+    background-color: #FDF5D9;
+    border-color: #FCEEC1;
+    color: #404040;
+}
+.error,
+.danger{
+    background-color:#FDDFDE;
+    border-color: #FBC7C6;
+}
+.tip,
+.hint,
+.note,
+.important{
+    background-color:#D1EED1;
+    border-color: #BFE7BF;
+}
+.tip,
+.important{
+    background-color:#DDF4FB;
+    border-color:#DDF4FB;
+}
+
 </style>
 
 
