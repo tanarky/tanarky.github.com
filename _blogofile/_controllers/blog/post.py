@@ -333,7 +333,6 @@ def parse_posts(directory):
             logger.exception(u"Error reading post: {0}".format(post_path))
             raise
         try:
-            logging.error(os.stat(post_path)[stat.ST_MTIME])
             mtime = os.stat(post_path)[stat.ST_MTIME]
             updated = pytz.timezone('Asia/Tokyo').localize(datetime.datetime.utcfromtimestamp(mtime))
             p = Post(src, filename=post_fn, updated=updated)
