@@ -5,7 +5,8 @@
 <link rel='stylesheet' href='${bf.config.filters.syntax_highlight.css_dir}/bootstrap.1.3.0.min.css' type='text/css' />
 <link rel='stylesheet' href='${bf.config.filters.syntax_highlight.css_dir}/pygments_${bf.config.filters.syntax_highlight.style}.css' type='text/css' />
 <style type="text/css">
-body { padding-top: 60px; background-color:#ddd }
+html, body { background-color:#ddd; }
+body { padding-top: 60px; }
 .hero-unit h1 { margin-bottom:10px; }
 div.post_prose { margin-top: 20px }
 div.post_meta { color: #888 }
