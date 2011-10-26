@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>tanarky.com</title>
+    <link>http://tanarky.com/blog</link>
+    <description>tanarky website</description>
+    <pubDate>Wed, 26 Oct 2011 15:01:07 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Python開発環境について</title>
+      <link>http://tanarky.com/blog/2011/10/26/python開発環境について</link>
+      <pubDate>Wed, 26 Oct 2011 15:22:00 JST</pubDate>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[tips]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2011/10/26/python開発環境について</guid>
+      <description>Python開発環境について</description>
+      <content:encoded><![CDATA[<div class="document" id="python">
+<h2 class="title">Python開発環境構築について</h2>
+<p>あああ</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">aaa</th>
+<th class="head">bbb</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>ccc</td>
+<td>ddd</td>
+</tr>
+<tr><td>eee</td>
+<td>fff</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="hogehoge">
+<h2>hogehoge</h2>
+<p>あああ</p>
+<p>いいい</p>
+</div>
+</div>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
