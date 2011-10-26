@@ -4,6 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <%include file="head.mako" />
+    <style>h2 {font-style:Italic}</style>
   </head>
   <body>
     <%include file="header.mako" />
@@ -18,7 +19,7 @@
           You have to trust in something — your gut, destiny, life, karma, whatever
           This approach has never let me down, and it has made all the difference in my life.</p>
         <p>
-          <a href="http://news.stanford.edu/news/2005/june15/jobs-061505.html" target="_new" class="btn primary large">Learn more &raquo;</a></p>
+          <a href="http://news.stanford.edu/news/2005/june15/jobs-061505.html" target="_new" class="btn primary large">Read more &raquo;</a></p>
       </div>
 
       <div class="row">
@@ -30,7 +31,7 @@
             <li><a href="${post.path}">${post.title}</a></li>
             % endfor
           </ul>
-          <p><a class="btn" href="${bf.util.site_path_helper(bf.config.blog.path)}">more &raquo;</a></p>
+          <p><a class="btn" href="${bf.util.site_path_helper(bf.config.blog.path)}">Read more &raquo;</a></p>
         </div>
 
         <div class="span-one-third">
@@ -41,6 +42,7 @@
             <li>Google+</li>
             <li>Facebook</li>
             <li>twitter</li>
+            <li>LinkedIn</li>
           </ul>
         </div>
 

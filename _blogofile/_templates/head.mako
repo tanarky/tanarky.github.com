@@ -7,6 +7,8 @@
 <style type="text/css">
 body { padding-top: 60px; }
 .hero-unit h1 { margin-bottom:10px; }
+div.post_prose { margin-top: 10px }
+div.post_meta { color: #888 }
 </style>
 
 
