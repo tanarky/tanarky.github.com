@@ -10,7 +10,8 @@
     <%include file="header.mako" />
 
     <div class="container">
-
+      <div class="row">
+        <div class="span16">
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Stay hungry, Stay foolish.</h1>
@@ -21,8 +22,9 @@
         <p>
           <a href="http://news.stanford.edu/news/2005/june15/jobs-061505.html" target="_new" class="btn primary large">Read more &raquo;</a></p>
       </div>
+      </div>
 
-      <div class="row">
+
         <div class="span-one-third">
           <h2>Blog Articles</h2>
           <p>recent articles</p>
@@ -55,8 +57,11 @@
             <li>Yahoo!Japan Auctions</li>
           </ul>
         </div>
+
+        <div class="span16">
+          <%include file="footer.mako" />
+        </div>
       </div>
-      <%include file="footer.mako" />
     </div>
   </body>
 </html>

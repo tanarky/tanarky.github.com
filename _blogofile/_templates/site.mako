@@ -25,9 +25,7 @@
             </ul>
           </div>
         </div>
-      </div>
 
-      <div class="row">
         <div class="span16">
         <%include file="footer.mako" />
         </div>
