@@ -6,10 +6,8 @@
    >
   <title type="text">${bf.config.blog.name}</title>
   <subtitle type="text">${bf.config.blog.description}</subtitle>
-
-  <updated>${datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}</updated>
+  <updated>${posts[0].updated.strftime("%Y-%m-%dT%H:%M:%SZ")}</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
-
   <link rel="alternate" type="text/html" href="${bf.config.blog.url}" />
   <id>${bf.config.blog.url}/feed/atom/</id>
   <link rel="self" type="application/atom+xml" href="${bf.config.blog.url}/feed/atom/" />

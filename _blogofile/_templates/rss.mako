@@ -10,7 +10,7 @@
     <title>${bf.config.blog.name}</title>
     <link>${bf.config.blog.url}</link>
     <description>${bf.config.blog.description}</description>
-    <pubDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")}</pubDate>
+    <pubDate>${posts[0].updated.strftime("%a, %d %b %Y %H:%M:%S GMT")}</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
