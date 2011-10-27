@@ -11,11 +11,11 @@
     <div class="container">
 
       <div class="row">
-        <div class="span13">
+        <div class="span12">
           ${next.body()}
         </div>
 
-        <div class="span3">
+        <div class="span4">
           <div class="well">
             <h5>Recent Articles</h5>
             <ul>

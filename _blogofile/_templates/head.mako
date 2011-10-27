@@ -28,6 +28,11 @@ div.abstract{ text-align: center }
 div.dedication p.topic-title,
 div.abstract p.topic-title{ font-weight:bold }
 
+div.pygments_monokai {
+  border-radius: 5px;/* CSS3草案 */
+  -webkit-border-radius: 5px;/* Safari,Google Chrome用 */
+  -moz-border-radius: 5px;/* Firefox用 */
+}
 /*
  * 
  */

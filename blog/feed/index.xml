@@ -10,7 +10,7 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Wed, 26 Oct 2011 15:36:33 GMT</pubDate>
+    <pubDate>Thu, 27 Oct 2011 01:52:32 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -792,7 +792,7 @@ section, &quot;Docutils System Messages&quot;:</p>
       <guid isPermaLink="true">http://tanarky.com/blog/2009/08/29/syntax-highlight-test</guid>
       <description>Syntax highlight test</description>
       <content:encoded><![CDATA[<p>This post contains some highlighted python code:</p>
-<div class="pygments_murphy"><pre><span class="kn">import</span> <span class="nn">this</span>
+<div class="pygments_monokai"><pre><span class="kn">import</span> <span class="nn">this</span>
 
 <p><span class="k">if</span> <span class="n"><strong>name</strong></span> <span class="o">==</span> <span class="s">&quot;main&quot;</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">&quot;Hello, World!&quot;</span>

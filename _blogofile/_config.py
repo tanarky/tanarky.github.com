@@ -49,9 +49,9 @@ blog.timezone = "Asia/Tokyo"
 
 
 ## 背景白
-filters.syntax_highlight.style   = "murphy"
+#filters.syntax_highlight.style   = "murphy"
 ## 背景黒
-#filters.syntax_highlight.style   = "monokai"
+filters.syntax_highlight.style   = "monokai"
 filters.syntax_highlight.css_dir = "/css"
 filters.syntax_highlight.preload_styles = ["murphy","monokai"]
 

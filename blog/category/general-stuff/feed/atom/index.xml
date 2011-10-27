@@ -7,7 +7,7 @@
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
 
-  <updated>2011-10-26T15:36:33Z</updated>
+  <updated>2011-10-27T01:52:32Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
@@ -26,7 +26,7 @@
     <category scheme="http://tanarky.com/blog" term="General Stuff" />
     <summary type="html"><![CDATA[Syntax highlight test]]></summary>
     <content type="html" xml:base="http://tanarky.com/blog/2009/08/29/syntax-highlight-test"><![CDATA[<p>This post contains some highlighted python code:</p>
-<div class="pygments_murphy"><pre><span class="kn">import</span> <span class="nn">this</span>
+<div class="pygments_monokai"><pre><span class="kn">import</span> <span class="nn">this</span>
 
 <p><span class="k">if</span> <span class="n"><strong>name</strong></span> <span class="o">==</span> <span class="s">&quot;main&quot;</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">&quot;Hello, World!&quot;</span>
