@@ -47,8 +47,8 @@ blog.description = "tanarky website"
 ## blog_timezone -- the timezone that you normally write your blog posts from
 blog.timezone = "Asia/Tokyo"
 
-blog.disqus.enabled = True
-blog.disqus.name    = "tanarky"
+blog.disqus.enabled   = True
+blog.disqus.shortname = "tanarky"
 
 ## 背景白
 #filters.syntax_highlight.style   = "murphy"
