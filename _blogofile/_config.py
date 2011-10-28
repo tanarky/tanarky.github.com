@@ -47,13 +47,16 @@ blog.description = "tanarky website"
 ## blog_timezone -- the timezone that you normally write your blog posts from
 blog.timezone = "Asia/Tokyo"
 
+blog.disqus.enabled = True
+blog.disqus.name    = "tanarky"
 
 ## 背景白
 #filters.syntax_highlight.style   = "murphy"
 ## 背景黒
 filters.syntax_highlight.style   = "monokai"
-filters.syntax_highlight.css_dir = "/css"
-filters.syntax_highlight.preload_styles = ["murphy","monokai"]
+#filters.syntax_highlight.css_dir = "/css"
+filters.syntax_highlight.preload_styles = ["monokai"]
+css_dir = "/css"
 
 import logging
 import subprocess

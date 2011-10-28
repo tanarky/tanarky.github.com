@@ -10,44 +10,62 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Wed, 26 Oct 2011 14:27:34 GMT</pubDate>
+    <pubDate>Fri, 28 Oct 2011 08:26:37 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
-      <title>Python開発環境について</title>
-      <link>http://tanarky.com/blog/2011/10/26/python開発環境について</link>
+      <title>Ubuntu11.10のPython開発環境について</title>
+      <link>http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について</link>
       <pubDate>Wed, 26 Oct 2011 15:22:00 JST</pubDate>
       <category><![CDATA[python]]></category>
       <category><![CDATA[tips]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2011/10/26/python開発環境について</guid>
-      <description>Python開発環境について</description>
-      <content:encoded><![CDATA[<div class="document" id="python">
-<h2 class="title">Python開発環境構築について</h2>
-<p>あああ</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="44%" />
-<col width="56%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">aaa</th>
-<th class="head">bbb</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>ccc</td>
-<td>ddd</td>
-</tr>
-<tr><td>eee</td>
-<td>fff</td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="hogehoge">
-<h2>hogehoge</h2>
-<p>あああ</p>
-<p>いいい</p>
+      <category><![CDATA[ubuntu]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について</guid>
+      <description>Ubuntu11.10のPython開発環境について</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#id2" id="id4">1&nbsp;&nbsp;&nbsp;背景</a></li>
+<li><a class="reference internal" href="#id3" id="id5">2&nbsp;&nbsp;&nbsp;インストール手順</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">1&nbsp;&nbsp;&nbsp;背景</a></h2>
+<p>Google AppEngineで使い始めたのをきっかけにPythonにハマっている。
+ハマった理由は以下の通り。</p>
+<ul class="simple">
+<li>標準で備わってる機能が多い(CSV parserなど)</li>
+<li>Cのライブラリ連携が楽そう(ctypesなど)</li>
+<li>PyPI(PerlにおけるCPAN)パッケージが充実している</li>
+<li>など</li>
+</ul>
+<p>ただ、パッケージが充実しているのはいいが、
+野良CPANパッケージをinstallすると環境が汚れたり、
+ちょっとお試しでinstallしたい場合に躊躇してしまう(Perlも同様)</p>
+<p>pythonの場合、virtualenvを使えば、pythonのバージョン違いも含めて、
+複数のpython環境を自分のHOMEディレクトリ以下で簡単に管理できるので、
+その設定手順をまとめる</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id5">2&nbsp;&nbsp;&nbsp;インストール手順</a></h2>
+<div class="highlight"><pre>% sudo aptitude install python-virtualenv virtualwrapper
+% sudo aptitude install python3.2 python3.2-dev
+% mkvirtualenv -p /usr/bin/python2.7 2.7.2
+% mkvirtualenv -p /usr/bin/python3.2 3.2.2
+</pre></div>
+<p>パッケージをinstallできたら、
+以下を.zshrcに追加</p>
+<div class="highlight"><pre>[ -f $HOME/.pythonbrew/etc/bashrc ] &amp;&amp; source $HOME/.pythonbrew/etc/bashrc
+[ -f /etc/bash_completion.d/virtualenvwrapper ] &amp;&amp; source /etc/bash_completion.d/virtualenvwrapper
+workon 2.7.2
+</pre></div>
+<p>これで準備は完了</p>
+<p>後はterminal上で、&quot;workon 2.7.2&quot; や &quot;workon 3.2.2&quot; などと打てば
+(python versionが異なる)環境を瞬時に切り替えられる</p>
+<p>これで環境ごとにパッケージを完全に別で管理できるので、
+とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。</p>
 </div>
 </div>
 ]]></content:encoded>
