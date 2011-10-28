@@ -4,7 +4,6 @@ date: 2011/10/26 15:22:00
 title: Ubuntu11.10のPython開発環境について
 ---
 
-.. section-numbering::
 .. contents:: 目次
 
 背景

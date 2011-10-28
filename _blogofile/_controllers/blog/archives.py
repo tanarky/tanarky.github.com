@@ -1,3 +1,4 @@
+# coding: utf-8
 ################################################################################
 ## Archives controller
 ##
@@ -15,7 +16,9 @@ blog = bf.config.controllers.blog
 
 
 def run():
-    write_monthly_archives()
+    ## 月別archiveをわざわざ作る必要がないのでコメントアウト
+    #write_monthly_archives()
+    pass
 
 
 def sort_into_archives():

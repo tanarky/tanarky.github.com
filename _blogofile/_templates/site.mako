@@ -9,7 +9,6 @@
     <%include file="header.mako" />
 
     <div class="container">
-
       <div class="row">
         <div class="span12">
           ${next.body()}

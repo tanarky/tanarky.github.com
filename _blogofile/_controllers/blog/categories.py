@@ -67,7 +67,7 @@ def write_categories():
                 "prev_link": prev_link,
                 "next_link": next_link
             }
-            bf.writer.materialize_template("chronological.mako", path, env)
+            bf.writer.materialize_template("category.mako", path, env)
             
             #Copy category/1 to category/index.html
             if page_num == 1:

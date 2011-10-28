@@ -1,5 +1,5 @@
 # Write all the blog posts in reverse chronological order
-import os
+import os,logging
 from blogofile.cache import bf
 
 blog = bf.config.controllers.blog

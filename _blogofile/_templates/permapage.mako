@@ -1,10 +1,18 @@
 <%inherit file="site.mako" />
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">&gt;</span></li>
+  <li><a href="/blog">Blog</a> <span class="divider">&gt;</span></li>
+  <li class="active"><h1>${post.title}<h1></li>
+</ul>
+
 <%include file="post.mako" args="post=post" />
+
+% if bf.config.blog.disqus.enabled:
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_url = "${post.permalink}";
 </script>
-% if bf.config.blog.disqus.enabled:
-<script type="text/javascript" src="http://disqus.com/forums/${bf.config.blog.disqus.name}/embed.js"></script>
-<noscript><a href="http://${bf.config.blog.disqus.name}.disqus.com/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<script type="text/javascript" src="http://disqus.com/forums/${bf.config.blog.disqus.shortname}/embed.js"></script>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 % endif

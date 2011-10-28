@@ -1,4 +1,10 @@
 <%inherit file="site.mako" />
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">&gt;</span></li>
+  <li class="active"><h1>Blog<h1></li>
+</ul>
+
 % for post in posts:
   <%include file="post.mako" args="post=post" />
 % if bf.config.blog.disqus.enabled:

@@ -193,9 +193,10 @@ class Post(object):
                     re.sub(":title", self.slug, self.permalink)
 
             # TODO: slugification should be abstracted out somewhere reusable
+            name, ext = os.path.splitext(self.filename)
             self.permalink = re.sub(
                     ":filename", re.sub(
-                            "[ ?]", "-", self.filename).lower(), self.permalink)
+                            "[ ?]", "-", name).lower(), self.permalink)
 
             # Generate sha hash based on title
             self.permalink = re.sub(":uuid", hashlib.sha1(

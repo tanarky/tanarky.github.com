@@ -56,7 +56,7 @@ def run(content):
     description = ('Generates S5 (X)HTML slideshow documents from standalone '
                    'reStructuredText sources.  ' + default_description)
 
-    overrides = {'initial_header_level': 2}
+    overrides = {'initial_header_level': 3}
     return publish_parts(content, writer_name='html',
                          settings_overrides=overrides)['html_body']
 
