@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Home - ${bf.config.blog.name}</title>
     <%include file="head.mako" />
     <style>h2 {font-style:Italic}</style>
   </head>
