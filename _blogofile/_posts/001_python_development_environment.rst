@@ -1,7 +1,7 @@
 ---
 categories: python,tips,ubuntu
 date: 2011/10/26 15:22:00
-title: Ubuntu11.10のPython開発環境について
+title: Ubuntu11.10のPython開発環境を整備
 ---
 
 .. contents:: 目次

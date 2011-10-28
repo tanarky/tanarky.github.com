@@ -1,4 +1,5 @@
 <%page args="post"/>
+
 <div class="blog_post">
   <a name="${post.slug}"></a>
   <h2 class="blog_post_title">
@@ -25,3 +26,4 @@ ${", ".join(category_links)}
     ${post.content}
   </div>
 </div>
+

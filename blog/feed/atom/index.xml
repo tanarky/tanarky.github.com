@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2011-10-28T16:18:32Z</updated>
+  <updated>2011-10-28T16:40:28Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -16,15 +16,15 @@
       <name></name>
       <uri>http://tanarky.com/blog</uri>
     </author>
-    <title type="html"><![CDATA[Ubuntu11.10のPython開発環境について]]></title>
+    <title type="html"><![CDATA[Ubuntu11.10のPython開発環境を整備]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/26/001_python_development_environment" />
     <id>http://tanarky.com/blog/2011/10/26/001_python_development_environment</id>
-    <updated>2011-10-28T16:18:32Z</updated>
+    <updated>2011-10-28T16:40:28Z</updated>
     <published>2011-10-26T15:22:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
     <category scheme="http://tanarky.com/blog" term="ubuntu" />
-    <summary type="html"><![CDATA[Ubuntu11.10のPython開発環境について]]></summary>
+    <summary type="html"><![CDATA[Ubuntu11.10のPython開発環境を整備]]></summary>
     <content type="html" xml:base="http://tanarky.com/blog/2011/10/26/001_python_development_environment"><![CDATA[<div class="document">
 <div class="contents topic" id="id1">
 <p class="topic-title first">目次</p>
