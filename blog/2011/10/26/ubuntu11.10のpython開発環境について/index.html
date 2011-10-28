@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>tanarky.com</title>
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/blog/feed" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/blog/feed/atom" />
+
+<link rel='stylesheet' href='/css/pygments_monokai.css' type='text/css' />
+
+<link rel='stylesheet' href='/css/bootstrap.1.3.0.min.css' type='text/css' />
+
+
+
+  </head>
+  <body>
+    <div class="topbar">
+  <div class="fill">
+    <div class="container">
+      <a class="brand" href="/">tanarky.com</a>
+      <ul class="nav">
+        <li><a href="#">Profile</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog/feed/atom/index.xml">
+            Feed</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span12">
+          
+
+<div class="blog_post">
+  <a name="ubuntu11.10のpython開発環境について"></a>
+  <h1 class="blog_post_title"><a href="/blog/2011/10/26/ubuntu11.10のpython開発環境について" rel="bookmark" title="Permanent Link to Ubuntu11.10のPython開発環境について">Ubuntu11.10のPython開発環境について</a></h1>
+  <div class="post_meta">October 26, 2011 at 03:22 PM | categories: 
+
+<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ubuntu'>ubuntu</a>
+
+
+ | <a href="http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#id2" id="id4">1&nbsp;&nbsp;&nbsp;背景</a></li>
+<li><a class="reference internal" href="#id3" id="id5">2&nbsp;&nbsp;&nbsp;インストール手順</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">1&nbsp;&nbsp;&nbsp;背景</a></h2>
+<p>Google AppEngineで使い始めたのをきっかけにPythonにハマっている。
+ハマった理由は以下の通り。</p>
+<ul class="simple">
+<li>標準で備わってる機能が多い(CSV parserなど)</li>
+<li>Cのライブラリ連携が楽そう(ctypesなど)</li>
+<li>PyPI(PerlにおけるCPAN)パッケージが充実している</li>
+<li>など</li>
+</ul>
+<p>ただ、パッケージが充実しているのはいいが、
+野良CPANパッケージをinstallすると環境が汚れたり、
+ちょっとお試しでinstallしたい場合に躊躇してしまう(Perlも同様)</p>
+<p>pythonの場合、virtualenvを使えば、pythonのバージョン違いも含めて、
+複数のpython環境を自分のHOMEディレクトリ以下で簡単に管理できるので、
+その設定手順をまとめる</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id5">2&nbsp;&nbsp;&nbsp;インストール手順</a></h2>
+<div class="highlight"><pre>% sudo aptitude install python-virtualenv virtualwrapper
+% sudo aptitude install python3.2 python3.2-dev
+% mkvirtualenv -p /usr/bin/python2.7 2.7.2
+% mkvirtualenv -p /usr/bin/python3.2 3.2.2
+</pre></div>
+<p>パッケージをinstallできたら、
+以下を.zshrcに追加</p>
+<div class="highlight"><pre>[ -f $HOME/.pythonbrew/etc/bashrc ] &amp;&amp; source $HOME/.pythonbrew/etc/bashrc
+[ -f /etc/bash_completion.d/virtualenvwrapper ] &amp;&amp; source /etc/bash_completion.d/virtualenvwrapper
+workon 2.7.2
+</pre></div>
+<p>これで準備は完了</p>
+<p>後はterminal上で、&quot;workon 2.7.2&quot; や &quot;workon 3.2.2&quot; などと打てば
+(python versionが異なる)環境を瞬時に切り替えられる</p>
+<p>これで環境ごとにパッケージを完全に別で管理できるので、
+とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。</p>
+</div>
+</div>
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_url = "http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について";
+</script>
+<script type="text/javascript" src="http://disqus.com/forums/tanarky/embed.js"></script>
+<noscript><a href="http://tanarky.disqus.com/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+
+        <div class="span4">
+          <div class="well">
+            <h5>Recent Articles</h5>
+            <ul>
+              <li><a href="/blog/2011/10/26/ubuntu11.10のpython開発環境について">Ubuntu11.10のPython開発環境について</a></li>
+              <li><a href="/blog/2011/10/26/ドキュメントデザインテスト">ドキュメントデザインテスト</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="span16">
+        <footer>
+  <p>&copy; 2011 tanarky</p>
+</footer>
+
+<p><a href="http://tanarky.disqus.com/latest.rss">Comments</a>.</p>
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+    var disqus_shortname = 'tanarky';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
+

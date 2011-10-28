@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed
+  xmlns="http://www.w3.org/2005/Atom"
+  xmlns:thr="http://purl.org/syndication/thread/1.0"
+  xml:lang="en"
+   >
+  <title type="text">tanarky.com</title>
+  <subtitle type="text">tanarky website</subtitle>
+  <updated>2011-10-28T08:26:37Z</updated>
+  <generator uri="http://blogofile.com/">Blogofile</generator>
+  <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
+  <id>http://tanarky.com/blog/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://tanarky.com/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
+    <title type="html"><![CDATA[Ubuntu11.10のPython開発環境について]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について" />
+    <id>http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について</id>
+    <updated>2011-10-28T08:26:37Z</updated>
+    <published>2011-10-26T15:22:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="python" />
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <category scheme="http://tanarky.com/blog" term="ubuntu" />
+    <summary type="html"><![CDATA[Ubuntu11.10のPython開発環境について]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2011/10/26/ubuntu11.10のpython開発環境について"><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#id2" id="id4">1&nbsp;&nbsp;&nbsp;背景</a></li>
+<li><a class="reference internal" href="#id3" id="id5">2&nbsp;&nbsp;&nbsp;インストール手順</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">1&nbsp;&nbsp;&nbsp;背景</a></h2>
+<p>Google AppEngineで使い始めたのをきっかけにPythonにハマっている。
+ハマった理由は以下の通り。</p>
+<ul class="simple">
+<li>標準で備わってる機能が多い(CSV parserなど)</li>
+<li>Cのライブラリ連携が楽そう(ctypesなど)</li>
+<li>PyPI(PerlにおけるCPAN)パッケージが充実している</li>
+<li>など</li>
+</ul>
+<p>ただ、パッケージが充実しているのはいいが、
+野良CPANパッケージをinstallすると環境が汚れたり、
+ちょっとお試しでinstallしたい場合に躊躇してしまう(Perlも同様)</p>
+<p>pythonの場合、virtualenvを使えば、pythonのバージョン違いも含めて、
+複数のpython環境を自分のHOMEディレクトリ以下で簡単に管理できるので、
+その設定手順をまとめる</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id5">2&nbsp;&nbsp;&nbsp;インストール手順</a></h2>
+<div class="highlight"><pre>% sudo aptitude install python-virtualenv virtualwrapper
+% sudo aptitude install python3.2 python3.2-dev
+% mkvirtualenv -p /usr/bin/python2.7 2.7.2
+% mkvirtualenv -p /usr/bin/python3.2 3.2.2
+</pre></div>
+<p>パッケージをinstallできたら、
+以下を.zshrcに追加</p>
+<div class="highlight"><pre>[ -f $HOME/.pythonbrew/etc/bashrc ] &amp;&amp; source $HOME/.pythonbrew/etc/bashrc
+[ -f /etc/bash_completion.d/virtualenvwrapper ] &amp;&amp; source /etc/bash_completion.d/virtualenvwrapper
+workon 2.7.2
+</pre></div>
+<p>これで準備は完了</p>
+<p>後はterminal上で、&quot;workon 2.7.2&quot; や &quot;workon 3.2.2&quot; などと打てば
+(python versionが異なる)環境を瞬時に切り替えられる</p>
+<p>これで環境ごとにパッケージを完全に別で管理できるので、
+とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。</p>
+</div>
+</div>
+]]></content>
+  </entry>
+</feed>
