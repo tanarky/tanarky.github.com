@@ -52,3 +52,22 @@ pythonの場合、virtualenvを使えば、pythonのバージョン違いも含�
 
 これで環境ごとにパッケージを完全に別で管理できるので、
 とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。
+
+pythonbrewなどのwrapperも調べたが、自分の中では上記の手順で今のところ満足。
+Pythonの強みは環境構築の簡単さだと思っている。特にUbuntuとは相性がいい。
+
+ちなみに、Perlにはperlbrewが、RubyにはRVMがあり、それぞれ複数環境を管理できる。
+
+参考リンク
+========================================
+
+- `virtualenv, virtualenvwrapper, pip を使う方法 - Ian Lewis`_
+- `Use different Python version with virtualenv - Stack Overflow`_
+- `Macにpythonbrew+virtualenvでPython環境を作ってみた`_
+
+.. _`virtualenv, virtualenvwrapper, pip を使う方法 - Ian Lewis`: http://www.ianlewis.org/jp/virtualenv-pip-fabric
+.. _`Use different Python version with virtualenv - Stack Overflow`: http://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv
+.. _`Macにpythonbrew+virtualenvでPython環境を作ってみた`: http://d.hatena.ne.jp/pasela/20110704/pythonbrew
+
+
+

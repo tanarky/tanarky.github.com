@@ -10,7 +10,7 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Fri, 28 Oct 2011 16:40:28 GMT</pubDate>
+    <pubDate>Sat, 29 Oct 2011 10:17:28 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -25,14 +25,15 @@
       <description>Ubuntu11.10のPython開発環境を整備</description>
       <content:encoded><![CDATA[<div class="document">
 <div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<p class="topic-title first">目次だよ</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id4">背景</a></li>
-<li><a class="reference internal" href="#id3" id="id5">インストール手順</a></li>
+<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
+<li><a class="reference internal" href="#id3" id="id6">インストール手順</a></li>
+<li><a class="reference internal" href="#id4" id="id7">参考リンク</a></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id4">背景</a></h3>
+<h3><a class="toc-backref" href="#id5">背景</a></h3>
 <p>Google AppEngineで使い始めたのをきっかけにPythonにハマっている。
 ハマった理由は以下の通り。</p>
 <ul class="simple">
@@ -49,7 +50,7 @@
 その設定手順をまとめる</p>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id5">インストール手順</a></h3>
+<h3><a class="toc-backref" href="#id6">インストール手順</a></h3>
 <div class="highlight"><pre>% sudo aptitude install python-virtualenv virtualwrapper
 % sudo aptitude install python3.2 python3.2-dev
 % mkvirtualenv -p /usr/bin/python2.7 2.7.2
@@ -66,6 +67,17 @@ workon 2.7.2
 (python versionが異なる)環境を瞬時に切り替えられる</p>
 <p>これで環境ごとにパッケージを完全に別で管理できるので、
 とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。</p>
+<p>pythonbrewなどのwrapperも調べたが、自分の中では上記の手順で今のところ満足。
+Pythonの強みは環境構築の簡単さだと思っている。特にUbuntuとは相性がいい。</p>
+<p>ちなみに、Perlにはperlbrewが、RubyにはRVMがあり、それぞれ複数環境を管理できる。</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id7">参考リンク</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ianlewis.org/jp/virtualenv-pip-fabric">virtualenv, virtualenvwrapper, pip を使う方法 - Ian Lewis</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv">Use different Python version with virtualenv - Stack Overflow</a></li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/pasela/20110704/pythonbrew">Macにpythonbrew+virtualenvでPython環境を作ってみた</a></li>
+</ul>
 </div>
 </div>
 ]]></content:encoded>

@@ -62,13 +62,14 @@ css_dir = "/css"
 
 import logging
 import subprocess
+
 def post_build():
     if os.path.isdir("_site"):
         subprocess.call("mkdir -p css js img _site/css _site/js _site/img", shell=True)
         subprocess.call("cp css/* _site/css/", shell=True)
         subprocess.call("cp js/*  _site/js/",  shell=True)
         subprocess.call("cp img/*  _site/img/",shell=True)
-        subprocess.call("rm -rf ../blog",      shell=True)
-        subprocess.call("cp -pr _site/* ../",  shell=True)
+        #subprocess.call("rm -rf ../blog",      shell=True)
+        #subprocess.call("cp -pr _site/* ../",  shell=True)
     else:
         logging.error("build failed. because _site dir not exists.")
