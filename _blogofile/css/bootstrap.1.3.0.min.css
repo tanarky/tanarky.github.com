@@ -87,18 +87,18 @@ h4{font-size:16px;}h4 small{font-size:12px;}
 h5{font-size:14px;}
 h6{font-size:13px;color:#bfbfbf;text-transform:uppercase;}
 ul,ol{margin:0 0 18px 25px;}
-.well ul,ol{margin:0 0 18px 18px;}
+.well ul,ol{margin:0 0 9px 18px;}
 ul ul,ul ol,ol ol,ol ul{margin-bottom:0;}
 ul{list-style:disc;}
 ol{list-style:decimal;}
-li{line-height:18px;color:#808080;}
+li{line-height:18px;color:#001B6A;font-size:110%}
 ul.unstyled{list-style:none;margin-left:0;}
 dl{margin-bottom:18px;}dl dt,dl dd{line-height:18px;}
 dl dt{font-weight:bold;}
 dl dd{margin-left:9px;}
 hr{margin:20px 0 19px;border:0;border-bottom:1px solid #ddd;}
-strong{font-style:inherit;font-weight:bold;}
-em{font-style:italic;font-weight:inherit;line-height:inherit;}
+strong{font-style:inherit;font-weight:bold;font-size:larger}
+em{font-style:italic;font-weight:inherit;line-height:inherit;font-size:larger}
 .muted{color:#bfbfbf;}
 blockquote{margin-bottom:18px;border-left:5px solid #eee;padding-left:15px;}blockquote p{font-size:14px;font-weight:300;line-height:18px;margin-bottom:0;}
 blockquote small{display:block;font-size:12px;font-weight:300;line-height:18px;color:#bfbfbf;}blockquote small:before{content:'\2014 \00A0';}
@@ -427,3 +427,11 @@ div.abstract p.topic-title{ font-weight:bold }
     border-color:#DDF4FB;
 }
 
+div.section p,
+div.section .highlight {
+    margin-left: 10px;
+}
+div.section ul,
+div.section ol {
+    margin-left: 45px;
+}
