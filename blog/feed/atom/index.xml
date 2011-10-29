@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2011-10-29T16:06:58Z</updated>
+  <updated>2011-10-29T16:21:20Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[githubとblogofileで独自ドメイン無料Blog環境構築]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain" />
     <id>http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain</id>
-    <updated>2011-10-29T16:06:58Z</updated>
+    <updated>2011-10-29T16:21:20Z</updated>
     <published>2011-10-29T20:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -102,7 +102,7 @@ gitによるコード管理とバックアップ環境が、同時に無料で�
 <a class="reference external" href="/blog/2011/10/26/001_python_development_environment/">Ubuntu11.10のPython開発環境を整備</a> を一読することをおすすめします。</p>
 <p>綺麗なPython環境ができたところで、インストール。</p>
 <div class="highlight"><pre>% pip install blogofile
-% cd ~/github
+% cd ~/github/tanarky.github.com
 % mkdir _blogofile
 % cd _blogofile
 % blogofile init simple_blog
