@@ -102,7 +102,7 @@ Blogofileを使った記事+デザイン構築
 .. code:: none
 
   % pip install blogofile
-  % cd ~/github
+  % cd ~/github/tanarky.github.com
   % mkdir _blogofile
   % cd _blogofile
   % blogofile init simple_blog
