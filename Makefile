@@ -5,5 +5,6 @@ install:
 	cp -pr ./_blogofile/_site/* ./
 
 upload:
-	git branch master
+	git checkout master
+	git commit -a -m "fixed something"
 	git push origin master

@@ -183,8 +183,8 @@ GitHubにpushしなくても、上述の通り、Blogofileにはwebサーバも�
 個人ブログという用途だけではなく、プロジェクトページや企業ページでも使えると思うので、
 興味を持った人は是非お試しください。
 
-Blogofileの細かいカスタマイズや、SEO対策など、git branchの使い方など、
-細かい点は色々他にもあるので、今後記事にしていく予定。
+Blogofileの動作変更、SEO対策、記事を書く上でのgit branchの使い方、など
+細かい設定点は他にも色々あるので、今後記事にしていく予定。
 
 .. _`既存ブログサービスの問題に対する考察`: /blog/2011/10/29/003_problems_of_web_tool_based_blog_service
 .. _`Ubuntu11.10のPython開発環境を整備`: /blog/2011/10/26/001_python_development_environment/

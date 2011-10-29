@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2011-10-29T16:21:20Z</updated>
+  <updated>2011-10-29T16:27:01Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[githubとblogofileで独自ドメイン無料Blog環境構築]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain" />
     <id>http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain</id>
-    <updated>2011-10-29T16:21:20Z</updated>
+    <updated>2011-10-29T16:27:01Z</updated>
     <published>2011-10-29T20:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -164,8 +164,8 @@ build実行時に勝手にブログ記事にしてくれる。</p>
 プライベートなブログとしてこっそり書くこともできるし、
 個人ブログという用途だけではなく、プロジェクトページや企業ページでも使えると思うので、
 興味を持った人は是非お試しください。</p>
-<p>Blogofileの細かいカスタマイズや、SEO対策など、git branchの使い方など、
-細かい点は色々他にもあるので、今後記事にしていく予定。</p>
+<p>Blogofileの動作変更、SEO対策、記事を書く上でのgit branchの使い方、など
+細かい設定点は他にも色々あるので、今後記事にしていく予定。</p>
 </div>
 </div>
 ]]></content>
