@@ -22,6 +22,7 @@
   <%include file="post.mako" args="post=post" />
 % if bf.config.blog.disqus.enabled:
   <div class="after_post"><a href="${post.permalink}#disqus_thread">Read and Post Comments</a></div>
+  <%include file="adsense.mako" />
 % endif
   <hr class="interblog" />
 % endfor
@@ -39,6 +40,7 @@
 
         <div class="span4">
           <%include file="recent_articles.mako" />
+          <%include file="yahoo_web_owner_center.mako" />
         </div>
 
         <div class="span16">

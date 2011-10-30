@@ -50,6 +50,7 @@ blog.timezone = "Asia/Tokyo"
 blog.disqus.enabled   = True
 blog.disqus.shortname = "tanarky"
 
+blog.posts_per_page = 3
 blog.auto_permalink.path = ":blog_path/:year/:month/:day/:filename"
 
 ## 背景白

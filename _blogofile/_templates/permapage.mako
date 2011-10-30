@@ -20,7 +20,7 @@
           </ul>
 
           <%include file="post.mako" args="post=post" />
-
+          <%include file="adsense.mako" />
 <br/>
 % if bf.config.blog.disqus.enabled:
 <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="tanarky" data-lang="ja">ツイート</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
@@ -36,10 +36,12 @@
 
         <div class="span4">
           <%include file="recent_articles.mako" />
+          <%include file="yahoo_web_owner_center.mako" />
         </div>
 
         <div class="span16">
           <%include file="footer.mako" />
+          <%include file="analytics.mako" />
         </div>
       </div>
 
