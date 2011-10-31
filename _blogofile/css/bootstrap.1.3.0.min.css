@@ -96,7 +96,7 @@ ul,ol{margin:0 0 10px 25px;}
 ul ul,ul ol,ol ol,ol ul{margin-bottom:0;}
 ul{list-style:disc;}
 ol{list-style:decimal;}
-li{line-height:22px;color:#001B6A;font-size:110%}
+li{line-height:22px;color:#001B6A;font-size:15px}
 ul.unstyled{list-style:none;margin-left:0;}
 dl{margin-bottom:18px;}dl dt,dl dd{line-height:18px;}
 dl dt{font-weight:bold;}
