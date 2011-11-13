@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2011-11-13T13:56:18Z</updated>
+  <updated>2011-11-13T14:33:56Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[CentOS 5.5 に python2.7環境を構築]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/11/14/005_python_2.7_install_on_centos_5.5" />
     <id>http://tanarky.com/blog/2011/11/14/005_python_2.7_install_on_centos_5.5</id>
-    <updated>2011-11-13T13:56:18Z</updated>
+    <updated>2011-11-13T14:33:56Z</updated>
     <published>2011-11-14T00:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -59,6 +59,16 @@
 % sudo ./setuptools-0.6c11-py2.7.egg
 % sudo easy_install pip
 % sudo pip install virtualenv virtualenvwrapper
+</pre></div>
+<p>virtualenv環境構築。
+後で配布することを想定して、デフォルトの&quot;.virtualenvs&quot;から&quot;virtualenv&quot;に変更する。</p>
+<p>以下を.zshrcに追加</p>
+<div class="highlight"><pre>export WORKON_HOME=$HOME/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+</pre></div>
+<p>環境を構築</p>
+<div class="highlight"><pre>% mkvirtualenv -p /usr/local/bin/python2.7 2.7.2
+% workon 2.7.2
 </pre></div>
 <p>うまく環境が構築できたので、virtualenvの環境ごと配布して
 他のサーバに反映できないか、検討+調査してみる</p>

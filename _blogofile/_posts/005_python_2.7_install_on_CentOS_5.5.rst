@@ -37,9 +37,25 @@ CentOS 5.5に入っているpythonのバージョンは、2.4.3と超古いの�
   % sudo easy_install pip
   % sudo pip install virtualenv virtualenvwrapper
 
+virtualenv環境構築。
+後で配布することを想定して、デフォルトの".virtualenvs"から"virtualenv"に変更する。
+
+以下を.zshrcに追加
+
+.. code:: none
+  
+  export WORKON_HOME=$HOME/virtualenvs
+  source /usr/local/bin/virtualenvwrapper.sh
+
+環境を構築
+
+.. code:: none
+  
+  % mkvirtualenv -p /usr/local/bin/python2.7 2.7.2
+  % workon 2.7.2
+
 うまく環境が構築できたので、virtualenvの環境ごと配布して
 他のサーバに反映できないか、検討+調査してみる
-
 
 参考
 ========================================

@@ -90,6 +90,16 @@
 % sudo easy_install pip
 % sudo pip install virtualenv virtualenvwrapper
 </pre></div>
+<p>virtualenv環境構築。
+後で配布することを想定して、デフォルトの&quot;.virtualenvs&quot;から&quot;virtualenv&quot;に変更する。</p>
+<p>以下を.zshrcに追加</p>
+<div class="highlight"><pre>export WORKON_HOME=$HOME/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+</pre></div>
+<p>環境を構築</p>
+<div class="highlight"><pre>% mkvirtualenv -p /usr/local/bin/python2.7 2.7.2
+% workon 2.7.2
+</pre></div>
 <p>うまく環境が構築できたので、virtualenvの環境ごと配布して
 他のサーバに反映できないか、検討+調査してみる</p>
 </div>
