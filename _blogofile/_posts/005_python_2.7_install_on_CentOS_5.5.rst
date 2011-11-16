@@ -1,6 +1,6 @@
 ---
 categories: centos,tips,install,python
-date: 2011/11/14 00:00:00
+date: 2011/11/16 00:00:00
 title: CentOS 5.5 に python2.7環境を構築
 ---
 
@@ -54,8 +54,9 @@ virtualenv環境構築。
   % mkvirtualenv -p /usr/local/bin/python2.7 2.7.2
   % workon 2.7.2
 
-うまく環境が構築できたので、virtualenvの環境ごと配布して
-他のサーバに反映できないか、検討+調査してみる
+とりあえずうまく環境が構築できたが、
+複数台環境にpython環境を丸ごと配布したいので、
+次はその方法を調べてみる。
 
 参考
 ========================================

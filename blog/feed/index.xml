@@ -10,19 +10,19 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Sun, 13 Nov 2011 14:33:56 GMT</pubDate>
+    <pubDate>Wed, 16 Nov 2011 06:23:59 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>CentOS 5.5 に python2.7環境を構築</title>
-      <link>http://tanarky.com/blog/2011/11/14/005_python_2.7_install_on_centos_5.5</link>
-      <pubDate>Mon, 14 Nov 2011 00:00:00 JST</pubDate>
+      <link>http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5</link>
+      <pubDate>Wed, 16 Nov 2011 00:00:00 JST</pubDate>
       <category><![CDATA[python]]></category>
       <category><![CDATA[tips]]></category>
       <category><![CDATA[install]]></category>
       <category><![CDATA[centos]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2011/11/14/005_python_2.7_install_on_centos_5.5</guid>
+      <guid isPermaLink="true">http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5</guid>
       <description>CentOS 5.5 に python2.7環境を構築</description>
       <content:encoded><![CDATA[<div class="document">
 <div class="contents topic" id="id1">
@@ -68,8 +68,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 <div class="highlight"><pre>% mkvirtualenv -p /usr/local/bin/python2.7 2.7.2
 % workon 2.7.2
 </pre></div>
-<p>うまく環境が構築できたので、virtualenvの環境ごと配布して
-他のサーバに反映できないか、検討+調査してみる</p>
+<p>とりあえずうまく環境が構築できたが、
+複数台環境にpython環境を丸ごと配布したいので、
+次はその方法を調べてみる。</p>
 </div>
 <div class="section" id="id3">
 <h3><a class="toc-backref" href="#id5">参考</a></h3>
