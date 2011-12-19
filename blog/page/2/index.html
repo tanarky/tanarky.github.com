@@ -43,6 +43,132 @@
   
 
 <div class="blog_post">
+  <a name="既存ブログサービスの問題に対する考察"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service" rel="bookmark" title="Permanent Link to 既存ブログサービスの問題に対する考察">既存ブログサービスの問題に対する考察</a>
+  </h2>
+  <div class="post_meta">October 29, 2011 at 07:00 PM | categories: 
+
+<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ubuntu'>ubuntu</a>
+
+ | <a href="http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id8">背景</a></li>
+<li><a class="reference internal" href="#id3" id="id9">考察</a><ul>
+<li><a class="reference internal" href="#id4" id="id10">ブログ記事を書くためのツール問題</a></li>
+<li><a class="reference internal" href="#id5" id="id11">ブログのデザインを設定するツール問題</a></li>
+<li><a class="reference internal" href="#id6" id="id12">ブログを公開する環境の問題</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id13">まとめ</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id8">背景</a></h3>
+<p>2009/08 - 2010/07まで、ブログを1年間毎日更新する、という目標を掲げて、
+365記事以上書き、アクセスを増やした中で一番感じたことは、</p>
+<p><strong>ブログを更新することは面倒である</strong></p>
+<p>ということだった。</p>
+<p>自分で書きためたネタを、時間がたって忘れたときに自分で検索して思い出したり、
+書くことで頭が整理された、などの多大なメリットがあったにも関わらず、
+最終的には、 <em>面倒</em> がメリットをうわまって更新を続けられなくなってしまった。</p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id9">考察</a></h3>
+<p>この <em>面倒</em> の原因をざっと分けると、</p>
+<ol class="arabic simple">
+<li>ネタの問題、記事のクオリティの問題</li>
+<li>環境やツールの問題</li>
+</ol>
+<p>上記の2点。</p>
+<p>1に関しては慣れの問題である程度解消したりもしたが、
+2に関してはブログを書き続けても解消されるどころか、問題がどんどん深刻化した。</p>
+<p>深刻化した問題とは、</p>
+<ol class="arabic simple">
+<li>ブログ記事を書くためのツール問題</li>
+<li>ブログのデザインを設定するツール問題</li>
+<li>ブログを公開する環境の問題</li>
+</ol>
+<p>の3つ。</p>
+<p>以下でそれぞれ考察してみる。</p>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id10">ブログ記事を書くためのツール問題</a></h4>
+<p>まずは、ブログツールにログインして、ブラウザ上で編集する、という行為が面倒だった。</p>
+<p>当然ログインが必要だし、ブラウザ上で編集するためいちいち煩わしい。
+小さいテキストエリアでちまちま編集しなきゃいけないし、
+各画面間の遷移も積み重なってくるとイライラする。</p>
+<p>加えて、たとえWYSIWYGという補助ツールがあっても、
+文書をちょっと装飾するためにHTMLを書くのはちょっと苦行すぎる。
+HTMLで記事を書くと、全体デザインを変えたときに記事とのミスマッチが生じて、
+結局気になって、記事のHTMLまで編集する羽目になる。</p>
+<p>一番問題なのは、記事のバージョン管理ができないこと。
+前回との差分をdiff形式で見れないなんて効率が悪すぎる。</p>
+</div>
+<div class="section" id="id5">
+<h4><a class="toc-backref" href="#id11">ブログのデザインを設定するツール問題</a></h4>
+<p>記事ツールの問題と同様、たいていのブログサービスでは、
+テンプレート中にCSSを埋め込む形式なので管理が煩雑。
+Javascriptも同様の形で埋めこむので、デザインテンプレートを直接編集するのは至難の業。</p>
+<p>で、必死こいて編集したテンプレートファイルはバージョン管理できないので、
+以前の状態に戻すには自分でバックアップを取っておくしかない。</p>
+</div>
+<div class="section" id="id6">
+<h4><a class="toc-backref" href="#id12">ブログを公開する環境の問題</a></h4>
+<p>じゃあ、自分でブログサービス作ればいいじゃん、となるが、
+ブログに対してそんな熱意はない。</p>
+<p>ブログを書く本来の目的は、ブログを書いて知識をためることであって、
+ブログ自体を作ることじゃないので、本末転倒はしたくない。</p>
+<p>レンタルサーバに、WordPressやらMTやらを入れて、
+最低限のカスタマイズをして運用する、という方法も、レンタルサーバ代がかかるし、
+両方共Webツールなので、問題の解消にならない。</p>
+<p>Bloggerなどは、記事の公開などのAPIが用意されているので、
+ローカルで編集後にAPI経由で記事Uploadすることも可能だが、
+プレビューするには、ツールにログインしてといった通常の手段を用いるしかなかった。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id13">まとめ</a></h3>
+<p>以上の考察を踏まえると、
+自分が必要とするのは、以下のようなブログサービス</p>
+<ol class="arabic simple">
+<li>Webツールベースではなく、emacsなどで編集したファイルをuploadする形式であること</li>
+<li>HTMLで記事は書かない。wikiやrestructuredText形式など、
+後からでもHTMLに変換可能な形式で書けること</li>
+<li>svnやgitを用いて記事やデザインをバージョン管理できること</li>
+<li>本番反映前に事前にページを確認できる環境があること</li>
+<li>無料であること（無料のサービス、またはそれらを組み合わせて環境構築できること）</li>
+<li>環境を構築するための開発は必要最低限であること</li>
+</ol>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
   <a name="ubuntu11.10のpython開発環境を整備"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2011/10/26/001_python_development_environment" rel="bookmark" title="Permanent Link to Ubuntu11.10のPython開発環境を整備">Ubuntu11.10のPython開発環境を整備</a>
@@ -895,6 +1021,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
     <li><a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5">CentOS 5.5 に python2.7環境を構築</a></li>
     <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
     <li><a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a></li>

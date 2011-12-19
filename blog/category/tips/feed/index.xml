@@ -10,10 +10,54 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Wed, 16 Nov 2011 06:23:59 GMT</pubDate>
+    <pubDate>Mon, 19 Dec 2011 12:13:41 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>PythonでQRコード生成</title>
+      <link>http://tanarky.com/blog/2011/12/19/008_python_qrcode</link>
+      <pubDate>Mon, 19 Dec 2011 14:00:00 JST</pubDate>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[tips]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2011/12/19/008_python_qrcode</guid>
+      <description>PythonでQRコード生成</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id5">環境構築手順</a></li>
+<li><a class="reference internal" href="#id3" id="id6">動作確認</a></li>
+<li><a class="reference internal" href="#id4" id="id7">リンク</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id5">環境構築手順</a></h3>
+<p>libqrencodeのpython bindingによるQRコード生成</p>
+<p>まずはinstall</p>
+<div class="highlight"><pre>% sudo aptitude install libqrencode3 libqrencode-dev
+% pip install qrencode
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id6">動作確認</a></h3>
+<p>サンプルコード</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">qrencode</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">()</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;http://tanarky.com/&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">})</span>
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/qrcode.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id7">リンク</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/bitly/pyqrencode">https://github.com/bitly/pyqrencode</a></li>
+</ul>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>CentOS 5.5 に python2.7環境を構築</title>
       <link>http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5</link>
