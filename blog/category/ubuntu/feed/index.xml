@@ -10,10 +10,82 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Sun, 13 Nov 2011 13:41:19 GMT</pubDate>
+    <pubDate>Sun, 01 Jan 2012 13:39:34 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>PostfixでGmail経由メール送信環境構築 on Ubuntu</title>
+      <link>http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu</link>
+      <pubDate>Mon, 02 Jan 2012 14:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <category><![CDATA[install]]></category>
+      <category><![CDATA[ubuntu]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu</guid>
+      <description>PostfixでGmail経由メール送信環境構築 on Ubuntu</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id4">環境構築手順</a></li>
+<li><a class="reference internal" href="#id3" id="id5">参考</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id4">環境構築手順</a></h3>
+<p>AppEngineの開発環境で、メール送信機能を使うために
+postfixを使ったgmail送信環境の構築を行ったので、メモ。</p>
+<p>まずは、package install</p>
+<div class="highlight"><pre>% sudo aptitude install postfix
+</pre></div>
+<p>/etc/postfix/main.cf を編集</p>
+<p>以下を追記</p>
+<div class="highlight"><pre># tanarky added
+mydomain = tanarky.com
+myorigin = $myhostname
+relayhost = [smtp.gmail.com]:587
+smtp_use_tls = yes
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/relay_password
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_options = noanonymous
+smtp_sasl_mechanism_filter = plain
+</pre></div>
+<p>パスワードファイル作成</p>
+<div class="highlight"><pre>% sudo cat /etc/postfix/relay_password
+[smtp.gmail.com]:587 *(Googleアカウント)*@gmail.com:*(Googleアカウントパスワード)*
+% sudo postmap /etc/postfix/relay_password
+% ls -l /etc/postfix/relay_password*
+-rw-r--r-- 1 root root    48 2012-01-01 22:17 /etc/postfix/relay_password
+-rw-r--r-- 1 root root 12288 2012-01-01 22:17 /etc/postfix/relay_password.db
+% sudo rm /etc/postfix/relay_password
+% ls -l /etc/postfix/relay_password*
+-rw-r--r-- 1 root root 12288 2012-01-01 22:17 /etc/postfix/relay_password.db
+</pre></div>
+<p>postfix restartしてテスト送信</p>
+<div class="highlight"><pre>% sudo /etc/init.d/postfix restart
+% sendmail -t ***
+To: ***
+From: ***
+Subject: hello
+
+world.
+
+.
+%
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id5">参考</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.icoro.com/200908243988.html">http://www.icoro.com/200908243988.html</a></li>
+<li><a class="reference external" href="http://blog.tanarky.com/2010/09/centosgmail.html">http://blog.tanarky.com/2010/09/centosgmail.html</a></li>
+</ul>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>githubとblogofileで独自ドメイン無料Blog環境構築</title>
       <link>http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain</link>
