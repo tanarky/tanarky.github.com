@@ -44,6 +44,181 @@
   
 
 <div class="blog_post">
+  <a name="(できるだけ)ポータブルなpython開発環境"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2012/01/20/00a_portable_python_env" rel="bookmark" title="Permanent Link to (できるだけ)ポータブルなPython開発環境">(できるだけ)ポータブルなPython開発環境</a>
+  </h2>
+  <div class="post_meta">January 20, 2012 at 02:00 PM | categories: 
+
+<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/install'>install</a>
+
+ | <a href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
+<li><a class="reference internal" href="#buildoutvirtualenv1" id="id6">buildoutとvirtualenvを用いた1つの解</a><ul>
+<li><a class="reference internal" href="#id3" id="id7">参考手順</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id8">まとめ など</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id5">背景</a></h3>
+<p>せっかくLLをさわっているので、</p>
+<ul class="simple">
+<li>OS依存が少ない</li>
+<li>複数versionの環境の混在</li>
+<li>構築の簡単さ</li>
+<li>本番環境でも使える性能</li>
+<li>環境をコピーできる</li>
+</ul>
+<p>というPython環境が欲しくて、色々考えてる</p>
+</div>
+<div class="section" id="buildoutvirtualenv1">
+<h3><a class="toc-backref" href="#id6">buildoutとvirtualenvを用いた1つの解</a></h3>
+<p>以下のようなことを考えた</p>
+<ul class="simple">
+<li>コンパイルが必要なライブラリ(Python自体も含む)をbuildoutでビルドする<ul>
+<li>Python</li>
+<li>zlib</li>
+<li>Graphviz</li>
+<li>画像系パッケージ?</li>
+<li>(yum/aptitudeでもいいが、後々環境が混在できなくなるリスク)</li>
+</ul>
+</li>
+<li>buldoutでbuildしたpythonを指定して、virtualenv環境を構築する</li>
+<li>PyPIパッケージは、virtualenvにinstallする</li>
+<li>サービスはvirtualenv環境ごとに分ける<ul>
+<li>サービスごとにpythonのバージョンをわけるためにBuildするのは大変</li>
+<li>サービスごとにライブラリのバージョンが競合する可能性はあるので
+その時はbuildout環境を増やす</li>
+</ul>
+</li>
+<li>自分で書いたコードは、githubや自前distサーバなどにパッケージとしておいておく</li>
+<li>環境から、distサーバ指定でpip installしてdeploy</li>
+</ul>
+<div class="section" id="id3">
+<h4><a class="toc-backref" href="#id7">参考手順</a></h4>
+<ol class="arabic simple">
+<li>まずは、buildoutでOS依存しない場所にPythonと
+依存するライブラリなどをビルド</li>
+</ol>
+<div class="highlight"><pre>% mkdir /tmp/py27
+% cd /tmp/py27
+% (buildout.cfg + bootstrap.pyを用意)
+% cat buildout.cfg
+[buildout]
+python = python
+parts =
+    python
+    env
+
+[python]
+recipe = zc.recipe.cmmi
+url = http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
+executable = ${buildout:parts-directory}/python/bin/python2.7
+environment =
+    LDFLAGS=-Wl,-rpath,${buildout:parts-directory}/python/lib
+extra_options =
+    --enable-unicode=ucs4
+    --enable-shared
+    --with-threads
+
+[env]
+recipe = zc.recipe.egg
+eggs =
+     virtualenv
+     virtualenvwrapper
+
+interpreter = python
+
+% python bootstrap.py
+% bin/buildout
+</pre></div>
+<ol class="arabic simple" start="2">
+<li>1.で構築したpythonを使って、virtualenv環境を作る</li>
+</ol>
+<div class="highlight"><pre>% export WORKON_HOME=/tmp/virtualenvs
+% export VIRTUALENVWRAPPER_HOOK_DIR=/tmp/virtualenvs
+% export VIRTUALENVWRAPPER_LOG_DIR=/tmp/virtualenvs
+## FIXME: クリーンな環境でうまくいくか?
+% mkvirtualenv -p /tmp/py27/parts/python/bin/python testenv
+% /tmp/virtualenvs/testenv/bin/pip install Flask
+% /tmp/virtualenvs/testenv/bin/pip install gunicorn
+% /tmp/virtualenvs/testenv/bin/pip install supervisor
+</pre></div>
+<ol class="arabic simple" start="3">
+<li>開発</li>
+</ol>
+<div class="highlight"><pre>% cat myserver.py
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&#39;/&#39;)
+def index():
+    return &quot;&lt;h1&gt;hello!Yes!&lt;/h1&gt;&quot;
+
+if __name__ == &#39;__main__&#39;:
+    app.run(debug=True)
+% /tmp/virtualenvs/testenv/bin/python myserver.py
+   * Running on http://127.0.0.1:5000/
+   * Restarting with reloader
+</pre></div>
+<ol class="arabic simple" start="4">
+<li>インストール</li>
+</ol>
+<p>cpでinstallしないほうがいい(暫定手順)</p>
+<div class="highlight"><pre>% sudo mkdir /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj
+% touch /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/__init__.py
+% sudo cp myserver.py /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/
+</pre></div>
+<ol class="arabic simple" start="5">
+<li>gunicornで本番プロセス起動</li>
+</ol>
+<p>本当はdaemonモード</p>
+<div class="highlight"><pre>% /tmp/virtualenvs/testenv/bin/gunicorn mypj.myserver:app
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id8">まとめ など</a></h3>
+<ul class="simple">
+<li>gunicornが起動するところまで確認できたので、supervisorで監視体制を整えたい</li>
+<li>古めのCentOSでも動くか?</li>
+<li>zlib/graphvizなどのライブラリ系もbuildoutに組み込みたい</li>
+</ul>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
   <a name="postfixでgmail経由メール送信環境構築-on-ubuntu"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/01/02/009_install_postfix_on_ubuntu" rel="bookmark" title="Permanent Link to PostfixでGmail経由メール送信環境構築 on Ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a>
@@ -232,6 +407,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
     <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
     <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
     <li><a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5">CentOS 5.5 に python2.7環境を構築</a></li>
