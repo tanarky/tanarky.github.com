@@ -14,4 +14,10 @@ draft: True
   
   % sudo apt-get install zsh aptitude
   % sudo aptitude update
-  % sudo aptitude install gcc zlib1g-dev libc6-dev -y
+  % sudo aptitude install gcc zlib1g-dev libc6-dev libjpeg-dev -y
+
+- 2012/01/22 追記
+
+  - PILでjpegサポートさせるために、libjpeg-devを追加
+
+
