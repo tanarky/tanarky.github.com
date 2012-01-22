@@ -294,6 +294,44 @@ source /usr/local/bin/virtualenvwrapper.sh
       <name></name>
       <uri>http://tanarky.com/blog</uri>
     </author>
+    <title type="html"><![CDATA[Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64" />
+    <id>http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64</id>
+    <updated>2012-01-22T04:30:09Z</updated>
+    <published>2011-11-09T14:00:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="python" />
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <category scheme="http://tanarky.com/blog" term="install" />
+    <category scheme="http://tanarky.com/blog" term="ubuntu" />
+    <summary type="html"><![CDATA[Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64"><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id3">手順</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id3">手順</a></h3>
+<div class="highlight"><pre>% sudo apt-get install zsh aptitude
+% sudo aptitude update
+% sudo aptitude install gcc zlib1g-dev libc6-dev libjpeg-dev -y
+</pre></div>
+<ul class="simple">
+<li>2012/01/22 追記<ul>
+<li>PILでjpegサポートさせるために、libjpeg-devを追加</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
     <title type="html"><![CDATA[githubとblogofileで独自ドメイン無料Blog環境構築]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain" />
     <id>http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain</id>

@@ -2,7 +2,6 @@
 categories: ubuntu,tips,python,install
 date: 2011/11/09 14:00:00
 title: Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する
-draft: True
 ---
 
 .. contents:: 目次
