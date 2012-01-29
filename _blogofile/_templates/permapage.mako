@@ -21,6 +21,7 @@
 
           <%include file="adsense.mako" />
           <%include file="post.mako" args="post=post" />
+          <div class="linkwithin_div"></div>
 <br/>
 % if bf.config.blog.disqus.enabled:
 <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="tanarky" data-lang="ja">ツイート</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
