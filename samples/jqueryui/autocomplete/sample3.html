@@ -25,22 +25,23 @@
 
   <h1>jQuery UI Autocomplete sample 3(スクロール付き、カスタムデータ)</h1>
 
-  <form method="">
+
   <div class="sample">
     <div class="ui-widget">
       <label for="bank_search">銀行検索（銀行コードor銀行名）: </label>
       <input type="text" id="bank_search" style="width:350px">
       <br><br>
+      <form method="GET">
       <label for="bank_code">銀行コード: </label>
-      <input type="text" id="bank_code" style="width:300px" readonly="readonly">
+      <input type="text" id="bank_code" style="width:300px" readonly="readonly" name="code">
       <br><br>
       <label for="bank_name">銀行名: </label>
-      <input type="text" id="bank_name" style="width:300px" readonly="readonly">
+      <input type="text" id="bank_name" style="width:300px" readonly="readonly" name="name">
       <br><br>
       <input type="submit">
+      </form>
     </div>
   </div>
-  </form>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
