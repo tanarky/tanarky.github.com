@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2012-01-20T05:24:37Z</updated>
+  <updated>2012-02-03T12:57:56Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[(できるだけ)ポータブルなPython開発環境]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env" />
     <id>http://tanarky.com/blog/2012/01/20/00a_portable_python_env</id>
-    <updated>2012-01-20T05:24:37Z</updated>
+    <updated>2012-02-03T12:57:56Z</updated>
     <published>2012-01-20T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
