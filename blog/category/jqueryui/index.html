@@ -1,0 +1,235 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>jqueryui 記事一覧 - tanarky.com</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/blog/feed" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/blog/feed/atom" />
+
+<link rel='stylesheet' href='/css/pygments_monokai.css' type='text/css' />
+
+<link rel='stylesheet' href='/css/bootstrap.1.3.0.min.css' type='text/css' />
+
+
+
+  </head>
+  <body>
+    <div class="topbar">
+  <div class="fill">
+    <div class="container">
+      <a class="brand" href="/">tanarky.com</a>
+      <ul class="nav">
+        <li><a href="#">Profile</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="http://feeds.feedburner.com/tanarky?format=xml">Atom Feed</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">&gt;</span></li>
+            <li><a href="/blog">Blog</a> <span class="divider">&gt;</span></li>
+            <li class="active"><h1>jqueryui 記事一覧<h1></li>
+          </ul>
+
+  
+
+<div class="blog_post">
+  <a name="jquery-ui-autocomplete-サンプル"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples" rel="bookmark" title="Permanent Link to jQuery UI autocomplete サンプル">jQuery UI autocomplete サンプル</a>
+  </h2>
+  <div class="post_meta">February 11, 2012 at 09:00 PM | categories: 
+
+<a href='/blog/category/jquery'>jquery</a>, <a href='/blog/category/javascript'>javascript</a>, <a href='/blog/category/jqueryui'>jqueryui</a>
+
+ | <a href="http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id6">スクロールバー付きサンプル</a></li>
+<li><a class="reference internal" href="#suggest" id="id7">同一suggestデータサンプル</a></li>
+<li><a class="reference internal" href="#remotesuggest" id="id8">remote問い合わせsuggest</a></li>
+<li><a class="reference internal" href="#id5" id="id9">関連リンク</a></li>
+</ul>
+</div>
+<p>jQuery UI の autocomplete ウィジェットについて
+調査したので、その時のメモ</p>
+<dl class="docutils">
+<dt>jquery version</dt>
+<dd>1.7.1</dd>
+<dt>jquery UI version</dt>
+<dd>1.8.16</dd>
+</dl>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id6">スクロールバー付きサンプル</a></h3>
+<p>銀行名か金融機関コードで検索して、
+入力補完してくれるサンプルを書いた</p>
+<ul class="simple">
+<li><a class="reference external" href="http://tanarky.com/samples/jqueryui/autocomplete/sample3.html">jquery UI autocomplete スクロール付きサンプル</a></li>
+<li><a class="reference external" href="https://github.com/tanarky/tanarky.github.com/blob/master/samples/jqueryui/autocomplete/sample3.html">jquery UI autocomplete スクロール付きサンプル(ソースコード)</a></li>
+</ul>
+<p>ポイントは以下の通り</p>
+<ol class="arabic simple">
+<li>.ui-autocompleteクラスにmax-heightを指定することで、autocomplete部分のスクロールを実現</li>
+<li>候補がクリックされたときに、そのイベントを拾って、別フィールド2つにデータを補完</li>
+<li>別フィールドはreadonly属性で編集不可に</li>
+<li>autocomplete optionにminLength=0を指定。入力がなくても、下キーで候補表示</li>
+<li>suggestデータは、javascript内部にベタ書きで持っている。</li>
+</ol>
+<blockquote>
+<ul class="simple">
+<li>データ構造は、配列</li>
+<li>配列の要素は、Hashで、valueというキーの値が検索対象となる</li>
+<li>value以外は、任意のキーを指定可能</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="suggest">
+<h3><a class="toc-backref" href="#id7">同一suggestデータサンプル</a></h3>
+<p>こちらも、銀行名か金融機関コードで検索して、
+入力補完してくれるサンプル。</p>
+<p>前のサンプルと違う点は、2つのフィールドに対して、同一のsuggestデータを使っている</p>
+<ul class="simple">
+<li><a class="reference external" href="http://tanarky.com/samples/jqueryui/autocomplete/sample4.html">jquery UI autocomplete 2つの検索フィールドサンプル</a></li>
+<li><a class="reference external" href="https://github.com/tanarky/tanarky.github.com/blob/master/samples/jqueryui/autocomplete/sample4.html">jquery UI autocomplete 2つの検索フィールドサンプル(ソースコード)</a></li>
+</ul>
+<p>ポイントは以下の通り</p>
+<ol class="arabic simple">
+<li>focusオプションで、候補にマウスオーバーした時点でデータを入れる(return false忘れずに)</li>
+<li>複数のフィールドに同一オプションでautocomplete登録</li>
+</ol>
+</div>
+<div class="section" id="remotesuggest">
+<h3><a class="toc-backref" href="#id8">remote問い合わせsuggest</a></h3>
+<p>上記2つのサンプルは、挙動を理解しやすいようにするため、
+サジェストするためのデータはコードに埋めたが、
+remote API呼び出しも可能。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://jqueryui.com/demos/autocomplete/#remote">jquery UI autocomplete 公式ドキュメント demo(remote API呼び出し)</a></li>
+</ul>
+<p>上記のサンプルでは、jquery側空、search.phpというAPIを呼び出し、
+APIがJSON形式のデータを返している。</p>
+<p>APIは、GETのパラメータで&quot;term&quot;を受け取り、
+それに基づくsuggestデータを返却している</p>
+<p><a class="reference external" href="http://jqueryui.com/demos/autocomplete/search.php?term=or">http://jqueryui.com/demos/autocomplete/search.php?term=or</a></p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id9">関連リンク</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://jqueryui.com/demos/autocomplete/">jquery UI autocomplete 公式ドキュメント demo</a></li>
+</ul>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+
+        </div>
+
+        <div class="span4">
+          <div class="well">
+  <h5>Recent Articles</h5>
+  <ol>
+    <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
+    <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
+    <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
+    <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
+    <li><a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5">CentOS 5.5 に python2.7環境を構築</a></li>
+    <li><a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a></li>
+    <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
+    <li><a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a></li>
+    <li><a href="/blog/2011/10/26/001_python_development_environment">Ubuntu11.10のPython開発環境を整備</a></li>
+    <li><a href="/blog/2011/10/26/000_document_design_test">ドキュメントデザインテスト</a></li>
+  </ol>
+</div>
+
+          <SCRIPT TYPE="text/javascript" LANGUAGE="javascript">
+<!--
+var ywoc_ad_id="Nr0rxBSCXMekXNdvnIekXuohKjY-";
+var ywoc_ad_sid="gy1wRiCCXMeTHO_OELGFrQ--";
+var ywoc_ad_siteurl="http%3A%2F%2Ftanarky.com%2F";
+var ywoc_ad_creativeid="001";
+var ywoc_ad_altad="PB";
+var ywoc_ad_alturl="";
+var ywoc_ad_signature="faf8812bbbd3920293e92cb87e0b3fdba4587e0f";
+var ywoc_ad_adserv="http://dcs.yahoo.co.jp/dcs_1_0/";
+var ywoc_adcl_title="0000CC";
+var ywoc_adcl_discription="333333";
+var ywoc_adcl_link="008200";
+var ywoc_adcl_frame="f5f5f5";
+var ywoc_adcl_background="f5f5f5";
+document.write('<SCR'+'IPT TYPE="text/javascript" LANGUAGE="javascript" SRC="'+
+ywoc_ad_adserv+
+'?adid='+ywoc_ad_id+
+'&sid='+ywoc_ad_sid+
+'&surl='+ywoc_ad_siteurl+
+'&cid=' +ywoc_ad_creativeid+
+'&alid='+ywoc_ad_altad+
+'&aurl='+ywoc_ad_alturl+
+'&sig=' +ywoc_ad_signature+
+'&clt=' +ywoc_adcl_title+
+'&cld=' +ywoc_adcl_discription+
+'&cll=' +ywoc_adcl_link+
+'&clf=' +ywoc_adcl_frame+
+'&clb=' +ywoc_adcl_background+
+'"> </SCR' + 'IPT>');
+--></SCRIPT>
+
+        </div>
+
+        <div class="span16">
+          <footer>
+  <p>&copy; 2011 tanarky</p>
+</footer>
+
+          <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1092798-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
+
