@@ -83,7 +83,7 @@ a{color:#0069d6;text-decoration:none;line-height:inherit;font-weight:inherit;}a:
 .offset-two-thirds{margin-left:660px;}
 p{font-size:13px;font-weight:normal;line-height:18px;margin-bottom:9px;}p small{font-size:11px;color:#bfbfbf;}
 h1{display:inline}
-h2,h3,h4,h5,h6{font-weight:bold;color:#404040;padding-left:10px;margin-bottom:5px}
+h2,h3,h4,h5,h6{font-weight:bold;color:#404040;padding-left:10px;margin-bottom:10px;background-color:#eee;border-radius:3px}
 h2 small,h3 small,h4 small,h5 small,h6 small{color:#bfbfbf;}
 h2{font-size:24px;line-height:36px;border-left:8px solid #D50035;}
 h2 small{font-size:14px;}
