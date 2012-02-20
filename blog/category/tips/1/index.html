@@ -44,6 +44,82 @@
   
 
 <div class="blog_post">
+  <a name="thinkpad-x100eのキーボード設定メモ"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" rel="bookmark" title="Permanent Link to thinkpad x100eのキーボード設定メモ">thinkpad x100eのキーボード設定メモ</a>
+  </h2>
+  <div class="post_meta">February 21, 2012 at 02:00 PM | categories: 
+
+<a href='/blog/category/tips'>tips</a>
+
+ | <a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document" id="thinkpad-x100e">
+<h2 class="title">thinkpad x100eのキーボード設定メモ</h2>
+<p>Macbook Proとの使い分けをするために、
+できるだけ似たようなキー操作になるように模索したメモ</p>
+<p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
+<ol class="arabic simple">
+<li>システム設定の&quot;キーボードレイアウト&quot;を開き、オプションで以下の設定をする</li>
+</ol>
+<blockquote>
+<ol class="loweralpha simple">
+<li>Alt/Winキーの操作 -&gt; デフォルトのまま</li>
+<li>Ctrlキーの位置 -&gt; &quot;Make Caps Lock an additional Ctrl&quot;</li>
+</ol>
+</blockquote>
+<ol class="arabic simple" start="2">
+<li>IBusの設定(Input Methods)を開いた以下の設定をする</li>
+</ol>
+<blockquote>
+<ol class="loweralpha simple">
+<li>入力モードの切り替えを、Alt+Spaceにする</li>
+<li>言語パネルはメニューに組み込む</li>
+</ol>
+</blockquote>
+<ol class="arabic simple" start="3">
+<li>システム設定の&quot;キーボード&quot;を開き、ショートカットを以下の設定とする</li>
+</ol>
+<blockquote>
+<ol class="loweralpha simple">
+<li>&quot;ウィンドウメニューをアクティブにする&quot;ショートカットをWin+Spaceに</li>
+</ol>
+</blockquote>
+<p>これにより、</p>
+<ul class="simple">
+<li>Alt+TabでWindow切り替えができる。
+MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、同じキー</li>
+<li>Alt+Spaceで入力切り替えが出来る。
+MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、これも同じキー</li>
+<li>Win+Spaceでウィンドウメニューを開ける。
+Macだと別ショートカットなので、これに割り当ててもよし</li>
+</ul>
+<p>以上。</p>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
   <a name="(できるだけ)ポータブルなpython開発環境"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/01/20/00a_portable_python_env" rel="bookmark" title="Permanent Link to (できるだけ)ポータブルなPython開発環境">(できるだけ)ポータブルなPython開発環境</a>
@@ -311,74 +387,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
   <hr class="interblog" />
-  
-
-<div class="blog_post">
-  <a name="pythonでqrコード生成"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2011/12/19/008_python_qrcode" rel="bookmark" title="Permanent Link to PythonでQRコード生成">PythonでQRコード生成</a>
-  </h2>
-  <div class="post_meta">December 19, 2011 at 02:00 PM | categories: 
-
-<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>
-
- | <a href="http://tanarky.com/blog/2011/12/19/008_python_qrcode#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">環境構築手順</a></li>
-<li><a class="reference internal" href="#id3" id="id6">動作確認</a></li>
-<li><a class="reference internal" href="#id4" id="id7">リンク</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">環境構築手順</a></h3>
-<p>libqrencodeのpython bindingによるQRコード生成</p>
-<p>まずはinstall</p>
-<div class="highlight"><pre>% sudo aptitude install libqrencode3 libqrencode-dev
-% pip install qrencode
-</pre></div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id6">動作確認</a></h3>
-<p>サンプルコード</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">qrencode</span>
-
-<span class="n">e</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">()</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;http://tanarky.com/&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">})</span>
-<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/qrcode.png&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id7">リンク</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/bitly/pyqrencode">https://github.com/bitly/pyqrencode</a></li>
-</ul>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2011/12/19/008_python_qrcode#disqus_thread">Read and Post Comments</a></div>
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  <hr class="interblog" />
  <a href="/blog/category/tips/2">Next Page »</a>
 
         </div>
@@ -387,6 +395,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
     <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
     <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
@@ -396,7 +405,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
     <li><a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a></li>
     <li><a href="/blog/2011/10/26/001_python_development_environment">Ubuntu11.10のPython開発環境を整備</a></li>
-    <li><a href="/blog/2011/10/26/000_document_design_test">ドキュメントデザインテスト</a></li>
   </ol>
 </div>
 

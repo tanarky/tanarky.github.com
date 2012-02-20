@@ -6,11 +6,67 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2012-02-11T11:50:21Z</updated>
+  <updated>2012-02-20T14:18:59Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
   <link rel="self" type="application/atom+xml" href="http://tanarky.com/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
+    <title type="html"><![CDATA[thinkpad x100eのキーボード設定メモ]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" />
+    <id>http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config</id>
+    <updated>2012-02-20T14:18:59Z</updated>
+    <published>2012-02-21T14:00:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <summary type="html"><![CDATA[thinkpad x100eのキーボード設定メモ]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config"><![CDATA[<div class="document" id="thinkpad-x100e">
+<h2 class="title">thinkpad x100eのキーボード設定メモ</h2>
+<p>Macbook Proとの使い分けをするために、
+できるだけ似たようなキー操作になるように模索したメモ</p>
+<p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
+<ol class="arabic simple">
+<li>システム設定の&quot;キーボードレイアウト&quot;を開き、オプションで以下の設定をする</li>
+</ol>
+<blockquote>
+<ol class="loweralpha simple">
+<li>Alt/Winキーの操作 -&gt; デフォルトのまま</li>
+<li>Ctrlキーの位置 -&gt; &quot;Make Caps Lock an additional Ctrl&quot;</li>
+</ol>
+</blockquote>
+<ol class="arabic simple" start="2">
+<li>IBusの設定(Input Methods)を開いた以下の設定をする</li>
+</ol>
+<blockquote>
+<ol class="loweralpha simple">
+<li>入力モードの切り替えを、Alt+Spaceにする</li>
+<li>言語パネルはメニューに組み込む</li>
+</ol>
+</blockquote>
+<ol class="arabic simple" start="3">
+<li>システム設定の&quot;キーボード&quot;を開き、ショートカットを以下の設定とする</li>
+</ol>
+<blockquote>
+<ol class="loweralpha simple">
+<li>&quot;ウィンドウメニューをアクティブにする&quot;ショートカットをWin+Spaceに</li>
+</ol>
+</blockquote>
+<p>これにより、</p>
+<ul class="simple">
+<li>Alt+TabでWindow切り替えができる。
+MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、同じキー</li>
+<li>Alt+Spaceで入力切り替えが出来る。
+MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、これも同じキー</li>
+<li>Win+Spaceでウィンドウメニューを開ける。
+Macだと別ショートカットなので、これに割り当ててもよし</li>
+</ul>
+<p>以上。</p>
+</div>
+]]></content>
+  </entry>
   <entry>
     <author>
       <name></name>
