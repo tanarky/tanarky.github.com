@@ -55,6 +55,100 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="rhino/node-javascript実行環境構築-on-macbook"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2012/03/12/00e_javascript_env_on_macbook" rel="bookmark" title="Permanent Link to Rhino/Node Javascript実行環境構築 on Macbook">Rhino/Node Javascript実行環境構築 on Macbook</a>
+  </h2>
+  <div class="post_meta">March 12, 2012 at 02:00 PM | categories: 
+
+<a href='/blog/category/javascript'>javascript</a>, <a href='/blog/category/env'>env</a>, <a href='/blog/category/install'>install</a>
+
+ | <a href="http://tanarky.com/blog/2012/03/12/00e_javascript_env_on_macbook#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#rhino" id="id3">Rhino</a></li>
+<li><a class="reference internal" href="#node" id="id4">Node</a></li>
+</ul>
+</div>
+<p>Macbookにて、Javascript実行環境を整えたので、その際の手順履歴</p>
+<div class="section" id="rhino">
+<h3><a class="toc-backref" href="#id3">Rhino</a></h3>
+<p>Rhino = Java実装のJavascript実行環境</p>
+<p>その他の言語のJava実装は以下のものがある</p>
+<div class="highlight"><pre>Jython - port of Python.
+JRuby - port of Ruby.
+Rhino - port of ECMAScript.
+Clojure - Lisp dialect.
+Groovy - Scripting language for the JVM.
+Scala - object-oriented, functional language for the JVM.
+</pre></div>
+<p>Macにinstallするには、brew installで一発。</p>
+<p>2012/03/12 時点でinstallされるversionは1.7R3</p>
+<div class="highlight"><pre>brew install rhino
+</pre></div>
+<p>実行するには以下のjarを指定する。-eでコードを直接渡す。</p>
+<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello world!&#39;);&quot;
+java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar&#39;);&quot;
+hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
+%
+</pre></div>
+<p>インタラクティブシェルは以下の通りに実行できる</p>
+<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
+Rhino 1.7 release 3 2011 05 09
+js&gt; print(&#39;hello world!&#39;);
+hello world!
+js&gt;
+</pre></div>
+<p><a class="reference external" href="https://developer.mozilla.org/ja/Rhino">Rhino</a></p>
+</div>
+<div class="section" id="node">
+<h3><a class="toc-backref" href="#id4">Node</a></h3>
+<p><a class="reference external" href="http://nodejs.org/">http://nodejs.org/</a></p>
+<p>こちらもJavascript実行環境。実装はV8だったりSpiderMondkeyだったり。</p>
+<p>同じく、brew installにて。</p>
+<div class="highlight"><pre>% brew install node
+</pre></div>
+<p>npmと単体テストフレームワークもついでにinstall</p>
+<div class="highlight"><pre>% git clone git://github.com/creationix/nvm.git ~/.nvm
+% nvm install v0.6.12
+% nvm alias default v0.6.12
+% source ~/.nvm/nvm.sh
+% curl http://npmjs.org/install.sh | sh
+% npm install nodeunit
+% ln -s $HOME/.npm/nodeunit/0.7.4/package/bin/nodeunit $HOME/bin/nodeunit
+</pre></div>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/ToQoz/20120312/1331512182">zsh on mac で nvm -&gt; nvm_ls:17: no matches found: vdefault* 対処</a></li>
+</ul>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2012/03/12/00e_javascript_env_on_macbook#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="thinkpad-x100eのキーボード設定メモ"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" rel="bookmark" title="Permanent Link to thinkpad x100eのキーボード設定メモ">thinkpad x100eのキーボード設定メモ</a>
@@ -68,7 +162,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
   <div class="post_prose">
     <div class="document" id="thinkpad-x100e">
-<h2 class="title">thinkpad x100eのキーボード設定メモ</h2>
+<h1 class="title">thinkpad x100eのキーボード設定メモ</h1>
 <p>Macbook Proとの使い分けをするために、
 できるだけ似たようなキー操作になるように模索したメモ</p>
 <p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
@@ -228,181 +322,6 @@ APIがJSON形式のデータを返している。</p>
 
   <div class="after_post"><a href="http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="(できるだけ)ポータブルなpython開発環境"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/01/20/00a_portable_python_env" rel="bookmark" title="Permanent Link to (できるだけ)ポータブルなPython開発環境">(できるだけ)ポータブルなPython開発環境</a>
-  </h2>
-  <div class="post_meta">January 20, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/install'>install</a>
-
- | <a href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
-<li><a class="reference internal" href="#buildoutvirtualenv1" id="id6">buildoutとvirtualenvを用いた1つの解</a><ul>
-<li><a class="reference internal" href="#id3" id="id7">参考手順</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id4" id="id8">まとめ など</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">背景</a></h3>
-<p>せっかくLLをさわっているので、</p>
-<ul class="simple">
-<li>OS依存が少ない</li>
-<li>複数versionの環境の混在</li>
-<li>構築の簡単さ</li>
-<li>本番環境でも使える性能</li>
-<li>環境をコピーできる</li>
-</ul>
-<p>というPython環境が欲しくて、色々考えてる</p>
-</div>
-<div class="section" id="buildoutvirtualenv1">
-<h3><a class="toc-backref" href="#id6">buildoutとvirtualenvを用いた1つの解</a></h3>
-<p>以下のようなことを考えた</p>
-<ul class="simple">
-<li>コンパイルが必要なライブラリ(Python自体も含む)をbuildoutでビルドする<ul>
-<li>Python</li>
-<li>zlib</li>
-<li>Graphviz</li>
-<li>画像系パッケージ?</li>
-<li>(yum/aptitudeでもいいが、後々環境が混在できなくなるリスク)</li>
-</ul>
-</li>
-<li>buldoutでbuildしたpythonを指定して、virtualenv環境を構築する</li>
-<li>PyPIパッケージは、virtualenvにinstallする</li>
-<li>サービスはvirtualenv環境ごとに分ける<ul>
-<li>サービスごとにpythonのバージョンをわけるためにBuildするのは大変</li>
-<li>サービスごとにライブラリのバージョンが競合する可能性はあるので
-その時はbuildout環境を増やす</li>
-</ul>
-</li>
-<li>自分で書いたコードは、githubや自前distサーバなどにパッケージとしておいておく</li>
-<li>環境から、distサーバ指定でpip installしてdeploy</li>
-</ul>
-<div class="section" id="id3">
-<h4><a class="toc-backref" href="#id7">参考手順</a></h4>
-<ol class="arabic simple">
-<li>まずは、buildoutでOS依存しない場所にPythonと
-依存するライブラリなどをビルド</li>
-</ol>
-<div class="highlight"><pre>% mkdir /tmp/py27
-% cd /tmp/py27
-% (buildout.cfg + bootstrap.pyを用意)
-% cat buildout.cfg
-[buildout]
-python = python
-parts =
-    python
-    env
-
-[python]
-recipe = zc.recipe.cmmi
-url = http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
-executable = ${buildout:parts-directory}/python/bin/python2.7
-environment =
-    LDFLAGS=-Wl,-rpath,${buildout:parts-directory}/python/lib
-extra_options =
-    --enable-unicode=ucs4
-    --enable-shared
-    --with-threads
-
-[env]
-recipe = zc.recipe.egg
-eggs =
-     virtualenv
-     virtualenvwrapper
-
-interpreter = python
-
-% python bootstrap.py
-% bin/buildout
-</pre></div>
-<ol class="arabic simple" start="2">
-<li>1.で構築したpythonを使って、virtualenv環境を作る</li>
-</ol>
-<div class="highlight"><pre>% export WORKON_HOME=/tmp/virtualenvs
-% export VIRTUALENVWRAPPER_HOOK_DIR=/tmp/virtualenvs
-% export VIRTUALENVWRAPPER_LOG_DIR=/tmp/virtualenvs
-## FIXME: クリーンな環境でうまくいくか?
-% mkvirtualenv -p /tmp/py27/parts/python/bin/python testenv
-% /tmp/virtualenvs/testenv/bin/pip install Flask
-% /tmp/virtualenvs/testenv/bin/pip install gunicorn
-% /tmp/virtualenvs/testenv/bin/pip install supervisor
-</pre></div>
-<ol class="arabic simple" start="3">
-<li>開発</li>
-</ol>
-<div class="highlight"><pre>% cat myserver.py
-
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route(&#39;/&#39;)
-def index():
-    return &quot;&lt;h1&gt;hello!Yes!&lt;/h1&gt;&quot;
-
-if __name__ == &#39;__main__&#39;:
-    app.run(debug=True)
-% /tmp/virtualenvs/testenv/bin/python myserver.py
-   * Running on http://127.0.0.1:5000/
-   * Restarting with reloader
-</pre></div>
-<ol class="arabic simple" start="4">
-<li>インストール</li>
-</ol>
-<p>cpでinstallしないほうがいい(暫定手順)</p>
-<div class="highlight"><pre>% sudo mkdir /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj
-% touch /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/__init__.py
-% sudo cp myserver.py /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/
-</pre></div>
-<ol class="arabic simple" start="5">
-<li>gunicornで本番プロセス起動</li>
-</ol>
-<p>本当はdaemonモード</p>
-<div class="highlight"><pre>% /tmp/virtualenvs/testenv/bin/gunicorn mypj.myserver:app
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id8">まとめ など</a></h3>
-<ul class="simple">
-<li>gunicornが起動するところまで確認できたので、supervisorで監視体制を整えたい</li>
-<li>古めのCentOSでも動くか?</li>
-<li>zlib/graphvizなどのライブラリ系もbuildoutに組み込みたい</li>
-</ul>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
  <a href="../2">Next Page »</a>
 
         </div>
@@ -411,6 +330,7 @@ if __name__ == &#39;__main__&#39;:
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2012/03/12/00e_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
     <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
@@ -420,7 +340,6 @@ if __name__ == &#39;__main__&#39;:
     <li><a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a></li>
     <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
     <li><a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a></li>
-    <li><a href="/blog/2011/10/26/001_python_development_environment">Ubuntu11.10のPython開発環境を整備</a></li>
   </ol>
 </div>
 

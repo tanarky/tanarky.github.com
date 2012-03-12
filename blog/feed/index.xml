@@ -10,10 +10,81 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Mon, 20 Feb 2012 14:18:59 GMT</pubDate>
+    <pubDate>Mon, 12 Mar 2012 06:37:44 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Rhino/Node Javascript実行環境構築 on Macbook</title>
+      <link>http://tanarky.com/blog/2012/03/12/00e_javascript_env_on_macbook</link>
+      <pubDate>Mon, 12 Mar 2012 14:00:00 JST</pubDate>
+      <category><![CDATA[javascript]]></category>
+      <category><![CDATA[env]]></category>
+      <category><![CDATA[install]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2012/03/12/00e_javascript_env_on_macbook</guid>
+      <description>Rhino/Node Javascript実行環境構築 on Macbook</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#rhino" id="id3">Rhino</a></li>
+<li><a class="reference internal" href="#node" id="id4">Node</a></li>
+</ul>
+</div>
+<p>Macbookにて、Javascript実行環境を整えたので、その際の手順履歴</p>
+<div class="section" id="rhino">
+<h3><a class="toc-backref" href="#id3">Rhino</a></h3>
+<p>Rhino = Java実装のJavascript実行環境</p>
+<p>その他の言語のJava実装は以下のものがある</p>
+<div class="highlight"><pre>Jython - port of Python.
+JRuby - port of Ruby.
+Rhino - port of ECMAScript.
+Clojure - Lisp dialect.
+Groovy - Scripting language for the JVM.
+Scala - object-oriented, functional language for the JVM.
+</pre></div>
+<p>Macにinstallするには、brew installで一発。</p>
+<p>2012/03/12 時点でinstallされるversionは1.7R3</p>
+<div class="highlight"><pre>brew install rhino
+</pre></div>
+<p>実行するには以下のjarを指定する。-eでコードを直接渡す。</p>
+<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello world!&#39;);&quot;
+java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar&#39;);&quot;
+hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
+%
+</pre></div>
+<p>インタラクティブシェルは以下の通りに実行できる</p>
+<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
+Rhino 1.7 release 3 2011 05 09
+js&gt; print(&#39;hello world!&#39;);
+hello world!
+js&gt;
+</pre></div>
+<p><a class="reference external" href="https://developer.mozilla.org/ja/Rhino">Rhino</a></p>
+</div>
+<div class="section" id="node">
+<h3><a class="toc-backref" href="#id4">Node</a></h3>
+<p><a class="reference external" href="http://nodejs.org/">http://nodejs.org/</a></p>
+<p>こちらもJavascript実行環境。実装はV8だったりSpiderMondkeyだったり。</p>
+<p>同じく、brew installにて。</p>
+<div class="highlight"><pre>% brew install node
+</pre></div>
+<p>npmと単体テストフレームワークもついでにinstall</p>
+<div class="highlight"><pre>% git clone git://github.com/creationix/nvm.git ~/.nvm
+% nvm install v0.6.12
+% nvm alias default v0.6.12
+% source ~/.nvm/nvm.sh
+% curl http://npmjs.org/install.sh | sh
+% npm install nodeunit
+% ln -s $HOME/.npm/nodeunit/0.7.4/package/bin/nodeunit $HOME/bin/nodeunit
+</pre></div>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/ToQoz/20120312/1331512182">zsh on mac で nvm -&gt; nvm_ls:17: no matches found: vdefault* 対処</a></li>
+</ul>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>thinkpad x100eのキーボード設定メモ</title>
       <link>http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config</link>
@@ -22,7 +93,7 @@
       <guid isPermaLink="true">http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config</guid>
       <description>thinkpad x100eのキーボード設定メモ</description>
       <content:encoded><![CDATA[<div class="document" id="thinkpad-x100e">
-<h2 class="title">thinkpad x100eのキーボード設定メモ</h2>
+<h1 class="title">thinkpad x100eのキーボード設定メモ</h1>
 <p>Macbook Proとの使い分けをするために、
 できるだけ似たようなキー操作になるように模索したメモ</p>
 <p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
@@ -775,74 +846,6 @@ Javascriptも同様の形で埋めこむので、デザインテンプレート�
 <li>無料であること（無料のサービス、またはそれらを組み合わせて環境構築できること）</li>
 <li>環境を構築するための開発は必要最低限であること</li>
 </ol>
-</div>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Ubuntu11.10のPython開発環境を整備</title>
-      <link>http://tanarky.com/blog/2011/10/26/001_python_development_environment</link>
-      <pubDate>Wed, 26 Oct 2011 15:22:00 JST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[tips]]></category>
-      <category><![CDATA[ubuntu]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2011/10/26/001_python_development_environment</guid>
-      <description>Ubuntu11.10のPython開発環境を整備</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
-<li><a class="reference internal" href="#id3" id="id6">インストール手順</a></li>
-<li><a class="reference internal" href="#id4" id="id7">参考リンク</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">背景</a></h3>
-<p>Google AppEngineで使い始めたのをきっかけにPythonにハマっている。
-ハマった理由は以下の通り。</p>
-<ul class="simple">
-<li>標準で備わってる機能が多い(CSV parserなど)</li>
-<li>Cのライブラリ連携が楽そう(ctypesなど)</li>
-<li>PyPI(PerlにおけるCPAN)パッケージが充実している</li>
-<li>など</li>
-</ul>
-<p>ただ、パッケージが充実しているのはいいが、
-野良CPANパッケージをinstallすると環境が汚れたり、
-ちょっとお試しでinstallしたい場合に躊躇してしまう(Perlも同様)</p>
-<p>pythonの場合、virtualenvを使えば、pythonのバージョン違いも含めて、
-複数のpython環境を自分のHOMEディレクトリ以下で簡単に管理できるので、
-その設定手順をまとめる</p>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id6">インストール手順</a></h3>
-<div class="highlight"><pre>% sudo aptitude install python-virtualenv virtualwrapper
-% sudo aptitude install python3.2 python3.2-dev
-% mkvirtualenv -p /usr/bin/python2.7 2.7.2
-% mkvirtualenv -p /usr/bin/python3.2 3.2.2
-</pre></div>
-<p>パッケージをinstallできたら、
-以下を.zshrcに追加</p>
-<div class="highlight"><pre>[ -f $HOME/.pythonbrew/etc/bashrc ] &amp;&amp; source $HOME/.pythonbrew/etc/bashrc
-[ -f /etc/bash_completion.d/virtualenvwrapper ] &amp;&amp; source /etc/bash_completion.d/virtualenvwrapper
-workon 2.7.2
-</pre></div>
-<p>これで準備は完了</p>
-<p>後はterminal上で、&quot;workon 2.7.2&quot; や &quot;workon 3.2.2&quot; などと打てば
-(python versionが異なる)環境を瞬時に切り替えられる</p>
-<p>これで環境ごとにパッケージを完全に別で管理できるので、
-とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。</p>
-<p>pythonbrewなどのwrapperも調べたが、自分の中では上記の手順で今のところ満足。
-Pythonの強みは環境構築の簡単さだと思っている。特にUbuntuとは相性がいい。</p>
-<p>ちなみに、Perlにはperlbrewが、RubyにはRVMがあり、それぞれ複数環境を管理できる。</p>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id7">参考リンク</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://www.ianlewis.org/jp/virtualenv-pip-fabric">virtualenv, virtualenvwrapper, pip を使う方法 - Ian Lewis</a></li>
-<li><a class="reference external" href="http://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv">Use different Python version with virtualenv - Stack Overflow</a></li>
-<li><a class="reference external" href="http://d.hatena.ne.jp/pasela/20110704/pythonbrew">Macにpythonbrew+virtualenvでPython環境を作ってみた</a></li>
-</ul>
 </div>
 </div>
 ]]></content:encoded>

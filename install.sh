@@ -1,7 +1,8 @@
 #!/bin/sh
 
 SITEMAP=./sitemap.xml
-BLOGOFILEBIN=/home/satoshi/.virtualenvs/2.7.2/bin/blogofile
+#BLOGOFILEBIN=/home/satoshi/.virtualenvs/2.7.2/bin/blogofile
+BLOGOFILEBIN=blogofile
 
 cd ./_blogofile
 $BLOGOFILEBIN build
