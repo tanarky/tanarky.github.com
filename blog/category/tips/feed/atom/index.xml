@@ -232,7 +232,7 @@ if __name__ == &#39;__main__&#39;:
     <title type="html"><![CDATA[PostfixでGmail経由メール送信環境構築 on Ubuntu]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu" />
     <id>http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2012-05-28T08:41:50Z</updated>
     <published>2012-01-02T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <category scheme="http://tanarky.com/blog" term="install" />
@@ -251,7 +251,7 @@ if __name__ == &#39;__main__&#39;:
 <p>AppEngineの開発環境で、メール送信機能を使うために
 postfixを使ったgmail送信環境の構築を行ったので、メモ。</p>
 <p>まずは、package install</p>
-<div class="highlight"><pre>% sudo aptitude install postfix
+<div class="highlight"><pre>% sudo aptitude install postfix libsasl2-modules
 </pre></div>
 <p>/etc/postfix/main.cf を編集</p>
 <p>以下を追記</p>

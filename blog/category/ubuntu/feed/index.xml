@@ -10,7 +10,7 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Mon, 12 Mar 2012 05:28:42 GMT</pubDate>
+    <pubDate>Mon, 28 May 2012 08:41:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -36,7 +36,7 @@
 <p>AppEngineの開発環境で、メール送信機能を使うために
 postfixを使ったgmail送信環境の構築を行ったので、メモ。</p>
 <p>まずは、package install</p>
-<div class="highlight"><pre>% sudo aptitude install postfix
+<div class="highlight"><pre>% sudo aptitude install postfix libsasl2-modules
 </pre></div>
 <p>/etc/postfix/main.cf を編集</p>
 <p>以下を追記</p>
