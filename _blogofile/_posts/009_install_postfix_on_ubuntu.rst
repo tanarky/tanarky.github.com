@@ -17,7 +17,7 @@ postfixを使ったgmail送信環境の構築を行ったので、メモ。
 
 .. code:: none
   
-  % sudo aptitude install postfix
+  % sudo aptitude install postfix libsasl2-modules
 
 /etc/postfix/main.cf を編集
 
