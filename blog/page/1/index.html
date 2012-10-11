@@ -55,6 +55,123 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="mysql_multiをmacにinstall"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2012/10/11/010_mysql_multi_on_mac" rel="bookmark" title="Permanent Link to mysql_multiをmacにinstall">mysql_multiをmacにinstall</a>
+  </h2>
+  <div class="post_meta">October 11, 2012 at 10:00 AM | categories: 
+
+<a href='/blog/category/env'>env</a>, <a href='/blog/category/install'>install</a>, <a href='/blog/category/mysql'>mysql</a>
+
+ | <a href="http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#install" id="id2">install</a></li>
+</ul>
+</div>
+<p>Macbookにて、mysql_multiで複数サーバを立てたので、その時のinstallメモ</p>
+<p>目的は、dual master replication の failover動作確認をするため</p>
+<div class="section" id="install">
+<h3><a class="toc-backref" href="#id2">install</a></h3>
+<p>Macにmysqlはinstall済みであることが前提</p>
+<p>メモリを食うので、必要な時だけ起動するようにplistはunloadしておく</p>
+<div class="highlight"><pre># 起動していたら停止
+% sudo /opt/local/share/mysql5/mysql/mysql.server stop
+% sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
+
+# ここに入っている + pathは通しておく
+% which mysql5
+/opt/local/bin/mysql5
+
+# エラーになるのでリンクを張っておく等
+% sudo ln -s /opt/local/bin/my_print_defaults5 /opt/local/bin/my_print_defaults
+% mkdir -p /Users/satoshi.tanaka/var/mysql1
+% mkdir -p /Users/satoshi.tanaka/var/mysql2
+% mkdir -p /Users/satoshi.tanaka/var/log
+
+# ~/.my.cnf を準備, user名やportなどは適当に変更すること
+% cat ~/.my.cnf
+[mysqld_multi]
+mysqld     = /opt/local/lib/mysql5/bin/mysqld_safe
+mysqladmin = /opt/local/lib/mysql5/bin/mysqladmin
+user       = root
+
+[mysqld1]
+server-id  = 1
+socket     = /tmp/mysql1.sock
+port       = 13306
+pid-file   = /tmp/mysql1.pid
+datadir    = /Users/satoshi.tanaka/var/mysql1
+language   = /opt/local/share/mysql5/mysql/english
+user       = satoshi.tanaka
+log        = /Users/satoshi.tanaka/var/log/mysqld1.log
+log-error  = /Users/satoshi.tanaka/var/log/mysqld1.error.log
+
+[mysqld2]
+server-id  = 2
+socket     = /tmp/mysql2.sock
+port       = 13307
+pid-file   = /tmp/mysql2.pid
+datadir    = /Users/satoshi.tanaka/var/mysql2
+language   = /opt/local/share/mysql5/mysql/english
+user       = satoshi.tanaka
+log        = /Users/satoshi.tanaka/var/log/mysqld2.log
+log-error  = /Users/satoshi.tanaka/var/log/mysqld2.error.log
+
+# datadirの準備
+% mysql_install_db5 --datadir=./var/mysql1/
+% mysql_install_db5 --datadir=./var/mysql2/
+
+# 起動して確認
+% /opt/local/bin/mysqld_multi5 start --log=/tmp/mysqld_multi.log
+% /opt/local/bin/mysqld_multi5 report --log=/tmp/mysqld_multi.log
+Reporting MySQL servers
+MySQL server from group: mysqld1 is running
+MySQL server from group: mysqld2 is running
+% mysql5 -S /tmp/mysql2.sock
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.1.63-log Source distribution
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt;
+</pre></div>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="rhino/node-javascript実行環境構築-on-macbook"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/03/12/00f_javascript_env_on_macbook" rel="bookmark" title="Permanent Link to Rhino/Node Javascript実行環境構築 on Macbook">Rhino/Node Javascript実行環境構築 on Macbook</a>
@@ -210,118 +327,6 @@ Macだと別ショートカットなので、これに割り当ててもよし</
 
   <div class="after_post"><a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="jquery-ui-autocomplete-サンプル"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples" rel="bookmark" title="Permanent Link to jQuery UI autocomplete サンプル">jQuery UI autocomplete サンプル</a>
-  </h2>
-  <div class="post_meta">February 11, 2012 at 09:00 PM | categories: 
-
-<a href='/blog/category/jquery'>jquery</a>, <a href='/blog/category/javascript'>javascript</a>, <a href='/blog/category/jqueryui'>jqueryui</a>
-
- | <a href="http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id6">スクロールバー付きサンプル</a></li>
-<li><a class="reference internal" href="#suggest" id="id7">同一suggestデータサンプル</a></li>
-<li><a class="reference internal" href="#remotesuggest" id="id8">remote問い合わせsuggest</a></li>
-<li><a class="reference internal" href="#id5" id="id9">関連リンク</a></li>
-</ul>
-</div>
-<p>jQuery UI の autocomplete ウィジェットについて
-調査したので、その時のメモ</p>
-<dl class="docutils">
-<dt>jquery version</dt>
-<dd>1.7.1</dd>
-<dt>jquery UI version</dt>
-<dd>1.8.16</dd>
-</dl>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id6">スクロールバー付きサンプル</a></h3>
-<p>銀行名か金融機関コードで検索して、
-入力補完してくれるサンプルを書いた</p>
-<ul class="simple">
-<li><a class="reference external" href="http://tanarky.com/samples/jqueryui/autocomplete/sample3.html">jquery UI autocomplete スクロール付きサンプル</a></li>
-<li><a class="reference external" href="https://github.com/tanarky/tanarky.github.com/blob/master/samples/jqueryui/autocomplete/sample3.html">jquery UI autocomplete スクロール付きサンプル(ソースコード)</a></li>
-</ul>
-<p>ポイントは以下の通り</p>
-<ol class="arabic simple">
-<li>.ui-autocompleteクラスにmax-heightを指定することで、autocomplete部分のスクロールを実現</li>
-<li>候補がクリックされたときに、そのイベントを拾って、別フィールド2つにデータを補完</li>
-<li>別フィールドはreadonly属性で編集不可に</li>
-<li>autocomplete optionにminLength=0を指定。入力がなくても、下キーで候補表示</li>
-<li>suggestデータは、javascript内部にベタ書きで持っている。</li>
-</ol>
-<blockquote>
-<ul class="simple">
-<li>データ構造は、配列</li>
-<li>配列の要素は、Hashで、valueというキーの値が検索対象となる</li>
-<li>value以外は、任意のキーを指定可能</li>
-</ul>
-</blockquote>
-</div>
-<div class="section" id="suggest">
-<h3><a class="toc-backref" href="#id7">同一suggestデータサンプル</a></h3>
-<p>こちらも、銀行名か金融機関コードで検索して、
-入力補完してくれるサンプル。</p>
-<p>前のサンプルと違う点は、2つのフィールドに対して、同一のsuggestデータを使っている</p>
-<ul class="simple">
-<li><a class="reference external" href="http://tanarky.com/samples/jqueryui/autocomplete/sample4.html">jquery UI autocomplete 2つの検索フィールドサンプル</a></li>
-<li><a class="reference external" href="https://github.com/tanarky/tanarky.github.com/blob/master/samples/jqueryui/autocomplete/sample4.html">jquery UI autocomplete 2つの検索フィールドサンプル(ソースコード)</a></li>
-</ul>
-<p>ポイントは以下の通り</p>
-<ol class="arabic simple">
-<li>focusオプションで、候補にマウスオーバーした時点でデータを入れる(return false忘れずに)</li>
-<li>複数のフィールドに同一オプションでautocomplete登録</li>
-</ol>
-</div>
-<div class="section" id="remotesuggest">
-<h3><a class="toc-backref" href="#id8">remote問い合わせsuggest</a></h3>
-<p>上記2つのサンプルは、挙動を理解しやすいようにするため、
-サジェストするためのデータはコードに埋めたが、
-remote API呼び出しも可能。</p>
-<ul class="simple">
-<li><a class="reference external" href="http://jqueryui.com/demos/autocomplete/#remote">jquery UI autocomplete 公式ドキュメント demo(remote API呼び出し)</a></li>
-</ul>
-<p>上記のサンプルでは、jquery側空、search.phpというAPIを呼び出し、
-APIがJSON形式のデータを返している。</p>
-<p>APIは、GETのパラメータで&quot;term&quot;を受け取り、
-それに基づくsuggestデータを返却している</p>
-<p><a class="reference external" href="http://jqueryui.com/demos/autocomplete/search.php?term=or">http://jqueryui.com/demos/autocomplete/search.php?term=or</a></p>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id9">関連リンク</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://jqueryui.com/demos/autocomplete/">jquery UI autocomplete 公式ドキュメント demo</a></li>
-</ul>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
  <a href="../2">Next Page »</a>
 
         </div>
@@ -330,6 +335,7 @@ APIがJSON形式のデータを返している。</p>
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2012/10/11/010_mysql_multi_on_mac">mysql_multiをmacにinstall</a></li>
     <li><a href="/blog/2012/03/12/00f_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
@@ -339,7 +345,6 @@ APIがJSON形式のデータを返している。</p>
     <li><a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5">CentOS 5.5 に python2.7環境を構築</a></li>
     <li><a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a></li>
     <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
-    <li><a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a></li>
   </ol>
 </div>
 

@@ -10,10 +10,104 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Mon, 12 Mar 2012 06:37:44 GMT</pubDate>
+    <pubDate>Thu, 11 Oct 2012 01:33:24 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>mysql_multiをmacにinstall</title>
+      <link>http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac</link>
+      <pubDate>Thu, 11 Oct 2012 10:00:00 JST</pubDate>
+      <category><![CDATA[env]]></category>
+      <category><![CDATA[install]]></category>
+      <category><![CDATA[mysql]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac</guid>
+      <description>mysql_multiをmacにinstall</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#install" id="id2">install</a></li>
+</ul>
+</div>
+<p>Macbookにて、mysql_multiで複数サーバを立てたので、その時のinstallメモ</p>
+<p>目的は、dual master replication の failover動作確認をするため</p>
+<div class="section" id="install">
+<h3><a class="toc-backref" href="#id2">install</a></h3>
+<p>Macにmysqlはinstall済みであることが前提</p>
+<p>メモリを食うので、必要な時だけ起動するようにplistはunloadしておく</p>
+<div class="highlight"><pre># 起動していたら停止
+% sudo /opt/local/share/mysql5/mysql/mysql.server stop
+% sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
+
+# ここに入っている + pathは通しておく
+% which mysql5
+/opt/local/bin/mysql5
+
+# エラーになるのでリンクを張っておく等
+% sudo ln -s /opt/local/bin/my_print_defaults5 /opt/local/bin/my_print_defaults
+% mkdir -p /Users/satoshi.tanaka/var/mysql1
+% mkdir -p /Users/satoshi.tanaka/var/mysql2
+% mkdir -p /Users/satoshi.tanaka/var/log
+
+# ~/.my.cnf を準備, user名やportなどは適当に変更すること
+% cat ~/.my.cnf
+[mysqld_multi]
+mysqld     = /opt/local/lib/mysql5/bin/mysqld_safe
+mysqladmin = /opt/local/lib/mysql5/bin/mysqladmin
+user       = root
+
+[mysqld1]
+server-id  = 1
+socket     = /tmp/mysql1.sock
+port       = 13306
+pid-file   = /tmp/mysql1.pid
+datadir    = /Users/satoshi.tanaka/var/mysql1
+language   = /opt/local/share/mysql5/mysql/english
+user       = satoshi.tanaka
+log        = /Users/satoshi.tanaka/var/log/mysqld1.log
+log-error  = /Users/satoshi.tanaka/var/log/mysqld1.error.log
+
+[mysqld2]
+server-id  = 2
+socket     = /tmp/mysql2.sock
+port       = 13307
+pid-file   = /tmp/mysql2.pid
+datadir    = /Users/satoshi.tanaka/var/mysql2
+language   = /opt/local/share/mysql5/mysql/english
+user       = satoshi.tanaka
+log        = /Users/satoshi.tanaka/var/log/mysqld2.log
+log-error  = /Users/satoshi.tanaka/var/log/mysqld2.error.log
+
+# datadirの準備
+% mysql_install_db5 --datadir=./var/mysql1/
+% mysql_install_db5 --datadir=./var/mysql2/
+
+# 起動して確認
+% /opt/local/bin/mysqld_multi5 start --log=/tmp/mysqld_multi.log
+% /opt/local/bin/mysqld_multi5 report --log=/tmp/mysqld_multi.log
+Reporting MySQL servers
+MySQL server from group: mysqld1 is running
+MySQL server from group: mysqld2 is running
+% mysql5 -S /tmp/mysql2.sock
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.1.63-log Source distribution
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt;
+</pre></div>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Rhino/Node Javascript実行環境構築 on Macbook</title>
       <link>http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook</link>

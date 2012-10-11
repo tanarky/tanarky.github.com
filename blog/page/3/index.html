@@ -55,6 +55,74 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="pythonでqrコード生成"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2011/12/19/008_python_qrcode" rel="bookmark" title="Permanent Link to PythonでQRコード生成">PythonでQRコード生成</a>
+  </h2>
+  <div class="post_meta">December 19, 2011 at 02:00 PM | categories: 
+
+<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>
+
+ | <a href="http://tanarky.com/blog/2011/12/19/008_python_qrcode#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id5">環境構築手順</a></li>
+<li><a class="reference internal" href="#id3" id="id6">動作確認</a></li>
+<li><a class="reference internal" href="#id4" id="id7">リンク</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id5">環境構築手順</a></h3>
+<p>libqrencodeのpython bindingによるQRコード生成</p>
+<p>まずはinstall</p>
+<div class="highlight"><pre>% sudo aptitude install libqrencode3 libqrencode-dev
+% pip install qrencode
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id6">動作確認</a></h3>
+<p>サンプルコード</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">qrencode</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">()</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;http://tanarky.com/&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">})</span>
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/qrcode.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id7">リンク</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/bitly/pyqrencode">https://github.com/bitly/pyqrencode</a></li>
+</ul>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2011/12/19/008_python_qrcode#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="centos-5.5-に-python2.7環境を構築"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5" rel="bookmark" title="Permanent Link to CentOS 5.5 に python2.7環境を構築">CentOS 5.5 に python2.7環境を構築</a>
@@ -184,183 +252,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
   <div class="after_post"><a href="http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="githubとblogofileで独自ドメイン無料blog環境構築"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2011/10/29/002_github_blogofile_original_domain" rel="bookmark" title="Permanent Link to githubとblogofileで独自ドメイン無料Blog環境構築">githubとblogofileで独自ドメイン無料Blog環境構築</a>
-  </h2>
-  <div class="post_meta">October 29, 2011 at 08:00 PM | categories: 
-
-<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ubuntu'>ubuntu</a>
-
- | <a href="http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id9">結論</a><ul>
-<li><a class="reference internal" href="#github-pageshtml" id="id10">Github PagesによるHTML公開+独自ドメイン設定</a></li>
-<li><a class="reference internal" href="#blogofile" id="id11">Blogofileを使った記事+デザイン構築</a></li>
-<li><a class="reference internal" href="#bootstrap-from-twitter" id="id12">Bootstrap from twitterを使ったデザイン</a></li>
-<li><a class="reference internal" href="#disqus" id="id13">DISQUSなどブログパーツを用いたソーシャル対応など</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id3" id="id14">諦めた機能</a></li>
-<li><a class="reference internal" href="#id4" id="id15">まとめ</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id9">結論</a></h3>
-<p>いきなり結論。</p>
-<p><a class="reference external" href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a> で考えた理想のBlog環境は
-以下のものを組み合わせることにより、ほぼ満足いく環境ができた。</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="http://pages.github.com/">GitHub Pages</a> によるHTML公開+独自ドメイン設定</li>
-<li><a class="reference external" href="http://www.blogofile.com/">Blogofile</a> による記事HTML+デザインの一括generate</li>
-<li><a class="reference external" href="http://twitter.github.com/bootstrap/">Bootstrap from twitter</a> によるデザイン設定の簡略化</li>
-<li><a class="reference external" href="http://disqus.com/">DISQUS</a> やその他ブログパーツによるブログのソーシャル化</li>
-</ol>
-<p>今見ているこのBlogのソースコードは全て</p>
-<p><a class="reference external" href="https://github.com/tanarky/tanarky.github.com">https://github.com/tanarky/tanarky.github.com</a></p>
-<p>に上げている。</p>
-<p>以下、詳細。</p>
-<div class="section" id="github-pageshtml">
-<h4><a class="toc-backref" href="#id10">Github PagesによるHTML公開+独自ドメイン設定</a></h4>
-<p>GitHubでは、コードだけではなく、HTMLなどのドキュメントも
-GitHubのサーバを用いて公開することができる。</p>
-<p>静的なファイルであれば、HTMLやCSS/Javascriptなど公開可能。
-画像ファイルも公開可能だが、無料ユーザの場合、容量制限が300Mなので、
-画像ファイル置き場としてはあまり望ましくない。
-PHPファイルなどサーバサイドでの動的処理は動かない。</p>
-<p>この手段は、一部のオープンソースプロジェクトでよく利用されている。</p>
-<p>設定な方法詳細は、 <a class="reference external" href="http://pages.github.com/">GitHub Pages</a> を参照すれば詳しく書いてあるが
-ユーザごとのページ設定手順をざっと説明すると、以下の通り。</p>
-<ol class="arabic simple">
-<li>GitHubのユーザ名(アカウント)を tanarky とする</li>
-<li>tanarky.github.com というリポジトリを作成する</li>
-<li>リポジトリ直下にindex.htmlという名前のHTMLファイルをコミットし、pushする</li>
-<li><a class="reference external" href="http://tanarky.github.com/">http://tanarky.github.com/</a> で公開したHTMLが見えるようになる</li>
-</ol>
-<p>と、いたって簡単。</p>
-<p>tanarky.github.com というドメイン名が気に入らなければ、
-<strong>独自ドメイン設定も可能</strong> 。</p>
-<p>valuedomainなどで取得済みのドメイン名が <em>example.com</em> だった場合、</p>
-<p><em>github.example.com</em> というサブドメインで公開したければ、</p>
-<div class="highlight"><pre>cname github pages.github.com.
-</pre></div>
-<p>サブドメインではなく、 <em>example.com</em> で公開したければ、</p>
-<div class="highlight"><pre>a @ 207.97.227.245
-</pre></div>
-<p>と、どちらかお好みのDNS設定をする。</p>
-<p>次に、tanarky.github.comというリポジトリの直下に、 <em>CNAME</em> というファイル名で、
-中身に公開したい独自ドメイン名を書く。</p>
-<p><em>example.com</em> で公開したければ、</p>
-<div class="highlight"><pre>example.com
-</pre></div>
-<p>と1行書いて保存すればOK。</p>
-<p>これをgit pushして、DNSの設定が反映されれば設定完了。</p>
-<p>GitHubを用いることで、無料のHTMLサーバと、
-gitによるコード管理とバックアップ環境が、同時に無料で手に入ってしまった。</p>
-</div>
-<div class="section" id="blogofile">
-<h4><a class="toc-backref" href="#id11">Blogofileを使った記事+デザイン構築</a></h4>
-<p><a class="reference external" href="http://www.blogofile.com/">Blogofile</a> とは、markdown形式やrestructuredText形式のファイルから、
-静的HTMLをgenerateして、ブログページを構築してくれるPythonで書かれたツールのこと。</p>
-<p>1コマンドでカテゴリ分類やRSSなども一括でgenerateしてくれる。</p>
-<p>インストール方法、の前に、まずはPython環境を整える必要があるので、
-<a class="reference external" href="/blog/2011/10/26/001_python_development_environment/">Ubuntu11.10のPython開発環境を整備</a> を一読することをおすすめします。</p>
-<p>綺麗なPython環境ができたところで、インストール。</p>
-<div class="highlight"><pre>% pip install blogofile
-% cd ~/github/tanarky.github.com
-% mkdir _blogofile
-% cd _blogofile
-% blogofile init simple_blog
-% blogofile build
-</pre></div>
-<p>これで完了。
-ポイントとしては、ディレクトリ名を &quot;_blogofile&quot; と &quot;_&quot; から始まる名前にしておくこと。</p>
-<p>GitHub Page経由では、&quot;_&quot; から始まるファイル名やディレクトリ名は見えなくなるという仕様を利用するため。</p>
-<p>github経由でソースが見れるんだから意味ないじゃん、という言い分もあるが、
-GitHub Page経由では公開する必要がないファイルなので、
-公開したいファイルやディレクトリと明示的に区別するために、&quot;_&quot; から始まる名前にしておく。</p>
-<p>buildが終わったら、blogofileには、 <strong>Webサーバが同梱されている</strong> ので、</p>
-<div class="highlight"><pre>% blogofile serve 10080
-Blogofile server started on 127.0.0.1:10080 ...
-</pre></div>
-<p>などとWebサーバを起動させれば、http://localhost:10080/でサイトを確認することができる。</p>
-<p>投稿は、_blogofile/_post/ 以下に、markdown形式やrst形式などでファイルを置いておけば、
-build実行時に勝手にブログ記事にしてくれる。</p>
-<p>自分はrst形式に慣れているので、rst形式で記事を書いている。</p>
-</div>
-<div class="section" id="bootstrap-from-twitter">
-<h4><a class="toc-backref" href="#id12">Bootstrap from twitterを使ったデザイン</a></h4>
-<p>デザインを1から作るのは大変なので、使ったことがある jQuery UI を使おうか、と思ったが、
-このブログでは、勉強がてら、 <a class="reference external" href="http://twitter.github.com/bootstrap/">Bootstrap from twitter</a> を使ってみた。</p>
-<p>アイコンなどの画像は一切ついていないが、
-レイアウトなど、非常に直感的にデザインをいじることができるので満足している。</p>
-</div>
-<div class="section" id="disqus">
-<h4><a class="toc-backref" href="#id13">DISQUSなどブログパーツを用いたソーシャル対応など</a></h4>
-<p>動的な処理は一切動かないので、各種ブログパーツに委ねないと、なんとも寂しいブログになるので、
-好みのものを配置する。</p>
-<p>個人的に、あまりブログパーツを置き過ぎると表示が重くなるのと、
-見た目もごちゃごちゃするので、おいたのは以下のものだけ。</p>
-<ul class="simple">
-<li><a class="reference external" href="http://disqus.com/">DISQUS</a></li>
-<li><a class="reference external" href="http://twitter.com/about/resources/tweetbutton">twitter公式 tweet数表示widget</a></li>
-</ul>
-<p><a class="reference external" href="http://disqus.com/">DISQUS</a> は、Javascriptで動く、コメントやトラックバック機能を実現できるモジュールで、
-このブログの一番下にも貼ってあるブログパーツ。</p>
-<p>ログインしないとコメントさせない設定、など非常に機能が豊富で、
-何より静的なHTMLの中でこういう機能が実現できるのが嬉しい。</p>
-</div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id14">諦めた機能</a></h3>
-<p>静的なHTMLのブログ、ということでいくつか諦めた機能は以下。</p>
-<ul class="simple">
-<li>Smartphone用にページ表示を最適化して見せること</li>
-<li>時限式の記事反映（明日の12時に自動で反映されるように設定する、など）</li>
-<li>画像アップロード機能（画像はFlickrなどにまとめて置くようにする）</li>
-</ul>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id15">まとめ</a></h3>
-<p>長々と書いたが、上記のような構成のブログ環境は、アメリカなど海外ではやや浸透しつつある構成っぽい。
-ぐぐると英語のページが色々ひっかかったので。</p>
-<p>ただ、上記の設定内容を1つのページにまとめて書かれたものはなかったので、頑張って書いてみた次第。</p>
-<p>GitHubにpushしなくても、上述の通り、Blogofileにはwebサーバも同梱されているので、
-プライベートなブログとしてこっそり書くこともできるし、
-個人ブログという用途だけではなく、プロジェクトページや企業ページでも使えると思うので、
-興味を持った人は是非お試しください。</p>
-<p>Blogofileの動作変更、SEO対策、記事を書く上でのgit branchの使い方、など
-細かい設定点は他にも色々あるので、今後記事にしていく予定。</p>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
  <a href="../2">« Previous Page</a>
   --  
  <a href="../4">Next Page »</a>
@@ -371,6 +262,7 @@ build実行時に勝手にブログ記事にしてくれる。</p>
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2012/10/11/010_mysql_multi_on_mac">mysql_multiをmacにinstall</a></li>
     <li><a href="/blog/2012/03/12/00f_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
@@ -380,7 +272,6 @@ build実行時に勝手にブログ記事にしてくれる。</p>
     <li><a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5">CentOS 5.5 に python2.7環境を構築</a></li>
     <li><a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a></li>
     <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
-    <li><a href="/blog/2011/10/29/003_problems_of_web_tool_based_blog_service">既存ブログサービスの問題に対する考察</a></li>
   </ol>
 </div>
 
