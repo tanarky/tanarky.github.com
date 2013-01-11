@@ -1,0 +1,31 @@
+.PHONY: install
+
+PKG      = tanarky
+VENVROOT = /usr/share/pyenv/tanarky
+VENVBIN  = $(VENVROOT)/bin
+PYVER    = 2.7
+PYTHON   = $(VENVBIN)/python
+PIP      = $(VENVBIN)/pip
+
+clean:
+	rm -rf dist build src/*.egg-info
+
+activate:
+	$(PIP) install -r requirements.txt
+
+install: activate clean uninstall
+	$(PYTHON) setup.py test
+	$(PYTHON) setup.py sdist
+	$(PIP) install dist/*tar.gz
+
+init:
+	scripts/init_env_for_mac
+
+freeze: uninstall
+	$(PIP) freeze | tee requirements.txt
+
+uninstall:
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(PKG)*
+
+#server:
+#	$(PYTHON) $(VENVROOT)/lib/python$(PYVER)/site-packages/e/api.py
