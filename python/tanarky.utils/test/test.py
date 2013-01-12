@@ -4,7 +4,7 @@ import tanarky.utils.sig
 import tanarky.utils.caesar
 
 if __name__ == '__main__':
-    import logging, random
+    import logging, random, time
     logging.getLogger().setLevel(logging.DEBUG)
 
     # sig
@@ -26,21 +26,33 @@ if __name__ == '__main__':
 
     # cookie.login
     """
-    cookie_secret = 'zmVDRCilvXAcAe9R53IED3nLXlgaIuWw'
-    cookie_rot    = random.randrange(256)
-    cookie_login  = 'tanarky@yahoo.co.jp'
-    cookie_expsec = 60
-    c = tanarky.utils.cookie.Login()
-    c.get_name()
-    c.is_login()
+# cookie config
+cookie_secret = 'zmVDRCilvXAcAe9R53IED3nLXlgaIuWw'
+cookie_expire = 60
 
-    secret=cookie_secret,
-    expire=cookie_expsec,
-    name=cookie_login,
-    rot=cookie_rot,
-    )
+# cookie data
+cookie_key    = 'somekeystr'
+cookie_add    = {'m':'tanarky@yahoo.co.jp'}
 
-    cookie_l = '...'
-    cookie_t = '...'
-    tanarky.utils.login.is_login(l=l, t=t)
+# make object
+cookie = tanarky.cookie(secret=cookie_secret,
+                        expire=60)
+
+# has cookie data
+login = cookie.decrypt(L, T)
+
+if loggin:
+    logging.debug('key:      %s' % login.get('key'))
+    logging.debug('version:  %s' % login.get('version'))
+    logging.debug('is_login: %s' % login.get('is_login'))
+
+else:
+    logging.debug('guest')
+
+
+# no cookie data
+[L, T] = cookie.generate(key=cookie_key,
+                         additional=cookie_add,
+                         lang='ja_JP',
+                         intl='JP')
     """
