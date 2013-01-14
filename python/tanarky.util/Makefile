@@ -13,7 +13,7 @@ clean:
 activate:
 	$(PIP) install -r requirements.txt
 
-install: activate clean uninstall
+install: activate clean
 	$(PYTHON) setup.py test
 	$(PYTHON) setup.py sdist
 	$(PIP) install dist/*tar.gz
