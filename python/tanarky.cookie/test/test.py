@@ -1,32 +1,28 @@
 # coding: utf-8
 
-import tanarky.util.sig 
-import tanarky.util.caesar
+import logging
+from tanarky.cookie.login import Login
 
 if __name__ == '__main__':
-    import logging, random, time
     logging.getLogger().setLevel(logging.DEBUG)
 
-    teststr = 'cookie'
+    secret = 'zmVDRCilvXAcAe9R53IED3nLXlgaIuWw'
+    expire = 60
+    
+    ltcookie = Login(secret=secret,
+                     expire=expire)
 
-    # sig
-    sig = tanarky.util.sig.gen(teststr)
-    logging.info(sig)
-    logging.info(tanarky.util.caesar.encode(sig))
-    logging.info(tanarky.util.caesar.raw_encode(sig))
+    lt_key  = '1234567890'
+    lt_add  = {'m':'tanarky@yahoo.co.jp'}
+    lt_lang = 'ja_JP'
+    lt_intl = 'JP'
+    [L, T] = ltcookie.generate(key=lt_key,
+                               additional=lt_add,
+                               lang=lt_lang,
+                               intl=lt_intl)
 
-    # caesar
-    enc = tanarky.util.caesar.encode(teststr)
-    logging.info(enc)
-    dec = tanarky.util.caesar.decode(enc)
-    logging.info(dec)
-    n   = 120
-    enc = tanarky.util.caesar.encode(teststr, n)
-    logging.info(enc)
-    dec = tanarky.util.caesar.decode(enc, n)
-    logging.info(dec)
+    logging.debug(L)
 
-    # cookie.login
     """
 # cookie config
 cookie_secret = 'zmVDRCilvXAcAe9R53IED3nLXlgaIuWw'

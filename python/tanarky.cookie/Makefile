@@ -13,7 +13,7 @@ clean:
 activate:
 	$(PIP) install -r requirements.txt
 
-install: activate clean
+install: activate clean uninstall
 	$(PYTHON) setup.py test
 	$(PYTHON) setup.py sdist
 	$(PIP) install dist/*tar.gz
@@ -25,7 +25,5 @@ freeze: uninstall
 	$(PIP) freeze | tee requirements.txt
 
 uninstall:
-	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(PKG)*
-
-#server:
-#	$(PYTHON) $(VENVROOT)/lib/python$(PYVER)/site-packages/e/api.py
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/tanarky/cookie*
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/tanarky.cookie*
