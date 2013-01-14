@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    packages     = find_packages('src'),
+    namespace_packages=['tanarky'],
+    packages     = ['tanarky', 'tanarky.cookie'],
     package_dir  = {'':'src'},
-    namespace_packages=['tanarky', 'tanarky.cookie'],
     name        = 'tanarky.cookie',
     version     = '1.0',
     )

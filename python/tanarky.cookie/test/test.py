@@ -1,27 +1,29 @@
 # coding: utf-8
 
-import tanarky.utils.sig 
-import tanarky.utils.caesar
+import tanarky.util.sig 
+import tanarky.util.caesar
 
 if __name__ == '__main__':
     import logging, random, time
     logging.getLogger().setLevel(logging.DEBUG)
 
+    teststr = 'cookie'
+
     # sig
-    sig = tanarky.utils.sig.gen('foo')
+    sig = tanarky.util.sig.gen(teststr)
     logging.info(sig)
-    logging.info(tanarky.utils.caesar.encode(sig))
-    logging.info(tanarky.utils.caesar.raw_encode(sig))
+    logging.info(tanarky.util.caesar.encode(sig))
+    logging.info(tanarky.util.caesar.raw_encode(sig))
 
     # caesar
-    enc = tanarky.utils.caesar.encode('foo')
+    enc = tanarky.util.caesar.encode(teststr)
     logging.info(enc)
-    dec = tanarky.utils.caesar.decode(enc)
+    dec = tanarky.util.caesar.decode(enc)
     logging.info(dec)
     n   = 120
-    enc = tanarky.utils.caesar.encode('foo', n)
+    enc = tanarky.util.caesar.encode(teststr, n)
     logging.info(enc)
-    dec = tanarky.utils.caesar.decode(enc, n)
+    dec = tanarky.util.caesar.decode(enc, n)
     logging.info(dec)
 
     # cookie.login
