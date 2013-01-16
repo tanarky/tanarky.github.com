@@ -1,13 +1,13 @@
 # coding: utf-8
 
-import logging
+import logging, time
 from tanarky.cookie.login import Login
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.DEBUG)
 
     secret = 'zmVDRCilvXAcAe9R53IED3nLXlgaIuWw'
-    expire = 60
+    expire = 3
     
     ltcookie = Login(secret=secret,
                      expire=expire)
@@ -25,7 +25,8 @@ if __name__ == '__main__':
     logging.debug(T)
 
     logging.debug(ltcookie.decrypt(L, T))
-
+    time.sleep(5)
+    logging.debug(ltcookie.decrypt(L, T))
 
     """
 # cookie config

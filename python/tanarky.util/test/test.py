@@ -26,35 +26,15 @@ if __name__ == '__main__':
     dec = tanarky.util.caesar.decode(enc, n)
     logging.info(dec)
 
-    # cookie.login
-    """
-# cookie config
-cookie_secret = 'zmVDRCilvXAcAe9R53IED3nLXlgaIuWw'
-cookie_expire = 60
+    # NOT normal pattern
+    empty = ''
+    enc = tanarky.util.caesar.raw_encode(empty, n)
+    logging.info('empty raw endoded: (%s)' % enc)
+    logging.info('empty sig gen: (%s)' % tanarky.util.sig.gen(empty))
+    enc1 = tanarky.util.sig.gen(empty)
+    enc2 = tanarky.util.caesar.raw_encode(enc1, n)
+    logging.info('empty sig gen raw encoded1: (%s)' % enc1)
+    logging.info('empty sig gen raw encoded2: (%s)' % enc2)
+    dec1 = tanarky.util.caesar.raw_decode(enc2, n)
+    logging.info('empty sig gen raw encoded -> decoded1: (%s)' % dec1)
 
-# cookie data
-cookie_key    = 'somekeystr'
-cookie_add    = {'m':'tanarky@yahoo.co.jp'}
-
-# make object
-cookie = tanarky.cookie(secret=cookie_secret,
-                        expire=60)
-
-# has cookie data
-login = cookie.decrypt(L, T)
-
-if loggin:
-    logging.debug('key:      %s' % login.get('key'))
-    logging.debug('version:  %s' % login.get('version'))
-    logging.debug('is_login: %s' % login.get('is_login'))
-
-else:
-    logging.debug('guest')
-
-
-# no cookie data
-[L, T] = cookie.generate(key=cookie_key,
-                         additional=cookie_add,
-                         lang='ja_JP',
-                         intl='JP')
-    """
