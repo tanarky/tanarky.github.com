@@ -1,7 +1,8 @@
 .PHONY: install
 
-PKG      = tanarky
-VENVROOT = /usr/share/pyenv/tanarky
+NAMESPACE= tanarky
+NAME     = cookie
+VENVROOT = /usr/share/pyenv/$(NAMESPACE)
 VENVBIN  = $(VENVROOT)/bin
 PYVER    = 2.7
 PYTHON   = $(VENVBIN)/python
@@ -25,5 +26,5 @@ freeze: uninstall
 	$(PIP) freeze | tee requirements.txt
 
 uninstall:
-	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/tanarky/cookie*
-	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/tanarky.cookie*
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(NAMESPACE)/$(NAME)*
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(NAMESPACE).$(NAME)*

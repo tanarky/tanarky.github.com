@@ -22,6 +22,10 @@ if __name__ == '__main__':
                                intl=lt_intl)
 
     logging.debug(L)
+    logging.debug(T)
+
+    logging.debug(ltcookie.decrypt(L, T))
+
 
     """
 # cookie config

@@ -37,6 +37,12 @@ def encode(buf, N=10):
 def decode(buf, N=10):
     return base64.urlsafe_b64decode(raw_decode(buf, N))
 
+def encode_hex(num):
+    return hex(num)[2:]
+
+def decode_hex(numstr):
+    return int(numstr, 16)
+
 if __name__ == '__main__':
     import logging, sys
     logging.getLogger().setLevel(logging.DEBUG)

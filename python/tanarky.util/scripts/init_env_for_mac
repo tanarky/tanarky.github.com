@@ -10,6 +10,6 @@ sudo port selfupdate
 sudo port install python27 python26 py27-virtualenv
 /opt/local/bin/virtualenv-2.7 $VENV --distribute --python=/opt/local/bin/python2.7
 mkdir bin
-#ln -s $VENV/bin/activate bin/activate
+ln -s $VENV/bin/activate bin/activate
 
 

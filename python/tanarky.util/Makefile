@@ -1,7 +1,8 @@
 .PHONY: install
 
-PKG      = tanarky
-VENVROOT = /usr/share/pyenv/tanarky
+NAMESPACE= tanarky
+NAME     = util
+VENVROOT = /usr/share/pyenv/$(NAMESPACE)
 VENVBIN  = $(VENVROOT)/bin
 PYVER    = 2.7
 PYTHON   = $(VENVBIN)/python
@@ -13,7 +14,7 @@ clean:
 activate:
 	$(PIP) install -r requirements.txt
 
-install: activate clean
+install: activate clean uninstall
 	$(PYTHON) setup.py test
 	$(PYTHON) setup.py sdist
 	$(PIP) install dist/*tar.gz
@@ -25,7 +26,8 @@ freeze: uninstall
 	$(PIP) freeze | tee requirements.txt
 
 uninstall:
-	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(PKG)*
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(NAMESPACE)/$(NAME)*
+	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(NAMESPACE).$(NAME)*
 
 #server:
 #	$(PYTHON) $(VENVROOT)/lib/python$(PYVER)/site-packages/e/api.py
