@@ -1,10 +1,6 @@
 {% extends "base_with_header.html" %}
 {% block content %}
-    <div class="alert alert-success">
-      hello message: {{ T.hello }}
-    </div>
-<ul>
-  <li><a href="{{ url_for('login') }}">Login</a></li>
-  <li><a href="{{ url_for('logout') }}">Logout</a></li>
-</ul>
+<h1>hello message: {{ T.hello }}</h1>
+
+{% include 'mod_link.html' %}
 {% endblock %}
