@@ -9,6 +9,8 @@ setup(
     package_data = {
         'tanarky': ['login/translations/*/LC_MESSAGES/*.mo',
                     'login/templates/*.html',
+                    'login/static/js/*.js',
+#                    'login/static/img/*',
                     'login/static/css/*.css'],
         },
     )

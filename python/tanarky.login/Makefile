@@ -32,6 +32,10 @@ babel_init:
 	pybabel init -i messages.pot -d src/tanarky/login/translations -l ja_JP
 	pybabel init -i messages.pot -d src/tanarky/login/translations -l en_US
 
+babel_update:
+	pybabel update -i messages.pot -d src/tanarky/login/translations -l ja_JP
+	pybabel update -i messages.pot -d src/tanarky/login/translations -l en_US
+
 babel_compile:
 	pybabel compile -d src/tanarky/login/translations
 

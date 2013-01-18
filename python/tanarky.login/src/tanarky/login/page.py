@@ -4,9 +4,10 @@ import urllib, urlparse, random, logging, time
 from tanarky.util.caesar import encode, decode, encode_hex, decode_hex, raw_encode, raw_decode
 from tanarky.util.sig    import gen as sig_gen
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for, flash
 from flaskext.babel import Babel, lazy_gettext, gettext, refresh
 app = Flask(__name__)
+app.secret_key = 'tanarky'
 # app.config.from_pyfile('mysettings.cfg')
 babel = Babel(app)
 
@@ -17,9 +18,28 @@ def get_locale():
     return locale
 
 @app.route('/')
-def hello_world():
+def index():
     T = {'hello': gettext(u'hello world')}
     return render_template('index.html', T=T)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    T = {'hello': gettext(u'hello world')}
+    if request.method == 'POST':
+        if request.form.get('email') == 'tanarky@gmail.com' and request.form.get('password') == 'hoge':
+            flash('You were successfully logged in', 'success')
+            next = request.args.get('next', url_for('index'))
+            return redirect(next)
+        else:
+            flash('invalid login id or password', 'error')
+            return redirect(url_for('login'))
+
+    return render_template('login.html', T=T)
+
+@app.route('/logout')
+def logout():
+    flash('logout success', 'success')
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.DEBUG)
