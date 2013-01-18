@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ T.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/bootstrap.7.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/common.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}" rel="stylesheet">
+  </head>
+  <body>
+
+    {% include 'mod_header.html' %}
+
+    <div class="container">
+      {% include 'mod_message.html' %}
+
+      {% block content %}{% endblock %}
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  </body>
+</html>
