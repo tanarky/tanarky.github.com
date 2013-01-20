@@ -8,13 +8,13 @@ PYVER    = 2.7
 PYTHON   = $(VENVBIN)/python
 PIP      = $(VENVBIN)/pip
 
-clean:
+clean: babel_clean
 	rm -rf dist build src/*.egg-info
 
 activate:
 	$(PIP) install -r requirements.txt
 
-install: activate clean uninstall
+install: activate clean uninstall babel_update babel_compile
 	$(PYTHON) setup.py test
 	$(PYTHON) setup.py sdist
 	$(PIP) install dist/*tar.gz
@@ -38,6 +38,9 @@ babel_update:
 
 babel_compile:
 	pybabel compile -d src/tanarky/login/translations
+
+babel_clean:
+	find . -name "*\.mo" | xargs rm
 
 uninstall:
 	rm -rf $(VENVROOT)/lib/python$(PYVER)/site-packages/$(NAMESPACE)/$(NAME)*

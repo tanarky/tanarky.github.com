@@ -1,5 +1,5 @@
 # coding: utf-8
-import urllib, urlparse, random, logging, time, binascii
+import urllib, urlparse, random, logging, time, binascii, datetime
 
 from flask import Flask, request, render_template, redirect, url_for, flash
 from flaskext.babel import Babel, lazy_gettext, gettext, refresh
@@ -52,7 +52,10 @@ def login():
 @app.route('/logout')
 def logout():
     flash('logout success', 'success')
-    return redirect(url_for('index'))
+    resp = app.make_response(redirect(url_for('index')))
+    resp.set_cookie('L', value='', max_age=0)
+    resp.set_cookie('T', value='', max_age=0)
+    return resp
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.DEBUG)
