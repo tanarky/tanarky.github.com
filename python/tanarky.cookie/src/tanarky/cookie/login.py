@@ -96,7 +96,7 @@ class Login(object):
 
             ret = {'key': k,
                    'expired': expired,
-                   'additinal': a,
+                   'additional': a,
                    'lang': l.get('l'),
                    'intl': l.get('i')}
 

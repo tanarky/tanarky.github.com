@@ -9,11 +9,31 @@ class User(object):
         expire = 10
         clogin = CookieLogin(secret=secret,
                              expire=expire)
-        self.cookie_login = clogin
 
-        self.is_login = False
-        self.id       = None
-        self.email    = None
+        self.cookie_login = clogin
+        self.status = 0
+        self.id     = None
+        self.email  = None
+
+        try:
+            login = clogin.decrypt(L, T)
+            if login:
+                if login.get('expired'):
+                    self.status = 2
+                else:
+                    self.status = 1
+
+                self.id    = login.get('key')
+                self.email = login.get('additional').get('m')
+            logging.debug(login)
+        except:
+            logging.debug('some error in cookie login process')
+
+    def is_expired(self):
+        ret = False
+        if self.status == 2:
+            ret = True
+        return ret
 
     def login(self, email, password):
 

@@ -2,5 +2,7 @@
 {% block content %}
 <h1>hello message: {{ T.hello }}</h1>
 
+<h2>{{ T.user.email }}{% if T.user.is_expired() %}(Expired){% endif %}</h2>
+
 {% include 'mod_link.html' %}
 {% endblock %}

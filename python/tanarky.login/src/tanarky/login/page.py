@@ -16,9 +16,17 @@ def get_locale():
     logging.debug("locale: %s" % locale)
     return locale
 
+def init_page(T={}):
+    T['user'] = User(request.cookies.get('L'),
+                     request.cookies.get('T'))
+    return T
+
 @app.route('/')
 def index():
-    T = {'hello': gettext(u'hello world')}
+    T = init_page()
+    logging.debug(T['user'].id)
+    logging.debug(T['user'].email)
+    T['hello'] = gettext(u'hello world')
     return render_template('index.html', T=T)
 
 @app.route('/login', methods=['GET', 'POST'])
