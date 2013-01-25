@@ -1,5 +1,5 @@
 # coding: utf-8
-import urllib, urlparse, random, logging, time, binascii
+import urllib, urlparse, random, logging, time, binascii, sys, traceback
 
 from tanarky.cookie.login import Login as CookieLogin
 
@@ -24,10 +24,13 @@ class User(object):
                     self.status = 1
 
                 self.id    = login.get('key')
-                self.email = login.get('additional').get('m')
+                self.email = login.get('additional',{}).get('m')
             logging.debug(login)
         except:
-            logging.debug('some error in cookie login process')
+            self.status = 0
+            self.id     = None
+            self.email  = None
+            logging.error(traceback.format_exc())
 
     def is_expired(self):
         ret = False
