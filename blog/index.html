@@ -55,6 +55,53 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="ssh-の-lオプション(port-forward)"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 10:00 AM | categories: 
+
+<a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ssh'>ssh</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
+<pre class="literal-block">
+ssh 192.168.100.10 -A -L 8080:localhost:8000
+    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
+    1                 2
+</pre>
+<ol class="arabic simple">
+<li>vagrant hostのIP</li>
+<li>local port:vagrant host name or IP:vagrant host port
+母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
+</ol>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="mysql_multiをmacにinstall"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/10/11/010_mysql_multi_on_mac" rel="bookmark" title="Permanent Link to mysql_multiをmacにinstall">mysql_multiをmacにinstall</a>
@@ -172,76 +219,34 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
-  <a name="rhino/node-javascript実行環境構築-on-macbook"></a>
+  <a name="vagrant-version-up-and-plugin-install"></a>
   <h2 class="blog_post_title">
-    <a href="/blog/2012/03/12/00f_javascript_env_on_macbook" rel="bookmark" title="Permanent Link to Rhino/Node Javascript実行環境構築 on Macbook">Rhino/Node Javascript実行環境構築 on Macbook</a>
+    <a href="/blog/2012/10/06/012_install_vagrant_aws" rel="bookmark" title="Permanent Link to vagrant version up and plugin install">vagrant version up and plugin install</a>
   </h2>
-  <div class="post_meta">March 12, 2012 at 02:00 PM | categories: 
+  <div class="post_meta">October 06, 2012 at 11:00 AM | categories: 
 
-<a href='/blog/category/javascript'>javascript</a>, <a href='/blog/category/env'>env</a>, <a href='/blog/category/install'>install</a>
+<a href='/blog/category/aws'>aws</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/vagrant'>vagrant</a>
 
- | <a href="http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook#disqus_thread">View Comments</a>
+ | <a href="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws#disqus_thread">View Comments</a>
 
 </div>
   <div class="post_prose">
     <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#rhino" id="id3">Rhino</a></li>
-<li><a class="reference internal" href="#node" id="id4">Node</a></li>
-</ul>
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
 </div>
-<p>Macbookにて、Javascript実行環境を整えたので、その際の手順履歴</p>
-<div class="section" id="rhino">
-<h3><a class="toc-backref" href="#id3">Rhino</a></h3>
-<p>Rhino = Java実装のJavascript実行環境</p>
-<p>その他の言語のJava実装は以下のものがある</p>
-<div class="highlight"><pre>Jython - port of Python.
-JRuby - port of Ruby.
-Rhino - port of ECMAScript.
-Clojure - Lisp dialect.
-Groovy - Scripting language for the JVM.
-Scala - object-oriented, functional language for the JVM.
-</pre></div>
-<p>Macにinstallするには、brew installで一発。</p>
-<p>2012/03/12 時点でinstallされるversionは1.7R3</p>
-<div class="highlight"><pre>brew install rhino
-</pre></div>
-<p>実行するには以下のjarを指定する。-eでコードを直接渡す。</p>
-<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello world!&#39;);&quot;
-java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar&#39;);&quot;
-hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
-%
-</pre></div>
-<p>インタラクティブシェルは以下の通りに実行できる</p>
-<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
-Rhino 1.7 release 3 2011 05 09
-js&gt; print(&#39;hello world!&#39;);
-hello world!
-js&gt;
-</pre></div>
-<p><a class="reference external" href="https://developer.mozilla.org/ja/Rhino">Rhino</a></p>
-</div>
-<div class="section" id="node">
-<h3><a class="toc-backref" href="#id4">Node</a></h3>
-<p><a class="reference external" href="http://nodejs.org/">http://nodejs.org/</a></p>
-<p>こちらもJavascript実行環境。実装はV8だったりSpiderMondkeyだったり。</p>
-<p>同じく、brew installにて。</p>
-<div class="highlight"><pre>% brew install node
-</pre></div>
-<p>npmと単体テストフレームワークもついでにinstall</p>
-<div class="highlight"><pre>% git clone git://github.com/creationix/nvm.git ~/.nvm
-% nvm install v0.6.12
-% nvm alias default v0.6.12
-% source ~/.nvm/nvm.sh
-% curl http://npmjs.org/install.sh | sh
-% npm install nodeunit
-% ln -s $HOME/.npm/nodeunit/0.7.4/package/bin/nodeunit $HOME/bin/nodeunit
-</pre></div>
-<ul class="simple">
-<li><a class="reference external" href="http://d.hatena.ne.jp/ToQoz/20120312/1331512182">zsh on mac で nvm -&gt; nvm_ls:17: no matches found: vdefault* 対処</a></li>
-</ul>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
 </div>
 </div>
 
@@ -249,83 +254,7 @@ js&gt;
 </div>
 
 
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="thinkpad-x100eのキーボード設定メモ"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" rel="bookmark" title="Permanent Link to thinkpad x100eのキーボード設定メモ">thinkpad x100eのキーボード設定メモ</a>
-  </h2>
-  <div class="post_meta">February 21, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/tips'>tips</a>
-
- | <a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document" id="thinkpad-x100e">
-<h1 class="title">thinkpad x100eのキーボード設定メモ</h1>
-<p>Macbook Proとの使い分けをするために、
-できるだけ似たようなキー操作になるように模索したメモ</p>
-<p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
-<ol class="arabic simple">
-<li>システム設定の&quot;キーボードレイアウト&quot;を開き、オプションで以下の設定をする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>Alt/Winキーの操作 -&gt; デフォルトのまま</li>
-<li>Ctrlキーの位置 -&gt; &quot;Make Caps Lock an additional Ctrl&quot;</li>
-</ol>
-</blockquote>
-<ol class="arabic simple" start="2">
-<li>IBusの設定(Input Methods)を開いた以下の設定をする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>入力モードの切り替えを、Alt+Spaceにする</li>
-<li>言語パネルはメニューに組み込む</li>
-</ol>
-</blockquote>
-<ol class="arabic simple" start="3">
-<li>システム設定の&quot;キーボード&quot;を開き、ショートカットを以下の設定とする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>&quot;ウィンドウメニューをアクティブにする&quot;ショートカットをWin+Spaceに</li>
-</ol>
-</blockquote>
-<p>これにより、</p>
-<ul class="simple">
-<li>Alt+TabでWindow切り替えができる。
-MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、同じキー</li>
-<li>Alt+Spaceで入力切り替えが出来る。
-MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、これも同じキー</li>
-<li>Win+Spaceでウィンドウメニューを開ける。
-Macだと別ショートカットなので、これに割り当ててもよし</li>
-</ul>
-<p>以上。</p>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">Read and Post Comments</a></div>
+  <div class="after_post"><a href="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
  <a href="/blog/page/2">Next Page »</a>
 
@@ -335,7 +264,9 @@ Macだと別ショートカットなので、これに割り当ててもよし</
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/05/06/011_how_to_port_foward">ssh の Lオプション(port forward)</a></li>
     <li><a href="/blog/2012/10/11/010_mysql_multi_on_mac">mysql_multiをmacにinstall</a></li>
+    <li><a href="/blog/2012/10/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
     <li><a href="/blog/2012/03/12/00f_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
@@ -343,8 +274,6 @@ Macだと別ショートカットなので、これに割り当ててもよし</
     <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
     <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
     <li><a href="/blog/2011/11/16/005_python_2.7_install_on_centos_5.5">CentOS 5.5 に python2.7環境を構築</a></li>
-    <li><a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a></li>
-    <li><a href="/blog/2011/10/29/002_github_blogofile_original_domain">githubとblogofileで独自ドメイン無料Blog環境構築</a></li>
   </ol>
 </div>
 

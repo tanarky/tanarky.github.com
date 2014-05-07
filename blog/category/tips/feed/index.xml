@@ -10,10 +10,62 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Mon, 12 Mar 2012 05:28:42 GMT</pubDate>
+    <pubDate>Wed, 07 May 2014 05:44:40 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>ssh の Lオプション(port forward)</title>
+      <link>http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</link>
+      <pubDate>Tue, 06 May 2014 10:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <category><![CDATA[ssh]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</guid>
+      <description>ssh の Lオプション(port forward)</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
+<pre class="literal-block">
+ssh 192.168.100.10 -A -L 8080:localhost:8000
+    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
+    1                 2
+</pre>
+<ol class="arabic simple">
+<li>vagrant hostのIP</li>
+<li>local port:vagrant host name or IP:vagrant host port
+母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>vagrant version up and plugin install</title>
+      <link>http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws</link>
+      <pubDate>Sat, 06 Oct 2012 11:00:00 JST</pubDate>
+      <category><![CDATA[aws]]></category>
+      <category><![CDATA[tips]]></category>
+      <category><![CDATA[vagrant]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws</guid>
+      <description>vagrant version up and plugin install</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
+</div>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>thinkpad x100eのキーボード設定メモ</title>
       <link>http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config</link>
@@ -535,7 +587,7 @@ GitHub Page経由では公開する必要がないファイルなので、
 <div class="highlight"><pre>% blogofile serve 10080
 Blogofile server started on 127.0.0.1:10080 ...
 </pre></div>
-<p>などとWebサーバを起動させれば、http://localhost:10080/でサイトを確認することができる。</p>
+<p>などとWebサーバを起動させれば、<a class="reference external" href="http://localhost:10080">http://localhost:10080</a>/でサイトを確認することができる。</p>
 <p>投稿は、_blogofile/_post/ 以下に、markdown形式やrst形式などでファイルを置いておけば、
 build実行時に勝手にブログ記事にしてくれる。</p>
 <p>自分はrst形式に慣れているので、rst形式で記事を書いている。</p>
@@ -686,74 +738,6 @@ Javascriptも同様の形で埋めこむので、デザインテンプレート�
 <li>無料であること（無料のサービス、またはそれらを組み合わせて環境構築できること）</li>
 <li>環境を構築するための開発は必要最低限であること</li>
 </ol>
-</div>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Ubuntu11.10のPython開発環境を整備</title>
-      <link>http://tanarky.com/blog/2011/10/26/001_python_development_environment</link>
-      <pubDate>Wed, 26 Oct 2011 15:22:00 JST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[tips]]></category>
-      <category><![CDATA[ubuntu]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2011/10/26/001_python_development_environment</guid>
-      <description>Ubuntu11.10のPython開発環境を整備</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
-<li><a class="reference internal" href="#id3" id="id6">インストール手順</a></li>
-<li><a class="reference internal" href="#id4" id="id7">参考リンク</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">背景</a></h3>
-<p>Google AppEngineで使い始めたのをきっかけにPythonにハマっている。
-ハマった理由は以下の通り。</p>
-<ul class="simple">
-<li>標準で備わってる機能が多い(CSV parserなど)</li>
-<li>Cのライブラリ連携が楽そう(ctypesなど)</li>
-<li>PyPI(PerlにおけるCPAN)パッケージが充実している</li>
-<li>など</li>
-</ul>
-<p>ただ、パッケージが充実しているのはいいが、
-野良CPANパッケージをinstallすると環境が汚れたり、
-ちょっとお試しでinstallしたい場合に躊躇してしまう(Perlも同様)</p>
-<p>pythonの場合、virtualenvを使えば、pythonのバージョン違いも含めて、
-複数のpython環境を自分のHOMEディレクトリ以下で簡単に管理できるので、
-その設定手順をまとめる</p>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id6">インストール手順</a></h3>
-<div class="highlight"><pre>% sudo aptitude install python-virtualenv virtualwrapper
-% sudo aptitude install python3.2 python3.2-dev
-% mkvirtualenv -p /usr/bin/python2.7 2.7.2
-% mkvirtualenv -p /usr/bin/python3.2 3.2.2
-</pre></div>
-<p>パッケージをinstallできたら、
-以下を.zshrcに追加</p>
-<div class="highlight"><pre>[ -f $HOME/.pythonbrew/etc/bashrc ] &amp;&amp; source $HOME/.pythonbrew/etc/bashrc
-[ -f /etc/bash_completion.d/virtualenvwrapper ] &amp;&amp; source /etc/bash_completion.d/virtualenvwrapper
-workon 2.7.2
-</pre></div>
-<p>これで準備は完了</p>
-<p>後はterminal上で、&quot;workon 2.7.2&quot; や &quot;workon 3.2.2&quot; などと打てば
-(python versionが異なる)環境を瞬時に切り替えられる</p>
-<p>これで環境ごとにパッケージを完全に別で管理できるので、
-とりあえずインストールして使ってみるsandbox環境として別に1つ用意するのも、あり。</p>
-<p>pythonbrewなどのwrapperも調べたが、自分の中では上記の手順で今のところ満足。
-Pythonの強みは環境構築の簡単さだと思っている。特にUbuntuとは相性がいい。</p>
-<p>ちなみに、Perlにはperlbrewが、RubyにはRVMがあり、それぞれ複数環境を管理できる。</p>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id7">参考リンク</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://www.ianlewis.org/jp/virtualenv-pip-fabric">virtualenv, virtualenvwrapper, pip を使う方法 - Ian Lewis</a></li>
-<li><a class="reference external" href="http://stackoverflow.com/questions/1534210/use-different-python-version-with-virtualenv">Use different Python version with virtualenv - Stack Overflow</a></li>
-<li><a class="reference external" href="http://d.hatena.ne.jp/pasela/20110704/pythonbrew">Macにpythonbrew+virtualenvでPython環境を作ってみた</a></li>
-</ul>
 </div>
 </div>
 ]]></content:encoded>

@@ -10,7 +10,7 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Mon, 12 Mar 2012 05:28:42 GMT</pubDate>
+    <pubDate>Wed, 07 May 2014 04:27:48 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -412,7 +412,7 @@ GitHub Page経由では公開する必要がないファイルなので、
 <div class="highlight"><pre>% blogofile serve 10080
 Blogofile server started on 127.0.0.1:10080 ...
 </pre></div>
-<p>などとWebサーバを起動させれば、http://localhost:10080/でサイトを確認することができる。</p>
+<p>などとWebサーバを起動させれば、<a class="reference external" href="http://localhost:10080">http://localhost:10080</a>/でサイトを確認することができる。</p>
 <p>投稿は、_blogofile/_post/ 以下に、markdown形式やrst形式などでファイルを置いておけば、
 build実行時に勝手にブログ記事にしてくれる。</p>
 <p>自分はrst形式に慣れているので、rst形式で記事を書いている。</p>

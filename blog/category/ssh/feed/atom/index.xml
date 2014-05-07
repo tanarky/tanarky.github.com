@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed
+  xmlns="http://www.w3.org/2005/Atom"
+  xmlns:thr="http://purl.org/syndication/thread/1.0"
+  xml:lang="en"
+   >
+  <title type="text">tanarky.com</title>
+  <subtitle type="text">tanarky website</subtitle>
+  <updated>2014-05-07T05:44:40Z</updated>
+  <generator uri="http://blogofile.com/">Blogofile</generator>
+  <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
+  <id>http://tanarky.com/blog/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://tanarky.com/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
+    <title type="html"><![CDATA[ssh の Lオプション(port forward)]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward" />
+    <id>http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</id>
+    <updated>2014-05-07T05:44:40Z</updated>
+    <published>2014-05-06T10:00:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <category scheme="http://tanarky.com/blog" term="ssh" />
+    <summary type="html"><![CDATA[ssh の Lオプション(port forward)]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward"><![CDATA[<div class="document">
+<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
+<pre class="literal-block">
+ssh 192.168.100.10 -A -L 8080:localhost:8000
+    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
+    1                 2
+</pre>
+<ol class="arabic simple">
+<li>vagrant hostのIP</li>
+<li>local port:vagrant host name or IP:vagrant host port
+母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
+</ol>
+</div>
+]]></content>
+  </entry>
+</feed>

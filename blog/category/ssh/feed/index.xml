@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>tanarky.com</title>
+    <link>http://tanarky.com/blog</link>
+    <description>tanarky website</description>
+    <pubDate>Wed, 07 May 2014 05:44:40 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>ssh の Lオプション(port forward)</title>
+      <link>http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</link>
+      <pubDate>Tue, 06 May 2014 10:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <category><![CDATA[ssh]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</guid>
+      <description>ssh の Lオプション(port forward)</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
+<pre class="literal-block">
+ssh 192.168.100.10 -A -L 8080:localhost:8000
+    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
+    1                 2
+</pre>
+<ol class="arabic simple">
+<li>vagrant hostのIP</li>
+<li>local port:vagrant host name or IP:vagrant host port
+母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

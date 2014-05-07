@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2012-03-12T05:28:42Z</updated>
+  <updated>2014-05-07T04:27:48Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[(できるだけ)ポータブルなPython開発環境]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env" />
     <id>http://tanarky.com/blog/2012/01/20/00a_portable_python_env</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2012-01-20T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -176,7 +176,7 @@ if __name__ == &#39;__main__&#39;:
     <title type="html"><![CDATA[PythonでQRコード生成]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/12/19/008_python_qrcode" />
     <id>http://tanarky.com/blog/2011/12/19/008_python_qrcode</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2011-12-19T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -225,7 +225,7 @@ if __name__ == &#39;__main__&#39;:
     <title type="html"><![CDATA[CentOS 5.5 に python2.7環境を構築]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5" />
     <id>http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2011-11-16T00:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -297,7 +297,7 @@ source /usr/local/bin/virtualenvwrapper.sh
     <title type="html"><![CDATA[Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64" />
     <id>http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2011-11-09T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -335,7 +335,7 @@ source /usr/local/bin/virtualenvwrapper.sh
     <title type="html"><![CDATA[githubとblogofileで独自ドメイン無料Blog環境構築]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain" />
     <id>http://tanarky.com/blog/2011/10/29/002_github_blogofile_original_domain</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2011-10-29T20:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -434,7 +434,7 @@ GitHub Page経由では公開する必要がないファイルなので、
 <div class="highlight"><pre>% blogofile serve 10080
 Blogofile server started on 127.0.0.1:10080 ...
 </pre></div>
-<p>などとWebサーバを起動させれば、http://localhost:10080/でサイトを確認することができる。</p>
+<p>などとWebサーバを起動させれば、<a class="reference external" href="http://localhost:10080">http://localhost:10080</a>/でサイトを確認することができる。</p>
 <p>投稿は、_blogofile/_post/ 以下に、markdown形式やrst形式などでファイルを置いておけば、
 build実行時に勝手にブログ記事にしてくれる。</p>
 <p>自分はrst形式に慣れているので、rst形式で記事を書いている。</p>
@@ -494,7 +494,7 @@ build実行時に勝手にブログ記事にしてくれる。</p>
     <title type="html"><![CDATA[既存ブログサービスの問題に対する考察]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service" />
     <id>http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2011-10-29T19:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -602,7 +602,7 @@ Javascriptも同様の形で埋めこむので、デザインテンプレート�
     <title type="html"><![CDATA[Ubuntu11.10のPython開発環境を整備]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/26/001_python_development_environment" />
     <id>http://tanarky.com/blog/2011/10/26/001_python_development_environment</id>
-    <updated>2012-03-12T05:28:42Z</updated>
+    <updated>2014-05-07T04:27:48Z</updated>
     <published>2011-10-26T15:22:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
