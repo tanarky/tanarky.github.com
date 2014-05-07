@@ -6,11 +6,49 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2014-05-07T06:45:54Z</updated>
+  <updated>2014-05-07T08:52:28Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
   <link rel="self" type="application/atom+xml" href="http://tanarky.com/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
+    <title type="html"><![CDATA[wildcard DNS for any IP address なサービスの xip.io を使ってみた]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/013_xip_io" />
+    <id>http://tanarky.com/blog/2014/05/06/013_xip_io</id>
+    <updated>2014-05-07T08:52:28Z</updated>
+    <published>2014-05-06T15:00:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <summary type="html"><![CDATA[wildcard DNS for any IP address なサービスの xip.io を使ってみた]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2014/05/06/013_xip_io"><![CDATA[<div class="document">
+<p><a class="reference external" href="http://xio.io/">http://xio.io/</a> provides wildcard DNS for any IP address.</p>
+<p>というわけで使ってみたメモ。</p>
+<p>任意のportで受け付けるには、以下の様に一旦80番ポートで受けてからサブドメインで再度proxyするようにnginxを設定した</p>
+<div class="highlight"><pre>http://port8000.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
+http://port8080.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
+</pre></div>
+<p>自分のサーバに置くnginx confのサンプルは以下の通り。</p>
+<div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+
+  <span class="kn">server_name</span> <span class="s">&quot;~^port(\d+)\.([^.]+\.[^.]+)\.((?:\d</span><span class="p">{</span><span class="kn">1,3}\.){3}\d{1,3})\.xip\.io$&quot;</span><span class="p">;</span>
+
+  <span class="kn">access_log</span>  <span class="s">/var/log/nginx/dev.access.log</span><span class="p">;</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">proxy_set_header</span> <span class="s">host</span> <span class="nv">$host</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-real-ip</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-forwarded-for</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:</span><span class="nv">$1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+]]></content>
+  </entry>
   <entry>
     <author>
       <name></name>
@@ -677,114 +715,6 @@ build実行時に勝手にブログ記事にしてくれる。</p>
 興味を持った人は是非お試しください。</p>
 <p>Blogofileの動作変更、SEO対策、記事を書く上でのgit branchの使い方、など
 細かい設定点は他にも色々あるので、今後記事にしていく予定。</p>
-</div>
-</div>
-]]></content>
-  </entry>
-  <entry>
-    <author>
-      <name></name>
-      <uri>http://tanarky.com/blog</uri>
-    </author>
-    <title type="html"><![CDATA[既存ブログサービスの問題に対する考察]]></title>
-    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service" />
-    <id>http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service</id>
-    <updated>2014-05-07T04:27:48Z</updated>
-    <published>2011-10-29T19:00:00Z</published>
-    <category scheme="http://tanarky.com/blog" term="python" />
-    <category scheme="http://tanarky.com/blog" term="tips" />
-    <category scheme="http://tanarky.com/blog" term="ubuntu" />
-    <summary type="html"><![CDATA[既存ブログサービスの問題に対する考察]]></summary>
-    <content type="html" xml:base="http://tanarky.com/blog/2011/10/29/003_problems_of_web_tool_based_blog_service"><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id8">背景</a></li>
-<li><a class="reference internal" href="#id3" id="id9">考察</a><ul>
-<li><a class="reference internal" href="#id4" id="id10">ブログ記事を書くためのツール問題</a></li>
-<li><a class="reference internal" href="#id5" id="id11">ブログのデザインを設定するツール問題</a></li>
-<li><a class="reference internal" href="#id6" id="id12">ブログを公開する環境の問題</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id7" id="id13">まとめ</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id8">背景</a></h3>
-<p>2009/08 - 2010/07まで、ブログを1年間毎日更新する、という目標を掲げて、
-365記事以上書き、アクセスを増やした中で一番感じたことは、</p>
-<p><strong>ブログを更新することは面倒である</strong></p>
-<p>ということだった。</p>
-<p>自分で書きためたネタを、時間がたって忘れたときに自分で検索して思い出したり、
-書くことで頭が整理された、などの多大なメリットがあったにも関わらず、
-最終的には、 <em>面倒</em> がメリットをうわまって更新を続けられなくなってしまった。</p>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id9">考察</a></h3>
-<p>この <em>面倒</em> の原因をざっと分けると、</p>
-<ol class="arabic simple">
-<li>ネタの問題、記事のクオリティの問題</li>
-<li>環境やツールの問題</li>
-</ol>
-<p>上記の2点。</p>
-<p>1に関しては慣れの問題である程度解消したりもしたが、
-2に関してはブログを書き続けても解消されるどころか、問題がどんどん深刻化した。</p>
-<p>深刻化した問題とは、</p>
-<ol class="arabic simple">
-<li>ブログ記事を書くためのツール問題</li>
-<li>ブログのデザインを設定するツール問題</li>
-<li>ブログを公開する環境の問題</li>
-</ol>
-<p>の3つ。</p>
-<p>以下でそれぞれ考察してみる。</p>
-<div class="section" id="id4">
-<h4><a class="toc-backref" href="#id10">ブログ記事を書くためのツール問題</a></h4>
-<p>まずは、ブログツールにログインして、ブラウザ上で編集する、という行為が面倒だった。</p>
-<p>当然ログインが必要だし、ブラウザ上で編集するためいちいち煩わしい。
-小さいテキストエリアでちまちま編集しなきゃいけないし、
-各画面間の遷移も積み重なってくるとイライラする。</p>
-<p>加えて、たとえWYSIWYGという補助ツールがあっても、
-文書をちょっと装飾するためにHTMLを書くのはちょっと苦行すぎる。
-HTMLで記事を書くと、全体デザインを変えたときに記事とのミスマッチが生じて、
-結局気になって、記事のHTMLまで編集する羽目になる。</p>
-<p>一番問題なのは、記事のバージョン管理ができないこと。
-前回との差分をdiff形式で見れないなんて効率が悪すぎる。</p>
-</div>
-<div class="section" id="id5">
-<h4><a class="toc-backref" href="#id11">ブログのデザインを設定するツール問題</a></h4>
-<p>記事ツールの問題と同様、たいていのブログサービスでは、
-テンプレート中にCSSを埋め込む形式なので管理が煩雑。
-Javascriptも同様の形で埋めこむので、デザインテンプレートを直接編集するのは至難の業。</p>
-<p>で、必死こいて編集したテンプレートファイルはバージョン管理できないので、
-以前の状態に戻すには自分でバックアップを取っておくしかない。</p>
-</div>
-<div class="section" id="id6">
-<h4><a class="toc-backref" href="#id12">ブログを公開する環境の問題</a></h4>
-<p>じゃあ、自分でブログサービス作ればいいじゃん、となるが、
-ブログに対してそんな熱意はない。</p>
-<p>ブログを書く本来の目的は、ブログを書いて知識をためることであって、
-ブログ自体を作ることじゃないので、本末転倒はしたくない。</p>
-<p>レンタルサーバに、WordPressやらMTやらを入れて、
-最低限のカスタマイズをして運用する、という方法も、レンタルサーバ代がかかるし、
-両方共Webツールなので、問題の解消にならない。</p>
-<p>Bloggerなどは、記事の公開などのAPIが用意されているので、
-ローカルで編集後にAPI経由で記事Uploadすることも可能だが、
-プレビューするには、ツールにログインしてといった通常の手段を用いるしかなかった。</p>
-</div>
-</div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id13">まとめ</a></h3>
-<p>以上の考察を踏まえると、
-自分が必要とするのは、以下のようなブログサービス</p>
-<ol class="arabic simple">
-<li>Webツールベースではなく、emacsなどで編集したファイルをuploadする形式であること</li>
-<li>HTMLで記事は書かない。wikiやrestructuredText形式など、
-後からでもHTMLに変換可能な形式で書けること</li>
-<li>svnやgitを用いて記事やデザインをバージョン管理できること</li>
-<li>本番反映前に事前にページを確認できる環境があること</li>
-<li>無料であること（無料のサービス、またはそれらを組み合わせて環境構築できること）</li>
-<li>環境を構築するための開発は必要最低限であること</li>
-</ol>
 </div>
 </div>
 ]]></content>

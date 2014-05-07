@@ -10,10 +10,43 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Wed, 07 May 2014 06:45:54 GMT</pubDate>
+    <pubDate>Wed, 07 May 2014 08:52:28 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>wildcard DNS for any IP address なサービスの xip.io を使ってみた</title>
+      <link>http://tanarky.com/blog/2014/05/06/013_xip_io</link>
+      <pubDate>Tue, 06 May 2014 15:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/05/06/013_xip_io</guid>
+      <description>wildcard DNS for any IP address なサービスの xip.io を使ってみた</description>
+      <content:encoded><![CDATA[<div class="document">
+<p><a class="reference external" href="http://xio.io/">http://xio.io/</a> provides wildcard DNS for any IP address.</p>
+<p>というわけで使ってみたメモ。</p>
+<p>任意のportで受け付けるには、以下の様に一旦80番ポートで受けてからサブドメインで再度proxyするようにnginxを設定した</p>
+<div class="highlight"><pre>http://port8000.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
+http://port8080.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
+</pre></div>
+<p>自分のサーバに置くnginx confのサンプルは以下の通り。</p>
+<div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+
+  <span class="kn">server_name</span> <span class="s">&quot;~^port(\d+)\.([^.]+\.[^.]+)\.((?:\d</span><span class="p">{</span><span class="kn">1,3}\.){3}\d{1,3})\.xip\.io$&quot;</span><span class="p">;</span>
+
+  <span class="kn">access_log</span>  <span class="s">/var/log/nginx/dev.access.log</span><span class="p">;</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">proxy_set_header</span> <span class="s">host</span> <span class="nv">$host</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-real-ip</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-forwarded-for</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:</span><span class="nv">$1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>vagrant version up and plugin install</title>
       <link>http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws</link>
@@ -634,73 +667,6 @@ world.
 <h3><a class="toc-backref" href="#id7">リンク</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/bitly/pyqrencode">https://github.com/bitly/pyqrencode</a></li>
-</ul>
-</div>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>CentOS 5.5 に python2.7環境を構築</title>
-      <link>http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5</link>
-      <pubDate>Wed, 16 Nov 2011 00:00:00 JST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[tips]]></category>
-      <category><![CDATA[install]]></category>
-      <category><![CDATA[centos]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2011/11/16/005_python_2.7_install_on_centos_5.5</guid>
-      <description>CentOS 5.5 に python2.7環境を構築</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id4">手順</a></li>
-<li><a class="reference internal" href="#id3" id="id5">参考</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id4">手順</a></h3>
-<p>CentOS 5.5に入っているpythonのバージョンは、2.4.3と超古いので、
-2.7.2の環境を構築したときのメモ</p>
-<p>一度2.7.2の環境を作れば、
-あとはvirtualenvで環境を切り分ければいいので、
-それまでの手順</p>
-<div class="highlight"><pre>% mkdir ~/src_python2.7
-% cd ~/src_python2.7
-% wget http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tar.bz2
-% tar -xvjf Python-2.7.2.tar.bz2
-% cd Python-2.7.2
-% ./configure --enable-shared --with-threads
-% make
-% sudo make install
-% sudo ln -s /opt/python2.7/lib/libpython2.7.so.1.0 /lib64/libpython2.7.so.1.0
-% sudo ln -s /usr/local/bin/python2.7 /usr/bin/python2.7
-% mkdir ~/src_setuptools
-% cd ~/src_setuptools
-% wget http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg
-% sudo yum install zlib-devel.x86_64
-% chmod +x setuptools-0.6c11-py2.7.egg
-% sudo ./setuptools-0.6c11-py2.7.egg
-% sudo easy_install pip
-% sudo pip install virtualenv virtualenvwrapper
-</pre></div>
-<p>virtualenv環境構築。
-後で配布することを想定して、デフォルトの&quot;.virtualenvs&quot;から&quot;virtualenv&quot;に変更する。</p>
-<p>以下を.zshrcに追加</p>
-<div class="highlight"><pre>export WORKON_HOME=$HOME/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-</pre></div>
-<p>環境を構築</p>
-<div class="highlight"><pre>% mkvirtualenv -p /usr/local/bin/python2.7 2.7.2
-% workon 2.7.2
-</pre></div>
-<p>とりあえずうまく環境が構築できたが、
-複数台環境にpython環境を丸ごと配布したいので、
-次はその方法を調べてみる。</p>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id5">参考</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://python.codenote.net/python/centos5-6%E3%81%ABpython2-7%E3%81%A8virtualenv%E3%81%A7%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%92%E6%95%B4%E3%81%88%E3%82%8B.html">CentOS5.6 に Python2.7 + virtualenv で開発環境を整える | Pythonコード帳</a></li>
 </ul>
 </div>
 </div>
