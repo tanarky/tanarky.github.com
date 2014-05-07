@@ -12,8 +12,8 @@ http://xio.io/ provides wildcard DNS for any IP address.
 
 .. code-block:: none
   
-  http://port8000.10.0.0.1/ -> nginx(port 80) on 10.0.0.1 -> (proxy to 8000) -> http://127.0.0.1:8000/
-  http://port8080.10.0.0.1/ -> nginx(port 80) on 10.0.0.1 -> (proxy to 8080) -> http://127.0.0.1:8080/
+  http://port8000.10.0.0.1.xip.io/ -> nginx(port 80) on 10.0.0.1 -> (proxy to 8000) -> http://127.0.0.1:8000/
+  http://port8080.10.0.0.1.xip.io/ -> nginx(port 80) on 10.0.0.1 -> (proxy to 8080) -> http://127.0.0.1:8080/
 
 
 自分のサーバに置くnginx confのサンプルは以下の通り。

@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2014-05-07T08:52:28Z</updated>
+  <updated>2014-05-07T10:46:36Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[wildcard DNS for any IP address なサービスの xip.io を使ってみた]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/013_xip_io" />
     <id>http://tanarky.com/blog/2014/05/06/013_xip_io</id>
-    <updated>2014-05-07T08:52:28Z</updated>
+    <updated>2014-05-07T10:46:36Z</updated>
     <published>2014-05-06T15:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <summary type="html"><![CDATA[wildcard DNS for any IP address なサービスの xip.io を使ってみた]]></summary>
@@ -27,8 +27,8 @@
 <p><a class="reference external" href="http://xio.io/">http://xio.io/</a> provides wildcard DNS for any IP address.</p>
 <p>というわけで使ってみたメモ。</p>
 <p>任意のportで受け付けるには、以下の様に一旦80番ポートで受けてからサブドメインで再度proxyするようにnginxを設定した</p>
-<div class="highlight"><pre>http://port8000.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
-http://port8080.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
+<div class="highlight"><pre>http://port8000.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
+http://port8080.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
 </pre></div>
 <p>自分のサーバに置くnginx confのサンプルは以下の通り。</p>
 <div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>

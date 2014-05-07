@@ -72,8 +72,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <p><a class="reference external" href="http://xio.io/">http://xio.io/</a> provides wildcard DNS for any IP address.</p>
 <p>というわけで使ってみたメモ。</p>
 <p>任意のportで受け付けるには、以下の様に一旦80番ポートで受けてからサブドメインで再度proxyするようにnginxを設定した</p>
-<div class="highlight"><pre>http://port8000.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
-http://port8080.10.0.0.1/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
+<div class="highlight"><pre>http://port8000.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
+http://port8080.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
 </pre></div>
 <p>自分のサーバに置くnginx confのサンプルは以下の通り。</p>
 <div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
