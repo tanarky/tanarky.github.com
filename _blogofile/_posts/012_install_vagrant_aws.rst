@@ -1,6 +1,6 @@
 ---
 categories: vagrant,aws,tips
-date: 2012/10/06 11:00:00
+date: 2014/05/06 11:00:00
 title: vagrant version up and plugin install
 ---
 

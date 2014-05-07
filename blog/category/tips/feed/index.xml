@@ -10,10 +10,39 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Wed, 07 May 2014 05:44:40 GMT</pubDate>
+    <pubDate>Wed, 07 May 2014 06:45:54 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>vagrant version up and plugin install</title>
+      <link>http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws</link>
+      <pubDate>Tue, 06 May 2014 11:00:00 JST</pubDate>
+      <category><![CDATA[aws]]></category>
+      <category><![CDATA[tips]]></category>
+      <category><![CDATA[vagrant]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws</guid>
+      <description>vagrant version up and plugin install</description>
+      <content:encoded><![CDATA[<div class="document">
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
+</div>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>ssh の Lオプション(port forward)</title>
       <link>http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</link>
@@ -34,35 +63,6 @@ ssh 192.168.100.10 -A -L 8080:localhost:8000
 <li>local port:vagrant host name or IP:vagrant host port
 母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
 </ol>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>vagrant version up and plugin install</title>
-      <link>http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws</link>
-      <pubDate>Sat, 06 Oct 2012 11:00:00 JST</pubDate>
-      <category><![CDATA[aws]]></category>
-      <category><![CDATA[tips]]></category>
-      <category><![CDATA[vagrant]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws</guid>
-      <description>vagrant version up and plugin install</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="section" id="vagrant-version-up">
-<h3>vagrant version up</h3>
-<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
-<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
-<p>version upには、dmgを落として再installする必要あり</p>
-</div>
-<div class="section" id="vagrant-plugin-install">
-<h3>vagrant plugin install</h3>
-<p>vagrantにはpluginで機能拡張できる</p>
-<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
-<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
-<pre class="literal-block">
-% vagrant plugin list
-% vagrant plugin install vagrant-aws
-</pre>
-</div>
 </div>
 ]]></content:encoded>
     </item>

@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2014-05-07T05:45:16Z</updated>
+  <updated>2014-05-07T06:45:54Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -17,15 +17,15 @@
       <uri>http://tanarky.com/blog</uri>
     </author>
     <title type="html"><![CDATA[vagrant version up and plugin install]]></title>
-    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws" />
-    <id>http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws</id>
-    <updated>2014-05-07T05:45:16Z</updated>
-    <published>2012-10-06T11:00:00Z</published>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws" />
+    <id>http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws</id>
+    <updated>2014-05-07T06:45:54Z</updated>
+    <published>2014-05-06T11:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="aws" />
     <category scheme="http://tanarky.com/blog" term="tips" />
     <category scheme="http://tanarky.com/blog" term="vagrant" />
     <summary type="html"><![CDATA[vagrant version up and plugin install]]></summary>
-    <content type="html" xml:base="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws"><![CDATA[<div class="document">
+    <content type="html" xml:base="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws"><![CDATA[<div class="document">
 <div class="section" id="vagrant-version-up">
 <h3>vagrant version up</h3>
 <p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>

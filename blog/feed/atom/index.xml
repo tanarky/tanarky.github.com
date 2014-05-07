@@ -6,11 +6,45 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2014-05-07T05:44:40Z</updated>
+  <updated>2014-05-07T06:45:54Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
   <link rel="self" type="application/atom+xml" href="http://tanarky.com/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
+    <title type="html"><![CDATA[vagrant version up and plugin install]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws" />
+    <id>http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws</id>
+    <updated>2014-05-07T06:45:54Z</updated>
+    <published>2014-05-06T11:00:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="aws" />
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <category scheme="http://tanarky.com/blog" term="vagrant" />
+    <summary type="html"><![CDATA[vagrant version up and plugin install]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws"><![CDATA[<div class="document">
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
+</div>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
+</div>
+</div>
+]]></content>
+  </entry>
   <entry>
     <author>
       <name></name>
@@ -134,40 +168,6 @@ Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the cu
 
 mysql&gt;
 </pre></div>
-</div>
-</div>
-]]></content>
-  </entry>
-  <entry>
-    <author>
-      <name></name>
-      <uri>http://tanarky.com/blog</uri>
-    </author>
-    <title type="html"><![CDATA[vagrant version up and plugin install]]></title>
-    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws" />
-    <id>http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws</id>
-    <updated>2014-05-07T05:45:16Z</updated>
-    <published>2012-10-06T11:00:00Z</published>
-    <category scheme="http://tanarky.com/blog" term="aws" />
-    <category scheme="http://tanarky.com/blog" term="tips" />
-    <category scheme="http://tanarky.com/blog" term="vagrant" />
-    <summary type="html"><![CDATA[vagrant version up and plugin install]]></summary>
-    <content type="html" xml:base="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws"><![CDATA[<div class="document">
-<div class="section" id="vagrant-version-up">
-<h3>vagrant version up</h3>
-<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
-<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
-<p>version upには、dmgを落として再installする必要あり</p>
-</div>
-<div class="section" id="vagrant-plugin-install">
-<h3>vagrant plugin install</h3>
-<p>vagrantにはpluginで機能拡張できる</p>
-<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
-<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
-<pre class="literal-block">
-% vagrant plugin list
-% vagrant plugin install vagrant-aws
-</pre>
 </div>
 </div>
 ]]></content>

@@ -44,6 +44,58 @@
   
 
 <div class="blog_post">
+  <a name="vagrant-version-up-and-plugin-install"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/012_install_vagrant_aws" rel="bookmark" title="Permanent Link to vagrant version up and plugin install">vagrant version up and plugin install</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 11:00 AM | categories: 
+
+<a href='/blog/category/aws'>aws</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/vagrant'>vagrant</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
+</div>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
   <a name="ssh-の-lオプション(port-forward)"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
@@ -75,58 +127,6 @@ ssh 192.168.100.10 -A -L 8080:localhost:8000
 
 
   <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">Read and Post Comments</a></div>
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  <hr class="interblog" />
-  
-
-<div class="blog_post">
-  <a name="vagrant-version-up-and-plugin-install"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/10/06/012_install_vagrant_aws" rel="bookmark" title="Permanent Link to vagrant version up and plugin install">vagrant version up and plugin install</a>
-  </h2>
-  <div class="post_meta">October 06, 2012 at 11:00 AM | categories: 
-
-<a href='/blog/category/aws'>aws</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/vagrant'>vagrant</a>
-
- | <a href="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="section" id="vagrant-version-up">
-<h3>vagrant version up</h3>
-<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
-<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
-<p>version upには、dmgを落として再installする必要あり</p>
-</div>
-<div class="section" id="vagrant-plugin-install">
-<h3>vagrant plugin install</h3>
-<p>vagrantにはpluginで機能拡張できる</p>
-<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
-<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
-<pre class="literal-block">
-% vagrant plugin list
-% vagrant plugin install vagrant-aws
-</pre>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/10/06/012_install_vagrant_aws#disqus_thread">Read and Post Comments</a></div>
   <script type="text/javascript"><!--
 google_ad_client = "ca-pub-1219756446801912";
 /* tanarky.com */
@@ -224,9 +224,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/05/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
     <li><a href="/blog/2014/05/06/011_how_to_port_foward">ssh の Lオプション(port forward)</a></li>
     <li><a href="/blog/2012/10/11/010_mysql_multi_on_mac">mysql_multiをmacにinstall</a></li>
-    <li><a href="/blog/2012/10/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
     <li><a href="/blog/2012/03/12/00f_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
