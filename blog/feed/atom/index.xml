@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2014-05-07T10:46:36Z</updated>
+  <updated>2014-05-25T15:02:05Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -16,10 +16,65 @@
       <name></name>
       <uri>http://tanarky.com/blog</uri>
     </author>
+    <title type="html"><![CDATA[Mac における zshのPATH設定]]></title>
+    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile" />
+    <id>http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile</id>
+    <updated>2014-05-25T15:02:05Z</updated>
+    <published>2014-05-25T15:00:00Z</published>
+    <category scheme="http://tanarky.com/blog" term="tips" />
+    <summary type="html"><![CDATA[Mac における zshのPATH設定]]></summary>
+    <content type="html" xml:base="http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile"><![CDATA[<div class="document">
+<p>Mac環境(tmux含む)のPATHがおかしくなったので、メモ</p>
+<div class="highlight"><pre>% cat /etc/zprofile
+% cat /etc/zshenv
+# system-wide environment settings for zsh(1)
+if [ -x /usr/libexec/path_helper ]; then
+   PATH=&#39;&#39;
+   eval `/usr/libexec/path_helper -s`
+fi
+source /etc/profile.d/rvm.sh
+% cat ~/.zlogin
+% cat ~/.zprofile
+% cat ~/.zshrc
+(略)
+export PATH=$PATH:$HOME/go/1.1.2/bin
+% echo $PATH
+/usr/local/rvm/gems/ruby-1.9.3-p392/bin:
+/usr/local/rvm/gems/ruby-1.9.3-p392@global/bin:
+/usr/local/rvm/rubies/ruby-1.9.3-p392/bin:
+/usr/local/rvm/bin:
+/opt/local/bin:
+/usr/bin:/bin:
+/usr/sbin:
+/sbin:
+/usr/local/bin:
+/Users/satoshi/go/1.1.2/bin
+% ls /etc/paths.d/
+% cat /etc/paths
+/opt/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+/usr/local/bin%
+</pre></div>
+<p>参考URL</p>
+<ul class="simple">
+<li><a class="reference external" href="http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1">http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1</a></li>
+<li><a class="reference external" href="http://pastak.hatenablog.com/entry/2014/02/21/025836">http://pastak.hatenablog.com/entry/2014/02/21/025836</a></li>
+</ul>
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://tanarky.com/blog</uri>
+    </author>
     <title type="html"><![CDATA[wildcard DNS for any IP address なサービスの xip.io を使ってみた]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/013_xip_io" />
     <id>http://tanarky.com/blog/2014/05/06/013_xip_io</id>
-    <updated>2014-05-07T10:46:36Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2014-05-06T15:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <summary type="html"><![CDATA[wildcard DNS for any IP address なサービスの xip.io を使ってみた]]></summary>
@@ -57,7 +112,7 @@ http://port8080.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy t
     <title type="html"><![CDATA[vagrant version up and plugin install]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws" />
     <id>http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws</id>
-    <updated>2014-05-07T06:45:54Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2014-05-06T11:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="aws" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -91,7 +146,7 @@ http://port8080.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy t
     <title type="html"><![CDATA[ssh の Lオプション(port forward)]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward" />
     <id>http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</id>
-    <updated>2014-05-07T05:44:40Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2014-05-06T10:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <category scheme="http://tanarky.com/blog" term="ssh" />
@@ -119,7 +174,7 @@ ssh 192.168.100.10 -A -L 8080:localhost:8000
     <title type="html"><![CDATA[mysql_multiをmacにinstall]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac" />
     <id>http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac</id>
-    <updated>2014-05-07T08:43:34Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2012-10-11T10:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="env" />
     <category scheme="http://tanarky.com/blog" term="install" />
@@ -218,7 +273,7 @@ mysql&gt;
     <title type="html"><![CDATA[Rhino/Node Javascript実行環境構築 on Macbook]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook" />
     <id>http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook</id>
-    <updated>2014-05-07T04:27:48Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2012-03-12T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="javascript" />
     <category scheme="http://tanarky.com/blog" term="env" />
@@ -294,7 +349,7 @@ js&gt;
     <title type="html"><![CDATA[thinkpad x100eのキーボード設定メモ]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" />
     <id>http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config</id>
-    <updated>2014-05-07T04:27:48Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2012-02-21T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <summary type="html"><![CDATA[thinkpad x100eのキーボード設定メモ]]></summary>
@@ -350,7 +405,7 @@ Macだと別ショートカットなので、これに割り当ててもよし</
     <title type="html"><![CDATA[jQuery UI autocomplete サンプル]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples" />
     <id>http://tanarky.com/blog/2012/02/11/00c_jqueryui_autocomplete_samples</id>
-    <updated>2014-05-07T04:27:48Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2012-02-11T21:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="jquery" />
     <category scheme="http://tanarky.com/blog" term="javascript" />
@@ -444,7 +499,7 @@ APIがJSON形式のデータを返している。</p>
     <title type="html"><![CDATA[(できるだけ)ポータブルなPython開発環境]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env" />
     <id>http://tanarky.com/blog/2012/01/20/00a_portable_python_env</id>
-    <updated>2014-05-07T04:27:48Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2012-01-20T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="python" />
     <category scheme="http://tanarky.com/blog" term="tips" />
@@ -601,7 +656,7 @@ if __name__ == &#39;__main__&#39;:
     <title type="html"><![CDATA[PostfixでGmail経由メール送信環境構築 on Ubuntu]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu" />
     <id>http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu</id>
-    <updated>2014-05-07T04:27:48Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2012-01-02T14:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <category scheme="http://tanarky.com/blog" term="install" />
@@ -665,55 +720,6 @@ world.
 <ul class="simple">
 <li><a class="reference external" href="http://www.icoro.com/200908243988.html">http://www.icoro.com/200908243988.html</a></li>
 <li><a class="reference external" href="http://blog.tanarky.com/2010/09/centosgmail.html">http://blog.tanarky.com/2010/09/centosgmail.html</a></li>
-</ul>
-</div>
-</div>
-]]></content>
-  </entry>
-  <entry>
-    <author>
-      <name></name>
-      <uri>http://tanarky.com/blog</uri>
-    </author>
-    <title type="html"><![CDATA[PythonでQRコード生成]]></title>
-    <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2011/12/19/008_python_qrcode" />
-    <id>http://tanarky.com/blog/2011/12/19/008_python_qrcode</id>
-    <updated>2014-05-07T04:27:48Z</updated>
-    <published>2011-12-19T14:00:00Z</published>
-    <category scheme="http://tanarky.com/blog" term="python" />
-    <category scheme="http://tanarky.com/blog" term="tips" />
-    <summary type="html"><![CDATA[PythonでQRコード生成]]></summary>
-    <content type="html" xml:base="http://tanarky.com/blog/2011/12/19/008_python_qrcode"><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">環境構築手順</a></li>
-<li><a class="reference internal" href="#id3" id="id6">動作確認</a></li>
-<li><a class="reference internal" href="#id4" id="id7">リンク</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">環境構築手順</a></h3>
-<p>libqrencodeのpython bindingによるQRコード生成</p>
-<p>まずはinstall</p>
-<div class="highlight"><pre>% sudo aptitude install libqrencode3 libqrencode-dev
-% pip install qrencode
-</pre></div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id6">動作確認</a></h3>
-<p>サンプルコード</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">qrencode</span>
-
-<span class="n">e</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">()</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;http://tanarky.com/&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">})</span>
-<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/qrcode.png&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id7">リンク</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/bitly/pyqrencode">https://github.com/bitly/pyqrencode</a></li>
 </ul>
 </div>
 </div>

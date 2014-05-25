@@ -6,7 +6,7 @@
    >
   <title type="text">tanarky.com</title>
   <subtitle type="text">tanarky website</subtitle>
-  <updated>2014-05-07T05:44:40Z</updated>
+  <updated>2014-05-25T14:51:00Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
   <link rel="alternate" type="text/html" href="http://tanarky.com/blog" />
   <id>http://tanarky.com/blog/feed/atom/</id>
@@ -19,7 +19,7 @@
     <title type="html"><![CDATA[ssh の Lオプション(port forward)]]></title>
     <link rel="alternate" type="text/html" href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward" />
     <id>http://tanarky.com/blog/2014/05/06/011_how_to_port_foward</id>
-    <updated>2014-05-07T05:44:40Z</updated>
+    <updated>2014-05-25T14:51:00Z</updated>
     <published>2014-05-06T10:00:00Z</published>
     <category scheme="http://tanarky.com/blog" term="tips" />
     <category scheme="http://tanarky.com/blog" term="ssh" />

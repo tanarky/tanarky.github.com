@@ -10,10 +10,60 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Wed, 07 May 2014 10:46:36 GMT</pubDate>
+    <pubDate>Sun, 25 May 2014 15:02:05 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Mac における zshのPATH設定</title>
+      <link>http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile</link>
+      <pubDate>Sun, 25 May 2014 15:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile</guid>
+      <description>Mac における zshのPATH設定</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>Mac環境(tmux含む)のPATHがおかしくなったので、メモ</p>
+<div class="highlight"><pre>% cat /etc/zprofile
+% cat /etc/zshenv
+# system-wide environment settings for zsh(1)
+if [ -x /usr/libexec/path_helper ]; then
+   PATH=&#39;&#39;
+   eval `/usr/libexec/path_helper -s`
+fi
+source /etc/profile.d/rvm.sh
+% cat ~/.zlogin
+% cat ~/.zprofile
+% cat ~/.zshrc
+(略)
+export PATH=$PATH:$HOME/go/1.1.2/bin
+% echo $PATH
+/usr/local/rvm/gems/ruby-1.9.3-p392/bin:
+/usr/local/rvm/gems/ruby-1.9.3-p392@global/bin:
+/usr/local/rvm/rubies/ruby-1.9.3-p392/bin:
+/usr/local/rvm/bin:
+/opt/local/bin:
+/usr/bin:/bin:
+/usr/sbin:
+/sbin:
+/usr/local/bin:
+/Users/satoshi/go/1.1.2/bin
+% ls /etc/paths.d/
+% cat /etc/paths
+/opt/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+/usr/local/bin%
+</pre></div>
+<p>参考URL</p>
+<ul class="simple">
+<li><a class="reference external" href="http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1">http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1</a></li>
+<li><a class="reference external" href="http://pastak.hatenablog.com/entry/2014/02/21/025836">http://pastak.hatenablog.com/entry/2014/02/21/025836</a></li>
+</ul>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>wildcard DNS for any IP address なサービスの xip.io を使ってみた</title>
       <link>http://tanarky.com/blog/2014/05/06/013_xip_io</link>
@@ -623,50 +673,6 @@ world.
 <ul class="simple">
 <li><a class="reference external" href="http://www.icoro.com/200908243988.html">http://www.icoro.com/200908243988.html</a></li>
 <li><a class="reference external" href="http://blog.tanarky.com/2010/09/centosgmail.html">http://blog.tanarky.com/2010/09/centosgmail.html</a></li>
-</ul>
-</div>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>PythonでQRコード生成</title>
-      <link>http://tanarky.com/blog/2011/12/19/008_python_qrcode</link>
-      <pubDate>Mon, 19 Dec 2011 14:00:00 JST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[tips]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2011/12/19/008_python_qrcode</guid>
-      <description>PythonでQRコード生成</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">環境構築手順</a></li>
-<li><a class="reference internal" href="#id3" id="id6">動作確認</a></li>
-<li><a class="reference internal" href="#id4" id="id7">リンク</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">環境構築手順</a></h3>
-<p>libqrencodeのpython bindingによるQRコード生成</p>
-<p>まずはinstall</p>
-<div class="highlight"><pre>% sudo aptitude install libqrencode3 libqrencode-dev
-% pip install qrencode
-</pre></div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id6">動作確認</a></h3>
-<p>サンプルコード</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">qrencode</span>
-
-<span class="n">e</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">()</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;http://tanarky.com/&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">100</span> <span class="p">})</span>
-<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/qrcode.png&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id7">リンク</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/bitly/pyqrencode">https://github.com/bitly/pyqrencode</a></li>
 </ul>
 </div>
 </div>

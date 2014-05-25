@@ -44,6 +44,53 @@
   
 
 <div class="blog_post">
+  <a name="ssh-の-lオプション(port-forward)"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 10:00 AM | categories: 
+
+<a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ssh'>ssh</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
+<pre class="literal-block">
+ssh 192.168.100.10 -A -L 8080:localhost:8000
+    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
+    1                 2
+</pre>
+<ol class="arabic simple">
+<li>vagrant hostのIP</li>
+<li>local port:vagrant host name or IP:vagrant host port
+母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
+</ol>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
   <a name="thinkpad-x100eのキーボード設定メモ"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" rel="bookmark" title="Permanent Link to thinkpad x100eのキーボード設定メモ">thinkpad x100eのキーボード設定メモ</a>
@@ -292,101 +339,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
   <hr class="interblog" />
-  
-
-<div class="blog_post">
-  <a name="postfixでgmail経由メール送信環境構築-on-ubuntu"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/01/02/009_install_postfix_on_ubuntu" rel="bookmark" title="Permanent Link to PostfixでGmail経由メール送信環境構築 on Ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a>
-  </h2>
-  <div class="post_meta">January 02, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/tips'>tips</a>, <a href='/blog/category/install'>install</a>, <a href='/blog/category/ubuntu'>ubuntu</a>
-
- | <a href="http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id4">環境構築手順</a></li>
-<li><a class="reference internal" href="#id3" id="id5">参考</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id4">環境構築手順</a></h3>
-<p>AppEngineの開発環境で、メール送信機能を使うために
-postfixを使ったgmail送信環境の構築を行ったので、メモ。</p>
-<p>まずは、package install</p>
-<div class="highlight"><pre>% sudo aptitude install postfix libsasl2-modules
-</pre></div>
-<p>/etc/postfix/main.cf を編集</p>
-<p>以下を追記</p>
-<div class="highlight"><pre># tanarky added
-mydomain = tanarky.com
-myorigin = $myhostname
-relayhost = [smtp.gmail.com]:587
-smtp_use_tls = yes
-smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
-smtp_sasl_auth_enable = yes
-smtp_sasl_password_maps = hash:/etc/postfix/relay_password
-smtp_sasl_security_options = noanonymous
-smtp_sasl_tls_security_options = noanonymous
-smtp_sasl_mechanism_filter = plain
-</pre></div>
-<p>パスワードファイル作成</p>
-<div class="highlight"><pre>% sudo cat /etc/postfix/relay_password
-[smtp.gmail.com]:587 *(Googleアカウント)*@gmail.com:*(Googleアカウントパスワード)*
-% sudo postmap /etc/postfix/relay_password
-% ls -l /etc/postfix/relay_password*
--rw-r--r-- 1 root root    48 2012-01-01 22:17 /etc/postfix/relay_password
--rw-r--r-- 1 root root 12288 2012-01-01 22:17 /etc/postfix/relay_password.db
-% sudo rm /etc/postfix/relay_password
-% ls -l /etc/postfix/relay_password*
--rw-r--r-- 1 root root 12288 2012-01-01 22:17 /etc/postfix/relay_password.db
-</pre></div>
-<p>postfix restartしてテスト送信</p>
-<div class="highlight"><pre>% sudo /etc/init.d/postfix restart
-% sendmail -t ***
-To: ***
-From: ***
-Subject: hello
-
-world.
-
-.
-%
-</pre></div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id5">参考</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://www.icoro.com/200908243988.html">http://www.icoro.com/200908243988.html</a></li>
-<li><a class="reference external" href="http://blog.tanarky.com/2010/09/centosgmail.html">http://blog.tanarky.com/2010/09/centosgmail.html</a></li>
-</ul>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu#disqus_thread">Read and Post Comments</a></div>
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  <hr class="interblog" />
  <a href="/blog/category/tips/1">« Previous Page</a>
   --  
  <a href="/blog/category/tips/3">Next Page »</a>
@@ -397,6 +349,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/05/25/014_mac_zsh_profile">Mac における zshのPATH設定</a></li>
     <li><a href="/blog/2014/05/06/013_xip_io">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a></li>
     <li><a href="/blog/2014/05/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
     <li><a href="/blog/2014/05/06/011_how_to_port_foward">ssh の Lオプション(port forward)</a></li>
@@ -406,7 +359,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
     <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
     <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
-    <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
   </ol>
 </div>
 

@@ -55,6 +55,53 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="ssh-の-lオプション(port-forward)"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 10:00 AM | categories: 
+
+<a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ssh'>ssh</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
+<pre class="literal-block">
+ssh 192.168.100.10 -A -L 8080:localhost:8000
+    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
+    1                 2
+</pre>
+<ol class="arabic simple">
+<li>vagrant hostのIP</li>
+<li>local port:vagrant host name or IP:vagrant host port
+母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
+</ol>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="mysql_multiをmacにinstall"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2012/10/11/010_mysql_multi_on_mac" rel="bookmark" title="Permanent Link to mysql_multiをmacにinstall">mysql_multiをmacにinstall</a>
@@ -251,82 +298,6 @@ js&gt;
 
   <div class="after_post"><a href="http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="thinkpad-x100eのキーボード設定メモ"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" rel="bookmark" title="Permanent Link to thinkpad x100eのキーボード設定メモ">thinkpad x100eのキーボード設定メモ</a>
-  </h2>
-  <div class="post_meta">February 21, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/tips'>tips</a>
-
- | <a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document" id="thinkpad-x100e">
-<h1 class="title">thinkpad x100eのキーボード設定メモ</h1>
-<p>Macbook Proとの使い分けをするために、
-できるだけ似たようなキー操作になるように模索したメモ</p>
-<p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
-<ol class="arabic simple">
-<li>システム設定の&quot;キーボードレイアウト&quot;を開き、オプションで以下の設定をする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>Alt/Winキーの操作 -&gt; デフォルトのまま</li>
-<li>Ctrlキーの位置 -&gt; &quot;Make Caps Lock an additional Ctrl&quot;</li>
-</ol>
-</blockquote>
-<ol class="arabic simple" start="2">
-<li>IBusの設定(Input Methods)を開いた以下の設定をする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>入力モードの切り替えを、Alt+Spaceにする</li>
-<li>言語パネルはメニューに組み込む</li>
-</ol>
-</blockquote>
-<ol class="arabic simple" start="3">
-<li>システム設定の&quot;キーボード&quot;を開き、ショートカットを以下の設定とする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>&quot;ウィンドウメニューをアクティブにする&quot;ショートカットをWin+Spaceに</li>
-</ol>
-</blockquote>
-<p>これにより、</p>
-<ul class="simple">
-<li>Alt+TabでWindow切り替えができる。
-MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、同じキー</li>
-<li>Alt+Spaceで入力切り替えが出来る。
-MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、これも同じキー</li>
-<li>Win+Spaceでウィンドウメニューを開ける。
-Macだと別ショートカットなので、これに割り当ててもよし</li>
-</ul>
-<p>以上。</p>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
  <a href="../1">« Previous Page</a>
   --  
  <a href="../3">Next Page »</a>
@@ -337,6 +308,7 @@ Macだと別ショートカットなので、これに割り当ててもよし</
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/05/25/014_mac_zsh_profile">Mac における zshのPATH設定</a></li>
     <li><a href="/blog/2014/05/06/013_xip_io">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a></li>
     <li><a href="/blog/2014/05/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
     <li><a href="/blog/2014/05/06/011_how_to_port_foward">ssh の Lオプション(port forward)</a></li>
@@ -346,7 +318,6 @@ Macだと別ショートカットなので、これに割り当ててもよし</
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
     <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
     <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
-    <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
   </ol>
 </div>
 

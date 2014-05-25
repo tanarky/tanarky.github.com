@@ -55,6 +55,81 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="mac-における-zshのpath設定"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/25/014_mac_zsh_profile" rel="bookmark" title="Permanent Link to Mac における zshのPATH設定">Mac における zshのPATH設定</a>
+  </h2>
+  <div class="post_meta">May 25, 2014 at 03:00 PM | categories: 
+
+<a href='/blog/category/tips'>tips</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<p>Mac環境(tmux含む)のPATHがおかしくなったので、メモ</p>
+<div class="highlight"><pre>% cat /etc/zprofile
+% cat /etc/zshenv
+# system-wide environment settings for zsh(1)
+if [ -x /usr/libexec/path_helper ]; then
+   PATH=&#39;&#39;
+   eval `/usr/libexec/path_helper -s`
+fi
+source /etc/profile.d/rvm.sh
+% cat ~/.zlogin
+% cat ~/.zprofile
+% cat ~/.zshrc
+(略)
+export PATH=$PATH:$HOME/go/1.1.2/bin
+% echo $PATH
+/usr/local/rvm/gems/ruby-1.9.3-p392/bin:
+/usr/local/rvm/gems/ruby-1.9.3-p392@global/bin:
+/usr/local/rvm/rubies/ruby-1.9.3-p392/bin:
+/usr/local/rvm/bin:
+/opt/local/bin:
+/usr/bin:/bin:
+/usr/sbin:
+/sbin:
+/usr/local/bin:
+/Users/satoshi/go/1.1.2/bin
+% ls /etc/paths.d/
+% cat /etc/paths
+/opt/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+/usr/local/bin%
+</pre></div>
+<p>参考URL</p>
+<ul class="simple">
+<li><a class="reference external" href="http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1">http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1</a></li>
+<li><a class="reference external" href="http://pastak.hatenablog.com/entry/2014/02/21/025836">http://pastak.hatenablog.com/entry/2014/02/21/025836</a></li>
+</ul>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="wildcard-dns-for-any-ip-address-なサービスの-xip.io-を使ってみた"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2014/05/06/013_xip_io" rel="bookmark" title="Permanent Link to wildcard DNS for any IP address なサービスの xip.io を使ってみた">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a>
@@ -150,53 +225,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
   <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="ssh-の-lオプション(port-forward)"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
-  </h2>
-  <div class="post_meta">May 06, 2014 at 10:00 AM | categories: 
-
-<a href='/blog/category/tips'>tips</a>, <a href='/blog/category/ssh'>ssh</a>
-
- | <a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<p>母艦Macから、Vagrant内にあるwebサーバを見るとき等に設定する</p>
-<pre class="literal-block">
-ssh 192.168.100.10 -A -L 8080:localhost:8000
-    ^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^
-    1                 2
-</pre>
-<ol class="arabic simple">
-<li>vagrant hostのIP</li>
-<li>local port:vagrant host name or IP:vagrant host port
-母艦で http://localhost:8080/ とすると http://vagrant_host:8000/ につながる</li>
-</ol>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
  <a href="/blog/page/2">Next Page »</a>
 
         </div>
@@ -205,6 +233,7 @@ ssh 192.168.100.10 -A -L 8080:localhost:8000
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/05/25/014_mac_zsh_profile">Mac における zshのPATH設定</a></li>
     <li><a href="/blog/2014/05/06/013_xip_io">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a></li>
     <li><a href="/blog/2014/05/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
     <li><a href="/blog/2014/05/06/011_how_to_port_foward">ssh の Lオプション(port forward)</a></li>
@@ -214,7 +243,6 @@ ssh 192.168.100.10 -A -L 8080:localhost:8000
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
     <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
     <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
-    <li><a href="/blog/2011/12/19/008_python_qrcode">PythonでQRコード生成</a></li>
   </ol>
 </div>
 

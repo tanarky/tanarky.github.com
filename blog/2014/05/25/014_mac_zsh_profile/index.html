@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>vagrant version up and plugin install - tanarky.com</title>
+    <title>Mac における zshのPATH設定 - tanarky.com</title>
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/blog/feed" />
 <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/blog/feed/atom" />
 
@@ -38,7 +38,7 @@
           <ul class="breadcrumb">
             <li><a href="/">Home</a> <span class="divider">&gt;</span></li>
             <li><a href="/blog">Blog</a> <span class="divider">&gt;</span></li>
-            <li class="active"><h1>vagrant version up and plugin install<h1></li>
+            <li class="active"><h1>Mac における zshのPATH設定<h1></li>
           </ul>
 
           <script type="text/javascript"><!--
@@ -56,35 +56,58 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           
 
 <div class="blog_post">
-  <a name="vagrant-version-up-and-plugin-install"></a>
+  <a name="mac-における-zshのpath設定"></a>
   <h2 class="blog_post_title">
-    <a href="/blog/2014/05/06/012_install_vagrant_aws" rel="bookmark" title="Permanent Link to vagrant version up and plugin install">vagrant version up and plugin install</a>
+    <a href="/blog/2014/05/25/014_mac_zsh_profile" rel="bookmark" title="Permanent Link to Mac における zshのPATH設定">Mac における zshのPATH設定</a>
   </h2>
-  <div class="post_meta">May 06, 2014 at 11:00 AM | categories: 
+  <div class="post_meta">May 25, 2014 at 03:00 PM | categories: 
 
-<a href='/blog/category/aws'>aws</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/vagrant'>vagrant</a>
+<a href='/blog/category/tips'>tips</a>
 
- | <a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">View Comments</a>
+ | <a href="http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile#disqus_thread">View Comments</a>
 
 </div>
   <div class="post_prose">
     <div class="document">
-<div class="section" id="vagrant-version-up">
-<h3>vagrant version up</h3>
-<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
-<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
-<p>version upには、dmgを落として再installする必要あり</p>
-</div>
-<div class="section" id="vagrant-plugin-install">
-<h3>vagrant plugin install</h3>
-<p>vagrantにはpluginで機能拡張できる</p>
-<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
-<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
-<pre class="literal-block">
-% vagrant plugin list
-% vagrant plugin install vagrant-aws
-</pre>
-</div>
+<p>Mac環境(tmux含む)のPATHがおかしくなったので、メモ</p>
+<div class="highlight"><pre>% cat /etc/zprofile
+% cat /etc/zshenv
+# system-wide environment settings for zsh(1)
+if [ -x /usr/libexec/path_helper ]; then
+   PATH=&#39;&#39;
+   eval `/usr/libexec/path_helper -s`
+fi
+source /etc/profile.d/rvm.sh
+% cat ~/.zlogin
+% cat ~/.zprofile
+% cat ~/.zshrc
+(略)
+export PATH=$PATH:$HOME/go/1.1.2/bin
+% echo $PATH
+/usr/local/rvm/gems/ruby-1.9.3-p392/bin:
+/usr/local/rvm/gems/ruby-1.9.3-p392@global/bin:
+/usr/local/rvm/rubies/ruby-1.9.3-p392/bin:
+/usr/local/rvm/bin:
+/opt/local/bin:
+/usr/bin:/bin:
+/usr/sbin:
+/sbin:
+/usr/local/bin:
+/Users/satoshi/go/1.1.2/bin
+% ls /etc/paths.d/
+% cat /etc/paths
+/opt/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+/usr/local/bin%
+</pre></div>
+<p>参考URL</p>
+<ul class="simple">
+<li><a class="reference external" href="http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1">http://qiita.com/yuku_t/items/40bcc63bb8ad94f083f1</a></li>
+<li><a class="reference external" href="http://pastak.hatenablog.com/entry/2014/02/21/025836">http://pastak.hatenablog.com/entry/2014/02/21/025836</a></li>
+</ul>
 </div>
 
   </div>
@@ -96,7 +119,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="tanarky" data-lang="ja">ツイート</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_url = "http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws";
+  var disqus_url = "http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile";
 </script>
 <script type="text/javascript" src="http://disqus.com/forums/tanarky/embed.js"></script>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
