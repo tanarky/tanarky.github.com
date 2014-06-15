@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する - tanarky.com</title>
+    <title>会社を設立したときのIT環境をどうするかメモ1 - tanarky.com</title>
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/blog/feed" />
 <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/blog/feed/atom" />
 
@@ -38,7 +38,7 @@
           <ul class="breadcrumb">
             <li><a href="/">Home</a> <span class="divider">&gt;</span></li>
             <li><a href="/blog">Blog</a> <span class="divider">&gt;</span></li>
-            <li class="active"><h1>Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する<h1></li>
+            <li class="active"><h1>会社を設立したときのIT環境をどうするかメモ1<h1></li>
           </ul>
 
           <script type="text/javascript"><!--
@@ -56,37 +56,97 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           
 
 <div class="blog_post">
-  <a name="ubuntu-10.04-lts-server-でpython環境をbuildoutで構築する"></a>
+  <a name="会社を設立したときのit環境をどうするかメモ1"></a>
   <h2 class="blog_post_title">
-    <a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64" rel="bookmark" title="Permanent Link to Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a>
+    <a href="/blog/2014/06/15/016_company_management_memo_1" rel="bookmark" title="Permanent Link to 会社を設立したときのIT環境をどうするかメモ1">会社を設立したときのIT環境をどうするかメモ1</a>
   </h2>
-  <div class="post_meta">November 09, 2011 at 02:00 PM | categories: 
+  <div class="post_meta">June 15, 2014 at 11:00 AM | categories: 
 
-<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/install'>install</a>, <a href='/blog/category/ubuntu'>ubuntu</a>
+<a href='/blog/category/tips'>tips</a>
 
- | <a href="http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64#disqus_thread">View Comments</a>
+ | <a href="http://tanarky.com/blog/2014/06/15/016_company_management_memo_1#disqus_thread">View Comments</a>
 
 </div>
   <div class="post_prose">
     <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id3">手順</a></li>
-</ul>
+<p>自分で会社を設立した場合、IT環境をどうするか考えてみたのでメモ</p>
+<p>目的は以下の様なことを最小限の運用コストで実現すること</p>
+<ol class="arabic simple">
+<li>ドメイン管理</li>
+<li>社員のアカウント（入社・退職管理）</li>
+<li>社内ツールの運用(メールや社内wiki)</li>
+<li>外部公開用ホームページや製品ページ運用(要ブログ機能)</li>
+</ol>
+<p>結論から言うと、ほとんどをGoogleが提供するツールでなんとかする</p>
+<div class="section" id="id1">
+<h3>1. ドメイン管理</h3>
+<p>まずはドメインの取得だが、これは好きなサービスを使えばいいと思う。</p>
+<p>個人的には valuedomain に慣れているが、そういうものがなければ
+今後の AWS 連携を考慮して Amazon 提供の Route 53 がいいかもしれない。</p>
 </div>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id3">手順</a></h3>
-<div class="highlight"><pre>% sudo apt-get install zsh aptitude
-% sudo aptitude update
-% sudo aptitude install gcc zlib1g-dev libc6-dev libjpeg-dev -y
-</pre></div>
+<h3>2. 社員のアカウント（入社・退職管理）</h3>
+<p>アカウント管理の容易さやその他のツールとの連携を考えると、
+有料とはいえ Google Apps for Business になるかなと考えている</p>
+<p>考えられるメリットは以下</p>
 <ul class="simple">
-<li>2012/01/22 追記<ul>
-<li>PILでjpegサポートさせるために、libjpeg-devを追加</li>
+<li>メールアカウントとツール(Gmail)の提供 (後述)</li>
+<li>2段階認証などセキュリティ面での充実した機能</li>
+<li>アカウント管理の容易さ</li>
+<li>Google site や AppEngine などとの連携 (後述)</li>
 </ul>
-</li>
+<p>2014年6月現在では、1ユーザ600円/月から、となっている</p>
+</div>
+<div class="section" id="wiki">
+<h3>3. 社内ツールの運用(メールや社内wiki)</h3>
+<p>社内で業務上必要となるツールには様々なものがあるが、Googleにはほとんどが揃っている</p>
+<ul class="simple">
+<li>社内だけで使うClosedなチャット -&gt; hangouts</li>
+<li>社内用wiki -&gt; Google site</li>
+<li>メールアカウント -&gt; gmail</li>
+<li>メーリングリスト -&gt; Google apps</li>
+<li>ファイルサーバ -&gt; Google drive</li>
 </ul>
+</div>
+<div class="section" id="id3">
+<h3>4. 外部公開用ホームページや製品ページ運用(要ブログ機能)</h3>
+<p>ホームページホスティングサービスやブログサービスについての選択肢は多いが、
+以下のことを考えると選択肢は限られてくる</p>
+<ol class="arabic simple">
+<li>独自ドメイン運用できるか</li>
+<li>社員アカウントとの編集権限連動できるか</li>
+<li>非エンジニアが容易に編集できるか</li>
+</ol>
+<p>1については、ほとんどのブログサービスが提供していると思われる</p>
+<p>2については、ハードルが上がる。アカウントをGoogle Appsで行う以上、
+Googleのサービスを使うか、自前でSSO機能を実装してサービスを構築する必要がある。</p>
+<p>3については、ブログ記事の編集ツールが無いとエンジニアのリソースを使ってしまう。</p>
+<p>というわけで、結論として以下を考えた</p>
+<ul class="simple">
+<li>Google AppEngine上にブログサービスを構築</li>
+<li>Adminツールから、ブログの編集権限は社員アカウントのみに制限する</li>
+</ul>
+<p>Github PagesやS3による自前サーバ0な静的サイト運用方法は色々あるが、
+上記の要件を満たすものを考えたら、AppEngineによるものしか思い浮かばなかった。</p>
+<p>もっといい運用があれば、また記事にしようと思う。</p>
+</div>
+<div class="section" id="url">
+<h3>参考URLなど</h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name" colspan="2">Google Apps for Business Prices:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="http://www.google.co.jp/intx/ja/enterprise/apps/business/pricing.html">http://www.google.co.jp/intx/ja/enterprise/apps/business/pricing.html</a></td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Github クローンなサービスに関する記事:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="http://hiroki.jp/github-clone">http://hiroki.jp/github-clone</a></td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">apache-google-apps-sso:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="https://github.com/epotocko/apache-google-apps-sso">https://github.com/epotocko/apache-google-apps-sso</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -99,7 +159,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="tanarky" data-lang="ja">ツイート</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_url = "http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64";
+  var disqus_url = "http://tanarky.com/blog/2014/06/15/016_company_management_memo_1";
 </script>
 <script type="text/javascript" src="http://disqus.com/forums/tanarky/embed.js"></script>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>

@@ -55,6 +55,116 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
   
 
 <div class="blog_post">
+  <a name="wildcard-dns-for-any-ip-address-なサービスの-xip.io-を使ってみた"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/013_xip_io" rel="bookmark" title="Permanent Link to wildcard DNS for any IP address なサービスの xip.io を使ってみた">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 03:00 PM | categories: 
+
+<a href='/blog/category/tips'>tips</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/013_xip_io#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<p><a class="reference external" href="http://xio.io/">http://xio.io/</a> provides wildcard DNS for any IP address.</p>
+<p>というわけで使ってみたメモ。</p>
+<p>任意のportで受け付けるには、以下の様に一旦80番ポートで受けてからサブドメインで再度proxyするようにnginxを設定した</p>
+<div class="highlight"><pre>http://port8000.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
+http://port8080.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
+</pre></div>
+<p>自分のサーバに置くnginx confのサンプルは以下の通り。</p>
+<div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+
+  <span class="kn">server_name</span> <span class="s">&quot;~^port(\d+)\.([^.]+\.[^.]+)\.((?:\d</span><span class="p">{</span><span class="kn">1,3}\.){3}\d{1,3})\.xip\.io$&quot;</span><span class="p">;</span>
+
+  <span class="kn">access_log</span>  <span class="s">/var/log/nginx/dev.access.log</span><span class="p">;</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">proxy_set_header</span> <span class="s">host</span> <span class="nv">$host</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-real-ip</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-forwarded-for</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:</span><span class="nv">$1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/013_xip_io#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
+  <a name="vagrant-version-up-and-plugin-install"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/012_install_vagrant_aws" rel="bookmark" title="Permanent Link to vagrant version up and plugin install">vagrant version up and plugin install</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 11:00 AM | categories: 
+
+<a href='/blog/category/aws'>aws</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/vagrant'>vagrant</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
+</div>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">Read and Post Comments</a></div>
+  <hr class="interblog" />
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  
+
+<div class="blog_post">
   <a name="ssh-の-lオプション(port-forward)"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
@@ -87,217 +197,6 @@ ssh 192.168.100.10 -A -L 8080:localhost:8000
 
   <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/011_how_to_port_foward#disqus_thread">Read and Post Comments</a></div>
   <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="mysql_multiをmacにinstall"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/10/11/010_mysql_multi_on_mac" rel="bookmark" title="Permanent Link to mysql_multiをmacにinstall">mysql_multiをmacにinstall</a>
-  </h2>
-  <div class="post_meta">October 11, 2012 at 10:00 AM | categories: 
-
-<a href='/blog/category/env'>env</a>, <a href='/blog/category/install'>install</a>, <a href='/blog/category/mysql'>mysql</a>
-
- | <a href="http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#install" id="id2">install</a></li>
-</ul>
-</div>
-<p>Macbookにて、mysql_multiで複数サーバを立てたので、その時のinstallメモ</p>
-<p>目的は、dual master replication の failover動作確認をするため</p>
-<div class="section" id="install">
-<h3><a class="toc-backref" href="#id2">install</a></h3>
-<p>Macにmysqlはinstall済みであることが前提</p>
-<p>メモリを食うので、必要な時だけ起動するようにplistはunloadしておく</p>
-<div class="highlight"><pre># 起動していたら停止
-% sudo /opt/local/share/mysql5/mysql/mysql.server stop
-% sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
-
-# ここに入っている + pathは通しておく
-% which mysql5
-/opt/local/bin/mysql5
-
-# エラーになるのでリンクを張っておく等
-% sudo ln -s /opt/local/bin/my_print_defaults5 /opt/local/bin/my_print_defaults
-% mkdir -p /Users/satoshi.tanaka/var/mysql1
-% mkdir -p /Users/satoshi.tanaka/var/mysql2
-% mkdir -p /Users/satoshi.tanaka/var/log
-
-# ~/.my.cnf を準備, user名やportなどは適当に変更すること
-% cat ~/.my.cnf
-[mysqld_multi]
-mysqld     = /opt/local/lib/mysql5/bin/mysqld_safe
-mysqladmin = /opt/local/lib/mysql5/bin/mysqladmin
-user       = root
-
-[mysqld1]
-server-id  = 1
-socket     = /tmp/mysql1.sock
-port       = 13306
-pid-file   = /tmp/mysql1.pid
-datadir    = /Users/satoshi.tanaka/var/mysql1
-language   = /opt/local/share/mysql5/mysql/english
-user       = satoshi.tanaka
-log        = /Users/satoshi.tanaka/var/log/mysqld1.log
-log-error  = /Users/satoshi.tanaka/var/log/mysqld1.error.log
-
-[mysqld2]
-server-id  = 2
-socket     = /tmp/mysql2.sock
-port       = 13307
-pid-file   = /tmp/mysql2.pid
-datadir    = /Users/satoshi.tanaka/var/mysql2
-language   = /opt/local/share/mysql5/mysql/english
-user       = satoshi.tanaka
-log        = /Users/satoshi.tanaka/var/log/mysqld2.log
-log-error  = /Users/satoshi.tanaka/var/log/mysqld2.error.log
-
-# datadirの準備
-% mysql_install_db5 --datadir=./var/mysql1/
-% mysql_install_db5 --datadir=./var/mysql2/
-
-# 起動して確認
-% /opt/local/bin/mysqld_multi5 start --log=/tmp/mysqld_multi.log
-% /opt/local/bin/mysqld_multi5 report --log=/tmp/mysqld_multi.log
-Reporting MySQL servers
-MySQL server from group: mysqld1 is running
-MySQL server from group: mysqld2 is running
-% mysql5 -S /tmp/mysql2.sock
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3
-Server version: 5.1.63-log Source distribution
-
-Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
-
-mysql&gt;
-</pre></div>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/10/11/010_mysql_multi_on_mac#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  
-
-<div class="blog_post">
-  <a name="rhino/node-javascript実行環境構築-on-macbook"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/03/12/00f_javascript_env_on_macbook" rel="bookmark" title="Permanent Link to Rhino/Node Javascript実行環境構築 on Macbook">Rhino/Node Javascript実行環境構築 on Macbook</a>
-  </h2>
-  <div class="post_meta">March 12, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/javascript'>javascript</a>, <a href='/blog/category/env'>env</a>, <a href='/blog/category/install'>install</a>
-
- | <a href="http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#rhino" id="id3">Rhino</a></li>
-<li><a class="reference internal" href="#node" id="id4">Node</a></li>
-</ul>
-</div>
-<p>Macbookにて、Javascript実行環境を整えたので、その際の手順履歴</p>
-<div class="section" id="rhino">
-<h3><a class="toc-backref" href="#id3">Rhino</a></h3>
-<p>Rhino = Java実装のJavascript実行環境</p>
-<p>その他の言語のJava実装は以下のものがある</p>
-<div class="highlight"><pre>Jython - port of Python.
-JRuby - port of Ruby.
-Rhino - port of ECMAScript.
-Clojure - Lisp dialect.
-Groovy - Scripting language for the JVM.
-Scala - object-oriented, functional language for the JVM.
-</pre></div>
-<p>Macにinstallするには、brew installで一発。</p>
-<p>2012/03/12 時点でinstallされるversionは1.7R3</p>
-<div class="highlight"><pre>brew install rhino
-</pre></div>
-<p>実行するには以下のjarを指定する。-eでコードを直接渡す。</p>
-<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello world!&#39;);&quot;
-java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar -e &quot;print(&#39;hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar&#39;);&quot;
-hello worldjava -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
-%
-</pre></div>
-<p>インタラクティブシェルは以下の通りに実行できる</p>
-<div class="highlight"><pre>% java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar
-Rhino 1.7 release 3 2011 05 09
-js&gt; print(&#39;hello world!&#39;);
-hello world!
-js&gt;
-</pre></div>
-<p><a class="reference external" href="https://developer.mozilla.org/ja/Rhino">Rhino</a></p>
-</div>
-<div class="section" id="node">
-<h3><a class="toc-backref" href="#id4">Node</a></h3>
-<p><a class="reference external" href="http://nodejs.org/">http://nodejs.org/</a></p>
-<p>こちらもJavascript実行環境。実装はV8だったりSpiderMondkeyだったり。</p>
-<p>同じく、brew installにて。</p>
-<div class="highlight"><pre>% brew install node
-</pre></div>
-<p>npmと単体テストフレームワークもついでにinstall</p>
-<div class="highlight"><pre>% git clone git://github.com/creationix/nvm.git ~/.nvm
-% nvm install v0.6.12
-% nvm alias default v0.6.12
-% source ~/.nvm/nvm.sh
-% curl http://npmjs.org/install.sh | sh
-% npm install nodeunit
-% ln -s $HOME/.npm/nodeunit/0.7.4/package/bin/nodeunit $HOME/bin/nodeunit
-</pre></div>
-<ul class="simple">
-<li><a class="reference external" href="http://d.hatena.ne.jp/ToQoz/20120312/1331512182">zsh on mac で nvm -&gt; nvm_ls:17: no matches found: vdefault* 対処</a></li>
-</ul>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/03/12/00f_javascript_env_on_macbook#disqus_thread">Read and Post Comments</a></div>
-  <hr class="interblog" />
  <a href="../1">« Previous Page</a>
   --  
  <a href="../3">Next Page »</a>
@@ -308,6 +207,8 @@ js&gt;
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/06/15/016_company_management_memo_1">会社を設立したときのIT環境をどうするかメモ1</a></li>
+    <li><a href="/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac">Firefox on Mac に Flash Player をインストール</a></li>
     <li><a href="/blog/2014/05/25/014_mac_zsh_profile">Mac における zshのPATH設定</a></li>
     <li><a href="/blog/2014/05/06/013_xip_io">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a></li>
     <li><a href="/blog/2014/05/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
@@ -316,8 +217,6 @@ js&gt;
     <li><a href="/blog/2012/03/12/00f_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
-    <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
-    <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
   </ol>
 </div>
 

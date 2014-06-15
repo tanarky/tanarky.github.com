@@ -5,7 +5,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する - tanarky.com</title>
+    <title>Firefox on Mac に Flash Player をインストール - tanarky.com</title>
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/blog/feed" />
 <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/blog/feed/atom" />
 
@@ -38,7 +38,7 @@
           <ul class="breadcrumb">
             <li><a href="/">Home</a> <span class="divider">&gt;</span></li>
             <li><a href="/blog">Blog</a> <span class="divider">&gt;</span></li>
-            <li class="active"><h1>Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する<h1></li>
+            <li class="active"><h1>Firefox on Mac に Flash Player をインストール<h1></li>
           </ul>
 
           <script type="text/javascript"><!--
@@ -56,36 +56,45 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           
 
 <div class="blog_post">
-  <a name="ubuntu-10.04-lts-server-でpython環境をbuildoutで構築する"></a>
+  <a name="firefox-on-mac-に-flash-player-をインストール"></a>
   <h2 class="blog_post_title">
-    <a href="/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64" rel="bookmark" title="Permanent Link to Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する">Ubuntu 10.04 LTS server でpython環境をbuildoutで構築する</a>
+    <a href="/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac" rel="bookmark" title="Permanent Link to Firefox on Mac に Flash Player をインストール">Firefox on Mac に Flash Player をインストール</a>
   </h2>
-  <div class="post_meta">November 09, 2011 at 02:00 PM | categories: 
+  <div class="post_meta">June 15, 2014 at 10:00 AM | categories: 
 
-<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/install'>install</a>, <a href='/blog/category/ubuntu'>ubuntu</a>
+<a href='/blog/category/tips'>tips</a>
 
- | <a href="http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64#disqus_thread">View Comments</a>
+ | <a href="http://tanarky.com/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac#disqus_thread">View Comments</a>
 
 </div>
   <div class="post_prose">
     <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
+<p>何故か Mac Book Pro の Firefox で Flash Player のインストールに失敗していたので対策した時のメモ</p>
+<p>環境は以下のとおり</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Mac OS:</th><td class="field-body">X 10.9.3</td>
+</tr>
+<tr class="field"><th class="field-name">Firefox:</th><td class="field-body">29.0.3</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">インストールしようとしたFlash Player:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body">14.0.0.125</td>
+</tr>
+</tbody>
+</table>
+<p>Flash Player Download Center ( <a class="reference external" href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/</a> ) からだと、
+インストール途中で失敗していた</p>
+<p>結論から言うと、インストール途中で内部的に最新バージョンを取ってきて(ネットワーク?)インストールしている挙動っぽかったので、最初から Full version を落としてきてインストールしたら問題なく完了した。</p>
+<p>Full version のリンク先は <a class="reference external" href="http://www.adobe.com/products/flashplayer/distribution3.html">http://www.adobe.com/products/flashplayer/distribution3.html</a></p>
+<div class="section" id="url">
+<h3>参考URL</h3>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id3">手順</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id3">手順</a></h3>
-<div class="highlight"><pre>% sudo apt-get install zsh aptitude
-% sudo aptitude update
-% sudo aptitude install gcc zlib1g-dev libc6-dev libjpeg-dev -y
-</pre></div>
-<ul class="simple">
-<li>2012/01/22 追記<ul>
-<li>PILでjpegサポートさせるために、libjpeg-devを追加</li>
-</ul>
-</li>
+<li><a class="reference external" href="https://support.mozilla.org/ja/questions/920187">https://support.mozilla.org/ja/questions/920187</a></li>
+<li><a class="reference external" href="http://toshiohattori.blogspot.jp/2014/01/flash.html">http://toshiohattori.blogspot.jp/2014/01/flash.html</a></li>
+<li><a class="reference external" href="https://discussions.apple.com/message/21837402">https://discussions.apple.com/message/21837402</a></li>
+<li><a class="reference external" href="http://www.adobe.com/jp/software/flash/about/">http://www.adobe.com/jp/software/flash/about/</a></li>
 </ul>
 </div>
 </div>
@@ -99,7 +108,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="tanarky" data-lang="ja">ツイート</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_url = "http://tanarky.com/blog/2011/11/09/007_python_buildout_on_ubuntu_server_x86_64";
+  var disqus_url = "http://tanarky.com/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac";
 </script>
 <script type="text/javascript" src="http://disqus.com/forums/tanarky/embed.js"></script>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>

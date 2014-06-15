@@ -44,6 +44,116 @@
   
 
 <div class="blog_post">
+  <a name="wildcard-dns-for-any-ip-address-なサービスの-xip.io-を使ってみた"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/013_xip_io" rel="bookmark" title="Permanent Link to wildcard DNS for any IP address なサービスの xip.io を使ってみた">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 03:00 PM | categories: 
+
+<a href='/blog/category/tips'>tips</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/013_xip_io#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<p><a class="reference external" href="http://xio.io/">http://xio.io/</a> provides wildcard DNS for any IP address.</p>
+<p>というわけで使ってみたメモ。</p>
+<p>任意のportで受け付けるには、以下の様に一旦80番ポートで受けてからサブドメインで再度proxyするようにnginxを設定した</p>
+<div class="highlight"><pre>http://port8000.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8000) -&gt; http://127.0.0.1:8000/
+http://port8080.10.0.0.1.xip.io/ -&gt; nginx(port 80) on 10.0.0.1 -&gt; (proxy to 8080) -&gt; http://127.0.0.1:8080/
+</pre></div>
+<p>自分のサーバに置くnginx confのサンプルは以下の通り。</p>
+<div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+
+  <span class="kn">server_name</span> <span class="s">&quot;~^port(\d+)\.([^.]+\.[^.]+)\.((?:\d</span><span class="p">{</span><span class="kn">1,3}\.){3}\d{1,3})\.xip\.io$&quot;</span><span class="p">;</span>
+
+  <span class="kn">access_log</span>  <span class="s">/var/log/nginx/dev.access.log</span><span class="p">;</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">proxy_set_header</span> <span class="s">host</span> <span class="nv">$host</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-real-ip</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span> <span class="s">x-forwarded-for</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:</span><span class="nv">$1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/013_xip_io#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
+  <a name="vagrant-version-up-and-plugin-install"></a>
+  <h2 class="blog_post_title">
+    <a href="/blog/2014/05/06/012_install_vagrant_aws" rel="bookmark" title="Permanent Link to vagrant version up and plugin install">vagrant version up and plugin install</a>
+  </h2>
+  <div class="post_meta">May 06, 2014 at 11:00 AM | categories: 
+
+<a href='/blog/category/aws'>aws</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/vagrant'>vagrant</a>
+
+ | <a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">View Comments</a>
+
+</div>
+  <div class="post_prose">
+    <div class="document">
+<div class="section" id="vagrant-version-up">
+<h3>vagrant version up</h3>
+<p>vagrant 1.6.0 がリリースされたのでバージョンアップした</p>
+<p>vagrant selfupdate などでバージョンアップしたかったが対応してなかった</p>
+<p>version upには、dmgを落として再installする必要あり</p>
+</div>
+<div class="section" id="vagrant-plugin-install">
+<h3>vagrant plugin install</h3>
+<p>vagrantにはpluginで機能拡張できる</p>
+<p>packerを調べていたら以下のpluginを発見したので、以下の手順でinstallした</p>
+<p><a class="reference external" href="https://github.com/mitchellh/vagrant-aws">https://github.com/mitchellh/vagrant-aws</a></p>
+<pre class="literal-block">
+% vagrant plugin list
+% vagrant plugin install vagrant-aws
+</pre>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+  <div class="after_post"><a href="http://tanarky.com/blog/2014/05/06/012_install_vagrant_aws#disqus_thread">Read and Post Comments</a></div>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-1219756446801912";
+/* tanarky.com */
+google_ad_slot = "3430621309";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+  <hr class="interblog" />
+  
+
+<div class="blog_post">
   <a name="ssh-の-lオプション(port-forward)"></a>
   <h2 class="blog_post_title">
     <a href="/blog/2014/05/06/011_how_to_port_foward" rel="bookmark" title="Permanent Link to ssh の Lオプション(port forward)">ssh の Lオプション(port forward)</a>
@@ -88,257 +198,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
   <hr class="interblog" />
-  
-
-<div class="blog_post">
-  <a name="thinkpad-x100eのキーボード設定メモ"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config" rel="bookmark" title="Permanent Link to thinkpad x100eのキーボード設定メモ">thinkpad x100eのキーボード設定メモ</a>
-  </h2>
-  <div class="post_meta">February 21, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/tips'>tips</a>
-
- | <a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document" id="thinkpad-x100e">
-<h1 class="title">thinkpad x100eのキーボード設定メモ</h1>
-<p>Macbook Proとの使い分けをするために、
-できるだけ似たようなキー操作になるように模索したメモ</p>
-<p>thinkpad(Ubuntu 11.10)の英語キーボードの設定をどうするか、という視点で書く</p>
-<ol class="arabic simple">
-<li>システム設定の&quot;キーボードレイアウト&quot;を開き、オプションで以下の設定をする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>Alt/Winキーの操作 -&gt; デフォルトのまま</li>
-<li>Ctrlキーの位置 -&gt; &quot;Make Caps Lock an additional Ctrl&quot;</li>
-</ol>
-</blockquote>
-<ol class="arabic simple" start="2">
-<li>IBusの設定(Input Methods)を開いた以下の設定をする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>入力モードの切り替えを、Alt+Spaceにする</li>
-<li>言語パネルはメニューに組み込む</li>
-</ol>
-</blockquote>
-<ol class="arabic simple" start="3">
-<li>システム設定の&quot;キーボード&quot;を開き、ショートカットを以下の設定とする</li>
-</ol>
-<blockquote>
-<ol class="loweralpha simple">
-<li>&quot;ウィンドウメニューをアクティブにする&quot;ショートカットをWin+Spaceに</li>
-</ol>
-</blockquote>
-<p>これにより、</p>
-<ul class="simple">
-<li>Alt+TabでWindow切り替えができる。
-MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、同じキー</li>
-<li>Alt+Spaceで入力切り替えが出来る。
-MacだとAltの位置(Spaceの左隣)にコマンドキーがあるので、これも同じキー</li>
-<li>Win+Spaceでウィンドウメニューを開ける。
-Macだと別ショートカットなので、これに割り当ててもよし</li>
-</ul>
-<p>以上。</p>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config#disqus_thread">Read and Post Comments</a></div>
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  <hr class="interblog" />
-  
-
-<div class="blog_post">
-  <a name="(できるだけ)ポータブルなpython開発環境"></a>
-  <h2 class="blog_post_title">
-    <a href="/blog/2012/01/20/00a_portable_python_env" rel="bookmark" title="Permanent Link to (できるだけ)ポータブルなPython開発環境">(できるだけ)ポータブルなPython開発環境</a>
-  </h2>
-  <div class="post_meta">January 20, 2012 at 02:00 PM | categories: 
-
-<a href='/blog/category/python'>python</a>, <a href='/blog/category/tips'>tips</a>, <a href='/blog/category/install'>install</a>
-
- | <a href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env#disqus_thread">View Comments</a>
-
-</div>
-  <div class="post_prose">
-    <div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
-<li><a class="reference internal" href="#buildoutvirtualenv1" id="id6">buildoutとvirtualenvを用いた1つの解</a><ul>
-<li><a class="reference internal" href="#id3" id="id7">参考手順</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id4" id="id8">まとめ など</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">背景</a></h3>
-<p>せっかくLLをさわっているので、</p>
-<ul class="simple">
-<li>OS依存が少ない</li>
-<li>複数versionの環境の混在</li>
-<li>構築の簡単さ</li>
-<li>本番環境でも使える性能</li>
-<li>環境をコピーできる</li>
-</ul>
-<p>というPython環境が欲しくて、色々考えてる</p>
-</div>
-<div class="section" id="buildoutvirtualenv1">
-<h3><a class="toc-backref" href="#id6">buildoutとvirtualenvを用いた1つの解</a></h3>
-<p>以下のようなことを考えた</p>
-<ul class="simple">
-<li>コンパイルが必要なライブラリ(Python自体も含む)をbuildoutでビルドする<ul>
-<li>Python</li>
-<li>zlib</li>
-<li>Graphviz</li>
-<li>画像系パッケージ?</li>
-<li>(yum/aptitudeでもいいが、後々環境が混在できなくなるリスク)</li>
-</ul>
-</li>
-<li>buldoutでbuildしたpythonを指定して、virtualenv環境を構築する</li>
-<li>PyPIパッケージは、virtualenvにinstallする</li>
-<li>サービスはvirtualenv環境ごとに分ける<ul>
-<li>サービスごとにpythonのバージョンをわけるためにBuildするのは大変</li>
-<li>サービスごとにライブラリのバージョンが競合する可能性はあるので
-その時はbuildout環境を増やす</li>
-</ul>
-</li>
-<li>自分で書いたコードは、githubや自前distサーバなどにパッケージとしておいておく</li>
-<li>環境から、distサーバ指定でpip installしてdeploy</li>
-</ul>
-<div class="section" id="id3">
-<h4><a class="toc-backref" href="#id7">参考手順</a></h4>
-<ol class="arabic simple">
-<li>まずは、buildoutでOS依存しない場所にPythonと
-依存するライブラリなどをビルド</li>
-</ol>
-<div class="highlight"><pre>% mkdir /tmp/py27
-% cd /tmp/py27
-% (buildout.cfg + bootstrap.pyを用意)
-% cat buildout.cfg
-[buildout]
-python = python
-parts =
-    python
-    env
-
-[python]
-recipe = zc.recipe.cmmi
-url = http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
-executable = ${buildout:parts-directory}/python/bin/python2.7
-environment =
-    LDFLAGS=-Wl,-rpath,${buildout:parts-directory}/python/lib
-extra_options =
-    --enable-unicode=ucs4
-    --enable-shared
-    --with-threads
-
-[env]
-recipe = zc.recipe.egg
-eggs =
-     virtualenv
-     virtualenvwrapper
-
-interpreter = python
-
-% python bootstrap.py
-% bin/buildout
-</pre></div>
-<ol class="arabic simple" start="2">
-<li>1.で構築したpythonを使って、virtualenv環境を作る</li>
-</ol>
-<div class="highlight"><pre>% export WORKON_HOME=/tmp/virtualenvs
-% export VIRTUALENVWRAPPER_HOOK_DIR=/tmp/virtualenvs
-% export VIRTUALENVWRAPPER_LOG_DIR=/tmp/virtualenvs
-## FIXME: クリーンな環境でうまくいくか?
-% mkvirtualenv -p /tmp/py27/parts/python/bin/python testenv
-% /tmp/virtualenvs/testenv/bin/pip install Flask
-% /tmp/virtualenvs/testenv/bin/pip install gunicorn
-% /tmp/virtualenvs/testenv/bin/pip install supervisor
-</pre></div>
-<ol class="arabic simple" start="3">
-<li>開発</li>
-</ol>
-<div class="highlight"><pre>% cat myserver.py
-
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route(&#39;/&#39;)
-def index():
-    return &quot;&lt;h1&gt;hello!Yes!&lt;/h1&gt;&quot;
-
-if __name__ == &#39;__main__&#39;:
-    app.run(debug=True)
-% /tmp/virtualenvs/testenv/bin/python myserver.py
-   * Running on http://127.0.0.1:5000/
-   * Restarting with reloader
-</pre></div>
-<ol class="arabic simple" start="4">
-<li>インストール</li>
-</ol>
-<p>cpでinstallしないほうがいい(暫定手順)</p>
-<div class="highlight"><pre>% sudo mkdir /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj
-% touch /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/__init__.py
-% sudo cp myserver.py /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/
-</pre></div>
-<ol class="arabic simple" start="5">
-<li>gunicornで本番プロセス起動</li>
-</ol>
-<p>本当はdaemonモード</p>
-<div class="highlight"><pre>% /tmp/virtualenvs/testenv/bin/gunicorn mypj.myserver:app
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id8">まとめ など</a></h3>
-<ul class="simple">
-<li>gunicornが起動するところまで確認できたので、supervisorで監視体制を整えたい</li>
-<li>古めのCentOSでも動くか?</li>
-<li>zlib/graphvizなどのライブラリ系もbuildoutに組み込みたい</li>
-</ul>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-  <div class="after_post"><a href="http://tanarky.com/blog/2012/01/20/00a_portable_python_env#disqus_thread">Read and Post Comments</a></div>
-  <script type="text/javascript"><!--
-google_ad_client = "ca-pub-1219756446801912";
-/* tanarky.com */
-google_ad_slot = "3430621309";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-  <hr class="interblog" />
  <a href="/blog/category/tips/1">« Previous Page</a>
   --  
  <a href="/blog/category/tips/3">Next Page »</a>
@@ -349,6 +208,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <div class="well">
   <h5>Recent Articles</h5>
   <ol>
+    <li><a href="/blog/2014/06/15/016_company_management_memo_1">会社を設立したときのIT環境をどうするかメモ1</a></li>
+    <li><a href="/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac">Firefox on Mac に Flash Player をインストール</a></li>
     <li><a href="/blog/2014/05/25/014_mac_zsh_profile">Mac における zshのPATH設定</a></li>
     <li><a href="/blog/2014/05/06/013_xip_io">wildcard DNS for any IP address なサービスの xip.io を使ってみた</a></li>
     <li><a href="/blog/2014/05/06/012_install_vagrant_aws">vagrant version up and plugin install</a></li>
@@ -357,8 +218,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <li><a href="/blog/2012/03/12/00f_javascript_env_on_macbook">Rhino/Node Javascript実行環境構築 on Macbook</a></li>
     <li><a href="/blog/2012/02/21/00e_thinkpad_x100e_keyboard_config">thinkpad x100eのキーボード設定メモ</a></li>
     <li><a href="/blog/2012/02/11/00c_jqueryui_autocomplete_samples">jQuery UI autocomplete サンプル</a></li>
-    <li><a href="/blog/2012/01/20/00a_portable_python_env">(できるだけ)ポータブルなPython開発環境</a></li>
-    <li><a href="/blog/2012/01/02/009_install_postfix_on_ubuntu">PostfixでGmail経由メール送信環境構築 on Ubuntu</a></li>
   </ol>
 </div>
 

@@ -10,10 +10,139 @@
     <title>tanarky.com</title>
     <link>http://tanarky.com/blog</link>
     <description>tanarky website</description>
-    <pubDate>Sun, 25 May 2014 15:02:05 GMT</pubDate>
+    <pubDate>Sun, 15 Jun 2014 10:00:45 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>会社を設立したときのIT環境をどうするかメモ1</title>
+      <link>http://tanarky.com/blog/2014/06/15/016_company_management_memo_1</link>
+      <pubDate>Sun, 15 Jun 2014 11:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/06/15/016_company_management_memo_1</guid>
+      <description>会社を設立したときのIT環境をどうするかメモ1</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>自分で会社を設立した場合、IT環境をどうするか考えてみたのでメモ</p>
+<p>目的は以下の様なことを最小限の運用コストで実現すること</p>
+<ol class="arabic simple">
+<li>ドメイン管理</li>
+<li>社員のアカウント（入社・退職管理）</li>
+<li>社内ツールの運用(メールや社内wiki)</li>
+<li>外部公開用ホームページや製品ページ運用(要ブログ機能)</li>
+</ol>
+<p>結論から言うと、ほとんどをGoogleが提供するツールでなんとかする</p>
+<div class="section" id="id1">
+<h3>1. ドメイン管理</h3>
+<p>まずはドメインの取得だが、これは好きなサービスを使えばいいと思う。</p>
+<p>個人的には valuedomain に慣れているが、そういうものがなければ
+今後の AWS 連携を考慮して Amazon 提供の Route 53 がいいかもしれない。</p>
+</div>
+<div class="section" id="id2">
+<h3>2. 社員のアカウント（入社・退職管理）</h3>
+<p>アカウント管理の容易さやその他のツールとの連携を考えると、
+有料とはいえ Google Apps for Business になるかなと考えている</p>
+<p>考えられるメリットは以下</p>
+<ul class="simple">
+<li>メールアカウントとツール(Gmail)の提供 (後述)</li>
+<li>2段階認証などセキュリティ面での充実した機能</li>
+<li>アカウント管理の容易さ</li>
+<li>Google site や AppEngine などとの連携 (後述)</li>
+</ul>
+<p>2014年6月現在では、1ユーザ600円/月から、となっている</p>
+</div>
+<div class="section" id="wiki">
+<h3>3. 社内ツールの運用(メールや社内wiki)</h3>
+<p>社内で業務上必要となるツールには様々なものがあるが、Googleにはほとんどが揃っている</p>
+<ul class="simple">
+<li>社内だけで使うClosedなチャット -&gt; hangouts</li>
+<li>社内用wiki -&gt; Google site</li>
+<li>メールアカウント -&gt; gmail</li>
+<li>メーリングリスト -&gt; Google apps</li>
+<li>ファイルサーバ -&gt; Google drive</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>4. 外部公開用ホームページや製品ページ運用(要ブログ機能)</h3>
+<p>ホームページホスティングサービスやブログサービスについての選択肢は多いが、
+以下のことを考えると選択肢は限られてくる</p>
+<ol class="arabic simple">
+<li>独自ドメイン運用できるか</li>
+<li>社員アカウントとの編集権限連動できるか</li>
+<li>非エンジニアが容易に編集できるか</li>
+</ol>
+<p>1については、ほとんどのブログサービスが提供していると思われる</p>
+<p>2については、ハードルが上がる。アカウントをGoogle Appsで行う以上、
+Googleのサービスを使うか、自前でSSO機能を実装してサービスを構築する必要がある。</p>
+<p>3については、ブログ記事の編集ツールが無いとエンジニアのリソースを使ってしまう。</p>
+<p>というわけで、結論として以下を考えた</p>
+<ul class="simple">
+<li>Google AppEngine上にブログサービスを構築</li>
+<li>Adminツールから、ブログの編集権限は社員アカウントのみに制限する</li>
+</ul>
+<p>Github PagesやS3による自前サーバ0な静的サイト運用方法は色々あるが、
+上記の要件を満たすものを考えたら、AppEngineによるものしか思い浮かばなかった。</p>
+<p>もっといい運用があれば、また記事にしようと思う。</p>
+</div>
+<div class="section" id="url">
+<h3>参考URLなど</h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name" colspan="2">Google Apps for Business Prices:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="http://www.google.co.jp/intx/ja/enterprise/apps/business/pricing.html">http://www.google.co.jp/intx/ja/enterprise/apps/business/pricing.html</a></td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Github クローンなサービスに関する記事:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="http://hiroki.jp/github-clone">http://hiroki.jp/github-clone</a></td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">apache-google-apps-sso:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="https://github.com/epotocko/apache-google-apps-sso">https://github.com/epotocko/apache-google-apps-sso</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Firefox on Mac に Flash Player をインストール</title>
+      <link>http://tanarky.com/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac</link>
+      <pubDate>Sun, 15 Jun 2014 10:00:00 JST</pubDate>
+      <category><![CDATA[tips]]></category>
+      <guid isPermaLink="true">http://tanarky.com/blog/2014/06/15/015_clean_install_flash_player_to_firefox_on_mac</guid>
+      <description>Firefox on Mac に Flash Player をインストール</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>何故か Mac Book Pro の Firefox で Flash Player のインストールに失敗していたので対策した時のメモ</p>
+<p>環境は以下のとおり</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Mac OS:</th><td class="field-body">X 10.9.3</td>
+</tr>
+<tr class="field"><th class="field-name">Firefox:</th><td class="field-body">29.0.3</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">インストールしようとしたFlash Player:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body">14.0.0.125</td>
+</tr>
+</tbody>
+</table>
+<p>Flash Player Download Center ( <a class="reference external" href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/</a> ) からだと、
+インストール途中で失敗していた</p>
+<p>結論から言うと、インストール途中で内部的に最新バージョンを取ってきて(ネットワーク?)インストールしている挙動っぽかったので、最初から Full version を落としてきてインストールしたら問題なく完了した。</p>
+<p>Full version のリンク先は <a class="reference external" href="http://www.adobe.com/products/flashplayer/distribution3.html">http://www.adobe.com/products/flashplayer/distribution3.html</a></p>
+<div class="section" id="url">
+<h3>参考URL</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://support.mozilla.org/ja/questions/920187">https://support.mozilla.org/ja/questions/920187</a></li>
+<li><a class="reference external" href="http://toshiohattori.blogspot.jp/2014/01/flash.html">http://toshiohattori.blogspot.jp/2014/01/flash.html</a></li>
+<li><a class="reference external" href="https://discussions.apple.com/message/21837402">https://discussions.apple.com/message/21837402</a></li>
+<li><a class="reference external" href="http://www.adobe.com/jp/software/flash/about/">http://www.adobe.com/jp/software/flash/about/</a></li>
+</ul>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Mac における zshのPATH設定</title>
       <link>http://tanarky.com/blog/2014/05/25/014_mac_zsh_profile</link>
@@ -449,230 +578,6 @@ APIがJSON形式のデータを返している。</p>
 <h3><a class="toc-backref" href="#id9">関連リンク</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://jqueryui.com/demos/autocomplete/">jquery UI autocomplete 公式ドキュメント demo</a></li>
-</ul>
-</div>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>(できるだけ)ポータブルなPython開発環境</title>
-      <link>http://tanarky.com/blog/2012/01/20/00a_portable_python_env</link>
-      <pubDate>Fri, 20 Jan 2012 14:00:00 JST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[tips]]></category>
-      <category><![CDATA[install]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2012/01/20/00a_portable_python_env</guid>
-      <description>(できるだけ)ポータブルなPython開発環境</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">背景</a></li>
-<li><a class="reference internal" href="#buildoutvirtualenv1" id="id6">buildoutとvirtualenvを用いた1つの解</a><ul>
-<li><a class="reference internal" href="#id3" id="id7">参考手順</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id4" id="id8">まとめ など</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id5">背景</a></h3>
-<p>せっかくLLをさわっているので、</p>
-<ul class="simple">
-<li>OS依存が少ない</li>
-<li>複数versionの環境の混在</li>
-<li>構築の簡単さ</li>
-<li>本番環境でも使える性能</li>
-<li>環境をコピーできる</li>
-</ul>
-<p>というPython環境が欲しくて、色々考えてる</p>
-</div>
-<div class="section" id="buildoutvirtualenv1">
-<h3><a class="toc-backref" href="#id6">buildoutとvirtualenvを用いた1つの解</a></h3>
-<p>以下のようなことを考えた</p>
-<ul class="simple">
-<li>コンパイルが必要なライブラリ(Python自体も含む)をbuildoutでビルドする<ul>
-<li>Python</li>
-<li>zlib</li>
-<li>Graphviz</li>
-<li>画像系パッケージ?</li>
-<li>(yum/aptitudeでもいいが、後々環境が混在できなくなるリスク)</li>
-</ul>
-</li>
-<li>buldoutでbuildしたpythonを指定して、virtualenv環境を構築する</li>
-<li>PyPIパッケージは、virtualenvにinstallする</li>
-<li>サービスはvirtualenv環境ごとに分ける<ul>
-<li>サービスごとにpythonのバージョンをわけるためにBuildするのは大変</li>
-<li>サービスごとにライブラリのバージョンが競合する可能性はあるので
-その時はbuildout環境を増やす</li>
-</ul>
-</li>
-<li>自分で書いたコードは、githubや自前distサーバなどにパッケージとしておいておく</li>
-<li>環境から、distサーバ指定でpip installしてdeploy</li>
-</ul>
-<div class="section" id="id3">
-<h4><a class="toc-backref" href="#id7">参考手順</a></h4>
-<ol class="arabic simple">
-<li>まずは、buildoutでOS依存しない場所にPythonと
-依存するライブラリなどをビルド</li>
-</ol>
-<div class="highlight"><pre>% mkdir /tmp/py27
-% cd /tmp/py27
-% (buildout.cfg + bootstrap.pyを用意)
-% cat buildout.cfg
-[buildout]
-python = python
-parts =
-    python
-    env
-
-[python]
-recipe = zc.recipe.cmmi
-url = http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
-executable = ${buildout:parts-directory}/python/bin/python2.7
-environment =
-    LDFLAGS=-Wl,-rpath,${buildout:parts-directory}/python/lib
-extra_options =
-    --enable-unicode=ucs4
-    --enable-shared
-    --with-threads
-
-[env]
-recipe = zc.recipe.egg
-eggs =
-     virtualenv
-     virtualenvwrapper
-
-interpreter = python
-
-% python bootstrap.py
-% bin/buildout
-</pre></div>
-<ol class="arabic simple" start="2">
-<li>1.で構築したpythonを使って、virtualenv環境を作る</li>
-</ol>
-<div class="highlight"><pre>% export WORKON_HOME=/tmp/virtualenvs
-% export VIRTUALENVWRAPPER_HOOK_DIR=/tmp/virtualenvs
-% export VIRTUALENVWRAPPER_LOG_DIR=/tmp/virtualenvs
-## FIXME: クリーンな環境でうまくいくか?
-% mkvirtualenv -p /tmp/py27/parts/python/bin/python testenv
-% /tmp/virtualenvs/testenv/bin/pip install Flask
-% /tmp/virtualenvs/testenv/bin/pip install gunicorn
-% /tmp/virtualenvs/testenv/bin/pip install supervisor
-</pre></div>
-<ol class="arabic simple" start="3">
-<li>開発</li>
-</ol>
-<div class="highlight"><pre>% cat myserver.py
-
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route(&#39;/&#39;)
-def index():
-    return &quot;&lt;h1&gt;hello!Yes!&lt;/h1&gt;&quot;
-
-if __name__ == &#39;__main__&#39;:
-    app.run(debug=True)
-% /tmp/virtualenvs/testenv/bin/python myserver.py
-   * Running on http://127.0.0.1:5000/
-   * Restarting with reloader
-</pre></div>
-<ol class="arabic simple" start="4">
-<li>インストール</li>
-</ol>
-<p>cpでinstallしないほうがいい(暫定手順)</p>
-<div class="highlight"><pre>% sudo mkdir /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj
-% touch /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/__init__.py
-% sudo cp myserver.py /tmp/virtualenvs/testenv/lib/python2.7/site-packages/mypj/
-</pre></div>
-<ol class="arabic simple" start="5">
-<li>gunicornで本番プロセス起動</li>
-</ol>
-<p>本当はdaemonモード</p>
-<div class="highlight"><pre>% /tmp/virtualenvs/testenv/bin/gunicorn mypj.myserver:app
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id8">まとめ など</a></h3>
-<ul class="simple">
-<li>gunicornが起動するところまで確認できたので、supervisorで監視体制を整えたい</li>
-<li>古めのCentOSでも動くか?</li>
-<li>zlib/graphvizなどのライブラリ系もbuildoutに組み込みたい</li>
-</ul>
-</div>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>PostfixでGmail経由メール送信環境構築 on Ubuntu</title>
-      <link>http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu</link>
-      <pubDate>Mon, 02 Jan 2012 14:00:00 JST</pubDate>
-      <category><![CDATA[tips]]></category>
-      <category><![CDATA[install]]></category>
-      <category><![CDATA[ubuntu]]></category>
-      <guid isPermaLink="true">http://tanarky.com/blog/2012/01/02/009_install_postfix_on_ubuntu</guid>
-      <description>PostfixでGmail経由メール送信環境構築 on Ubuntu</description>
-      <content:encoded><![CDATA[<div class="document">
-<div class="contents topic" id="id1">
-<p class="topic-title first">目次</p>
-<ul class="simple">
-<li><a class="reference internal" href="#id2" id="id4">環境構築手順</a></li>
-<li><a class="reference internal" href="#id3" id="id5">参考</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id4">環境構築手順</a></h3>
-<p>AppEngineの開発環境で、メール送信機能を使うために
-postfixを使ったgmail送信環境の構築を行ったので、メモ。</p>
-<p>まずは、package install</p>
-<div class="highlight"><pre>% sudo aptitude install postfix libsasl2-modules
-</pre></div>
-<p>/etc/postfix/main.cf を編集</p>
-<p>以下を追記</p>
-<div class="highlight"><pre># tanarky added
-mydomain = tanarky.com
-myorigin = $myhostname
-relayhost = [smtp.gmail.com]:587
-smtp_use_tls = yes
-smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
-smtp_sasl_auth_enable = yes
-smtp_sasl_password_maps = hash:/etc/postfix/relay_password
-smtp_sasl_security_options = noanonymous
-smtp_sasl_tls_security_options = noanonymous
-smtp_sasl_mechanism_filter = plain
-</pre></div>
-<p>パスワードファイル作成</p>
-<div class="highlight"><pre>% sudo cat /etc/postfix/relay_password
-[smtp.gmail.com]:587 *(Googleアカウント)*@gmail.com:*(Googleアカウントパスワード)*
-% sudo postmap /etc/postfix/relay_password
-% ls -l /etc/postfix/relay_password*
--rw-r--r-- 1 root root    48 2012-01-01 22:17 /etc/postfix/relay_password
--rw-r--r-- 1 root root 12288 2012-01-01 22:17 /etc/postfix/relay_password.db
-% sudo rm /etc/postfix/relay_password
-% ls -l /etc/postfix/relay_password*
--rw-r--r-- 1 root root 12288 2012-01-01 22:17 /etc/postfix/relay_password.db
-</pre></div>
-<p>postfix restartしてテスト送信</p>
-<div class="highlight"><pre>% sudo /etc/init.d/postfix restart
-% sendmail -t ***
-To: ***
-From: ***
-Subject: hello
-
-world.
-
-.
-%
-</pre></div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id5">参考</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://www.icoro.com/200908243988.html">http://www.icoro.com/200908243988.html</a></li>
-<li><a class="reference external" href="http://blog.tanarky.com/2010/09/centosgmail.html">http://blog.tanarky.com/2010/09/centosgmail.html</a></li>
 </ul>
 </div>
 </div>
