@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+body {
+	background: #eeeeee;
+	margin: 0;
+	padding: 0;
+	font: 12px normal Verdana, Arial, Helvetica, sans-serif;
+	height: 100%;
+}
+* {margin: 0; padding: 0; outline: none;}
+
+img {border: none;}
+a { 
+	text-decoration:none; 
+	color:#00c6ff;
+}
+h1 {
+	font: 3em normal Arial, Helvetica, sans-serif;
+	padding: 20px;	margin: 0;
+	text-align:center;
+	color:#bbb;
+}
+h1 small{
+	font-size: 0.5em;
+	letter-spacing: 0.1em; line-height: 3em;
+	display: block;
+}
+.container {width: 340px; margin: 0 auto; overflow: hidden;}
+.contain{ width:30px; display:block; margin: 0 auto; height:60px;}
+#loader
+{
+	position: absolute;
+	width: 30px; /*ローディングアイコンの横サイズ*/
+	height: 30px; /*ローディングアイコンの縦サイズ*/
+	border-radius: 30px;  /*CSS3で円を書く*/
+	border: 8px solid #17cddd;  /*円に枠をつける*/
+	border-right-color: transparent; /*円の右にC状の空きをつける*/
+	
+	-webkit-animation: spin 1s infinite linear; /*回転のアニメーションをつける*/
+    -moz-animation: spin 1s infinite linear;
+}
+@-webkit-keyframes spin
+{
+	0% { -webkit-transform: rotate(0deg); opacity: 0.4; }
+	50%  { -webkit-transform: rotate(180deg); opacity: 1; }
+	100%   { -webkit-transform: rotate(360deg); opacity: 0.4; }
+}
+
+@-moz-keyframes spin
+{
+	0% { -moz-transform: rotate(0deg); opacity: 0.4; }
+	50%  { -moz-transform: rotate(180deg); opacity: 1; }
+	100%   { -moz-transform: rotate(360deg); opacity: 0.4; }
+}
+    </style>
+  </head>
+  <body>
+    <h1>CSS3 Loading Animation<br/><small>sample</small></h1>
+    <div class="container">
+      <div class="contain">
+	    <div id="loader"></div>
+      </div>
+    </div>
+    <script>
+function redirect(){
+    //location.href = 'http://www.yahoo.co.jp/';
+    location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
+    console.log('redirect finished.');
+}
+setTimeout(redirect, 1000);
+    </script>
+  </body>
+</html>
