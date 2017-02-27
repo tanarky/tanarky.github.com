@@ -68,15 +68,40 @@ h1 small{
     </div>
     <br><br>
     <div style="text-align:center;font-size:30px">
-      <!--<a id="bootapp" href="http://www.yahoo.co.jp/">yahoo</a>-->
-      <a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
+    <!--
+    <a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
+    -->
+    <a id="bootapp" href="http://www.yahoo.co.jp/">yahoo</a>
     </div>
     <script>
+function triggerEvent(element, event) {
+    if (document.createEvent) {
+        // IE以外
+        console.log('NOT IE');
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent(event, true, true ); // event type, bubbling, cancelable
+        return element.dispatchEvent(evt);
+    } else {
+        // IE
+        console.log('IE');
+        var evt = document.createEventObject();
+        return element.fireEvent("on"+event, evt)
+    }
+}
 function redirect(){
     //location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
     console.log('called reirect');
     var bootapp = document.getElementById("bootapp");
-    bootapp.click();
+    var e = document.createEvent("TouchEvent");
+    e.initTouchEvent();
+    bootapp.dispatchEvent(e);
+    
+    //bootapp.click();
+    //
+    //evt.initEvent('touchend', true, true );
+    //evt.initEvent('click', true, true );
+    //
+    //triggerEvent(bootapp, 'click');
     console.log('finished redirect');
 }
 setTimeout(redirect, 1000);
