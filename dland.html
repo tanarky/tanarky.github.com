@@ -89,20 +89,21 @@ function triggerEvent(element, event) {
     }
 }
 function redirect(){
-    //location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
-    console.log('called reirect');
-    var bootapp = document.getElementById("bootapp");
-    var e = document.createEvent("TouchEvent");
-    e.initTouchEvent();
-    bootapp.dispatchEvent(e);
-    
-    //bootapp.click();
+    location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
+
+    //console.log('called reirect');
+    //var bootapp = document.getElementById("bootapp");
+    //var e = document.createEvent("TouchEvent");
+    //e.initTouchEvent();
+    //bootapp.dispatchEvent(e);
     //
-    //evt.initEvent('touchend', true, true );
-    //evt.initEvent('click', true, true );
-    //
-    //triggerEvent(bootapp, 'click');
-    console.log('finished redirect');
+    ////bootapp.click();
+    ////
+    ////evt.initEvent('touchend', true, true );
+    ////evt.initEvent('click', true, true );
+    ////
+    ////triggerEvent(bootapp, 'click');
+    //console.log('finished redirect');
 }
 setTimeout(redirect, 1000);
     </script>
