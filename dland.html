@@ -102,10 +102,12 @@ function redirect(){
     //bootapp2.click();
     //// END
 
+    // event.initEvent('click').dispatchEvent() で発火させる: Android7だとNG/4.3 OK
     var bootapp1 = document.getElementById( 'bootapp1' ),
         event = document.createEvent( 'HTMLEvents' );
     event.initEvent( 'click', true, true );
     bootapp1.dispatchEvent( event );
+    // END
 
     //console.log('called reirect');
     //
@@ -121,7 +123,7 @@ function redirect(){
     ////triggerEvent(bootapp, 'click');
     //console.log('finished redirect');
 }
-setTimeout(redirect, 1000);
+setTimeout(redirect, 5000);
     </script>
   </body>
 </html>
