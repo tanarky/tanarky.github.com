@@ -68,10 +68,10 @@ h1 small{
     </div>
     <br><br>
     <div style="text-align:center;font-size:30px">
-    <!--
-    <a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
-    -->
-    <a id="bootapp" href="http://www.yahoo.co.jp/">yahoo</a>
+    <a id="bootapp1" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
+    <br><br>
+    <a id="bootapp2" href="http://www.yahoo.co.jp/">yahoo</a>
+    <br><br>
     </div>
     <script>
 function triggerEvent(element, event) {
@@ -89,15 +89,24 @@ function triggerEvent(element, event) {
     }
 }
 function redirect(){
-    //// 直接 intent:// を location.hrefにする --> Android7系はだめだった
+    //// 直接 intent:// を location.hrefにする --> Android7系はだめだった、Android4系だとOK
     //location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
     //// END
 
-    // click()で発火させる --> intent:// だとだめ、http://www.yahoo.co.jp/ だとOK
-    var bootapp = document.getElementById("bootapp");
-    bootapp.click();
-    // END
-    
+    //// click()で発火させる
+    ////// intent:// だと両方だめ
+    ////var bootapp1 = document.getElementById("bootapp1");
+    ////bootapp1.click();
+    //// http://www.yahoo.co.jp/ だとAndroid7だとOK
+    //var bootapp2 = document.getElementById("bootapp2");
+    //bootapp2.click();
+    //// END
+
+    var bootapp1 = document.getElementById( 'bootapp1' ),
+        event = document.createEvent( 'HTMLEvents' );
+    event.initEvent( 'click', true, true );
+    bootapp1.dispatchEvent( event );
+
     //console.log('called reirect');
     //
     //var e = document.createEvent("TouchEvent");
