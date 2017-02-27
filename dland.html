@@ -68,14 +68,16 @@ h1 small{
     </div>
     <br><br>
     <div style="text-align:center;font-size:30px">
-      <a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
+      <!--<a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>-->
+      <a id="bootapp" href="http://www.yahoo.co.jp/">yahoo</a>
     </div>
     <script>
 function redirect(){
     //location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
-    //console.log('redirect finished.');
+    console.log('called reirect');
     var bootapp = document.getElementById("bootapp");
     bootapp.click();
+    console.log('finished redirect');
 }
 setTimeout(redirect, 1000);
     </script>
