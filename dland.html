@@ -69,9 +69,9 @@ h1 small{
     <br><br>
     <div style="text-align:center;font-size:30px">
     <!--
-    <a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
-    -->
     <a id="bootapp" href="http://www.yahoo.co.jp/">yahoo</a>
+    -->
+    <a id="bootapp" href="intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end">intent://</a>
     </div>
     <script>
 function triggerEvent(element, event) {
@@ -89,15 +89,22 @@ function triggerEvent(element, event) {
     }
 }
 function redirect(){
-    location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
+    //// 直接 intent:// を location.hrefにする Android7系はだめだった
+    //location.href = 'intent://articlelist?titleno=19265&push=Y/#Intent;scheme=comico;package=jp.comico;end';
+    //// END
 
+    // click()で発火させる
+    var bootapp = document.getElementById("bootapp");
+    bootapp.click();
+    // END
+    
     //console.log('called reirect');
-    //var bootapp = document.getElementById("bootapp");
+    //
     //var e = document.createEvent("TouchEvent");
     //e.initTouchEvent();
     //bootapp.dispatchEvent(e);
     //
-    ////bootapp.click();
+    ////
     ////
     ////evt.initEvent('touchend', true, true );
     ////evt.initEvent('click', true, true );
