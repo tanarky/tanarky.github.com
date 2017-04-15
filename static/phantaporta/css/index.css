@@ -2522,7 +2522,7 @@ ul.socials span {
     text-align: center;
     padding: 0 50px;
     margin-bottom: 35px;
-    font-family: &quot;Montserrat&quot;, sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: normal;
     line-height: normal;
     font-size: 20px;
@@ -2621,7 +2621,7 @@ img.pinimg {
 	color:#AEAEAE;
 }
 .comment_count:after {
-	content: &quot; &quot;;
+	content: " ";
     position: absolute;
     display: block;
     height: 100%;
@@ -2679,7 +2679,7 @@ img.pinimg {
     font-weight:400;
 }
 .meta-date:after {
-	content: &quot; &quot;;
+	content: " ";
     position: absolute;
     display: block;
     height: 100%;
@@ -3363,7 +3363,7 @@ a.flex-prev:hover, a.flex-next:hover{
 }
 
 a.bx-prev:before {
-    content: &quot;\f053&quot;;
+    content: "\f053";
     font-size: 12px;
     position: absolute;
     color: #fff;
@@ -3372,7 +3372,7 @@ a.bx-prev:before {
 }
 
 a.bx-next:after {
-    content: &quot;\f054&quot;;
+    content: "\f054";
     font-size: 12px;
     position: absolute;
     color: #fff;
@@ -3460,7 +3460,7 @@ a.bx-next:after {
 .slicknav_nav .slicknav_item a,
 .slicknav_nav .slicknav_parent-link a { display: inline }
 .slicknav_menu:before,
-.slicknav_menu:after { content: &quot; &quot;; display: table; }
+.slicknav_menu:after { content: " "; display: table; }
 .slicknav_menu:after { clear: both }
 /* IE6/7 support */
 .slicknav_menu { *zoom: 1 }
@@ -3581,7 +3581,7 @@ a.bx-next:after {
 .flex-pauseplay span {text-transform: capitalize;}
 
 /* Clearfix for the .slides element */
-.slides:after {content: &quot;\0020&quot;; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
 html[xmlns] .slides {display: block;}
 * html .slides {height: 1%;}
 
@@ -3643,7 +3643,7 @@ html[xmlns] .slides {display: block;}
     font-family: &#39;FontAwesome&#39;;}
 
 a.flex-prev:before {
-    content: &quot;\f053&quot;;
+    content: "\f053";
     font-size: 12px;
     position: absolute;
     color: #fff;
@@ -3652,7 +3652,7 @@ a.flex-prev:before {
 }
 
 a.flex-next:after {
-    content: &quot;\f054&quot;;
+    content: "\f054";
     font-size: 12px;
     position: absolute;
     color: #fff;
@@ -3665,7 +3665,7 @@ a.flex-next:after {
 
 /* Pause/Play */
 .flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
-.flex-pauseplay a:before  { font-family: &quot;flexslider-icon&quot;; font-size: 20px; display: inline-block; content: &#39;\f004&#39;; }
+.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: &#39;\f004&#39;; }
 .flex-pauseplay a:hover  { opacity: 1; }
 .flex-pauseplay a.flex-play:before { content: &#39;\f003&#39;; }
 
