@@ -886,8 +886,8 @@
                     }, (type === "init") ? 100 : 0);
                 }
             } else { // FADE:
-                //slider.slides.css({"width": "100%", "float": "left", "marginRight": "-100%", "position": "relative"});
-                slider.slides.css({"width": "100%", "marginRight": "-100%", "position": "relative"});
+                slider.slides.css({"width": "100%", "float": "left", "marginRight": "-100%", "position": "relative"});
+                //slider.slides.css({"width": "100%", "marginRight": "-100%", "position": "relative"});
                 if (type === "init") {
                     if (!touch) {
                         //slider.slides.eq(slider.currentSlide).fadeIn(slider.vars.animationSpeed, slider.vars.easing);
