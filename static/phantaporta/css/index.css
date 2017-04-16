@@ -706,30 +706,8 @@ span.date {
 
 
 
-.post-entry p, .post-entry h1, .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6, .post-entry hr {
+.post-entry p, .post-entry hr {
     margin-bottom:20px;
-}
-.post-entry h1, .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
-    color:#000;
-    font-weight:700;
-}
-.post-entry h1 {
-    font-size:30px;
-}
-.post-entry h2 {
-    font-size:27px;
-}
-.post-entry h3 {
-    font-size:24px;
-}
-.post-entry h4 {
-    font-size:20px;
-}
-.post-entry h5 {
-    font-size:18px;
-}
-.post-entry h6 {
-    font-size:16px;
 }
 .post-entry hr {
     border:0;
