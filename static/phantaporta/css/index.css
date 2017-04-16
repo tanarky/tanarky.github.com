@@ -2535,18 +2535,18 @@ ul.socials span {
 .social-share-buttons.style-default [data-service] {
     box-shadow: 0 3px 0 rgba(0,0,0,0.05);
 }
-.social-share-buttons.size-large&gt;*, .social-share-buttons.size-large&gt;li&gt;span {
+.social-share-buttons.size-large>*, .social-share-buttons.size-large>li>span {
     line-height: 32px;
     min-width: 32px;
 }
-.social-share-buttons.style-default&gt;*, .social-share-buttons.style-default&gt;li&gt;span {
+.social-share-buttons.style-default>*, .social-share-buttons.style-default>li>span {
     border: 1px solid #ddd;
     background-color: #fff;    border-top-color: $(main.color);
 }
-.social-share-buttons&gt;*:first-child {
+.social-share-buttons>*:first-child {
     margin-left: 0;
 }
-.social-share-buttons&gt;*, .social-share-buttons&gt;li&gt;span {
+.social-share-buttons>*, .social-share-buttons>li>span {
     display: inline-block;
     padding: 0 8px;
     cursor: pointer;
@@ -2560,7 +2560,7 @@ ul.socials span {
     transition: color linear .2s,background-color linear .2s,border-color linear .2s;
     -webkit-transition: color linear .2s,background-color linear .2s,border-color linear .2s;
 }
-.social-share-buttons&gt;* {
+.social-share-buttons>* {
     display: inline-block;
     margin: 5px 8px;
 }
@@ -2695,7 +2695,7 @@ img.pinimg {
 .subscribe-box:before,
 .subscribe-box .block:after{
 	display: table;
-	content: &#39;&#39;;
+	content: "";
 	clear: both;
 }
 .subscribe-box .block{
@@ -2715,7 +2715,7 @@ img.pinimg {
 }
 .subscribe-box .form .email{width:160px;}
 
-.subscribe-box &gt; div{
+.subscribe-box > div{
 	margin: 0;
 	padding: 20px;
 	width: auto;
@@ -3336,7 +3336,7 @@ img.pinimg {
     border: solid 2px #fff;
     border-radius: 0;
     outline: none;
-    font-family: &#39;FontAwesome&#39;;
+    font-family: "FontAwesome";
 }
 
 
@@ -3562,12 +3562,12 @@ a.bx-next:after {
  *********************************/
 /* Font-face Icons */
 @font-face {
-	font-family: &#39;flexslider-icon&#39;;
-	src:url(&#39;fonts/flexslider-icon.eot&#39;);
-	src:url(&#39;fonts/flexslider-icon.eot?#iefix&#39;) format(&#39;embedded-opentype&#39;),
-	url(&#39;fonts/flexslider-icon.woff&#39;) format(&#39;woff&#39;),
-	url(&#39;fonts/flexslider-icon.ttf&#39;) format(&#39;truetype&#39;),
-	url(&#39;fonts/flexslider-icon.svg#flexslider-icon&#39;) format(&#39;svg&#39;);
+	font-family: "flexslider-icon";
+	src:url("fonts/flexslider-icon.eot");
+	src:url("fonts/flexslider-icon.eot?#iefix") format("embedded-opentype"),
+	url("fonts/flexslider-icon.woff") format("woff"),
+	url("fonts/flexslider-icon.ttf") format("truetype"),
+	url("fonts/flexslider-icon.svg#flexslider-icon") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -3575,7 +3575,7 @@ a.bx-next:after {
 /* FlexSlider Necessary Styles
  *********************************/
 .flexslider {margin: 0; padding: 0;}
-.flexslider .slides &gt; li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides .feets {width: 100%; display: block;height:100%;    background-size: cover;
                             background-repeat: no-repeat;position: relative;}
 .flex-pauseplay span {text-transform: capitalize;}
@@ -3588,7 +3588,7 @@ html[xmlns] .slides {display: block;}
 /* No JavaScript Fallback */
 /* If you are not using another script, such as Modernizr, make sure you
  * include js that eliminates this class on page load */
-.no-js .slides &gt; li:first-child {display: block;}
+.no-js .slides > li:first-child {display: block;}
 
 /* FlexSlider Default Theme
  *********************************/
@@ -3620,7 +3620,7 @@ html[xmlns] .slides {display: block;}
     border: solid 2px #fff;
     border-radius: 0;
     outline: none;
-    font-family: &#39;FontAwesome&#39;;}
+    font-family: "FontAwesome";}
 .flex-direction-nav .flex-next {background-position: 100% 0; right: -48px; }
 .flex-direction-nav .flex-prev {
     right: 2px;
@@ -3640,7 +3640,7 @@ html[xmlns] .slides {display: block;}
     border: solid 2px #fff;
     border-radius: 0;
     outline: none;
-    font-family: &#39;FontAwesome&#39;;}
+    font-family: "FontAwesome";}
 
 a.flex-prev:before {
     content: "\f053";
@@ -3665,9 +3665,9 @@ a.flex-next:after {
 
 /* Pause/Play */
 .flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
-.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: &#39;\f004&#39;; }
+.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: "\f004"; }
 .flex-pauseplay a:hover  { opacity: 1; }
-.flex-pauseplay a.flex-play:before { content: &#39;\f003&#39;; }
+.flex-pauseplay a.flex-play:before { content: "\f003"; }
 
 /* Control Nav */
 .flex-control-nav {width: 100%; position: absolute; bottom: -40px; text-align: center;}
