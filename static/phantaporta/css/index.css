@@ -594,11 +594,10 @@ span.date {
     color: #777;
 }
 
-
 .post-entry h2,
 .post-entry h3,
 .post-entry h4 {
-    margin-bottom:8px;
+    margin-top: 25px;
 }
 .post-entry h2,
 .post-entry h3,

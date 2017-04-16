@@ -246,12 +246,12 @@
       </b:widget>
     </b:section>			
 
+    <!--
     <nav class='row' id='header-navigation'>  
       <div class='nav-wrapper'>
         <div class='nav-menu'>
           <div class='header-menu'>
             <b:section class='menu2' id='menu' maxwidgets='1' name='Main Menu' showaddelement='yes'>
-              <!--
               <b:widget id='LinkList110' locked='true' title='Menu' type='LinkList' version='1'>
                 <b:widget-settings>
                   <b:widget-setting name='sorting'>NONE</b:widget-setting>
@@ -271,12 +271,10 @@
                     </ul> 
                   </div>
                 </b:includable>
-              </b:widget>
-              -->
+              </b:widget>    
             </b:section> 
             <div class='menu-mobile1'/>
             <b:section id='top-social' showaddelement='yes'>
-              <!--
               <b:widget id='LinkList1' locked='false' title='' type='LinkList' version='1'>
                 <b:widget-settings>
                   <b:widget-setting name='sorting'>NONE</b:widget-setting>
@@ -296,12 +294,12 @@
                   </div>
                 </b:includable>
               </b:widget>
-              -->
             </b:section>
           </div>
         </div>
       </div>
     </nav>
+    -->
 
     <div class='container sp_sidebar'>
       <b:if cond='data:blog.url == data:blog.homepageUrl'>
@@ -1595,42 +1593,34 @@
 		</div>
 		
 	</div>
-
-<b:section id='Instagram' showaddelement='yes'>
-  <b:widget id='HTML77' locked='false' title='' type='HTML'>
-    <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
-    <h2 class='title'><data:title/></h2>
-  </b:if>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-
-  <b:include name='quickedit'/>
-</b:includable>
-  </b:widget>
-</b:section>
+<!--
+    <b:section id='Instagram' showaddelement='yes'>
+      <b:widget id='HTML77' locked='false' title='' type='HTML'>
+        <b:includable id='main'>
+          <b:if cond='data:title != &quot;&quot;'>
+            <h2 class='title'><data:title/></h2>
+          </b:if>
+          <div class='widget-content'>
+            <data:content/>
+          </div>
+          <b:include name='quickedit'/>
+        </b:includable>
+      </b:widget>
+    </b:section>
 	
-
-
 <b:section id='footer-social' showaddelement='yes'>
   <b:widget id='LinkList3' locked='false' title='footer social' type='LinkList' version='1'>
     <b:includable id='main'>
-
-
- <div class='widget-content'>
-
-     <b:loop values='data:links' var='link'>
-       <a expr:href='data:link.target' target='_blank'><i/><span><data:link.name/></span></a>
-     </b:loop>
-
-   <b:include name='quickedit'/>
- </div>
-</b:includable>
+      <div class='widget-content'>
+        <b:loop values='data:links' var='link'>
+          <a expr:href='data:link.target' target='_blank'><i/><span><data:link.name/></span></a>
+        </b:loop>
+        <b:include name='quickedit'/>
+      </div>
+    </b:includable>
   </b:widget>
 </b:section>
-		
+-->
 	
 	
 			
