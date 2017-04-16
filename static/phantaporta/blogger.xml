@@ -846,10 +846,9 @@
                   <div class='entry-tags gray-2-secondary'><strong class='tag-heading'><i class='fa fa-tag'/>Tags:</strong> 
 
                   <b:loop values='data:post.labels' var='label'>
-					<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
+					<a expr:href='data:label.url' rel='tag'><data:label.name/></a>
+                    <b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
 				  </b:loop>
-
-
                   </div>
                 </div>
 
@@ -940,16 +939,13 @@
 					</h2>
 					
 	                <span class='cat'>
-
-
                       <b:loop index='x' values='data:post.labels' var='label'>
-
-                        <b:if cond='data:x==0'> <a expr:href='data:label.url + &quot;?max-results=12&quot;' rel='tag nofollow'><data:label.name/></a></b:if> 
-                        
+                        <b:if cond='data:x==0'>
+                          <a expr:href='data:label.url + &quot;?max-results=12&quot;' rel='tag nofollow'><data:label.name/></a>
+                        </b:if> 
                       </b:loop>
-
-					  </span>		<span class='date'><data:post.timestamp/></span>				
-
+					</span>
+		            <span class='date'><data:post.timestamp/></span>				
 				  </div>
 				  <div expr:id='&quot;summary&quot; + data:post.id' style='display:none;'>
 					<data:post.body/>
