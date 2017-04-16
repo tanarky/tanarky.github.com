@@ -603,7 +603,9 @@ span.date {
 }
 
 
-.post-header h1 a:after,.post-header h2 a:after {
+.post-header h1,
+.post-header h1 a:after,
+.post-header h2 a:after {
     background-color: #343434;
     content: '';
     position: absolute;
