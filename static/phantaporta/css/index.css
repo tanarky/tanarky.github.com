@@ -560,7 +560,7 @@ span.date {
 .post-header h1 a,
 .post-header h2 a,
 .post-header h1 {
-    font: 22px Montserrat;
+    font: 24px Montserrat;
     color: #2b2b2b;
     text-transform: uppercase;
     font-weight: 400;
@@ -632,13 +632,13 @@ span.date {
     background: #111;
 }
 .post-entry h2 {
-    font: 20px Montserrat;
+    font: 22px Montserrat;
 }
 .post-entry h3 {
-    font: 18px Montserrat;
+    font: 20px Montserrat;
 }
 .post-entry h4 {
-    font: 16px Montserrat;
+    font: 18px Montserrat;
 }
 
 /*** Post image ***/
