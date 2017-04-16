@@ -528,7 +528,6 @@ h1.logo_h.logo_h__txt {
 }
 
 .post-header .cat a {
-
     font:10px Lato;
     text-transform: uppercase;
     display: inline-block;
@@ -537,7 +536,7 @@ h1.logo_h.logo_h__txt {
     letter-spacing: 2px;
     font-size: 10px;
     padding: 2px 8px;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
     line-height: 1.625;
     
 }
