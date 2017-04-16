@@ -603,7 +603,7 @@ span.date {
 }
 
 
-.post-header h1,
+.post-header h1:after,
 .post-header h1 a:after,
 .post-header h2 a:after {
     background-color: #343434;
