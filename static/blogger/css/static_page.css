@@ -1,0 +1,13 @@
+.post-header {
+    font-family: Raleway;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #222;
+}
+.container.sp_sidebar {
+    margin: 40px auto 0;
+}
