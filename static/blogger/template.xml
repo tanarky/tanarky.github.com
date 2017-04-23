@@ -88,18 +88,185 @@
 
     <b:skin version='1.0.0'>
       <![CDATA[
-body { padding-top: 60px; }
-img  { max-width:100%; height: auto; }
+body { line-height: 26px; padding-top: 60px; color: #2b2b2b; font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif }
+img  { max-width:100%; height: auto; border: none;}
 ol, ul { padding: 0; }
 
 .navbar-default { background-color: #fff; box-shadow: 0 0 10px 0 #efefef; }
 
 .widget li { list-style:none; list-style-image:none; }
 .widget ul ul li { padding-left: 1.2em; }
+
+.post {
+  text-align:justify;
+}
+.post-meta {
+  text-align:center;
+  margin-bottom: 30px;
+}
+.post-meta .date {
+  letter-spacing: 3px;
+  color: #666;
+}
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.slides h2 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.25;
+  display:block;
+  position:relative;
+  margin-bottom:45px;
+}
+.post h3,
+.post h4,
+.post h5 {
+  font-size: 18px;
+  margin-bottom: 35px;
+}
+.slides h2 {
+  margin-bottom: 35px;
+}
+.post h1:after,
+.post h2:after,
+.post h3:after,
+.post h4:after,
+.post h5:after,
+.slides h2:after {
+  background-color: #343434;
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: #888;
+}
+.sidebar .widget h3 {
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #343434;
+  font-weight: 700;
+  position: relative;
+  padding: 14px 11px;
+  border: 1px solid #ebebeb;
+  /*border-top-color: #f6b2ca;*/
+  background-color: #fff;
+}
+ul.hierarchy li {
+  margin-top: 6px;
+}
+.item-title {
+  letter-spacing: 1px;
+}
+.item-thumbnail {
+  float:left;
+  margin: 0 10px 15px 0;
+}
+.item-thumbnail:after {
+  clear: both;
+}
+ul.labels-list li {
+  float: left;
+  margin: 0 5px 10px 0;
+}
+.global-footer {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 0 10px 0 #ddd;
+  margin-top: 60px;
+}
+.global-footer h3 {
+  font: 16px;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  position: relative;
+  padding: 14px 0px;
+  background-color: #f7f7f7;
+  line-height: 1.3;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+.post-footer {
+  margin-bottom: 120px;
+}
+.post-footer:before {
+  content: '';
+  position: relative;
+  top: 21px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ccc;
+  z-index: 2;
+  display: table;
+}
+.post-footer .read-more {
+  float: right;
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  padding: 5px 15px;
+  background: #fff;
+  border: solid 1px #ccc;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  z-index: 3;
+}
+.copyright {
+  margin-top: 30px;
+}
+.item img {
+  margin: 0 auto;
+}
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+.white {
+  color: #efefef;
+}
+.carousel-caption {
+padding: 0;
+right: 10%;
+left: 10%;
+}
       ]]></b:skin>
     <b:template-skin/>
   </head>
   <body>
+    <div id="fb-root" />
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -109,7 +276,7 @@ ol, ul { padding: 0; }
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="#">
+          <a href="/">
             <img class="logo" src="https://placehold.it/200x50" />
           </a>
         </div>
@@ -154,14 +321,86 @@ ol, ul { padding: 0; }
       <div class="row">
         <div class="dummy">
           <div class="col-sm-8">
-            <!-- NOTE: トップページの場合 (記事のタイトルがないので) サイト名をmeta nameとして入れる -->
             <b:if cond='data:blog.pageType == &quot;index&quot;'>
-              <div itemscope='itemscope' itemtype='http://schema.org/Blog' style='display: none;'>
-                <meta expr:content='data:blog.title' itemprop='name'/>
-                <b:if cond='data:blog.metaDescription'>
-                  <meta expr:content='data:blog.metaDescription' itemprop='description'/>
-                </b:if>
+              <div class='slides'>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                    <script>
+//<![CDATA[
+var test = '';
+function show_slides(json) {
+    var img = [];
+    var maxpost = json.feed.entry.length
+    for (var i = 0; i < maxpost; i++) {
+        var entry = json.feed.entry[i];
+        var posttitle = entry.title.$t;
+        var posturl;
+        for (var k = 0; k < entry.link.length; k++) {
+            if (entry.link[k].rel == 'alternate') {
+                posturl = entry.link[k].href;
+                break
+            }
+        }
+
+        if ("content" in entry) {
+            var postcontent = entry.content.$t
+        }
+        else if ("summary" in entry) {
+            var postcontent = entry.summary.$t
+        }
+        else {
+            var postcontent = "";
+        }
+
+        var postdate = entry.published.$t;
+        img[i] = "http://2.bp.blogspot.com/-mmjt8mh87bQ/VQ6ltMr8GxI/AAAAAAAAEfo/93SmjxkwmO0/s1600/no-image-found.jpg";
+        var s = postcontent;
+        var a = s.indexOf("<img");
+        var b = s.indexOf("src=\"", a);
+        var c = s.indexOf("\"", b + 5);
+        var d = s.substr(b + 5, c - b - 5);
+        if ((a != -1) && (b != -1) && (c != -1) && (d != "")) img[i] = d;
+        var month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        var month2 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var day = postdate.split("-")[2].substring(0, 2);
+        var m = postdate.split("-")[1];
+        var y = postdate.split("-")[0];
+        for (var u2 = 0; u2 < month.length; u2++) {
+            if (parseInt(m) == month[u2]) {
+                m = month2[u2];
+                break
+            }
+        }
+        var tmb = img[i].replace('s320/', 's1600/');
+        tmb = img[i].replace('s640/', 's1600/');
+        var daystr = day + ' ' + m + ' ' + y;
+
+        var active = i == 0 ? ' active' : '';
+        var slide  = '<div class="item'+ active + '">';
+        slide += '<img src="' + tmb + '" alt=""/>';
+        slide += '<div class="carousel-caption">';
+        slide += '<h3 style="font-size:18px;letter-spacing:6px"><a class="white" href="' + posturl + '">' + posttitle + '</aa></h3>';
+        slide += '</div>';
+        slide += '</div>';
+        document.write(slide);
+    }
+}
+var url = '/feeds/posts/default?max-results=10&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
+document.write('<script src="' + url + '"></'+'script>');
+//]]></script>
+                  </div>
+
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
               </div>
+              <hr/>
             </b:if>
 
             <b:section class='main' id='main' name='Main' showaddelement='yes'>
@@ -169,11 +408,6 @@ ol, ul { padding: 0; }
                 <b:includable id='main' var='top'>
                   <div class='blog-posts hfeed'>
                     <b:loop values='data:posts' var='post'>
-                      <b:if cond='data:post.dateHeader'>
-                        <b:if cond='data:blog.pageType != &quot;index&quot;'>
-                          <h3 class='date-header'><span><i class="fa fa-clock-o" aria-hidden="true"></i> <data:post.dateHeader/></span></h3>
-                        </b:if>
-                      </b:if>
                       <div class='post-outer'>
                         <b:include data='post' name='post'/>
                       </div>
@@ -210,17 +444,20 @@ ol, ul { padding: 0; }
                     <b:if cond='data:post.title'>
                       <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
                         <h2 class='post-title entry-title' itemprop='name'>
-                          <a expr:href='data:post.link ? data:post.link : data:post.url'>動画制作実績 - <data:post.title/></a>
+                          <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
                         </h2>
                         <b:else/>
-                        <h1 class='post-title entry-title' itemprop='name'>動画制作実績 - <data:post.title/></h1>
+                        <h1 class='post-title entry-title' itemprop='name'><data:post.title/></h1>
                       </b:if>
                     </b:if>
-                    <div class='post-footer-line post-footer-line-2'>
+                    <div class='post-meta'>
+                      <p class='date'><data:post.timestamp/></p>
                       <span class='post-labels'>
                         <b:if cond='data:top.showPostLabels and data:post.labels'>
                           <b:loop values='data:post.labels' var='label'>
-                            <a class="post-label" expr:href='data:label.url + &quot;?max-results=3&quot;' rel='tag'><data:label.name/></a>
+                            <a class="post-label btn btn-info" expr:href='data:label.url + &quot;?max-results=3&quot;' rel='tag'>
+                              <data:label.name/>
+                            </a>
                           </b:loop>
                         </b:if>
                       </span>
@@ -232,34 +469,10 @@ ol, ul { padding: 0; }
                     </div>
 
                     <b:if cond='data:post.hasJumpLink'>
-                      <div class='jump-link'>
-                        <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+                      <div class='post-footer'>
+                        <a class='read-more' expr:href='data:post.url'>&gt;&gt; 続きを読む</a>
                       </div>
                     </b:if>
-
-                    <div class='post-footer'>
-                      <div class='post-footer-line post-footer-line-1'>
-                        <span class='post-timestamp'>
-                          <b:if cond='data:top.showTimestamp'>
-                            <data:top.timestampLabel/>
-                            <b:if cond='data:post.url'>
-                              <meta expr:content='data:post.url.canonical' itemprop='url'/>
-                              <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
-                                <abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr>
-                              </a>
-                            </b:if>
-                          </b:if>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div class="visible-xs-block">
-                      <hr/>
-                      <a class="btn btn-default btn-block" href="#PopularPosts">
-                        <i class="glyphicon glyphicon-star"></i>
-                        人気の動画制作実績
-                      </a>
-                    </div>
 
                   </div>
                 </b:includable>
@@ -267,15 +480,17 @@ ol, ul { padding: 0; }
             </b:section>
           </div>
           <div class="col-sm-4 col-md-4 bg-grey">
+            <!--
             <macro:include id='main-column-left-sections' name='sections'>
               <macro:param default='0' name='num' value='0'/>
               <macro:param default='sidebar-left' name='idPrefix'/>
               <macro:param default='sidebar' name='class'/>
               <macro:param default='true' name='includeBottom'/>
-            </macro:include>
+              </macro:include>
+              -->
 
             <macro:include id='main-column-right-sections' name='sections'>
-              <macro:param default='2' name='num' value='1'/>
+              <macro:param default='1' name='num' value='1'/>
               <macro:param default='sidebar-right' name='idPrefix'/>
               <macro:param default='sidebar' name='class'/>
               <macro:param default='true' name='includeBottom'/>
@@ -285,68 +500,58 @@ ol, ul { padding: 0; }
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <footer>
-            <macro:include id='footer-sections' name='sections'>
-              <macro:param default='2' name='num'/>
-              <macro:param default='footer' name='idPrefix'/>
-              <macro:param default='foot' name='class'/>
-              <macro:param default='false' name='includeBottom'/>
-            </macro:include>
-          </footer>
-        </div>
-      </div>
     </div>
-    <div id="company"></div>
-    <footer class="global-footer light-gray">
-      <div class="container">
-        <div class="col-sm-12">
-        </div>
-      </div>
-    </footer>
+
     <footer class="global-footer">
       <div class="container">
-        <div class="col-sm-3">
-          <h4>Site Map</h4>
-          <ul class="widget">
-            <li><a href="#">ああああああああ</a></li>
-            <li><a href="#">いいいいいいいい</a></li>
-            <li><a href="#">うううううううう</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <h4>ソーシャルメディア</h4>
-          <ul class="widget">
-            <li>
-              <a href="https://www.facebook.com/wooz.pinte/">
-                <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook
-              </a>
-            </li>
-            <li>
-              <a href="http://glossom-wooz.blogspot.com/feeds/posts/default?alt=rss" target="_blank">
-                <i class="fa fa-rss-square" aria-hidden="true"></i> RSS
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-6 visible-md-block visible-lg-block">
-          <div class="fb-page" data-href="https://www.facebook.com/wooz.pinte/" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
-            <div class="fb-xfbml-parse-ignore">
-              <blockquote cite="https://www.facebook.com/wooz.pinte/">
-                <a href="https://www.facebook.com/wooz.pinte/"></a>
-              </blockquote>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>Site Map</h3>
+            <ul class="widget">
+              <li><a href="#">ああああああああ</a></li>
+              <li><a href="#">いいいいいいいい</a></li>
+              <li><a href="#">うううううううう</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h3>ソーシャルメディア</h3>
+            <ul class="widget">
+              <li>
+                <a href="https://www.facebook.com/yomiurigiantsofficial/">
+                  <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i class="fa fa-rss-square" aria-hidden="true"></i> RSS
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h3>Facebook Page</h3>
+            <div class="fb-page" data-href="https://www.facebook.com/yomiurigiantsofficial/?hc_ref=NEWSFEED" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+              <div class="fb-xfbml-parse-ignore">
+                <blockquote cite="https://www.facebook.com/yomiurigiantsofficial/">
+                  <a href="https://www.facebook.com/yomiurigiantsofficial/"></a>
+                </blockquote>
+              </div>
             </div>
           </div>
+
+          <macro:include id='footer-sections' name='sections'>
+            <macro:param default='1' name='num'/>
+            <macro:param default='footer' name='idPrefix'/>
+            <macro:param default='foot' name='class'/>
+            <macro:param default='false' name='includeBottom'/>
+          </macro:include>
+          <div class="col-sm-12 copyright">© Copyright tanarky. All rights reserved.</div>
         </div>
-        <div class="col-sm-12 copyright">© Copyright 2016 WOOZ. All rights reserved.</div>
       </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <div id="fb-root"></div>
     <script>//<![CDATA[
 (function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
@@ -357,21 +562,6 @@ fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 //]]>
     </script>
-    <!-- Google Remarketing Tag -->
-    <script type="text/javascript">
-      /* <![CDATA[ */
-var google_conversion_id = 866025713;
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
-/* ]]> */
-    </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-    </script>
-    <noscript>
-      <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/866025713/?guid=ON&amp;script=0"/>
-      </div>
-    </noscript>
   </body>
 
   <macro:includable id='sections' var='col'>
@@ -382,14 +572,20 @@ var google_remarketing_only = true;
   </macro:includable>
   
   <b:section-contents id='sidebar-right-1'>
-    <b:widget id='PopularPosts1' locked='false' title='よく見られている動画制作実績' type='PopularPosts' visible='true'>
+    <b:widget id='PopularPosts1' locked='false' title='popular posts' type='PopularPosts' version='1' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+        <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+        <b:widget-setting name='showSnippets'>false</b:widget-setting>
+        <b:widget-setting name='timeRange'>LAST_MONTH</b:widget-setting>
+      </b:widget-settings>
       <b:includable id='main'>
-        <div id="PopularPosts" class="mg-anchor"></div>
+        <div class='mg-anchor' id='PopularPosts'/>
         <b:if cond='data:title != &quot;&quot;'>
-          <h3 class="title"><data:title/></h3>
+          <h3 class='title'><data:title/></h3>
         </b:if>
         <div class='widget-content popular-posts'>
-          <ul style='padding:0'>
+          <ul>
             <b:loop values='data:posts' var='post'>
               <li>
                 <b:if cond='!data:showThumbnails'>
@@ -407,13 +603,15 @@ var google_remarketing_only = true;
                     <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
                       <div class='item-thumbnail'>
                         <a expr:href='data:post.href' target='_blank'>
-                          <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;) : data:post.thumbnail' var='image'>
-                            <img alt='' border='0' expr:src='data:image'/>
+                          <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 80, &quot;1:1&quot;) : data:post.thumbnail' var='image'>
+                            <img expr:alt='data:title' expr:src='data:image'/>
                           </b:with>
                         </a>
                       </div>
                     </b:if>
-                    <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+                    <div class='item-title'>
+                      <a expr:href='data:post.href'><data:post.title/></a>
+                    </div>
                     <b:if cond='data:showSnippets'>
                       <div class='item-snippet'><data:post.snippet/></div>
                     </b:if>
@@ -426,7 +624,8 @@ var google_remarketing_only = true;
         </div>
       </b:includable>
     </b:widget>
-    <b:widget id='BlogArchive1' locked='false' title='過去に紹介した動画制作実績' type='BlogArchive' version='1' visible='true'>
+
+    <b:widget id='BlogArchive1' locked='false' title='archives' type='BlogArchive' version='1' visible='true'>
       <b:includable id='main'>
         <b:if cond='data:title != &quot;&quot;'>
           <h3 class="title"><data:title/></h3>
@@ -497,35 +696,41 @@ var google_remarketing_only = true;
       </b:includable>
     </b:widget>
 
-    <b:widget id='Label1' locked='false' title='動画制作実績タグから探す' type='Label' visible='true'>
+    <b:widget id='Label1' locked='false' title='categories' type='Label' visible='true'>
       <b:includable id='main'>
         <b:if cond='data:title != &quot;&quot;'>
           <h3 class="title"><data:title/></h3>
         </b:if>
         <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
           <b:if cond='data:display == &quot;list&quot;'>
-            <ul>
+            <ul class="labels-list">
               <b:loop values='data:labels' var='label'>
                 <li>
-                  <b:if cond='data:blog.url == data:label.url'>
-                    <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-                    <b:else/>
-                    <a expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=3&quot;'><data:label.name/></a>
-                  </b:if>
-                  <b:if cond='data:showFreqNumbers'>
-                    <span dir='ltr'>(<data:label.count/>)</span>
-                  </b:if>
+                  <a expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=3&quot;'>
+                    <span class="post-label btn btn-info">
+                      <b:if cond='data:blog.url == data:label.url'>
+                        <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+                        <b:else/>
+                        <data:label.name/>
+                      </b:if>
+                      <b:if cond='data:showFreqNumbers'>
+                        <span class='badge' dir='ltr'><data:label.count/></span>
+                      </b:if>
+                    </span>
+                  </a>
                 </li>
               </b:loop>
             </ul>
+            <div style="clear:both" />
             <b:else/>
             <b:loop values='data:labels' var='label'>
               <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
                 <a expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=3&quot;' class="post-label block-label">
-                  <data:label.name/>
-                  <b:if cond='data:showFreqNumbers'>
-                    <span class='badge' dir='ltr'><data:label.count/></span>
-                  </b:if>
+                  <span class="post-label btn btn-info"><data:label.name/>
+                    <b:if cond='data:showFreqNumbers'>
+                      <span class='badge' dir='ltr'><data:label.count/></span>
+                    </b:if>
+                  </span>
                 </a>
               </span>
             </b:loop>
@@ -533,18 +738,29 @@ var google_remarketing_only = true;
         </div>
       </b:includable>
     </b:widget>
-  </b:section-contents>
 
-  <b:section-contents id='footer-1'>
-    <b:widget id='HTML1' locked='false' title='' type='HTML' version='1' visible='true'>
+    <b:widget id='BlogSearch1' locked='false' title='サイト内検索' type='BlogSearch' visible='true'>
       <b:includable id='main'>
-        <!-- only display title if it's non-empty -->
-        <b:if cond='data:title != &quot;&quot;'>
-          <h4 class='title'><data:title/></h4>
-        </b:if>
-        <div class='widget-content'>
-          <data:content/>
+        <b:include name='widget-title'/>
+        <b:include name='content'/>
+      </b:includable>
+      <b:includable id='content'>
+        <div class='widget-content' role='search'>
+          <b:include name='searchForm'/>
         </div>
+      </b:includable>
+      <b:includable id='searchForm'>
+        <form expr:action='data:blog.searchUrl'>
+          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+          <b:include name='urlParamsAsFormInput'/>
+          <div class='search-input'>
+            <input autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' style='width:100%'/>
+          </div>
+          <b:include name='searchSubmit'/>
+        </form>
+      </b:includable>
+      <b:includable id='searchSubmit'>
+        <input class='search-action' expr:value='data:messages.search.escaped' type='submit'/>
       </b:includable>
     </b:widget>
   </b:section-contents>
