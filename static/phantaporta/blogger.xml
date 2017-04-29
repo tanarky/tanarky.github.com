@@ -207,8 +207,7 @@ ul.labels-list li {
   background-color: #f7f7f7;
   padding: 60px 0;
   border-top: 1px solid #ddd;
-  box-shadow: 0 0 10px 0 #ddd;
-  margin-top: 60px;
+  box-shadow: 0 0 5px 0 #ddd;
 }
 .global-footer h3 {
   font: 16px;
@@ -299,6 +298,11 @@ ul.labels-list li {
 .sub-column {
   background-color: #f8f8f8;
   padding-bottom: 30px;
+}
+@media screen and (max-width:767px) {
+  .sub-column {
+    padding-top: 10px;
+  }
 }
 .pager {
   font-size:16px
