@@ -64,7 +64,7 @@
       <meta expr:content='data:blog.postImageUrl' property='og:image'/>
       <b:else/>
       <b:if cond='data:blog.postImageThumbnailUrl'>
-        <meta expr:content='data:blog.postThumbnailUrl' property='og:image'/>
+        <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
         <b:else/>
         <meta expr:content='data:blog.blogspotFaviconUrl' property='og:image'/>
       </b:if>
@@ -98,7 +98,6 @@ ul ul { margin-left: 20px; }
 
 .navbar-default { background-color: #fff; box-shadow: 0 0 5px 0 #efefef; }
 .sub-column li { list-style:none; list-style-image:none; margin: 0; }
-/*.post iframe { max-width: 500px !important; }*/
 
 .post {
   text-align:justify;
@@ -127,20 +126,19 @@ ul ul { margin-left: 20px; }
   line-height: 1.25;
   display:block;
   position:relative;
-  margin-bottom:30px;
+  margin-bottom:35px;
   font-weight:bold;
 }
 .post h1 {
   font-size: 22px;
 }
+.post img {
+  margin-bottom: 10px;
+}
 .post h3,
 .post h4,
 .post h5 {
   font-size: 16px;
-  margin-bottom: 30px;
-}
-.slides h2 {
-  margin-bottom: 35px;
 }
 .post h1:after,
 .post h2:after,
@@ -185,7 +183,6 @@ ul ul { margin-left: 20px; }
   position: relative;
   padding: 14px 11px;
   border: 1px solid #ebebeb;
-  /*border-top-color: #f6b2ca;*/
   background-color: #fff;
 }
 ul.hierarchy li {
@@ -414,7 +411,7 @@ function show_slides(json) {
     }
     document.write('</div></div>');
 }
-var url = '/feeds/posts/default?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
+var url = '/feeds/posts/default/-/PickUp?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
 document.write('<script src="' + url + '"></'+'script>');
 //]]></script>
     </b:if>
@@ -494,7 +491,7 @@ document.write('<script src="' + url + '"></'+'script>');
                     <span class='post-labels'>
                       <b:if cond='data:top.showPostLabels and data:post.labels'>
                         <b:loop values='data:post.labels' var='label'>
-                          <a class="post-label btn btn-default" expr:href='data:label.url + &quot;?max-results=3&quot;' rel='tag'>
+                          <a class="post-label btn btn-default" expr:href='data:label.url' rel='tag'>
                             <data:label.name/>
                           </a>
                         </b:loop>
@@ -601,7 +598,7 @@ fjs.parentNode.insertBefore(js, fjs);
   </macro:includable>
   
   <b:section-contents id='sidebar-right-1'>
-    <b:widget id='PopularPosts1' locked='false' title='popular posts' type='PopularPosts' version='1' visible='true'>
+    <b:widget id='PopularPosts1' locked='false' title='人気記事ランキング' type='PopularPosts' version='1' visible='true'>
       <b:widget-settings>
         <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
         <b:widget-setting name='showThumbnails'>true</b:widget-setting>
@@ -654,7 +651,7 @@ fjs.parentNode.insertBefore(js, fjs);
       </b:includable>
     </b:widget>
 
-    <b:widget id='BlogArchive1' locked='false' title='archives' type='BlogArchive' version='1' visible='true'>
+    <b:widget id='BlogArchive1' locked='false' title='月別記事' type='BlogArchive' version='1' visible='true'>
       <b:includable id='main'>
         <b:if cond='data:title != &quot;&quot;'>
           <h3 class="title"><data:title/></h3>
@@ -725,7 +722,7 @@ fjs.parentNode.insertBefore(js, fjs);
       </b:includable>
     </b:widget>
 
-    <b:widget id='Label1' locked='false' title='categories' type='Label' visible='true'>
+    <b:widget id='Label1' locked='false' title='カテゴリ' type='Label' visible='true'>
       <b:includable id='main'>
         <b:if cond='data:title != &quot;&quot;'>
           <h3 class="title"><data:title/></h3>
