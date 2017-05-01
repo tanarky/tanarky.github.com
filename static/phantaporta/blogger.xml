@@ -103,9 +103,13 @@ a.logo:hover { text-decoration:none; }
 #toc-module .toc-h3 { margin-left: 40px; }
 
 .navbar-default { background-color: #fff; box-shadow: 0 0 5px 0 #efefef; }
+.main { border-right: 1px solid #eee; border-left: 1px solid #eee; }
 .sub-column li { list-style:none; list-style-image:none; margin: 0; }
 .post {
   text-align:justify;
+}
+.post img {
+  margin-bottom: 15px;
 }
 .post-meta {
   text-align:center;
@@ -358,7 +362,6 @@ ul.labels-list li {
     <b:template-skin/>
   </head>
   <body>
-    <div id="fb-root" />
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -452,8 +455,8 @@ document.write('<script src="' + url + '"></'+'script>');
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-8">
-          <b:section class='main' id='main' name='Main' showaddelement='yes'>
+        <div class="col-sm-8 main">
+          <b:section id='main' name='Main' showaddelement='yes'>
             <b:widget id='Blog1' locked='true' title='ブログの投稿' type='Blog' version='1' visible='true'>
               <b:includable id='main' var='top'>
                 <div class='blog-posts hfeed'>
