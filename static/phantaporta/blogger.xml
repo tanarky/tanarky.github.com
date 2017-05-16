@@ -95,6 +95,8 @@ img  { max-width:100%; height: auto; border: none;}
 ol, ul { padding: 0; }
 li { margin-left: 20px; }
 ul ul { margin-left: 20px; }
+blockquote { font-style: italic; background-color: #fafafa; font-size: 16px; border-left: 5px solid #e6e6e6; }
+blockquote a { display:block; text-align:right; margin-top: 5px; font-size: 14px; }
 
 a.logo { font-size:36px; margin:12px 5px; display:block; color:#666;font-family: 'Lobster', cursive; }
 a.logo:hover { text-decoration:none; }
