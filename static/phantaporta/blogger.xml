@@ -98,13 +98,19 @@ ul ul { margin-left: 20px; }
 blockquote { font-style: italic; background-color: #fafafa; font-size: 16px; border-left: 5px solid #e6e6e6; }
 blockquote a { display:block; text-align:right; margin-top: 5px; font-size: 14px; }
 
-a.logo { font-size:36px; margin:12px 5px; display:block; color:#666;font-family: 'Lobster', cursive; }
+a.logo { margin:0 }
 a.logo:hover { text-decoration:none; }
 
 #toc-module { display:table; padding: 15px; background-color:#eee; border-radius: 5px; margin-bottom: 40px; }
 #toc-module .toc-h3 { margin-left: 40px; }
 
-.navbar-default { background-color: #fff; box-shadow: 0 0 5px 0 #efefef; }
+.navbar-default { background-color: #ebb247; box-shadow: 0 0 5px 0 #efefef; }
+.navbar-default .navbar-nav>li>a {color: #fff; }
+.navbar-default .navbar-nav>li>a:hover {color: #eee; }
+.navbar-default .navbar-toggle .icon-bar { background-color: #fff; }
+.navbar-default .navbar-toggle { border-color: #fff; }
+.nav>li>a { padding: 15px 10px; }
+.navbar-default .navbar-toggle .icon-bar {}
 .main { border-right: 1px solid #eee; border-left: 1px solid #eee; }
 .sub-column li { list-style:none; list-style-image:none; margin: 0; }
 .post {
@@ -195,7 +201,6 @@ a.logo:hover { text-decoration:none; }
   position: relative;
   padding: 14px 11px;
   border: 1px solid #ebebeb;
-  background-color: #fff;
 }
 ul.hierarchy li {
   margin-top: 6px;
@@ -215,27 +220,28 @@ ul.labels-list li {
   margin: 0 5px 10px 0;
 }
 .global-footer {
-  background-color: #f7f7f7;
+  background-color: #ebb247;
+  color: #fff;
   padding: 60px 0;
   border-top: 1px solid #ddd;
   box-shadow: 0 0 5px 0 #ddd;
 }
+.global-footer a { color: #fff; font-size: 16px; line-height: 2.5em; }
+.global-footer a:hover { color: #eee; }
 .global-footer h3 {
   font: 16px;
   font-style: normal;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 2px;
   display: block;
   text-align: left;
   font-weight: 700;
   position: relative;
   padding: 14px 0px;
-  background-color: #f7f7f7;
   line-height: 1.3;
-  text-transform: uppercase;
   padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
 }
@@ -267,6 +273,8 @@ ul.labels-list li {
 }
 .copyright {
   margin-top: 30px;
+  font-size: 18px;
+  text-align: center;
 }
 .item img {
   margin: 0 auto;
@@ -373,12 +381,14 @@ ul.labels-list li {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="logo" href="/">Phantaporta</a>
+          <a class="logo" href="/">
+            <img alt="phantaporta | パンタポルタ" src="https://2.bp.blogspot.com/-9dW3a49yQcM/WR7l8PaBCtI/AAAAAAAADSA/_7o99Ns5cKE7sdq1og8PKzFUTQIncOhPgCLcB/s1600/pan_logo_200x50_04.jpg" />
+          </a>
         </div>
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
           <b:widget id='PageList1' locked='true' title='Pages' type='PageList' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 1}, 'link1': {'href': '/search/label/%E5%89%B5%E4%BD%9C', 'title': '創作', 'position': 2}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 4},'link4': {'href': '#', 'title': '特集', 'position': 5},'link5': {'href': '#', 'title': 'ショップ', 'position': 6}}]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 1}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 4},'link4': {'href': '#', 'title': '特集', 'position': 5},'link5': {'href': '#', 'title': 'ショップ', 'position': 6}}]]></b:widget-setting>
             </b:widget-settings>
 
             <b:includable id='main'>
@@ -572,35 +582,38 @@ document.write('<script src="' + url + '"></'+'script>');
           <div class="col-sm-4">
             <h3>サイトマップ</h3>
             <ul class="widget">
-              <li><a href="#">ああああああああ</a></li>
-              <li><a href="#">いいいいいいいい</a></li>
-              <li><a href="#">うううううううう</a></li>
+              <li><a href="http://www.shinkigensha.co.jp/" target="_blank">運営会社</a></li>
+              <li><a href="/p/privacypolicy.html">プライバシーポリシー</a></li>
+              <li><a href="/p/terms.html">利用規約</a></li>
             </ul>
           </div>
           <div class="col-sm-4">
             <h3>ソーシャルメディア</h3>
             <ul class="widget">
               <li>
-                <a href="https://www.facebook.com/yomiurigiantsofficial/">
-                  <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook
+                <a href="https://www.facebook.com/phantaporta/">
+                  Facebook
+                  <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
-                  <i class="fa fa-rss-square" aria-hidden="true"></i> RSS
+                <a href="https://twitter.com/Shinkigensha">
+                  Twitter
+                  <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="/feeds/posts/default?alt=rss" target="_blank">
+                  RSS
+                  <i class="fa fa-rss-square" aria-hidden="true"></i>
                 </a>
               </li>
             </ul>
           </div>
           <div class="col-sm-4">
-            <h3>Facebook Page</h3>
-            <div class="fb-page" data-href="https://www.facebook.com/yomiurigiantsofficial/?hc_ref=NEWSFEED" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
-              <div class="fb-xfbml-parse-ignore">
-                <blockquote cite="https://www.facebook.com/yomiurigiantsofficial/">
-                  <a href="https://www.facebook.com/yomiurigiantsofficial/"></a>
-                </blockquote>
-              </div>
-            </div>
+            <h3>Twitter タイムライン</h3>
+            <a class="twitter-timeline" data-height="500" href="https://twitter.com/Shinkigensha">Tweets by Shinkigensha</a>
+            <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
 
           <macro:include id='footer-sections' name='sections'>
@@ -609,7 +622,7 @@ document.write('<script src="' + url + '"></'+'script>');
             <macro:param default='foot' name='class'/>
             <macro:param default='false' name='includeBottom'/>
           </macro:include>
-          <div class="col-sm-12 copyright">© Copyright tanarky. All rights reserved.</div>
+          <div class="col-sm-12 copyright">© SHINKIGENSHA Co Ltd 2015 All rights reserved.</div>
         </div>
       </div>
     </footer>
