@@ -382,13 +382,13 @@ ul.labels-list li {
             <span class="icon-bar"></span>
           </button>
           <a class="logo" href="/">
-            <img alt="phantaporta | パンタポルタ" src="https://2.bp.blogspot.com/-9dW3a49yQcM/WR7l8PaBCtI/AAAAAAAADSA/_7o99Ns5cKE7sdq1og8PKzFUTQIncOhPgCLcB/s1600/pan_logo_200x50_04.jpg" />
+            <img alt="phantaporta | パンタポルタ" src="http://4.bp.blogspot.com/-8t2YyY6QuBk/WR7wC-JgIJI/AAAAAAAADSU/FeRtmK8R6wYv4nt_vt5Yle5c7eWP1bIMQCK4B/s1600/pan_logo_200x50_04.jpg" />
           </a>
         </div>
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
           <b:widget id='PageList1' locked='true' title='Pages' type='PageList' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 1}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 4},'link4': {'href': '#', 'title': '特集', 'position': 5},'link5': {'href': '#', 'title': 'ショップ', 'position': 6}}]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 1}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 4},'link4': {'href': '#', 'title': '特集', 'position': 5}}]]></b:widget-setting>
             </b:widget-settings>
 
             <b:includable id='main'>
