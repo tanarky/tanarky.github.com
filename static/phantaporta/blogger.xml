@@ -90,7 +90,7 @@
       <![CDATA[
 #ArchiveList .toggle{cursor:pointer;font-family:Arial,sans-serif}#ArchiveList .toggle-open{_font-size:1.7em;line-height:.6em}#ArchiveList{text-align:left}#ArchiveList a.post-count-link,#ArchiveList a.post-count-link:link,#ArchiveList a.post-count-link:visited{text-decoration:none}#ArchiveList a.toggle,#ArchiveList a.toggle:link,#ArchiveList a.toggle:visited,#ArchiveList a.toggle:hover{color:inherit;text-decoration:none}.BlogArchive #ArchiveList ul li{background:none;list-style:none;list-style-image:none;list-style-position:outside;border-width:0;padding-left:15px;text-indent:-15px;margin:.25em 0;background-image:none}.BlogArchive #ArchiveList ul ul li{padding-left:1.2em}.BlogArchive #ArchiveList ul{margin:0;padding:0;list-style:none;list-style-image:none;border-width:0}.BlogArchive #ArchiveList ul.posts li{padding-left:1.3em}#ArchiveList .collapsed ul{display:none}
 
-body { line-height: 26px; padding-top: 50px; color: #333; font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif }
+body { line-height: 28px; font-size: 15px; padding-top: 50px; color: #333; font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif }
 img  { max-width:100%; height: auto; border: none;}
 ol, ul { padding: 0; }
 li { margin-left: 20px; }
@@ -108,8 +108,10 @@ a.logo:hover { text-decoration:none; }
 .navbar-default .navbar-nav>li>a:hover {color: #eee; }
 .navbar-default .navbar-toggle .icon-bar { background-color: #fff; }
 .navbar-default .navbar-toggle { border-color: #fff; }
-.nav>li>a { padding: 15px 10px; }
-.navbar-default .navbar-toggle .icon-bar {}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover { background-color: #ffa600; }
+.navbar-default .nav>li>a { padding: 15px 10px; }
+
 .main { border-right: 1px solid #eee; border-left: 1px solid #eee; }
 .sub-column li { list-style:none; list-style-image:none; margin: 0; }
 .post {
@@ -367,6 +369,16 @@ ul.labels-list li {
   border-width: 21px;
   margin-left: -21px;
 }
+ul.social li {
+    float: left; width: 50%;
+    list-style:none; margin:0; padding: 5px;
+    text-align: center;
+}
+ul.social li a {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+}
       ]]></b:skin>
     <b:template-skin/>
   </head>
@@ -476,6 +488,24 @@ document.write('<script src="' + url + '"></'+'script>');
                       <b:loop values='data:posts' var='post' index='x'>
                         <div class="col-sm-12">
                           <b:include data='post' name='post'/>
+<ul class="social">
+  <li style="background-color:#4267b2; border-radius:5px 0 0 5px;">
+    <div class="fb-like"
+         expr:data-href='data:blog.url'
+         data-layout="button"
+         data-action="like"
+         data-size="large"
+         data-share="false"
+         data-show-faces="false">
+    </div>
+  </li>
+  <li style="background-color:#55acee; border-radius:0 5px 5px 0;">
+    <a expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url.escaped + &quot;&amp;text=&quot; + data:post.title.escaped'>
+      <i class="fa fa-twitter"></i>
+      tweet
+    </a>
+  </li>
+</ul>
                         </div>
                       </b:loop>
                       <b:else/>
@@ -502,13 +532,13 @@ document.write('<script src="' + url + '"></'+'script>');
                   <div class='blog-pager' id='blog-pager'>
                     <b:if cond='data:newerPageUrl'>
                       <span id='blog-pager-newer-link' class="pager pager-newer">
-                        <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><i class='glyphicon glyphicon-arrow-left'/><span class="pager-label">新しい投稿</span></a>
+                        <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><i class="fa fa-arrow-left" aria-hidden="true"/><span class="pager-label">新しい投稿</span></a>
                       </span>
                     </b:if>
 
                     <b:if cond='data:olderPageUrl'>
                       <span id='blog-pager-older-link' class="pager pager-older">
-                        <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><span class="pager-label">古い投稿</span><i class='glyphicon glyphicon-arrow-right'/></a>
+                        <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><span class="pager-label">古い投稿</span><i class="fa fa-arrow-right" aria-hidden="true"/></a>
                       </span>
                     </b:if>
                     <div style="clear:both"/>
@@ -539,7 +569,7 @@ document.write('<script src="' + url + '"></'+'script>');
                     <span class='post-labels'>
                       <b:if cond='data:top.showPostLabels and data:post.labels'>
                         <b:loop values='data:post.labels' var='label'>
-                          <a class="post-label btn btn-default" expr:href='data:label.url + &quot;?max-results=3&quot;' rel='tag'>
+                          <a class="post-label btn btn-default" expr:href='data:label.url' rel='tag'>
                             <data:label.name/>
                           </a>
                         </b:loop>
@@ -995,17 +1025,19 @@ fjs.parentNode.insertBefore(js, fjs);
         </div>
       </b:includable>
       <b:includable id='searchForm'>
-        <form expr:action='data:blog.searchUrl'>
+        <form expr:action='data:blog.searchUrl' class="form-inline">
           <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
           <b:include name='urlParamsAsFormInput'/>
-          <div class='search-input'>
-            <input autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' style='width:100%'/>
+          <div class="input-group col-sm-12">
+            <input name='q' autocomplete='off' type="text" class="form-control" expr:placeholder='data:messages.searchThisBlog'/>
+            <span class="input-group-btn">
+              <b:include name='searchSubmit'/>
+            </span>
           </div>
-          <b:include name='searchSubmit'/>
         </form>
       </b:includable>
       <b:includable id='searchSubmit'>
-        <input class='search-action' expr:value='data:messages.search.escaped' type='submit'/>
+        <button type='submit' class="btn btn-default">Search</button>
       </b:includable>
     </b:widget>
   </b:section-contents>
