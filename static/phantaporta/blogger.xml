@@ -140,12 +140,13 @@ a.logo:hover { text-decoration:none; }
 .slides h2 {
   font-size: 18px;
   letter-spacing: 1px;
-  text-align: center;
   line-height: 1.25;
   display:block;
   position:relative;
   margin-bottom:30px;
   font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
 }
 .post h1 {
   font-size: 22px;
@@ -158,24 +159,6 @@ a.logo:hover { text-decoration:none; }
 }
 .slides h2 {
   margin-bottom: 35px;
-}
-.post h1:after,
-.post h2:after,
-.post h3:after,
-.post h4:after,
-.post h5:after,
-.slides h2:after {
-  background-color: #343434;
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 30px;
-  height: 2px;
-  background: #aaa;
 }
 .main .title,
 .sidebar .widget h3 {
@@ -201,7 +184,7 @@ a.logo:hover { text-decoration:none; }
   font-weight: 700;
   position: relative;
   padding: 14px 11px;
-  border: 1px solid #ebebeb;
+  border: 1px solid #ccc;
 }
 ul.hierarchy li {
   margin-top: 6px;
@@ -244,7 +227,7 @@ ul.labels-list li {
   padding: 14px 0px;
   line-height: 1.3;
   padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
 }
 .post-footer {
   margin-bottom: 120px;
@@ -379,6 +362,7 @@ ul.social li a {
     font-size: 16px;
     letter-spacing: 1.5px;
 }
+.separator>a[imageanchor="1"] { margin:0 !important; }
       ]]></b:skin>
     <b:template-skin/>
   </head>
@@ -451,7 +435,7 @@ function show_slides(json) {
             var postcontent = "";
         }
 
-        img[i] = "http://2.bp.blogspot.com/-mmjt8mh87bQ/VQ6ltMr8GxI/AAAAAAAAEfo/93SmjxkwmO0/s1600/no-image-found.jpg";
+        img[i] = "https://placehold.it/500x250?text=NO+IMAGE";
         var s = postcontent;
         var a = s.indexOf("<img");
         var b = s.indexOf("src=\"", a);
@@ -471,7 +455,8 @@ function show_slides(json) {
     }
     document.write('</div></div>');
 }
-var url = '/feeds/posts/default?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
+//var url = '/feeds/posts/default?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
+var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
 document.write('<script src="' + url + '"></'+'script>');
 //]]></script>
     </b:if>
@@ -827,7 +812,13 @@ $('#toc').toc({'selectors':'.post h2,.post h3', 'scrollToOffset':50});
 //]]></script>
     </b:if>
     <script>//<![CDATA[
-$('.separator>a>img').parent().css('margin','0');
+// 記事中の画像右クリック禁止
+$(function(){
+  $(".post img").on("contextmenu",function(){
+    //console.log('disable contextmenu');
+    return false;
+  });
+});
 (function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) return;
