@@ -828,6 +828,8 @@ fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 //]]>
     </script>
+    <!-- analytics -->
+    <b:include data='blog' name='google-analytics'/>
   </body>
 
   <macro:includable id='sections' var='col'>
