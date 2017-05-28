@@ -473,38 +473,53 @@ document.write('<script src="' + url + '"></'+'script>');
                       <b:loop values='data:posts' var='post' index='x'>
                         <div class="col-sm-12">
                           <b:include data='post' name='post'/>
-<ul class="social">
-  <li style="background-color:#4267b2; border-radius:5px 0 0 5px;">
-    <div class="fb-like"
-         expr:data-href='data:blog.url'
-         data-layout="button"
-         data-action="like"
-         data-size="large"
-         data-share="false"
-         data-show-faces="false">
-    </div>
-  </li>
-  <li style="background-color:#55acee; border-radius:0 5px 5px 0;">
-    <a expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url.escaped + &quot;&amp;text=&quot; + data:post.title.escaped'>
-      <i class="fa fa-twitter"></i>
-      tweet
-    </a>
-  </li>
-</ul>
+                          <ul class="social">
+                            <li style="background-color:#4267b2; border-radius:5px 0 0 5px;">
+                              <div class="fb-like"
+                                   expr:data-href='data:blog.url'
+                                   data-layout="button"
+                                   data-action="like"
+                                   data-size="large"
+                                   data-share="false"
+                                   data-show-faces="false">
+                              </div>
+                            </li>
+                            <li style="background-color:#55acee; border-radius:0 5px 5px 0;">
+                              <a expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url.escaped + &quot;&amp;text=&quot; + data:post.title.escaped'>
+                                <i class="fa fa-twitter"></i>
+                                tweet
+                              </a>
+                            </li>
+                          </ul>
                         </div>
                       </b:loop>
                       <b:else/>
-                      <div class="col-sm-12">
-                        <div class="title">記事一覧</div>
-                      </div>
-                      <b:loop values='data:posts' var='post' index='x'>
-                        <div class="col-sm-6">
-                          <b:include data='post' name='post'/>
+                      <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
+                        <div class="col-sm-12">
+                          <p>ページが見つかりません</p>
+                          <p><a href="/">トップページに戻る</a></p>
                         </div>
-                        <b:if cond='data:x % 2 == 1'>
-                          <div class="clear-sm"/>
+                        <b:else/>
+                        <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+                          <b:loop values='data:posts' var='post' index='x'>
+                            <div class="col-sm-12">
+                              <b:include data='post' name='static'/>
+                            </div>
+                          </b:loop>
+                          <b:else/>
+                          <div class="col-sm-12">
+                            <div class="title">記事一覧</div>
+                          </div>
+                          <b:loop values='data:posts' var='post' index='x'>
+                            <div class="col-sm-6">
+                              <b:include data='post' name='post'/>
+                            </div>
+                            <b:if cond='data:x % 2 == 1'>
+                              <div class="clear-sm"/>
+                            </b:if>
+                          </b:loop>
                         </b:if>
-                      </b:loop>
+                      </b:if>
                     </b:if>
                   </div>
                 </div>
@@ -517,19 +532,39 @@ document.write('<script src="' + url + '"></'+'script>');
                   <div class='blog-pager' id='blog-pager'>
                     <b:if cond='data:newerPageUrl'>
                       <span id='blog-pager-newer-link' class="pager pager-newer">
-                        <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><i class="fa fa-arrow-left" aria-hidden="true"/><span class="pager-label">新しい投稿</span></a>
+                        <a class='blog-pager-newer-link' expr:href='data:newerPageUrl'>
+                          <i class="fa fa-arrow-left" aria-hidden="true"/>
+                          <b:if cond='data:newerPageUrl == data:blog.homepageUrl'>
+                            <span class="pager-label">トップページ</span>
+                            <b:else/>
+                            <span class="pager-label">新しい投稿</span>
+                          </b:if>
+                        </a>
                       </span>
                     </b:if>
 
                     <b:if cond='data:olderPageUrl'>
                       <span id='blog-pager-older-link' class="pager pager-older">
-                        <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><span class="pager-label">古い投稿</span><i class="fa fa-arrow-right" aria-hidden="true"/></a>
+                        <a class='blog-pager-older-link' expr:href='data:olderPageUrl'>
+                          <b:if cond='data:olderPageUrl == data:blog.homepageUrl'>
+                            <span class="pager-label">トップページ</span>
+                            <b:else/>
+                            <span class="pager-label">古い投稿</span>
+                          </b:if>
+                          <i class="fa fa-arrow-right" aria-hidden="true"/>
+                        </a>
                       </span>
                     </b:if>
                     <div style="clear:both"/>
                   </div>
                   <br/><br/>
                 </b:if>
+              </b:includable>
+
+              <b:includable id='static' var='post'>
+                <div class='post-body entry-content'>
+                  <data:post.body/>
+                </div>
               </b:includable>
 
               <b:includable id='post' var='post'>
