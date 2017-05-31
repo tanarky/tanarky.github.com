@@ -37,7 +37,6 @@
         <link expr:href='data:blog.postImageThumbnailUrl' rel='image_src'/>
       </b:if>
     </b:if>
-    <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
 
     <!-- [ Social Media Meta Tag ] -->
     <b:if cond='data:blog.url == data:blog.homepageUrl'> 
@@ -66,7 +65,7 @@
       <b:if cond='data:blog.postImageThumbnailUrl'>
         <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
         <b:else/>
-        <meta expr:content='data:blog.blogspotFaviconUrl' property='og:image'/>
+        <meta content='https://1.bp.blogspot.com/-YoHxASEPJNw/WS5EIZl344I/AAAAAAAADVM/Yobhy9sA9og9Wcr0IR7a63AmOcO5ta6WACLcB/s1600/webcrip144.png' property='og:image'/>
       </b:if>
     </b:if>
     <b:if cond='data:blog.metaDescription'>
@@ -82,6 +81,7 @@
     <meta expr:content='data:blog.pageTitle' name='twitter:title'/>
     <meta content='xxxxx' name='twitter:site'/>
     <meta content='xxxxx' name='twitter:creator'/>
+    <link rel="apple-touch-icon-precomposed" href="https://1.bp.blogspot.com/-YoHxASEPJNw/WS5EIZl344I/AAAAAAAADVM/Yobhy9sA9og9Wcr0IR7a63AmOcO5ta6WACLcB/s1600/webcrip144.png" />
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
     <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' rel='stylesheet'/>
@@ -383,7 +383,7 @@ ul.social li a {
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
           <b:widget id='PageList1' locked='true' title='Pages' type='PageList' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 1}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 4},'link4': {'href': '#', 'title': '特集', 'position': 5}}]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 1}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 4},'link4': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5}}]]></b:widget-setting>
             </b:widget-settings>
 
             <b:includable id='main'>
@@ -646,7 +646,7 @@ document.write('<script src="' + url + '"></'+'script>');
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/Shinkigensha">
+                <a href="https://twitter.com/phantaporta">
                   Twitter
                   <i class="fa fa-twitter-square" aria-hidden="true"></i>
                 </a>
@@ -661,7 +661,7 @@ document.write('<script src="' + url + '"></'+'script>');
           </div>
           <div class="col-sm-4">
             <h3>Twitter タイムライン</h3>
-            <a class="twitter-timeline" data-height="500" href="https://twitter.com/Shinkigensha">Tweets by Shinkigensha</a>
+            <a class="twitter-timeline" data-height="500" href="https://twitter.com/phantaporta">Tweets by phantaporta</a>
             <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
 
