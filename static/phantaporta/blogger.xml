@@ -631,7 +631,7 @@ document.write('<script src="' + url + '"></'+'script>');
           <div class="col-sm-4">
             <h3>サイトマップ</h3>
             <ul class="widget">
-              <li><a href="http://www.shinkigensha.co.jp/" target="_blank">運営会社</a></li>
+              <li><a href="http://www.shinkigensha.co.jp/companyinfo/" target="_blank">運営会社</a></li>
               <li><a href="/p/privacypolicy.html">プライバシーポリシー</a></li>
               <li><a href="/p/terms.html">利用規約</a></li>
             </ul>
