@@ -110,7 +110,7 @@ a.logo:hover { text-decoration:none; }
 .navbar-default .navbar-toggle { border-color: #fff; }
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover { background-color: #ffa600; }
-.navbar-default .nav>li>a { padding: 15px 10px; }
+.navbar-default .nav>li>a { padding: 15px 6px; }
 
 .main { border-right: 1px solid #eee; border-left: 1px solid #eee; }
 .sub-column li { list-style:none; list-style-image:none; margin: 0; }
@@ -143,7 +143,7 @@ a.logo:hover { text-decoration:none; }
   line-height: 1.25;
   display:block;
   position:relative;
-  margin-bottom:30px;
+  margin-bottom:10px;
   font-weight: bold;
   border-bottom: 2px solid #ddd;
   padding-bottom: 8px;
@@ -162,7 +162,6 @@ a.logo:hover { text-decoration:none; }
 }
 .main .title,
 .sidebar .widget h3 {
-  font-size: 16px;
   font-weight: 700;
   font-style: normal;
   line-height: 1.25;
@@ -174,16 +173,16 @@ a.logo:hover { text-decoration:none; }
   white-space: nowrap;
   overflow: hidden;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 2px;
   display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   color: #343434;
   font-weight: 700;
   position: relative;
-  padding: 14px 11px;
+  padding: 8px;
   border: 1px solid #ccc;
 }
 ul.hierarchy li {
@@ -257,8 +256,9 @@ ul.labels-list li {
 }
 .copyright {
   margin-top: 30px;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
+  color: #eee;
 }
 .item img {
   margin: 0 auto;
@@ -399,6 +399,9 @@ ul.social li a {
                   <b:loop values='data:links' var='link'>
                     <li><b:include name='pageLink'/></li>
                   </b:loop>
+                  <li>
+                    <a href="https://twitter.com/phantaporta" target="_blank" style="font-size:36px;padding:6px 0;"><i class="fa fa-twitter-square"></i></a>
+                  </li>
                 </ul>
               </div>
             </b:includable>
@@ -585,7 +588,15 @@ document.write('<script src="' + url + '"></'+'script>');
                     </b:if>
                   </b:if>
                   <div class='post-meta'>
-                    <p class='date'><data:post.timestamp/></p>
+                    <p class='date'><span class="published-at"><data:post.timestamp/></span><script>
+//<![CDATA[
+(function() {
+var ts = document.getElementsByTagName('span');
+var tt = ts[ts.length - 1].innerText.split('/');
+ts[ts.length - 1].innerText = tt[2] + "." + ("00"+tt[0]).substr(-2) + "." + ("00"+tt[1]).substr(-2);
+})();
+//]]></script>
+                    </p>
                     <span class='post-labels'>
                       <b:if cond='data:top.showPostLabels and data:post.labels'>
                         <b:loop values='data:post.labels' var='label'>
@@ -605,6 +616,22 @@ document.write('<script src="' + url + '"></'+'script>');
                   <b:if cond='data:post.hasJumpLink'>
                     <div class='post-footer'>
                       <a class='read-more' expr:href='data:post.url'>&gt;&gt; 続きを読む</a>
+                      <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+<script>
+//<![CDATA[
+(function() {
+var posts = document.querySelectorAll('div.post-body');
+var imgs  = posts[posts.length-1].querySelectorAll('a[imageanchor="1"]');
+
+var rm   = document.getElementsByTagName('a');
+var lp   = rm[rm.length - 1].getAttribute('href');
+for(var i=0; i < imgs.length; i++){
+  console.log("imgs -> " + imgs[i].getAttribute('href'));
+  imgs[i].setAttribute('href', lp);
+}
+})();
+//]]></script>
+                      </b:if>
                     </div>
                   </b:if>
 
@@ -628,7 +655,7 @@ document.write('<script src="' + url + '"></'+'script>');
     <footer class="global-footer">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <h3>サイトマップ</h3>
             <ul class="widget">
               <li><a href="http://www.shinkigensha.co.jp/companyinfo/" target="_blank">運営会社</a></li>
@@ -636,7 +663,7 @@ document.write('<script src="' + url + '"></'+'script>');
               <li><a href="/p/terms.html">利用規約</a></li>
             </ul>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <h3>ソーシャルメディア</h3>
             <ul class="widget">
               <li>
@@ -659,11 +686,6 @@ document.write('<script src="' + url + '"></'+'script>');
               </li>
             </ul>
           </div>
-          <div class="col-sm-4">
-            <h3>Twitter タイムライン</h3>
-            <a class="twitter-timeline" data-height="500" href="https://twitter.com/phantaporta">Tweets by phantaporta</a>
-            <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
 
           <macro:include id='footer-sections' name='sections'>
             <macro:param default='1' name='num'/>
@@ -671,7 +693,7 @@ document.write('<script src="' + url + '"></'+'script>');
             <macro:param default='foot' name='class'/>
             <macro:param default='false' name='includeBottom'/>
           </macro:include>
-          <div class="col-sm-12 copyright">© SHINKIGENSHA Co Ltd 2015 All rights reserved.</div>
+          <div class="col-sm-12 copyright">© SHINKIGENSHA Co Ltd 2017 All rights reserved.</div>
         </div>
       </div>
     </footer>
@@ -1066,6 +1088,19 @@ fjs.parentNode.insertBefore(js, fjs);
       </b:includable>
       <b:includable id='searchSubmit'>
         <button type='submit' class="btn btn-default">Search</button>
+      </b:includable>
+    </b:widget>
+
+    <b:widget id='HTML1' locked='false' title='Twitter タイムライン' type='HTML' version='2' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='content'>&lt;a class=&quot;twitter-timeline&quot; data-height=&quot;700&quot; href=&quot;https://twitter.com/phantaporta&quot;&gt;Tweets by phantaporta&lt;/a&gt;
+        &lt;script src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <b:include name='widget-title'/>
+        <div class='widget-content'>
+          <data:content/>
+        </div>
       </b:includable>
     </b:widget>
   </b:section-contents>
