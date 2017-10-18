@@ -288,12 +288,17 @@ ul.labels-list li {
 }
 .tile {
   padding: 0;
-  height: 250px;
+  height: 280px;
   background-color: #ddd;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   }
+@media screen and (max-width:767px) {
+  .tile {
+    height: 200px;
+  }
+}
 .tile .title {
   padding: 10px 15px;
   position: absolute;
@@ -301,17 +306,22 @@ ul.labels-list li {
   z-index: 2;
   width:100%;
   text-align:center;
+  background-color: rgba(0,0,0,0.2);
 }
-.tile .title a {
+.tile a {
   color: #eee;
   text-shadow: 0 0 10px #000;
+  display:block;
+  height: 100%;
+}
+.tile a:hover {
+  text-decoration: none;
 }
 .tile .title h2 {
   font-size: 16px;
   line-height: 1.2;
-}
-.tile .title a:hover {
-  text-decoration: none;
+  margin: 0;
+  min-height: 40px;
 }
 .sub-column {
   background-color: #f8f8f8;
@@ -493,7 +503,7 @@ function show_slides(json) {
 
         var slide  = '';
         slide += '<div class="col-sm-4 tile" style="background-image: url('+tmb+');">';
-        slide += '<div class="title"><h2><a href="'+posturl+'">'+posttitle+'</a></h2></div>';
+        slide += '<a href="'+posturl+'"><div class="title"><h2>'+posttitle+'</div></a>';
         slide += '</div>';
         document.write(slide);
     }
@@ -1379,7 +1389,19 @@ for(var i=0; i < imgs.length; i++){
     <footer class='global-footer'>
       <div class='container'>
         <div class='row'>
-          <div class='col-sm-6'>
+          <div class='col-sm-4'>
+            <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- フッター内 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1453954292777902"
+                 data-ad-slot="1141474015"
+                 data-ad-format="auto"></ins>
+            <script>//<![CDATA[
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            //]]></script>
+          </div>
+          <div class='col-sm-4'>
             <h3>サイトマップ</h3>
             <ul class='widget'>
               <li><a href='/p/blog-page_16.html'>ABOUT</a></li>
@@ -1388,7 +1410,7 @@ for(var i=0; i < imgs.length; i++){
               <li><a href='/p/terms.html'>利用規約</a></li>
             </ul>
           </div>
-          <div class='col-sm-6'>
+          <div class='col-sm-4'>
             <h3>ソーシャルメディア</h3>
             <ul class='widget'>
               <li>
