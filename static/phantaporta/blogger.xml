@@ -7,19 +7,21 @@
     <b:if cond='data:blog.searchLabel'>
       <meta content='noindex,nofollow' name='robots'/>
     </b:if>
+
     <b:if cond='data:blog.pageType == &quot;index&quot;'>
       <meta expr:content='data:blog.title' name='keywords'/>
-      <meta expr:content='data:blog.title' name='description'/>
+      <meta expr:content='data:blog.title + &quot;, &quot; + data:blog.metaDescription' name='description'/>
 
       <b:elseif cond='data:blog.pageType == &quot;item&quot;'/>
       <meta expr:content='data:blog.pageName + &quot;, &quot; + &quot;記事&quot;' name='keywords'/>
+      <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.metaDescription' name='description'/>
 
       <b:elseif cond='data:blog.pageType == &quot;archive&quot;'/>
-      <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.pageTitle + &quot;, &quot; + data:blog.title' name='keywords'/>
-      <meta expr:content='&quot;アーカイブ：&quot; + data:blog.metaDescription' name='description'/>
+      <meta expr:content='data:view.archive.year + &quot;/&quot; + data:view.archive.month + &quot; アーカイブ：&quot; + data:blog.title' name='keywords'/>
+      <meta expr:content='data:view.archive.year + &quot;/&quot; + data:view.archive.month + &quot; アーカイブ：&quot; + data:blog.metaDescription' name='description'/>
 
       <b:elseif cond='data:blog.pageType == &quot;static_page&quot;'/>
-      <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.pageTitle + &quot;, &quot; + data:blog.title' name='keywords'/>
+      <meta expr:content='data:blog.pageTitle' name='keywords'/>
       <meta expr:content='data:blog.pageTitle + &quot; | &quot; + data:blog.metaDescription' name='description'/>
     </b:if>
 <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
@@ -86,7 +88,7 @@
     <b:if cond='data:blog.metaDescription'>
       <meta expr:content='data:blog.metaDescription' property='og:description'/>
       <b:else/>
-      <meta content='data:blog.metaDescription' property='og:description'/>
+      <meta expr:content='data:blog.metaDescription' property='og:description'/>
     </b:if>
     <meta expr:content='data:blog.title' property='og:site_name'/>
     <meta content='xxxxx' property='fb:app_id'/> 
@@ -1092,7 +1094,7 @@ var imgs  = posts[posts.length-1].querySelectorAll('a[imageanchor="1"]');
 var rm   = document.getElementsByTagName('a');
 var lp   = rm[rm.length - 1].getAttribute('href');
 for(var i=0; i < imgs.length; i++){
-  console.log("imgs -> " + imgs[i].getAttribute('href'));
+  //console.log("imgs -> " + imgs[i].getAttribute('href'));
   imgs[i].setAttribute('href', lp);
 }
 })();
