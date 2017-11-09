@@ -1392,13 +1392,9 @@ for(var i=0; i < imgs.length; i++){
       <div class='container'>
         <div class='row'>
           <div class='col-sm-4'>
-            <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
             <!-- フッター内 -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-1453954292777902"
-                 data-ad-slot="1141474015"
-                 data-ad-format="auto"></ins>
+            <ins class='adsbygoogle' data-ad-client='ca-pub-1453954292777902' data-ad-format='auto' data-ad-slot='1141474015' style='display:block'/>
             <script>//<![CDATA[
             (adsbygoogle = window.adsbygoogle || []).push({});
             //]]></script>
@@ -1753,137 +1749,6 @@ fjs.parentNode.insertBefore(js, fjs);
         <button class='btn btn-default' type='submit'>Search</button>
       </b:includable>
   </b:widget>
-  <b:widget id='PageList2' locked='false' title='アンケート' type='PageList' visible='true'>
-    <b:widget-settings>
-      <b:widget-setting name='pageListJson'>{}</b:widget-setting>
-      <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
-    </b:widget-settings>
-    <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <b:include name='content'/>
-</b:includable>
-    <b:includable id='content'>
-  <div class='widget-content'>
-    <b:include name='pageList'/>
-  </div>
-</b:includable>
-    <b:includable id='overflowButton'>
-  <b:include name='verticalMoreIcon'/>
-</b:includable>
-    <b:includable id='overflowablePageList'>
-  <div class='overflowable-container'>
-    <div class='overflowable-contents'>
-      <div class='container'>
-        <b:with value='true' var='overflow'>
-        <b:with value='&quot;tabs&quot;' var='pageListClass'>
-          <b:include name='pageList'/>
-        </b:with>
-        </b:with>
-      </div>
-    </div>
-    <div class='overflow-button hidden'>
-      <b:include name='overflowButton'/>
-    </div>
-  </div>
-</b:includable>
-    <b:includable id='pageLink'>
-  <li>
-    <b:class cond='data:overflow' name='overflowable-item'/>
-    <b:class cond='data:link.isCurrentPage' name='selected'/>
-
-    <a expr:href='data:link.href'><data:link.title/></a>
-  </li>
-</b:includable>
-    <b:includable id='pageList'>
-  <ul>
-    <b:class cond='data:pageListClass' expr:name='data:pageListClass'/>
-    <b:loop values='data:links' var='link'>
-      <b:include name='pageLink'/>
-    </b:loop>
-  </ul>
-</b:includable>
-  </b:widget>
-  <b:widget id='BlogArchive1' locked='false' title='月別記事一覧' type='BlogArchive' version='1'>
-    <b:widget-settings>
-      <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
-      <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
-      <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-      <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
-      <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
-      <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
-      <b:widget-setting name='chronological'>false</b:widget-setting>
-      <b:widget-setting name='showPosts'>false</b:widget-setting>
-      <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
-    </b:widget-settings>
-    <b:includable id='main'>
-        <b:if cond='data:title != &quot;&quot;'>
-          <h3 class='title'><data:title/></h3>
-        </b:if>
-        <div class='widget-content'>
-          <div id='ArchiveList'>
-            <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
-              <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
-              <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
-              <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>
-            </div>
-          </div>
-        </div>
-      </b:includable>
-    <b:includable id='flat' var='data'>
-        <ul class='flat'>
-          <b:loop values='data:data' var='i'>
-            <li class='archivedate'>
-              <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
-            </li>
-          </b:loop>
-        </ul>
-      </b:includable>
-    <b:includable id='interval' var='intervalData'>
-        <b:loop values='data:intervalData' var='interval'>
-          <ul class='hierarchy'>
-            <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
-              <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
-              <a class='post-count-link' expr:href='data:interval.url'>
-                <data:interval.name/>
-              </a>
-              <span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span>
-              <b:include cond='data:interval.data' data='interval.data' name='interval'/>
-              <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
-            </li>
-          </ul>
-        </b:loop>
-      </b:includable>
-    <b:includable id='menu' var='data'>
-        <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
-          <option value=''><data:title/></option>
-          <b:loop values='data:data' var='i'>
-            <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
-          </b:loop>
-        </select>
-      </b:includable>
-    <b:includable id='posts' var='posts'>
-        <ul class='posts'>
-          <b:loop values='data:posts' var='post'>
-            <li>
-              <a expr:href='data:post.url'><data:post.title/></a>
-            </li>
-          </b:loop>
-        </ul>
-      </b:includable>
-    <b:includable id='toggle' var='interval'>
-        <a class='toggle' href='javascript:void(0)'>
-          <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
-            <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
-              &#9660;&#160;
-              <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
-              &#9668;&#160;
-              <b:else/>
-              &#9658;&#160;
-            </b:if>
-          </span>
-        </a>
-      </b:includable>
-  </b:widget>
   <b:widget id='Label1' locked='false' title='カテゴリ' type='Label' version='2' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
@@ -1967,18 +1832,6 @@ fjs.parentNode.insertBefore(js, fjs);
   </ul>
 </b:includable>
   </b:widget>
-  <b:widget id='HTML1' locked='false' title='Twitter タイムライン' type='HTML' version='2' visible='true'>
-    <b:widget-settings>
-      <b:widget-setting name='content'>&lt;a class=&quot;twitter-timeline&quot; data-height=&quot;700&quot; href=&quot;https://twitter.com/phantaporta&quot;&gt;Tweets by phantaporta&lt;/a&gt;
-        &lt;script src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</b:widget-setting>
-    </b:widget-settings>
-    <b:includable id='main'>
-        <b:include name='widget-title'/>
-        <div class='widget-content'>
-          <data:content/>
-        </div>
-      </b:includable>
-  </b:widget>
   <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='content'>&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
@@ -1997,5 +1850,148 @@ fjs.parentNode.insertBefore(js, fjs);
     <data:content/>
   </div>
 </b:includable>
+  </b:widget>
+  <b:widget id='BlogArchive1' locked='false' title='月別記事一覧' type='BlogArchive' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
+      <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+      <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+      <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+      <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+      <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+      <b:widget-setting name='chronological'>false</b:widget-setting>
+      <b:widget-setting name='showPosts'>false</b:widget-setting>
+      <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+        <b:if cond='data:title != &quot;&quot;'>
+          <h3 class='title'><data:title/></h3>
+        </b:if>
+        <div class='widget-content'>
+          <div id='ArchiveList'>
+            <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+              <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
+              <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
+              <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>
+            </div>
+          </div>
+        </div>
+      </b:includable>
+    <b:includable id='flat' var='data'>
+        <ul class='flat'>
+          <b:loop values='data:data' var='i'>
+            <li class='archivedate'>
+              <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
+            </li>
+          </b:loop>
+        </ul>
+      </b:includable>
+    <b:includable id='interval' var='intervalData'>
+        <b:loop values='data:intervalData' var='interval'>
+          <ul class='hierarchy'>
+            <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
+              <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
+              <a class='post-count-link' expr:href='data:interval.url'>
+                <data:interval.name/>
+              </a>
+              <span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span>
+              <b:include cond='data:interval.data' data='interval.data' name='interval'/>
+              <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
+            </li>
+          </ul>
+        </b:loop>
+      </b:includable>
+    <b:includable id='menu' var='data'>
+        <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
+          <option value=''><data:title/></option>
+          <b:loop values='data:data' var='i'>
+            <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
+          </b:loop>
+        </select>
+      </b:includable>
+    <b:includable id='posts' var='posts'>
+        <ul class='posts'>
+          <b:loop values='data:posts' var='post'>
+            <li>
+              <a expr:href='data:post.url'><data:post.title/></a>
+            </li>
+          </b:loop>
+        </ul>
+      </b:includable>
+    <b:includable id='toggle' var='interval'>
+        <a class='toggle' href='javascript:void(0)'>
+          <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
+            <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
+              &#9660;&#160;
+              <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
+              &#9668;&#160;
+              <b:else/>
+              &#9658;&#160;
+            </b:if>
+          </span>
+        </a>
+      </b:includable>
+  </b:widget>
+  <b:widget id='PageList2' locked='false' title='アンケート' type='PageList' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='pageListJson'>{}</b:widget-setting>
+      <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:include name='pageList'/>
+  </div>
+</b:includable>
+    <b:includable id='overflowButton'>
+  <b:include name='verticalMoreIcon'/>
+</b:includable>
+    <b:includable id='overflowablePageList'>
+  <div class='overflowable-container'>
+    <div class='overflowable-contents'>
+      <div class='container'>
+        <b:with value='true' var='overflow'>
+        <b:with value='&quot;tabs&quot;' var='pageListClass'>
+          <b:include name='pageList'/>
+        </b:with>
+        </b:with>
+      </div>
+    </div>
+    <div class='overflow-button hidden'>
+      <b:include name='overflowButton'/>
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='pageLink'>
+  <li>
+    <b:class cond='data:overflow' name='overflowable-item'/>
+    <b:class cond='data:link.isCurrentPage' name='selected'/>
+
+    <a expr:href='data:link.href'><data:link.title/></a>
+  </li>
+</b:includable>
+    <b:includable id='pageList'>
+  <ul>
+    <b:class cond='data:pageListClass' expr:name='data:pageListClass'/>
+    <b:loop values='data:links' var='link'>
+      <b:include name='pageLink'/>
+    </b:loop>
+  </ul>
+</b:includable>
+  </b:widget>
+  <b:widget id='HTML1' locked='false' title='Twitter タイムライン' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>&lt;a class=&quot;twitter-timeline&quot; data-height=&quot;700&quot; href=&quot;https://twitter.com/phantaporta&quot;&gt;Tweets by phantaporta&lt;/a&gt;
+        &lt;script src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+        <b:include name='widget-title'/>
+        <div class='widget-content'>
+          <data:content/>
+        </div>
+      </b:includable>
   </b:widget>
 </b:section-contents><b:section-contents id='footer-1'/></html>

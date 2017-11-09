@@ -96,6 +96,17 @@ while($xml =~ /$pattern_entry/g){
             $content =~ s|$attr_org|$attr_all|g;
         }
     }
+    while($content =~ m|(<(h[2-3])>(.*?)</h[2-3]>)|g){
+        my $h2_all  = $1;
+        my $h2_name = $2;
+        my $h2_body = $3;
+        if(index($h2_body, '<b>') != -1){
+            my $h2_org = $h2_all;
+            $h2_body =~ s|</?b>||g;
+            $h2_all  = '<'. $h2_name. '>'. $h2_body. '</'. $h2_name. '>';
+            $content =~ s|$h2_org|$h2_all|g;
+        }
+    }
 
     # dump new html
     $fn = "new/" . $blog_id. ".txt";
