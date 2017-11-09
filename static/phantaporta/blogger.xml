@@ -11,18 +11,22 @@
     <b:if cond='data:blog.pageType == &quot;index&quot;'>
       <meta expr:content='data:blog.title' name='keywords'/>
       <meta expr:content='data:blog.title + &quot;, &quot; + data:blog.metaDescription' name='description'/>
+      <meta expr:content='data:blog.title + &quot;, &quot; + data:blog.metaDescription' name='og:description'/>
 
       <b:elseif cond='data:blog.pageType == &quot;item&quot;'/>
       <meta expr:content='data:blog.pageName + &quot;, &quot; + &quot;記事&quot;' name='keywords'/>
       <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.metaDescription' name='description'/>
+      <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.metaDescription' name='og:description'/>
 
       <b:elseif cond='data:blog.pageType == &quot;archive&quot;'/>
       <meta expr:content='data:view.archive.year + &quot;/&quot; + data:view.archive.month + &quot; アーカイブ：&quot; + data:blog.title' name='keywords'/>
       <meta expr:content='data:view.archive.year + &quot;/&quot; + data:view.archive.month + &quot; アーカイブ：&quot; + data:blog.metaDescription' name='description'/>
+      <meta expr:content='data:view.archive.year + &quot;/&quot; + data:view.archive.month + &quot; アーカイブ：&quot; + data:blog.metaDescription' name='og:description'/>
 
       <b:elseif cond='data:blog.pageType == &quot;static_page&quot;'/>
       <meta expr:content='data:blog.pageTitle' name='keywords'/>
       <meta expr:content='data:blog.pageTitle + &quot; | &quot; + data:blog.metaDescription' name='description'/>
+      <meta expr:content='data:blog.pageTitle + &quot; | &quot; + data:blog.metaDescription' name='og:description'/>
     </b:if>
 <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
 <script>
@@ -44,7 +48,8 @@
     </b:if>
     <!-- /title -->
 
-    <b:include data='blog' name='all-head-content'/>
+    <link href='http://www.phantaporta.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
     <link expr:href='data:blog.url' rel='canonical'/>
     <link expr:href='data:blog.homepageUrl + &quot;feeds/posts/default&quot;' expr:title='data:blog.title + &quot; - Atom&quot;' rel='alternate' type='application/atom+xml'/>
     <link expr:href='data:blog.homepageUrl + &quot;feeds/posts/default?alt=rss&quot;' expr:title='data:blog.title + &quot; - RSS&quot;' rel='alternate' type='application/rss+xml'/>
@@ -84,11 +89,6 @@
         <b:else/>
         <meta content='https://1.bp.blogspot.com/-YoHxASEPJNw/WS5EIZl344I/AAAAAAAADVM/Yobhy9sA9og9Wcr0IR7a63AmOcO5ta6WACLcB/s1600/webcrip144.png' property='og:image'/>
       </b:if>
-    </b:if>
-    <b:if cond='data:blog.metaDescription'>
-      <meta expr:content='data:blog.metaDescription' property='og:description'/>
-      <b:else/>
-      <meta expr:content='data:blog.metaDescription' property='og:description'/>
     </b:if>
     <meta expr:content='data:blog.title' property='og:site_name'/>
     <meta content='xxxxx' property='fb:app_id'/> 
