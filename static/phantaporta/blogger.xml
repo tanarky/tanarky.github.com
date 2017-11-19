@@ -48,7 +48,7 @@
     </b:if>
     <!-- /title -->
 
-    <link href='http://www.phantaporta.com/favicon.ico' rel='icon' type='image/x-icon'/>
+    <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
 <!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
     <link expr:href='data:blog.url' rel='canonical'/>
     <link expr:href='data:blog.homepageUrl + &quot;feeds/posts/default&quot;' expr:title='data:blog.title + &quot; - Atom&quot;' rel='alternate' type='application/atom+xml'/>
@@ -105,9 +105,12 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'/>
     <b:skin version='1.0.0'><![CDATA[
       
-#ArchiveList .toggle{cursor:pointer;font-family:Arial,sans-serif}#ArchiveList .toggle-open{_font-size:1.7em;line-height:.6em}#ArchiveList{text-align:left}#ArchiveList a.post-count-link,#ArchiveList a.post-count-link:link,#ArchiveList a.post-count-link:visited{text-decoration:none}#ArchiveList a.toggle,#ArchiveList a.toggle:link,#ArchiveList a.toggle:visited,#ArchiveList a.toggle:hover{color:inherit;text-decoration:none}.BlogArchive #ArchiveList ul li{background:none;list-style:none;list-style-image:none;list-style-position:outside;border-width:0;padding-left:15px;text-indent:-15px;margin:.25em 0;background-image:none}.BlogArchive #ArchiveList ul ul li{padding-left:1.2em}.BlogArchive #ArchiveList ul{margin:0;padding:0;list-style:none;list-style-image:none;border-width:0}.BlogArchive #ArchiveList ul.posts li{padding-left:1.3em}#ArchiveList .collapsed ul{display:none}
+#ArchiveList .toggle{cursor:pointer;}#ArchiveList .toggle-open{_font-size:1.7em;line-height:.6em}#ArchiveList{text-align:left}#ArchiveList a.post-count-link,#ArchiveList a.post-count-link:link,#ArchiveList a.post-count-link:visited{text-decoration:none}#ArchiveList a.toggle,#ArchiveList a.toggle:link,#ArchiveList a.toggle:visited,#ArchiveList a.toggle:hover{color:inherit;text-decoration:none}.BlogArchive #ArchiveList ul li{background:none;list-style:none;list-style-image:none;list-style-position:outside;border-width:0;padding-left:15px;text-indent:-15px;margin:.25em 0;background-image:none}.BlogArchive #ArchiveList ul ul li{padding-left:1.2em}.BlogArchive #ArchiveList ul{margin:0;padding:0;list-style:none;list-style-image:none;border-width:0}.BlogArchive #ArchiveList ul.posts li{padding-left:1.3em}#ArchiveList .collapsed ul{display:none}
 
-body { line-height: 28px; font-size: 15px; padding-top: 50px; color: #333; font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif }
+body { line-height: 28px; font-size: 15px; padding-top: 50px; color:#5a5a5a; font-family: Hiragino Sans,Roboto,"ヒラギノ角ゴ Pro",Hiragino Kaku Gothic Pro,"メイリオ",Meiryo,Helvetica Neue,Helvetica,Arial,sans-serif }
+a { color: #5a5a5a; }
+a:hover { text-decoration:none; color:rgba(74,74,74,0.8); }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-weight: 300; }
 img  { max-width:100%; height: auto; border: none;}
 ol, ul { padding: 0; }
 li { margin-left: 20px; }
@@ -145,6 +148,7 @@ a.logo:hover { text-decoration:none; }
   letter-spacing: 3px;
   color: #666;
   margin: 0;
+  display:none;
 }
 .post-label {
   margin-bottom: 10px;
@@ -162,11 +166,12 @@ a.logo:hover { text-decoration:none; }
   position:relative;
   margin-bottom:10px;
   font-weight: bold;
-  border-bottom: 2px solid #ddd;
   padding-bottom: 8px;
+  border-bottom: 2px solid #ebb247;
 }
 .post h1 {
   font-size: 22px;
+  font-weight: 500;
 }
 .post h3,
 .post h4,
@@ -179,42 +184,32 @@ a.logo:hover { text-decoration:none; }
 }
 .main .title,
 .sidebar .widget h3 {
-  font-weight: 700;
-  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #ebb247;
   line-height: 1.25;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  text-align: center;
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 2px;
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-  color: #343434;
-  font-weight: 700;
-  position: relative;
-  padding: 8px;
-  border: 1px solid #ccc;
 }
 ul.hierarchy li {
   margin-top: 6px;
 }
-.item-title {
-  letter-spacing: 1px;
-}
+
 .item-thumbnail {
-  float:left;
-  margin: 0 10px 15px 0;
+  height: 80px;
 }
-.item-thumbnail:after {
+.item-thumbnail .item-title {
+  font-size: 13px;
+  line-height: 1.414;
+}
+.item-thumbnail .item-thumbnail-img {
+  float:left;
+  margin: 0 6px 12px 0;
+}
+.item-thumbnail .item-thumbnail-img:after {
   clear: both;
 }
+  
 ul.labels-list li {
   float: left;
   margin: 0 5px 10px 0;
@@ -267,7 +262,6 @@ ul.labels-list li {
   padding: 5px 15px;
   background: #fff;
   border: solid 1px #ccc;
-  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   z-index: 3;
 }
@@ -326,7 +320,6 @@ ul.labels-list li {
   min-height: 40px;
 }
 .sub-column {
-  background-color: #f8f8f8;
   padding-bottom: 30px;
 }
 @media screen and (max-width:767px) {
@@ -390,6 +383,22 @@ ul.social li a {
     letter-spacing: 1.5px;
 }
 .separator>a[imageanchor="1"] { margin:0 !important; }
+
+/**/
+.media .media-heading { line-height: 1.2 }
+.media a { display:block; }
+.media .cover { width:100px;height:100px;background-repeat:no-repeat;background-position:center top;background-size: cover;}
+.media .snippet{ font-size: 88%; line-height: 1.5; color: #aaa; }
+
+@media screen and (max-width:480px){
+  /*.main, .sub-column { padding: 0 8px; }*/
+  hr { margin: 8px 0; border-top: 1px solid #ececec; }
+  .media { margin-top: 8px}
+  .media .media-heading { font-size:14.22px; }
+  .media .cover { width:75px;height:75px;}
+  .media .snippet{ display:none; }
+  
+}
       ]]></b:skin>
     <b:template-skin/>
   </head>
@@ -466,7 +475,6 @@ ul.social li a {
     <b:if cond='data:blog.pageType == &quot;index&quot; and data:blog.url == data:blog.homepageUrl'>
       <script>
 //<![CDATA[
-var test = '';
 function show_slides(json) {
     var img = [];
     var maxpost = json.feed.entry.length
@@ -504,22 +512,20 @@ function show_slides(json) {
         tmb = img[i].replace('s640/', 's600/');
 
         var slide  = '';
-        slide += '<div class="col-sm-4 tile" style="background-image: url('+tmb+');">';
+        slide += '<div class="col-md-4 tile" style="background-image: url('+tmb+');">';
         slide += '<a href="'+posturl+'"><div class="title"><h2>'+posttitle+'</div></a>';
         slide += '</div>';
         document.write(slide);
     }
     document.write('</div></div>');
 }
-//var url = '/feeds/posts/default?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
 var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
 document.write('<script src="' + url + '"></'+'script>');
 //]]></script>
     </b:if>
-
     <div class='container'>
       <div class='row'>
-        <div class='col-sm-8 main'>
+        <div class='col-md-8 main'>
           <b:section id='main' name='Main' showaddelement='yes'>
             <b:widget id='Blog1' locked='true' title='ブログの投稿' type='Blog' version='1'>
               <b:widget-settings>
@@ -549,7 +555,7 @@ document.write('<script src="' + url + '"></'+'script>');
                   <div class='row'>
                     <b:if cond='data:blog.pageType == &quot;item&quot;'>
                       <b:loop index='x' values='data:posts' var='post'>
-                        <div class='col-sm-12'>
+                        <div class='col-md-12'>
                           <b:include data='post' name='post'/>
                           <ul class='social'>
                             <li style='background-color:#4267b2; border-radius:5px 0 0 5px;'>
@@ -567,29 +573,28 @@ document.write('<script src="' + url + '"></'+'script>');
                       </b:loop>
                       <b:else/>
                       <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
-                        <div class='col-sm-12'>
+                        <div class='col-md-12'>
                           <p>ページが見つかりません</p>
                           <p><a href='/'>トップページに戻る</a></p>
                         </div>
                         <b:else/>
                         <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
                           <b:loop index='x' values='data:posts' var='post'>
-                            <div class='col-sm-12'>
+                            <div class='col-md-12'>
                               <b:include data='post' name='static'/>
                             </div>
                           </b:loop>
                           <b:else/>
-                          <div class='col-sm-12'>
-                            <div class='title'>記事一覧</div>
-                          </div>
-                          <b:loop index='x' values='data:posts' var='post'>
-                            <div class='col-sm-6'>
-                              <b:include data='post' name='post'/>
+                          <br/>
+                          <div class='col-md-3 visible-md-block visible-lg-block visible-xl-block' style="padding:0">
+                            <div style="height:600px;background-color:#fafafa;">
                             </div>
-                            <b:if cond='data:x % 2 == 1'>
-                              <div class='clear-sm'/>
-                            </b:if>
-                          </b:loop>
+                          </div>
+                          <div class='col-md-9'>
+                            <b:loop index='x' values='data:posts' var='post'>
+                              <b:include data='post' name='post-summary'/>
+                            </b:loop>
+                          </div>
                         </b:if>
                       </b:if>
                     </b:if>
@@ -1038,8 +1043,26 @@ document.write('<script src="' + url + '"></'+'script>');
                   <br/><br/>
                 </b:if>
               </b:includable>
+
+              <b:includable id='post-summary' var='post'>
+                <div class="media">
+                  <a expr:href='data:post.link ? data:post.link : data:post.url'>
+                    <div class="media-left">
+                      <b:if cond='data:post.firstImageUrl'>
+                        <div class="media-object cover" expr:style='&quot;background-image:url(&quot; + data:post.firstImageUrl + &quot;)&quot;'></div>
+                      </b:if>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading"><data:post.title/></h4>
+                      <div class="snippet"><data:post.snippet/></div>
+                    </div>
+                  </a>
+                </div>
+                <hr/>
+              </b:includable>
+              
               <b:includable id='post' var='post'>
-                <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+                <div class='post entry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
                   <b:if cond='data:post.firstImageUrl'>
                     <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
                   </b:if>
@@ -1376,7 +1399,7 @@ for(var i=0; i < imgs.length; i++){
             </b:widget>
           </b:section>
         </div>
-        <div class='col-sm-4 col-md-4 sub-column'>
+        <div class='col-md-4 sub-column'>
           <macro:include id='main-column-right-sections' name='sections'>
             <macro:param default='1' name='num' value='1'/>
             <macro:param default='sidebar-right' name='idPrefix'/>
@@ -1391,7 +1414,7 @@ for(var i=0; i < imgs.length; i++){
     <footer class='global-footer'>
       <div class='container'>
         <div class='row'>
-          <div class='col-sm-4'>
+          <div class='col-md-4'>
             <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
             <!-- フッター内 -->
             <ins class='adsbygoogle' data-ad-client='ca-pub-1453954292777902' data-ad-format='auto' data-ad-slot='1141474015' style='display:block'/>
@@ -1399,7 +1422,7 @@ for(var i=0; i < imgs.length; i++){
             (adsbygoogle = window.adsbygoogle || []).push({});
             //]]></script>
           </div>
-          <div class='col-sm-4'>
+          <div class='col-md-4'>
             <h3>サイトマップ</h3>
             <ul class='widget'>
               <li><a href='/p/blog-page_16.html'>ABOUT</a></li>
@@ -1408,7 +1431,7 @@ for(var i=0; i < imgs.length; i++){
               <li><a href='/p/terms.html'>利用規約</a></li>
             </ul>
           </div>
-          <div class='col-sm-4'>
+          <div class='col-md-4'>
             <h3>ソーシャルメディア</h3>
             <ul class='widget'>
               <li>
@@ -1438,7 +1461,7 @@ for(var i=0; i < imgs.length; i++){
             <macro:param default='foot' name='class'/>
             <macro:param default='false' name='includeBottom'/>
           </macro:include>
-          <div class='col-sm-12 copyright'>&#169; SHINKIGENSHA Co Ltd 2017 All rights reserved.</div>
+          <div class='col-md-12 copyright'>&#169; SHINKIGENSHA Co Ltd 2017 All rights reserved.</div>
         </div>
       </div>
     </footer>
@@ -1670,9 +1693,9 @@ fjs.parentNode.insertBefore(js, fjs);
                   </b:if>
                   <b:else/>
                   <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
-                  <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
+                  <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail&quot;'>
                     <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
-                      <div class='item-thumbnail'>
+                      <div class='item-thumbnail-img'>
                         <a expr:href='data:post.href' target='_blank'>
                           <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 80, &quot;1:1&quot;) : data:post.thumbnail' var='image'>
                             <img expr:alt='data:title' expr:src='data:image'/>
@@ -1737,7 +1760,7 @@ fjs.parentNode.insertBefore(js, fjs);
         <form class='form-inline' expr:action='data:blog.searchUrl'>
           <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
           <b:include name='urlParamsAsFormInput'/>
-          <div class='input-group col-sm-12'>
+          <div class='input-group col-md-12'>
             <input autocomplete='off' class='form-control' expr:placeholder='data:messages.searchThisBlog' name='q' type='text'/>
             <span class='input-group-btn'>
               <b:include name='searchSubmit'/>
