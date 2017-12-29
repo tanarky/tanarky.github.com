@@ -118,21 +118,25 @@ ul ul { margin-left: 20px; }
 blockquote { font-style: italic; background-color: #fafafa; font-size: 16px; border-left: 5px solid #e6e6e6; margin: 30px 0; }
 blockquote a { display:block; text-align:right; margin-top: 5px; font-size: 14px; }
 
-a.logo { margin:0 }
+a.logo { margin:0; display:block; background-color: #ebb247;  max-width: 268px; float:left; }
 a.logo:hover { text-decoration:none; }
+a.logo img { height: 30px; width: auto; margin: 10px; }
 
 #toc-module { display:table; padding: 15px; background-color:#eee; border-radius: 5px; margin-bottom: 40px; }
+section#pickup { background-color: #ddd; padding: 10px 0;background: linear-gradient(#ddd, #fafafa); }
 
-.navbar-default { background-color: #ebb247; box-shadow: 0 0 5px 0 #efefef; }
+ul.nav.navbar-nav { background-color: #ebb247; }
+.container>.navbar-header { margin-left: -15px; }
+.navbar-default { background-color: #fff; box-shadow: 0 0 5px 0 #efefef; }
 .navbar-default .navbar-nav>li>a {color: #fff; }
 .navbar-default .navbar-nav>li>a:hover {color: #eee; }
 .navbar-default .navbar-toggle .icon-bar { background-color: #fff; }
-.navbar-default .navbar-toggle { border-color: #fff; }
+.navbar-default .navbar-toggle { border-color: #fff; background-color: #ebb247; }
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover { background-color: #ffa600; }
 .navbar-default .nav>li>a { padding: 15px 6px; }
 
-.main { border-right: 1px solid #eee; border-left: 1px solid #eee; }
+.main { border-right: 1px solid #eee; }
 .sub-column li { list-style:none; list-style-image:none; margin: 0; }
 .post {
   text-align:justify;
@@ -284,16 +288,23 @@ ul.labels-list li {
 }
 .tile {
   padding: 0;
-  height: 280px;
+  height: 300px;
   background-color: #ddd;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  }
+  margin: 0 auto;
+  max-width: 600px;
+}
 @media screen and (max-width:767px) {
   .tile {
-    height: 200px;
+    height: 250px;
+    display: none;
   }
+  .tile.active {
+    display: block;
+  }
+  section#pickup { padding:0; }
 }
 .tile .title {
   padding: 10px 15px;
@@ -328,7 +339,9 @@ ul.labels-list li {
   }
 }
 .pager {
-  font-size:16px
+  font-size: 28px;
+  padding: 15px 50px;
+  border: 1px solid #ddd;
 }
 .pager.pager-older {
   float:right;
@@ -399,7 +412,21 @@ ul.social li a {
   .media .snippet{ display:none; }
   
 }
-      ]]></b:skin>
+
+ul.categories {
+    list-style-type: none;
+    border-top: 1px solid #ddd;
+}
+ul.categories li {
+    color: #666;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    margin: 0;
+    padding: 10px;
+}
+
+]]></b:skin>
     <b:template-skin/>
   </head>
   <body>
@@ -413,13 +440,14 @@ ul.social li a {
             <span class='icon-bar'/>
           </button>
           <a class='logo' href='/'>
-            <img alt='phantaporta | パンタポルタ' height='50' src='https://2.bp.blogspot.com/-l2CzRZ4sfPM/WSJJ8KdBxJI/AAAAAAAADTM/qTC6dQ2dK88Bd-tY3pSkDx_XS697F664QCLcB/s1600/imgpsh_fullsize.png' width='200'/>
+            <!--<img alt='phantaporta | パンタポルタ' height='50' src='https://2.bp.blogspot.com/-l2CzRZ4sfPM/WSJJ8KdBxJI/AAAAAAAADTM/qTC6dQ2dK88Bd-tY3pSkDx_XS697F664QCLcB/s1600/imgpsh_fullsize.png' width='200'/>-->
+            <img alt='phantaporta | パンタポルタ' height='50' src='https://4.bp.blogspot.com/-mp85WdrcOgM/WkXRRrXJHwI/AAAAAAAADwE/I5GY0Ss5kCMKL7xnyeJkUqyCOWtPCAADQCLcBGAs/s1600/logo1.png' width='200'/>
           </a>
         </div>
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
           <b:widget id='PageList1' locked='true' title='Pages' type='PageList' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': 'http://www.phantaporta.com/search/label/%E5%B0%8F%E8%AA%AC?max-results\x3d3', 'title': '小説', 'position': 0}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 1}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 2}, 'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 3}, 'link4': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 4}}]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 0}, 'link1': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 1}, 'link2': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 2}, 'link3': {'href': '/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC', 'title': 'ミリタリー', 'position': 3}, 'link4': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 4}}]]></b:widget-setting>
               <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -427,7 +455,7 @@ ul.social li a {
             </b:includable>
             <b:includable id='content'>
               <div aria-expanded='true' class='navbar-collapse collapse' id='navbar'>
-                <ul class='nav navbar-nav navbar-right'>
+                <ul class='nav navbar-nav navbar-right visible-xs-block'>
                   <b:loop values='data:links' var='link'>
                     <li><b:include name='pageLink'/></li>
                   </b:loop>
@@ -476,53 +504,42 @@ ul.social li a {
       <script>
 //<![CDATA[
 function show_slides(json) {
+    json = JSON.parse('{"feed":{"entry":[{"title":{"$t":"政略結婚や男性同士の恋愛も盛ん　戦国武将の恋物語"},"link":[{"rel":"alternate","type":"text/html","href":"http://shinkigensha.blogspot.com/2017/11/blog-post_22.html","title":"政略結婚や男性同士の恋愛も盛ん　戦国武将の恋物語"}],"media$thumbnail":{"url":"https://1.bp.blogspot.com/-nudMS12DLlo/Wg_JfRv5OWI/AAAAAAAADro/I3Xr793ke1MkAkhlHBJx4mwQF85Mki6BACLcBGAs/s72-c/1a75e57017ff4bbb9a67fbc877e428c6_l.jpg","width":"72"}},{"title":{"$t":"【第16回】うちのファンタジー世界の考察ー蟲"},"link":[{"rel":"alternate","type":"text/html","href":"http://shinkigensha.blogspot.com/2017/11/16_21.html","title":"【第16回】うちのファンタジー世界の考察ー蟲"}],"media$thumbnail":{"url":"https://2.bp.blogspot.com/-OIZqMQNYdmU/Wg-bexzOwZI/AAAAAAAADrM/yPNOJWInUgIOT1JaNvCPGrgY80hUrK5oACLcBGAs/s72-c/%25E3%2581%2586%25E3%2581%25A1%25E3%2581%25AE%25E3%2583%2595%25E3%2582%25A1%25E3%2583%25B3%25E3%2582%25BF%25E3%2582%25B8%25E3%2583%25BC%25E4%25B8%2596%25E7%2595%258C%25E3%2581%25AE%25E8%2580%2583%25E5%25AF%259F-8.png","width":"72"}},{"title":{"type":"text","$t":"【1コマ漫画】凶器はチーズ!? メイヴの最期"},"link":[{"rel":"alternate","type":"text/html","href":"http://shinkigensha.blogspot.com/2017/11/1_20.html","title":"【1コマ漫画】凶器はチーズ!? メイヴの最期"}],"media$thumbnail":{"url":"https://3.bp.blogspot.com/-KQvp0Jq18vE/Wg4381ia8PI/AAAAAAAADpA/5FSqt91B96swJn29FREuVAAFKZnti0qMACLcBGAs/s72-c/2_11%25E6%259C%2588%25E5%2588%2586_3.png","width":"72"}}]}}');
     var img = [];
     var maxpost = json.feed.entry.length
-    document.write('<div class="container-fluid"><div class="row">');
+    document.write('<section id="pickup"><div class="container"><div class="row">');
     for (var i = 0; i < maxpost; i++) {
         var entry = json.feed.entry[i];
         var posttitle = entry.title.$t;
-        var posturl;
+        var posturl = "#";
         for (var k = 0; k < entry.link.length; k++) {
             if (entry.link[k].rel == 'alternate') {
                 posturl = entry.link[k].href;
                 break
             }
         }
-        if ("content" in entry) {
-            var postcontent = entry.content.$t
-        }
-        else if ("summary" in entry) {
-            var postcontent = entry.summary.$t
-        }
-        else {
-            var postcontent = "";
-        }
 
-        img[i] = "https://placehold.it/500x250?text=NO+IMAGE";
-        var s = postcontent;
-        var a = s.indexOf("<img");
-        var b = s.indexOf("src=\"", a);
-        var c = s.indexOf("\"", b + 5);
-        var d = s.substr(b + 5, c - b - 5);
-        if ((a != -1) && (b != -1) && (c != -1) && (d != "")) img[i] = d;
-
-        var tmb = img[i].replace('s320/', 's600/');
-        tmb = img[i].replace('s400/', 's600/');
-        tmb = img[i].replace('s640/', 's600/');
+        var tmb = "https://placehold.it/500x250?text=NO+IMAGE";
+        if(entry['media$thumbnail'] && entry['media$thumbnail'].url){
+            tmb = entry.media$thumbnail.url;
+            tmb = tmb.replace('/s72-c/', '/s600/');
+        }
 
         var slide  = '';
-        slide += '<div class="col-md-4 tile" style="background-image: url('+tmb+');">';
+        var active = (i==0) ? ' active':'';
+        slide += '<div class="col-md-4 tile' + active + '" style="background-image: url('+tmb+');">';
         slide += '<a href="'+posturl+'"><div class="title"><h2>'+posttitle+'</div></a>';
         slide += '</div>';
         document.write(slide);
     }
-    document.write('</div></div>');
+    document.write('</div></div></section>');
 }
-var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
-document.write('<script src="' + url + '"></'+'script>');
+show_slides('{}');
+//var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
+//document.write('<script src="' + url + '"></'+'script>');
 //]]></script>
     </b:if>
+
     <div class='container'>
       <div class='row'>
         <div class='col-md-8 main'>
@@ -587,7 +604,14 @@ document.write('<script src="' + url + '"></'+'script>');
                           <b:else/>
                           <br/>
                           <div class='col-md-3 visible-md-block visible-lg-block visible-xl-block' style="padding:0">
-                            <div style="height:600px;background-color:#fafafa;">
+                            <div>
+                              <ul class="categories">
+                                <li><a href="/search/label/%E5%B0%8F%E8%AA%AC">小説</a></li>
+                                <li><a href="/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC">ファンタジー</a></li>
+                                <li><a href="/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96">歴史・文化</a></li>
+                                <li><a href="/search/label/%E3%83%9F%E3%83%AA%E3%82%BF%E3%83%AA%E3%83%BC">ミリタリー</a></li>
+                                <li><a href="/search/label/%E7%89%B9%E9%9B%86">特集</a></li>
+                              </ul>
                             </div>
                           </div>
                           <div class='col-md-9'>
@@ -1016,12 +1040,7 @@ document.write('<script src="' + url + '"></'+'script>');
                     <b:if cond='data:newerPageUrl'>
                       <span class='pager pager-newer' id='blog-pager-newer-link'>
                         <a class='blog-pager-newer-link' expr:href='data:newerPageUrl'>
-                          <i aria-hidden='true' class='fa fa-arrow-left'/>
-                          <b:if cond='data:newerPageUrl == data:blog.homepageUrl'>
-                            <span class='pager-label'>トップページ</span>
-                            <b:else/>
-                            <span class='pager-label'>新しい投稿</span>
-                          </b:if>
+                          <i class='fa fa-angle-double-left' aria-hidden='true' />
                         </a>
                       </span>
                     </b:if>
@@ -1029,12 +1048,7 @@ document.write('<script src="' + url + '"></'+'script>');
                     <b:if cond='data:olderPageUrl'>
                       <span class='pager pager-older' id='blog-pager-older-link'>
                         <a class='blog-pager-older-link' expr:href='data:olderPageUrl'>
-                          <b:if cond='data:olderPageUrl == data:blog.homepageUrl'>
-                            <span class='pager-label'>トップページ</span>
-                            <b:else/>
-                            <span class='pager-label'>古い投稿</span>
-                          </b:if>
-                          <i aria-hidden='true' class='fa fa-arrow-right'/>
+                          <i class='fa fa-angle-double-right' aria-hidden='true' />
                         </a>
                       </span>
                     </b:if>
