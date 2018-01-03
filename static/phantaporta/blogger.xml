@@ -110,7 +110,7 @@
 body { line-height: 28px; font-size: 15px; padding-top: 50px; color:#444; font-family: Hiragino Sans,Roboto,"ヒラギノ角ゴ Pro",Hiragino Kaku Gothic Pro,"メイリオ",Meiryo,Helvetica Neue,Helvetica,Arial,sans-serif }
 a { color: #444; }
 a:hover { text-decoration:none; color:rgba(64,64,64,0.8); }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-weight: 350; }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-weight: 350; margin-top: 0; }
 img  { max-width:100%; height: auto; border: none;}
 ol, ul { padding: 0; }
 li { margin-left: 20px; }
@@ -118,17 +118,19 @@ ul ul { margin-left: 20px; }
 blockquote { font-style: italic; background-color: #fafafa; font-size: 16px; border-left: 5px solid #e6e6e6; margin: 30px 0; }
 blockquote a { display:block; text-align:right; margin-top: 5px; font-size: 14px; }
 .thumbnail { margin-bottom:0; }
+.widget-content { margin-bottom: 20px; }
 
 a.logo { margin:0; display:block; background-color: #ebb247;  max-width: 268px; float:left; }
 a.logo:hover { text-decoration:none; }
-a.logo img { height: 30px; width: auto; margin: 10px; }
+a.logo img { height: 50px; width: auto; }
 
 #toc-module { display:table; padding: 15px; background-color:#eee; border-radius: 5px; margin-bottom: 40px; }
 section#pickup { background-color: #ddd; padding: 10px 0;background: linear-gradient(#ddd, #fafafa);margin-bottom:10px; }
 
-ul.nav.navbar-nav { background-color: #ebb247; }
+/*ul.nav.navbar-nav { background-color: #ebb247; }*/
 .container>.navbar-header { margin-left: -15px; }
-.navbar-default { background-color: #fff; box-shadow: 0 0 5px 0 #efefef; border-color: #ccc; }
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse { max-height: 370px; }
+.navbar-default { background-color: #ebb247; box-shadow: 0 0 5px 0 #efefef; border-color: #ccc; }
 .navbar-default .navbar-nav>li>a {color: #fff; }
 .navbar-default .navbar-nav>li>a:hover {color: #eee; }
 .navbar-default .navbar-toggle .icon-bar { background-color: #fff; }
@@ -429,8 +431,8 @@ ul.categories li {
             <span class='icon-bar'/>
           </button>
           <a class='logo' href='/'>
-            <!--<img alt='phantaporta | パンタポルタ' height='50' src='https://2.bp.blogspot.com/-l2CzRZ4sfPM/WSJJ8KdBxJI/AAAAAAAADTM/qTC6dQ2dK88Bd-tY3pSkDx_XS697F664QCLcB/s1600/imgpsh_fullsize.png' width='200'/>-->
-            <img alt='phantaporta | パンタポルタ' height='50' src='https://4.bp.blogspot.com/-mp85WdrcOgM/WkXRRrXJHwI/AAAAAAAADwE/I5GY0Ss5kCMKL7xnyeJkUqyCOWtPCAADQCLcBGAs/s1600/logo1.png' width='200'/>
+            <img alt='phantaporta | パンタポルタ' height='50' src='https://2.bp.blogspot.com/-l2CzRZ4sfPM/WSJJ8KdBxJI/AAAAAAAADTM/qTC6dQ2dK88Bd-tY3pSkDx_XS697F664QCLcB/s1600/imgpsh_fullsize.png' width='200'/>
+            <!--<img alt='phantaporta | パンタポルタ' height='50' src='https://4.bp.blogspot.com/-mp85WdrcOgM/WkXRRrXJHwI/AAAAAAAADwE/I5GY0Ss5kCMKL7xnyeJkUqyCOWtPCAADQCLcBGAs/s1600/logo1.png' width='200'/>-->
           </a>
         </div>
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
@@ -444,10 +446,20 @@ ul.categories li {
             </b:includable>
             <b:includable id='content'>
               <div aria-expanded='true' class='navbar-collapse collapse' id='navbar'>
-                <ul class='nav navbar-nav navbar-right visible-xs-block'>
+                <ul class='nav navbar-nav navbar-right'>
                   <b:loop values='data:links' var='link'>
-                    <li><b:include name='pageLink'/></li>
+                    <li class="visible-xs-block"><b:include name='pageLink'/></li>
                   </b:loop>
+                  <li>
+                    <form action="/search" class="form-inline" target="_top" style="display:inline-flex;margin-top:8px;">
+                      <div class="input-group">
+                        <input type="text" name="q" class="form-control search-box" expr:value='data:view.search.query'/>
+                      </div>
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Search</button>
+                      </span>
+                    </form>
+                  </li>
                   <li>
                     <a href='https://twitter.com/phantaporta' style='font-size:36px;padding:6px 0;' target='_blank'><i class='fa fa-twitter-square'/></a>
                   </li>
@@ -528,6 +540,22 @@ show_slides('{}');
 //var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
 //document.write('<script src="' + url + '"></'+'script>');
 //]]></script>
+    <b:else/>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <b:if cond='data:view.isSearch and !data:view.isLabelSearch and data:view.search.query'>
+              <h2 style="font-size:20px;margin-top:10px;margin-left:-15px;">「<data:view.search.query/>」の検索結果</h2>
+              <b:elseif cond='data:view.isSearch and !data:view.isLabelSearch'/>
+              <br/>
+              <b:elseif cond='data:view.isSearch'/>
+              <h2 style="font-size:20px;margin-top:10px;margin-left:-15px;">「<data:blog.searchLabel/>」の記事</h2>
+            </b:if>
+          </div>
+        </div>
+      </div>
+    </section>
     </b:if>
 
     <div class='container'>
@@ -1259,7 +1287,7 @@ for(var i=0; i < imgs.length; i++){
 
       var paginator = function(callback) {
         if (hasMore()) {
-          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=10';
           if (cursor) {
             url += '&published-min=' + new Date(cursor).toISOString();
           }
@@ -1728,7 +1756,7 @@ fjs.parentNode.insertBefore(js, fjs);
       <b:widget-setting name='sectionWidth'>790</b:widget-setting>
       <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
       <b:widget-setting name='displayWidth'>530</b:widget-setting>
-      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E5%B0%8F%E8%AA%AC?max-results=3</b:widget-setting>
+      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E5%B0%8F%E8%AA%AC?max-results=10</b:widget-setting>
       <b:widget-setting name='caption'/>
     </b:widget-settings>
     <b:includable id='main'>
@@ -1749,32 +1777,6 @@ fjs.parentNode.insertBefore(js, fjs);
   </div>
 </b:includable>
   </b:widget>
-  <b:widget id='BlogSearch1' locked='false' title='サイト内検索' type='BlogSearch' version='2' visible='true'>
-    <b:includable id='main'>
-        <b:include name='widget-title'/>
-        <b:include name='content'/>
-      </b:includable>
-    <b:includable id='content'>
-        <div class='widget-content' role='search'>
-          <b:include name='searchForm'/>
-        </div>
-      </b:includable>
-    <b:includable id='searchForm'>
-        <form class='form-inline' expr:action='data:blog.searchUrl'>
-          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-          <b:include name='urlParamsAsFormInput'/>
-          <div class='input-group col-md-12'>
-            <input autocomplete='off' class='form-control' expr:placeholder='data:messages.searchThisBlog' name='q' type='text'/>
-            <span class='input-group-btn'>
-              <b:include name='searchSubmit'/>
-            </span>
-          </div>
-        </form>
-      </b:includable>
-    <b:includable id='searchSubmit'>
-        <button class='btn btn-default' type='submit'>Search</button>
-      </b:includable>
-  </b:widget>
   <b:widget id='Label1' locked='false' title='カテゴリ' type='Label' version='2' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
@@ -1792,7 +1794,7 @@ fjs.parentNode.insertBefore(js, fjs);
             <ul class='labels-list'>
               <b:loop values='data:labels' var='label'>
                 <li>
-                  <a expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=3&quot;'>
+                  <a expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=10&quot;'>
                     <span class='post-label btn btn-default'>
                       <b:if cond='data:blog.url == data:label.url'>
                         <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
@@ -1811,7 +1813,7 @@ fjs.parentNode.insertBefore(js, fjs);
             <b:else/>
             <b:loop values='data:labels' var='label'>
               <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
-                <a class='post-label block-label' expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=3&quot;'>
+                <a class='post-label block-label' expr:dir='data:blog.languageDirection' expr:href='data:label.url + &quot;?max-results=10&quot;'>
                   <span class='post-label btn btn-default'><data:label.name/>
                     <b:if cond='data:showFreqNumbers'>
                       <span class='badge' dir='ltr'><data:label.count/></span>
