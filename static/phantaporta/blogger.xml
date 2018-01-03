@@ -442,19 +442,7 @@ ul.categories li {
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
           <b:widget id='PageList1' locked='true' title='Pages' type='PageList' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'>
-                <![CDATA[{
-                         'link0': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 0},
-                         'link1': {'href': '/search/label/%E6%BC%AB%E7%94%BB', 'title': '漫画', 'position': 1},
-                         'link2': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2},
-                         'link3': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3},
-                         'link4': {'href': '/search/label/%E3%82%B3%E3%83%A9%E3%83%A0', 'title': 'コラム', 'position': 4},
-                         'link5': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5},
-                         'link6': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 6},
-                         'link7': {'href': '/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF', 'title': 'タダ読み', 'position': 7},
-                         'link8': {'href': '/search/label/%E9%80%A3%E8%BC%89', 'title': '連載', 'position': 8},
-                         'link9': {'href': '/search/label/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D', 'title': '電子書籍', 'position': 9}
-                         }]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 0}, 'link1': {'href': '/search/label/%E6%BC%AB%E7%94%BB', 'title': '漫画', 'position': 1}, 'link2': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link3': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3}, 'link4': {'href': '/search/label/%E3%82%B3%E3%83%A9%E3%83%A0', 'title': 'コラム', 'position': 4}, 'link5': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5}, 'link6': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 6}, 'link7': {'href': '/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF', 'title': 'タダ読み', 'position': 7}, 'link8': {'href': '/search/label/%E9%80%A3%E8%BC%89', 'title': '連載', 'position': 8}, 'link9': {'href': '/search/label/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D', 'title': '電子書籍', 'position': 9}}]]></b:widget-setting>
               <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -463,20 +451,20 @@ ul.categories li {
             <b:includable id='content'>
               <div aria-expanded='true' class='navbar-collapse collapse' id='navbar'>
                 <ul class='nav navbar-nav navbar-right'>
-                  <li class="visible-xs-block" style="margin-left:0">
+                  <li class='visible-xs-block' style='margin-left:0'>
                   <b:loop values='data:links' var='link'>
-                    <a expr:href='data:link.href' class="post-label block-label" style="padding:0;display:inline">
-                      <span class="post-label btn btn-default"><data:link.title/></span>
+                    <a class='post-label block-label' expr:href='data:link.href' style='padding:0;display:inline'>
+                      <span class='post-label btn btn-default'><data:link.title/></span>
                     </a>
                   </b:loop>
                   </li>
-                  <li style="margin-left:0">
-                    <form action="/search" class="form-inline" target="_top" style="display:inline-flex;margin-top:8px;width:88%">
-                      <div class="input-group" style="width:100%">
-                        <input type="text" name="q" class="form-control search-box" expr:value='data:view.search.query'/>
+                  <li style='margin-left:0'>
+                    <form action='/search' class='form-inline' style='display:inline-flex;margin-top:8px;width:88%' target='_top'>
+                      <div class='input-group' style='width:100%'>
+                        <input class='form-control search-box' expr:value='data:view.search.query' name='q' type='text'/>
                       </div>
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                      <span class='input-group-btn'>
+                        <button class='btn btn-default' type='submit'><i class='fa fa-search'/></button>
                       </span>
                     </form>
                   </li>
@@ -501,6 +489,14 @@ ul.categories li {
       <b:include name='overflowButton'/>
     </div>
   </div>
+</b:includable>
+            <b:includable id='pageLink'>
+  <li>
+    <b:class cond='data:overflow' name='overflowable-item'/>
+    <b:class cond='data:link.isCurrentPage' name='selected'/>
+
+    <a expr:href='data:link.href'><data:link.title/></a>
+  </li>
 </b:includable>
             <b:includable id='pageList'>
   <ul>
@@ -560,15 +556,15 @@ show_slides('{}');
 //]]></script>
     <b:else/>
     <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-12'>
             <b:if cond='data:view.isSearch and !data:view.isLabelSearch and data:view.search.query'>
-              <h2 style="font-size:20px;margin-top:10px;margin-left:-15px;">「<data:view.search.query/>」の検索結果</h2>
+              <h2 style='font-size:20px;margin-top:10px;margin-left:-15px;'>&#12300;<data:view.search.query/>&#12301;の検索結果</h2>
               <b:elseif cond='data:view.isSearch and !data:view.isLabelSearch'/>
               <br/>
               <b:elseif cond='data:view.isSearch'/>
-              <h2 style="font-size:20px;margin-top:10px;margin-left:-15px;">「<data:blog.searchLabel/>」の記事</h2>
+              <h2 style='font-size:20px;margin-top:10px;margin-left:-15px;'>&#12300;<data:blog.searchLabel/>&#12301;の記事</h2>
             </b:if>
           </div>
         </div>
@@ -638,19 +634,19 @@ show_slides('{}');
                             </div>
                           </b:loop>
                           <b:else/>
-                          <div class='col-md-3 visible-md-block visible-lg-block visible-xl-block' style="padding:0">
+                          <div class='col-md-3 visible-md-block visible-lg-block visible-xl-block' style='padding:0'>
                             <div>
-                              <ul class="categories">
-                                <li><a href="/search/label/%E5%B0%8F%E8%AA%AC">小説</a></li>
-                                <li><a href="/search/label/%E5%B0%8F%E8%AA%AC">漫画</a></li>
-                                <li><a href="/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC">ファンタジー</a></li>
-                                <li><a href="/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96">歴史・文化</a></li>
-                                <li><a href="/search/label/%E3%82%B3%E3%83%A9%E3%83%A0">コラム</a></li>
-                                <li><a href="/search/label/%E7%89%B9%E9%9B%86">特集</a></li>
-                                <li><a href="/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9">ニュース</a></li>
-                                <li><a href="/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF">タダ読み</a></li>
-                                <li><a href="/search/label/%E9%80%A3%E8%BC%89">連載</a></li>
-                                <li><a href="/search/label/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D">電子書籍</a></li>
+                              <ul class='categories'>
+                                <li><a href='/search/label/%E5%B0%8F%E8%AA%AC'>小説</a></li>
+                                <li><a href='/search/label/%E5%B0%8F%E8%AA%AC'>漫画</a></li>
+                                <li><a href='/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC'>ファンタジー</a></li>
+                                <li><a href='/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96'>歴史&#12539;文化</a></li>
+                                <li><a href='/search/label/%E3%82%B3%E3%83%A9%E3%83%A0'>コラム</a></li>
+                                <li><a href='/search/label/%E7%89%B9%E9%9B%86'>特集</a></li>
+                                <li><a href='/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9'>ニュース</a></li>
+                                <li><a href='/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF'>タダ読み</a></li>
+                                <li><a href='/search/label/%E9%80%A3%E8%BC%89'>連載</a></li>
+                                <li><a href='/search/label/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D'>電子書籍</a></li>
                               </ul>
                             </div>
                           </div>
@@ -1080,7 +1076,7 @@ show_slides('{}');
                     <b:if cond='data:newerPageUrl'>
                       <span class='pager pager-newer' id='blog-pager-newer-link'>
                         <a class='blog-pager-newer-link' expr:href='data:newerPageUrl'>
-                          <i class='fa fa-angle-double-left' aria-hidden='true' />
+                          <i aria-hidden='true' class='fa fa-angle-double-left'/>
                         </a>
                       </span>
                     </b:if>
@@ -1088,7 +1084,7 @@ show_slides('{}');
                     <b:if cond='data:olderPageUrl'>
                       <span class='pager pager-older' id='blog-pager-older-link'>
                         <a class='blog-pager-older-link' expr:href='data:olderPageUrl'>
-                          <i class='fa fa-angle-double-right' aria-hidden='true' />
+                          <i aria-hidden='true' class='fa fa-angle-double-right'/>
                         </a>
                       </span>
                     </b:if>
@@ -1097,24 +1093,6 @@ show_slides('{}');
                   <br/><br/>
                 </b:if>
               </b:includable>
-
-              <b:includable id='post-summary' var='post'>
-                <div class="media">
-                  <a expr:href='data:post.link ? data:post.link : data:post.url'>
-                    <div class="media-left">
-                      <b:if cond='data:post.firstImageUrl'>
-                        <div class="media-object cover thumbnail" expr:style='&quot;background-image:url(&quot; + data:post.firstImageUrl + &quot;)&quot;'></div>
-                      </b:if>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading"><data:post.title/></h4>
-                      <div class="snippet"><data:post.snippet/></div>
-                    </div>
-                  </a>
-                </div>
-                <hr/>
-              </b:includable>
-              
               <b:includable id='post' var='post'>
                 <div class='post entry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
                   <b:if cond='data:post.firstImageUrl'>
@@ -1181,6 +1159,22 @@ for(var i=0; i < imgs.length; i++){
                   </b:if>
 
                 </div>
+              </b:includable>
+              <b:includable id='post-summary' var='post'>
+                <div class='media'>
+                  <a expr:href='data:post.link ? data:post.link : data:post.url'>
+                    <div class='media-left'>
+                      <b:if cond='data:post.firstImageUrl'>
+                        <div class='media-object cover thumbnail' expr:style='&quot;background-image:url(&quot; + data:post.firstImageUrl + &quot;)&quot;'/>
+                      </b:if>
+                    </div>
+                    <div class='media-body'>
+                      <h4 class='media-heading'><data:post.title/></h4>
+                      <div class='snippet'><data:post.snippet/></div>
+                    </div>
+                  </a>
+                </div>
+                <hr/>
               </b:includable>
               <b:includable id='postQuickEdit' var='post'>
   <b:if cond='data:post.editUrl'>
@@ -1781,7 +1775,7 @@ fjs.parentNode.insertBefore(js, fjs);
                       <div class='item-thumbnail-img'>
                         <a expr:href='data:post.href' target='_blank'>
                           <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 80, &quot;1:1&quot;) : data:post.thumbnail' var='image'>
-                            <img expr:alt='data:title' expr:src='data:image' class="thumbnail" />
+                            <img class='thumbnail' expr:alt='data:title' expr:src='data:image'/>
                           </b:with>
                         </a>
                       </div>
@@ -1879,9 +1873,9 @@ fjs.parentNode.insertBefore(js, fjs);
       </b:includable>
     <b:includable id='cloud'>
   <b:loop values='data:labels' var='label'>
-    <span b:whitespace='remove' class='label-size'>
+    <span class='label-size'>
       <b:class expr:name='&quot;label-size-&quot; + data:label.cssSize'/>
-      <a b:whitespace='remove' class='label-name' expr:href='data:label.url'>
+      <a class='label-name' expr:href='data:label.url'>
         <data:label.name/>
         <b:if cond='data:this.showFreqNumbers'>
           <span class='label-count'><data:label.count/></span>
@@ -1900,8 +1894,8 @@ fjs.parentNode.insertBefore(js, fjs);
     <b:includable id='list'>
   <ul>
     <b:loop values='data:labels' var='label'>
-      <li b:whitespace='remove'>
-        <a b:whitespace='remove' class='label-name' expr:href='data:label.url'>
+      <li>
+        <a class='label-name' expr:href='data:label.url'>
           <data:label.name/>
           <b:if cond='data:this.showFreqNumbers'>
             <span class='label-count'><data:label.count/></span>
@@ -2073,5 +2067,66 @@ fjs.parentNode.insertBefore(js, fjs);
           <data:content/>
         </div>
       </b:includable>
+  </b:widget>
+  <b:widget id='BlogSearch1' locked='false' title='サイト内検索' type='BlogSearch' version='2' visible='true'>
+    <b:includable id='main'>
+        <b:include name='widget-title'/>
+        <b:include name='content'/>
+      </b:includable>
+    <b:includable id='content'>
+        <div class='widget-content' role='search'>
+          <b:include name='searchForm'/>
+        </div>
+      </b:includable>
+    <b:includable id='searchForm'>
+        <form class='form-inline' expr:action='data:blog.searchUrl'>
+          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+          <b:include name='urlParamsAsFormInput'/>
+          <div class='input-group col-md-12'>
+            <input autocomplete='off' class='form-control' expr:placeholder='data:messages.searchThisBlog' name='q' type='text'/>
+            <span class='input-group-btn'>
+              <b:include name='searchSubmit'/>
+            </span>
+          </div>
+        </form>
+      </b:includable>
+    <b:includable id='searchSubmit'>
+        <button class='btn btn-default' type='submit'>Search</button>
+      </b:includable>
+  </b:widget>
+  <b:widget id='Navbar1' locked='false' title='Navbar' type='Navbar' visible='true'>
+    <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener(&#39;load&#39;,
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent(&#39;onload&#39;, function(){ object[attribute] = val; });
+      }
+    }
+  &lt;/script&gt;
+&lt;div id=&quot;navbar-iframe-container&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://apis.google.com/js/plusone.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+      gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {
+        if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: &#39;https://www.blogger.com/navbar.g?targetBlogID\x3d1629064471288162354\x26blogName\x3d+%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://shinkigensha.blogspot.com/search\x26blogLocale\x3dja\x26v\x3d2\x26homepageUrl\x3dhttps://shinkigensha.blogspot.com/\x26readAccessMode\x3dPRIVATE\x26vt\x3d2361161557443350093&#39;,
+              where: document.getElementById(&quot;navbar-iframe-container&quot;),
+              id: &quot;navbar-iframe&quot;
+          });
+        }
+      });
+    &lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+(function() {
+var script = document.createElement(&#39;script&#39;);
+script.type = &#39;text/javascript&#39;;
+script.src = &#39;//pagead2.googlesyndication.com/pagead/js/google_top_exp.js&#39;;
+var head = document.getElementsByTagName(&#39;head&#39;)[0];
+if (head) {
+head.appendChild(script);
+}})();
+&lt;/script&gt;
+</b:includable>
   </b:widget>
 </b:section-contents><b:section-contents id='footer-1'/></html>
