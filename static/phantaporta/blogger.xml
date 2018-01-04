@@ -160,38 +160,35 @@ section#pickup { background-color: #ddd; padding: 10px 0;background: linear-grad
 .post-label {
   margin-bottom: 10px;
 }
-.post h1,
-.post h2,
-.post h3,
-.post h4,
-.post h5,
-.slides h2 {
+.main .post h1,
+.main .post h2,
+.main .post h3,
+.main .post h4,
+.main .post h5
+{
   font-size: 18px;
   letter-spacing: 1px;
   line-height: 1.25;
   display:block;
   position:relative;
-  margin-bottom:10px;
+  margin:10px 0;
   font-weight: bold;
   padding-bottom: 8px;
   border-bottom: 2px solid #ebb247;
 }
-.post h1 {
-  font-size: 22px;
+.main .post h1 {
+  font-size: 20px;
   font-weight: 500;
   margin-top: 10px;
 }
-.post h3,
-.post h4,
-.post h5 {
+.main .post h3,
+.main .post h4,
+.main .post h5 {
   font-size: 16px;
   margin-bottom: 30px;
 }
-.slides h2 {
-  margin-bottom: 35px;
-}
 .main .title,
-.sidebar .widget h3 {
+.sidebar .widget h3.title {
   font-size: 16px;
   font-weight: 640;
   padding-bottom: 4px;
@@ -199,6 +196,31 @@ section#pickup { background-color: #ddd; padding: 10px 0;background: linear-grad
   line-height: 1.25;
   letter-spacing: 2px;
 }
+
+.sidebar .widget.FeaturedPost .post-content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.sidebar .widget.FeaturedPost .post-content h3.post-title {
+    font-size: 14.22px;
+    margin-left: 10px;
+}
+.sidebar .widget.FeaturedPost .post-content .item-thumbnail {
+    font-size: 14.22px;
+    width: 120px;
+}
+.sidebar .widget.FeaturedPost .post-content .item-thumbnail a {
+    display: block;
+}
+.sidebar .widget.FeaturedPost .post-content .item-thumbnail a img {
+    width: 90px;
+    height: auto;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0;
+}
+  
 ul.hierarchy li {
   margin-top: 6px;
 }
@@ -337,6 +359,7 @@ ul.labels-list li {
   font-size: 28px;
   padding: 15px 50px;
   border: 1px solid #ddd;
+  margin: 0;
 }
 .pager.pager-older {
   float:right;
@@ -1090,7 +1113,7 @@ show_slides('{}');
                     </b:if>
                     <div style='clear:both'/>
                   </div>
-                  <br/><br/>
+                  <br/>
                 </b:if>
               </b:includable>
               <b:includable id='post' var='post'>
@@ -1743,6 +1766,53 @@ fjs.parentNode.insertBefore(js, fjs);
   
   
 <b:section-contents id='sidebar-right-1'>
+  <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+&lt;!-- testレクタングル --&gt;
+&lt;ins class=&quot;adsbygoogle&quot;
+     style=&quot;display:inline-block;&quot;
+     data-ad-client=&quot;ca-pub-1453954292777902&quot;
+     data-ad-slot=&quot;6109289875&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='Image1' locked='false' title='' type='Image' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='displayUrl'>http://3.bp.blogspot.com/-Ut58yMtDCo0/Wk196P5Ll9I/AAAAAAAAEn0/icFmST78fL4DsSwEKeqZAxNSlbSySaiwACK4BGAYYCw/s790/denshi.png</b:widget-setting>
+      <b:widget-setting name='displayHeight'>198</b:widget-setting>
+      <b:widget-setting name='sectionWidth'>790</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+      <b:widget-setting name='displayWidth'>790</b:widget-setting>
+      <b:widget-setting name='link'><![CDATA[https://www.amazon.co.jp/s/ref=sr_pg_1?rh=n%3A2250738051%2Ck%3A%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE&keywords=%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE&ie=UTF8&qid=1511486787]]></b:widget-setting>
+      <b:widget-setting name='caption'/>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:tag cond='data:link' expr:href='data:link' name='a'>
+      <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'>
+        <b:attr cond='data:sourceSet' expr:value='data:sourceSet' name='srcset'/>
+      </img>
+    </b:tag>
+    <br/>
+    <b:if cond='data:caption'>
+      <span class='caption'><data:caption/></span>
+    </b:if>
+  </div>
+</b:includable>
+  </b:widget>
   <b:widget id='PopularPosts1' locked='false' title='人気記事ランキング' type='PopularPosts' version='1'>
     <b:widget-settings>
       <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
@@ -1795,14 +1865,14 @@ fjs.parentNode.insertBefore(js, fjs);
         </div>
       </b:includable>
   </b:widget>
-  <b:widget id='Image1' locked='false' title='人気カテゴリ' type='Image' visible='true'>
+  <b:widget id='Image2' locked='false' title='連載記事' type='Image' visible='true'>
     <b:widget-settings>
-      <b:widget-setting name='displayUrl'>http://4.bp.blogspot.com/-3RWATdXiI8o/WVnk4uVCxaI/AAAAAAAAA_0/FYOuscjLZHAbe3II9pASo4EU8IPHB62tgCK4BGAYYCw/s1600/%25E5%25B0%258F%25E8%25AA%25AC.jpg</b:widget-setting>
-      <b:widget-setting name='displayHeight'>202</b:widget-setting>
+      <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-OGo7ntJIFvk/Wk2BWXBZKQI/AAAAAAAAEoA/OrPcLncLuwIvF81epwjUWnEMAoVMDIw3wCK4BGAYYCw/s1600/uchifan.png</b:widget-setting>
+      <b:widget-setting name='displayHeight'>65</b:widget-setting>
       <b:widget-setting name='sectionWidth'>790</b:widget-setting>
-      <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-      <b:widget-setting name='displayWidth'>530</b:widget-setting>
-      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E5%B0%8F%E8%AA%AC?max-results=10</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+      <b:widget-setting name='displayWidth'>240</b:widget-setting>
+      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E3%81%86%E3%81%A1%E3%81%AE%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E4%B8%96%E7%95%8C%E3%81%AE%E8%80%83%E5%AF%9F</b:widget-setting>
       <b:widget-setting name='caption'/>
     </b:widget-settings>
     <b:includable id='main'>
@@ -1823,11 +1893,132 @@ fjs.parentNode.insertBefore(js, fjs);
   </div>
 </b:includable>
   </b:widget>
-  <b:widget id='Label1' locked='false' title='カテゴリ' type='Label' version='2' visible='true'>
+  <b:widget id='Image3' locked='false' title='' type='Image' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='displayUrl'>http://3.bp.blogspot.com/-5gIHzNh-CMw/Wk2BgOK3aYI/AAAAAAAAEoI/VDM3dGe9aEM_wGvJi_RpU98XoRkgyqmNACK4BGAYYCw/s1600/manga.png</b:widget-setting>
+      <b:widget-setting name='displayHeight'>85</b:widget-setting>
+      <b:widget-setting name='sectionWidth'>790</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+      <b:widget-setting name='displayWidth'>240</b:widget-setting>
+      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E6%BC%AB%E7%94%BB</b:widget-setting>
+      <b:widget-setting name='caption'/>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:tag cond='data:link' expr:href='data:link' name='a'>
+      <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'>
+        <b:attr cond='data:sourceSet' expr:value='data:sourceSet' name='srcset'/>
+      </img>
+    </b:tag>
+    <br/>
+    <b:if cond='data:caption'>
+      <span class='caption'><data:caption/></span>
+    </b:if>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='Image4' locked='false' title='' type='Image' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='displayUrl'>http://1.bp.blogspot.com/-XVjEZPmzHXg/Wk2BloB_FKI/AAAAAAAAEoQ/nT6fgdCJoYgNeZV1Vp3zZH4pJYu6A6FnACK4BGAYYCw/s1600/RPG.png</b:widget-setting>
+      <b:widget-setting name='displayHeight'>65</b:widget-setting>
+      <b:widget-setting name='sectionWidth'>790</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+      <b:widget-setting name='displayWidth'>240</b:widget-setting>
+      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E4%B8%8A%E7%94%B0%E6%98%8E%28HobbyJAPAN%29</b:widget-setting>
+      <b:widget-setting name='caption'/>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:tag cond='data:link' expr:href='data:link' name='a'>
+      <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'>
+        <b:attr cond='data:sourceSet' expr:value='data:sourceSet' name='srcset'/>
+      </img>
+    </b:tag>
+    <br/>
+    <b:if cond='data:caption'>
+      <span class='caption'><data:caption/></span>
+    </b:if>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='FeaturedPost1' locked='false' title='おすすめ' type='FeaturedPost' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='showSnippet'>false</b:widget-setting>
+      <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+      <b:widget-setting name='postId'>1877645120465653688</b:widget-setting>
+      <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+      <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <b:include name='snippetedPosts'/>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='PageList2' locked='false' title='アンケート' type='PageList' visible='false'>
+    <b:widget-settings>
+      <b:widget-setting name='pageListJson'>{}</b:widget-setting>
+      <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:include name='pageList'/>
+  </div>
+</b:includable>
+    <b:includable id='overflowButton'>
+  <b:include name='verticalMoreIcon'/>
+</b:includable>
+    <b:includable id='overflowablePageList'>
+  <div class='overflowable-container'>
+    <div class='overflowable-contents'>
+      <div class='container'>
+        <b:with value='true' var='overflow'>
+        <b:with value='&quot;tabs&quot;' var='pageListClass'>
+          <b:include name='pageList'/>
+        </b:with>
+        </b:with>
+      </div>
+    </div>
+    <div class='overflow-button hidden'>
+      <b:include name='overflowButton'/>
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='pageLink'>
+  <li>
+    <b:class cond='data:overflow' name='overflowable-item'/>
+    <b:class cond='data:link.isCurrentPage' name='selected'/>
+
+    <a expr:href='data:link.href'><data:link.title/></a>
+  </li>
+</b:includable>
+    <b:includable id='pageList'>
+  <ul>
+    <b:class cond='data:pageListClass' expr:name='data:pageListClass'/>
+    <b:loop values='data:links' var='link'>
+      <b:include name='pageLink'/>
+    </b:loop>
+  </ul>
+</b:includable>
+  </b:widget>
+  <b:widget id='Label1' locked='false' title='人気のタグ' type='Label' version='2' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
       <b:widget-setting name='display'>CLOUD</b:widget-setting>
-      <b:widget-setting name='selectedLabelsList'>TIF,インタビュー,オカルト,コラム,タダ読み,図解シリーズ,小説,幻想生物,日本史,神話,西洋史</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'>インタビュー,オカルト,コラム,タダ読み,小説,幻想生物,日本史,神話,西洋史</b:widget-setting>
       <b:widget-setting name='showType'>USER_SELECTED</b:widget-setting>
       <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
     </b:widget-settings>
@@ -1906,156 +2097,6 @@ fjs.parentNode.insertBefore(js, fjs);
   </ul>
 </b:includable>
   </b:widget>
-  <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
-    <b:widget-settings>
-      <b:widget-setting name='content'>&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-&lt;!-- testレクタングル --&gt;
-&lt;ins class=&quot;adsbygoogle&quot;
-     style=&quot;display:inline-block;&quot;
-     data-ad-client=&quot;ca-pub-1453954292777902&quot;
-     data-ad-slot=&quot;6109289875&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-(adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;</b:widget-setting>
-    </b:widget-settings>
-    <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-</b:includable>
-  </b:widget>
-  <b:widget id='BlogArchive1' locked='false' title='月別記事一覧' type='BlogArchive' version='1'>
-    <b:widget-settings>
-      <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
-      <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
-      <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-      <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
-      <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
-      <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
-      <b:widget-setting name='chronological'>false</b:widget-setting>
-      <b:widget-setting name='showPosts'>false</b:widget-setting>
-      <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
-    </b:widget-settings>
-    <b:includable id='main'>
-        <b:if cond='data:title != &quot;&quot;'>
-          <h3 class='title'><data:title/></h3>
-        </b:if>
-        <div class='widget-content'>
-          <div id='ArchiveList'>
-            <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
-              <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
-              <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
-              <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>
-            </div>
-          </div>
-        </div>
-      </b:includable>
-    <b:includable id='flat' var='data'>
-        <ul class='flat'>
-          <b:loop values='data:data' var='i'>
-            <li class='archivedate'>
-              <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
-            </li>
-          </b:loop>
-        </ul>
-      </b:includable>
-    <b:includable id='interval' var='intervalData'>
-        <b:loop values='data:intervalData' var='interval'>
-          <ul class='hierarchy'>
-            <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
-              <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
-              <a class='post-count-link' expr:href='data:interval.url'>
-                <data:interval.name/>
-              </a>
-              <span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span>
-              <b:include cond='data:interval.data' data='interval.data' name='interval'/>
-              <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
-            </li>
-          </ul>
-        </b:loop>
-      </b:includable>
-    <b:includable id='menu' var='data'>
-        <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
-          <option value=''><data:title/></option>
-          <b:loop values='data:data' var='i'>
-            <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
-          </b:loop>
-        </select>
-      </b:includable>
-    <b:includable id='posts' var='posts'>
-        <ul class='posts'>
-          <b:loop values='data:posts' var='post'>
-            <li>
-              <a expr:href='data:post.url'><data:post.title/></a>
-            </li>
-          </b:loop>
-        </ul>
-      </b:includable>
-    <b:includable id='toggle' var='interval'>
-        <a class='toggle' href='javascript:void(0)'>
-          <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
-            <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
-              &#9660;&#160;
-              <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
-              &#9668;&#160;
-              <b:else/>
-              &#9658;&#160;
-            </b:if>
-          </span>
-        </a>
-      </b:includable>
-  </b:widget>
-  <b:widget id='PageList2' locked='false' title='アンケート' type='PageList' visible='true'>
-    <b:widget-settings>
-      <b:widget-setting name='pageListJson'>{}</b:widget-setting>
-      <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
-    </b:widget-settings>
-    <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <b:include name='content'/>
-</b:includable>
-    <b:includable id='content'>
-  <div class='widget-content'>
-    <b:include name='pageList'/>
-  </div>
-</b:includable>
-    <b:includable id='overflowButton'>
-  <b:include name='verticalMoreIcon'/>
-</b:includable>
-    <b:includable id='overflowablePageList'>
-  <div class='overflowable-container'>
-    <div class='overflowable-contents'>
-      <div class='container'>
-        <b:with value='true' var='overflow'>
-        <b:with value='&quot;tabs&quot;' var='pageListClass'>
-          <b:include name='pageList'/>
-        </b:with>
-        </b:with>
-      </div>
-    </div>
-    <div class='overflow-button hidden'>
-      <b:include name='overflowButton'/>
-    </div>
-  </div>
-</b:includable>
-    <b:includable id='pageLink'>
-  <li>
-    <b:class cond='data:overflow' name='overflowable-item'/>
-    <b:class cond='data:link.isCurrentPage' name='selected'/>
-
-    <a expr:href='data:link.href'><data:link.title/></a>
-  </li>
-</b:includable>
-    <b:includable id='pageList'>
-  <ul>
-    <b:class cond='data:pageListClass' expr:name='data:pageListClass'/>
-    <b:loop values='data:links' var='link'>
-      <b:include name='pageLink'/>
-    </b:loop>
-  </ul>
-</b:includable>
-  </b:widget>
   <b:widget id='HTML1' locked='false' title='Twitter タイムライン' type='HTML' version='2' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='content'>&lt;a class=&quot;twitter-timeline&quot; data-height=&quot;700&quot; href=&quot;https://twitter.com/phantaporta&quot;&gt;Tweets by phantaporta&lt;/a&gt;
@@ -2068,7 +2109,7 @@ fjs.parentNode.insertBefore(js, fjs);
         </div>
       </b:includable>
   </b:widget>
-  <b:widget id='BlogSearch1' locked='false' title='サイト内検索' type='BlogSearch' version='2' visible='true'>
+  <b:widget id='BlogSearch1' locked='false' title='サイト内検索' type='BlogSearch' version='2' visible='false'>
     <b:includable id='main'>
         <b:include name='widget-title'/>
         <b:include name='content'/>
