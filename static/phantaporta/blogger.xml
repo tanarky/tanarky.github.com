@@ -440,7 +440,10 @@ ul.categories li {
     margin: 0;
     padding: 10px;
 }
-
+h2.search-heading {
+    font-size:20px;
+    margin:20px 0 20px -15px;
+}
 ]]></b:skin>
     <b:template-skin/>
   </head>
@@ -582,11 +585,11 @@ show_slides('{}');
         <div class='row'>
           <div class='col-md-12'>
             <b:if cond='data:view.isSearch and !data:view.isLabelSearch and data:view.search.query'>
-              <h2 style='font-size:20px;margin-top:10px;margin-left:-15px;'>&#12300;<data:view.search.query/>&#12301;の検索結果</h2>
+              <h2 class="search-heading">&#12300;<data:view.search.query/>&#12301;の検索結果</h2>
               <b:elseif cond='data:view.isSearch and !data:view.isLabelSearch'/>
               <br/>
               <b:elseif cond='data:view.isSearch'/>
-              <h2 style='font-size:20px;margin-top:10px;margin-left:-15px;'>&#12300;<data:blog.searchLabel/>&#12301;の記事</h2>
+              <h2 class="search-heading">&#12300;<data:blog.searchLabel/>&#12301;の記事</h2>
             </b:if>
           </div>
         </div>
@@ -598,6 +601,7 @@ show_slides('{}');
       <div class='row'>
         <div class='col-md-8 main'>
           <div class='row'>
+
             <b:section id='main' name='Main' showaddelement='yes'>
               <b:widget id='PageList3' locked='true' title='Pages2' type='PageList' version='2' visible='true'>
                 <b:widget-settings>
@@ -701,27 +705,33 @@ show_slides('{}');
                           </ul>
                         </div>
                       </b:loop>
-                      <b:else/>
-                      <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
+
+                      <b:elseif cond='data:blog.pageType == &quot;index&quot; and data:blog.url == data:blog.homepageUrl'/>
+                      <div class='col-md-9'>
+                        <b:loop index='x' values='data:posts' var='post'>
+                          <b:include data='post' name='post-summary'/>
+                        </b:loop>
+                      </div>
+
+                      <b:elseif cond='data:blog.pageType == &quot;error_page&quot;' />
+                      <div class='col-md-12'>
+                        <p>ページが見つかりません</p>
+                        <p><a href='/'>トップページに戻る</a></p>
+                      </div>
+
+                      <b:elseif cond='data:blog.pageType == &quot;static_page&quot;' />
+                      <b:loop index='x' values='data:posts' var='post'>
                         <div class='col-md-12'>
-                          <p>ページが見つかりません</p>
-                          <p><a href='/'>トップページに戻る</a></p>
+                          <b:include data='post' name='static'/>
                         </div>
-                        <b:else/>
-                        <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-                          <b:loop index='x' values='data:posts' var='post'>
-                            <div class='col-md-12'>
-                              <b:include data='post' name='static'/>
-                            </div>
-                          </b:loop>
-                          <b:else/>
-                          <div class='col-md-9'>
-                            <b:loop index='x' values='data:posts' var='post'>
-                              <b:include data='post' name='post-summary'/>
-                            </b:loop>
-                          </div>
-                        </b:if>
-                      </b:if>
+                      </b:loop>
+
+                      <b:else />
+                      <div class='col-md-12'>
+                        <b:loop index='x' values='data:posts' var='post'>
+                          <b:include data='post' name='post-summary'/>
+                        </b:loop>
+                      </div>
                     </b:if>
                   </div>
                   <b:include name='nextprev'/>
