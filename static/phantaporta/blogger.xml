@@ -103,9 +103,7 @@
     <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' rel='stylesheet'/>
     <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' rel='stylesheet'/>
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'/>
-    <b:skin version='1.0.0'><![CDATA[
-      
-#ArchiveList .toggle{cursor:pointer;}#ArchiveList .toggle-open{_font-size:1.7em;line-height:.6em}#ArchiveList{text-align:left}#ArchiveList a.post-count-link,#ArchiveList a.post-count-link:link,#ArchiveList a.post-count-link:visited{text-decoration:none}#ArchiveList a.toggle,#ArchiveList a.toggle:link,#ArchiveList a.toggle:visited,#ArchiveList a.toggle:hover{color:inherit;text-decoration:none}.BlogArchive #ArchiveList ul li{background:none;list-style:none;list-style-image:none;list-style-position:outside;border-width:0;padding-left:15px;text-indent:-15px;margin:.25em 0;background-image:none}.BlogArchive #ArchiveList ul ul li{padding-left:1.2em}.BlogArchive #ArchiveList ul{margin:0;padding:0;list-style:none;list-style-image:none;border-width:0}.BlogArchive #ArchiveList ul.posts li{padding-left:1.3em}#ArchiveList .collapsed ul{display:none}
+    <b:skin version='1.0.0'><![CDATA[#ArchiveList .toggle{cursor:pointer;}#ArchiveList .toggle-open{_font-size:1.7em;line-height:.6em}#ArchiveList{text-align:left}#ArchiveList a.post-count-link,#ArchiveList a.post-count-link:link,#ArchiveList a.post-count-link:visited{text-decoration:none}#ArchiveList a.toggle,#ArchiveList a.toggle:link,#ArchiveList a.toggle:visited,#ArchiveList a.toggle:hover{color:inherit;text-decoration:none}.BlogArchive #ArchiveList ul li{background:none;list-style:none;list-style-image:none;list-style-position:outside;border-width:0;padding-left:15px;text-indent:-15px;margin:.25em 0;background-image:none}.BlogArchive #ArchiveList ul ul li{padding-left:1.2em}.BlogArchive #ArchiveList ul{margin:0;padding:0;list-style:none;list-style-image:none;border-width:0}.BlogArchive #ArchiveList ul.posts li{padding-left:1.3em}#ArchiveList .collapsed ul{display:none}
 
 body { line-height: 28px; font-size: 15px; padding-top: 50px; color:#444; font-family: Hiragino Sans,Roboto,"ヒラギノ角ゴ Pro",Hiragino Kaku Gothic Pro,"メイリオ",Meiryo,Helvetica Neue,Helvetica,Arial,sans-serif }
 a { color: #444; }
@@ -444,6 +442,7 @@ h2.search-heading {
     font-size:20px;
     margin:20px 0 20px -15px;
 }
+
 .box25{
     position: relative;
     background: #fff0cd;
@@ -463,10 +462,60 @@ h2.search-heading {
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 .box25 p {
-    margin: 0;
+    margin: 0; 
     padding: 0;
 }
-]]></b:skin>
+.box7{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #ffc06e;/*左線*/
+    border-right: double 7px #ffc06e;/*右線*/
+}
+.box7 p {
+    margin: 0; 
+    padding: 0;
+}
+.box27 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px  #FFC107;
+}
+.box27 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -27px;
+    left: -3px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    font-size: 17px;
+    background: #FFC107;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+.box27 p {
+    margin: 0; 
+    padding: 0;
+}
+.square_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #ffc06e;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 5px #ffc06e;
+    border: dashed 1px #FFF;
+}
+
+.square_btn:hover{
+	border: dotted 1px #FFF;
+}]]></b:skin>
     <b:template-skin/>
   </head>
   <body>
@@ -489,7 +538,7 @@ h2.search-heading {
         <b:section id='page_list_top' name='Header Page List' showaddelement='false'>
           <b:widget id='PageList1' locked='true' title='Pages' type='PageList' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 0}, 'link1': {'href': '/search/label/%E6%BC%AB%E7%94%BB', 'title': '漫画', 'position': 1}, 'link2': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link3': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3}, 'link4': {'href': '/search/label/%E3%82%B3%E3%83%A9%E3%83%A0', 'title': 'コラム', 'position': 4}, 'link5': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5}, 'link6': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 6}, 'link7': {'href': '/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF', 'title': 'タダ読み', 'position': 7}, 'link8': {'href': '/search/label/%E9%80%A3%E8%BC%89', 'title': '連載', 'position': 8}, 'link9': {'href': '/search/label/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D', 'title': '電子書籍', 'position': 9}}]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 0}, 'link1': {'href': '/search/label/%E6%BC%AB%E7%94%BB', 'title': '漫画', 'position': 1}, 'link2': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link3': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3}, 'link4': {'href': '/search/label/%E3%82%B3%E3%83%A9%E3%83%A0', 'title': 'コラム', 'position': 4}, 'link5': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5}, 'link6': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 6}, 'link7': {'href': '/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF', 'title': 'タダ読み', 'position': 7}, 'link8': {'href': 'http://www.phantaporta.com/p/blog-page_52.html', 'title': '連載', 'position': 8}, 'link9': {'href': 'https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Ddigital-text&field-keywords=%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE%E3%80%80F-File', 'title': '電子書籍', 'position': 9}}]]></b:widget-setting>
               <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -562,7 +611,6 @@ h2.search-heading {
       <script>
 //<![CDATA[
 function show_slides(json) {
-    json = JSON.parse('{"feed":{"entry":[{"title":{"$t":"政略結婚や男性同士の恋愛も盛ん　戦国武将の恋物語"},"link":[{"rel":"alternate","type":"text/html","href":"http://shinkigensha.blogspot.com/2017/11/blog-post_22.html","title":"政略結婚や男性同士の恋愛も盛ん　戦国武将の恋物語"}],"media$thumbnail":{"url":"https://1.bp.blogspot.com/-nudMS12DLlo/Wg_JfRv5OWI/AAAAAAAADro/I3Xr793ke1MkAkhlHBJx4mwQF85Mki6BACLcBGAs/s72-c/1a75e57017ff4bbb9a67fbc877e428c6_l.jpg","width":"72"}},{"title":{"$t":"【第16回】うちのファンタジー世界の考察ー蟲"},"link":[{"rel":"alternate","type":"text/html","href":"http://shinkigensha.blogspot.com/2017/11/16_21.html","title":"【第16回】うちのファンタジー世界の考察ー蟲"}],"media$thumbnail":{"url":"https://2.bp.blogspot.com/-OIZqMQNYdmU/Wg-bexzOwZI/AAAAAAAADrM/yPNOJWInUgIOT1JaNvCPGrgY80hUrK5oACLcBGAs/s72-c/%25E3%2581%2586%25E3%2581%25A1%25E3%2581%25AE%25E3%2583%2595%25E3%2582%25A1%25E3%2583%25B3%25E3%2582%25BF%25E3%2582%25B8%25E3%2583%25BC%25E4%25B8%2596%25E7%2595%258C%25E3%2581%25AE%25E8%2580%2583%25E5%25AF%259F-8.png","width":"72"}},{"title":{"type":"text","$t":"【1コマ漫画】凶器はチーズ!? メイヴの最期"},"link":[{"rel":"alternate","type":"text/html","href":"http://shinkigensha.blogspot.com/2017/11/1_20.html","title":"【1コマ漫画】凶器はチーズ!? メイヴの最期"}],"media$thumbnail":{"url":"https://3.bp.blogspot.com/-KQvp0Jq18vE/Wg4381ia8PI/AAAAAAAADpA/5FSqt91B96swJn29FREuVAAFKZnti0qMACLcBGAs/s72-c/2_11%25E6%259C%2588%25E5%2588%2586_3.png","width":"72"}}]}}');
     var img = [];
     var maxpost = json.feed.entry.length
     document.write('<section id="pickup"><div class="container"><div class="row">');
@@ -597,9 +645,9 @@ function show_slides(json) {
     document.write('<a href="#" class="slider btn btn-default">3</a>');
     document.write('</div></div></div></div></section>');
 }
-show_slides('{}');
-//var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
-//document.write('<script src="' + url + '"></'+'script>');
+//show_slides('{}');
+var url = '/feeds/posts/default/-/PICKUP?max-results=3&amp;orderby=published&amp;alt=json-in-script&amp;callback=show_slides';
+document.write('<script src="' + url + '"></'+'script>');
 //]]></script>
     <b:else/>
     <section>
@@ -607,11 +655,11 @@ show_slides('{}');
         <div class='row'>
           <div class='col-md-12'>
             <b:if cond='data:view.isSearch and !data:view.isLabelSearch and data:view.search.query'>
-              <h2 class="search-heading">&#12300;<data:view.search.query/>&#12301;の検索結果</h2>
+              <h2 class='search-heading'>&#12300;<data:view.search.query/>&#12301;の検索結果</h2>
               <b:elseif cond='data:view.isSearch and !data:view.isLabelSearch'/>
               <br/>
               <b:elseif cond='data:view.isSearch'/>
-              <h2 class="search-heading">&#12300;<data:blog.searchLabel/>&#12301;の記事</h2>
+              <h2 class='search-heading'>&#12300;<data:blog.searchLabel/>&#12301;の記事</h2>
             </b:if>
           </div>
         </div>
@@ -627,7 +675,7 @@ show_slides('{}');
             <b:section id='main' name='Main' showaddelement='yes'>
               <b:widget id='PageList3' locked='true' title='Pages2' type='PageList' version='2' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E6%BC%AB%E7%94%BB', 'title': '漫画', 'position': 0}, 'link1': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 1}, 'link2': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link3': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3}, 'link4': {'href': '/search/label/%E3%82%B3%E3%83%A9%E3%83%A0', 'title': 'コラム', 'position': 4}, 'link5': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5}, 'link6': {'href': 'http://www.yahoo.co.jp/', 'title': 'Yahoo', 'position': 6}, 'link7': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 7}, 'link8': {'href': '/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF', 'title': 'タダ読み', 'position': 8}, 'link9': {'href': '/search/label/%E9%80%A3%E8%BC%89', 'title': '連載', 'position': 9}, 'link10': {'href': '/search/label/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D', 'title': '電子書籍', 'position': 10}}]]></b:widget-setting>
+                  <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': '/search/label/%E6%BC%AB%E7%94%BB', 'title': '漫画', 'position': 0}, 'link1': {'href': '/search/label/%E5%B0%8F%E8%AA%AC', 'title': '小説', 'position': 1}, 'link2': {'href': '/search/label/%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC', 'title': 'ファンタジー', 'position': 2}, 'link3': {'href': '/search/label/%E6%AD%B4%E5%8F%B2%E3%83%BB%E6%96%87%E5%8C%96', 'title': '歴史・文化', 'position': 3}, 'link4': {'href': '/search/label/%E3%82%B3%E3%83%A9%E3%83%A0', 'title': 'コラム', 'position': 4}, 'link5': {'href': '/search/label/%E7%89%B9%E9%9B%86', 'title': '特集', 'position': 5}, 'link6': {'href': '/search/label/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9', 'title': 'ニュース', 'position': 6}, 'link7': {'href': '/search/label/%E3%82%BF%E3%83%80%E8%AA%AD%E3%81%BF', 'title': 'タダ読み', 'position': 7}, 'link8': {'href': 'http://www.phantaporta.com/p/blog-page_52.html', 'title': '連載', 'position': 8}, 'link9': {'href': 'https://www.amazon.co.jp/s/ref\x3dnb_sb_noss?__mk_ja_JP\x3d%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A\x26url\x3dsearch-alias%3Ddigital-text\x26field-keywords\x3d%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE%E3%80%80F-File', 'title': '電子書籍', 'position': 9}}]]></b:widget-setting>
                   <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
@@ -735,20 +783,20 @@ show_slides('{}');
                         </b:loop>
                       </div>
 
-                      <b:elseif cond='data:blog.pageType == &quot;error_page&quot;' />
+                      <b:elseif cond='data:blog.pageType == &quot;error_page&quot;'/>
                       <div class='col-md-12'>
                         <p>ページが見つかりません</p>
                         <p><a href='/'>トップページに戻る</a></p>
                       </div>
 
-                      <b:elseif cond='data:blog.pageType == &quot;static_page&quot;' />
+                      <b:elseif cond='data:blog.pageType == &quot;static_page&quot;'/>
                       <b:loop index='x' values='data:posts' var='post'>
                         <div class='col-md-12'>
                           <b:include data='post' name='static'/>
                         </div>
                       </b:loop>
 
-                      <b:else />
+                      <b:else/>
                       <div class='col-md-12'>
                         <b:loop index='x' values='data:posts' var='post'>
                           <b:include data='post' name='post-summary'/>
@@ -1109,6 +1157,22 @@ show_slides('{}');
 
                           <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
                             <data:post.body/>
+
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+
+&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 記事下レクタングル --&gt;
+&lt;ins class=&quot;adsbygoogle&quot;
+     style=&quot;display:block&quot;
+     data-ad-client=&quot;ca-pub-1453954292777902&quot;
+     data-ad-slot=&quot;5920986343&quot;
+     data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+
+</b:if>
+                            <br/>
                             <div style='clear: both;'/> <!-- clear for photos floats -->
                           </div>
 
@@ -1229,6 +1293,23 @@ show_slides('{}');
 
                     <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
                       <data:post.body/>
+
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+
+&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 記事下レクタングル --&gt;
+&lt;ins class=&quot;adsbygoogle&quot;
+     style=&quot;display:block&quot;
+     data-ad-client=&quot;ca-pub-1453954292777902&quot;
+     data-ad-slot=&quot;5920986343&quot;
+     data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+
+</b:if>
+<br/>
+
                       <div style='clear: both;'/>
                     </div>
 
@@ -1775,7 +1856,7 @@ jQuery.fn.toc.defaults = {
   }
 };
 })(jQuery);
-$('#toc').toc({'selectors':'.post h2,.post h3', 'scrollToOffset':50});
+$('#toc').toc({'selectors':'.post .post-body h2,.post .post-body h3', 'scrollToOffset':50});
 //]]></script>
     </b:if>
     <script>//<![CDATA[
@@ -1840,9 +1921,9 @@ fjs.parentNode.insertBefore(js, fjs);
   <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='content'>&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
-&lt;!-- testレクタングル --&gt;
+&lt;!-- サイドバー下レクタングル --&gt;
 &lt;ins class=&quot;adsbygoogle&quot;
-     style=&quot;display:inline-block;&quot;
+     style=&quot;display:inline-block;width:336px;height:280px&quot;
      data-ad-client=&quot;ca-pub-1453954292777902&quot;
      data-ad-slot=&quot;6109289875&quot;&gt;&lt;/ins&gt;
 &lt;script&gt;
@@ -1863,7 +1944,7 @@ fjs.parentNode.insertBefore(js, fjs);
       <b:widget-setting name='sectionWidth'>790</b:widget-setting>
       <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
       <b:widget-setting name='displayWidth'>790</b:widget-setting>
-      <b:widget-setting name='link'><![CDATA[https://www.amazon.co.jp/s/ref=sr_pg_1?rh=n%3A2250738051%2Ck%3A%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE&keywords=%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE&ie=UTF8&qid=1511486787]]></b:widget-setting>
+      <b:widget-setting name='link'><![CDATA[https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Ddigital-text&field-keywords=%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE%E3%80%80F-File]]></b:widget-setting>
       <b:widget-setting name='caption'/>
     </b:widget-settings>
     <b:includable id='main'>
@@ -1936,6 +2017,34 @@ fjs.parentNode.insertBefore(js, fjs);
         </div>
       </b:includable>
   </b:widget>
+  <b:widget id='Image6' locked='false' title='' type='Image' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-xbR4Hbfw3_I/Wl2c6zJ7l1I/AAAAAAAAE14/gkGjQuuOKlYevZVwcbxnpzPSBBW3-pBnACK4BGAYYCw/s1600/%25E4%25BA%258C%25E4%25BB%25A3%25E7%259B%25AE%25E8%25B3%25A2%25E8%2580%2585%25E3%2581%25AE%25E5%258F%2582%25E8%2580%2583%25E6%259B%25B8%25E3%2583%2590%25E3%2583%258A%25E3%2583%25BC.png</b:widget-setting>
+      <b:widget-setting name='displayHeight'>136</b:widget-setting>
+      <b:widget-setting name='sectionWidth'>360</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
+      <b:widget-setting name='displayWidth'>360</b:widget-setting>
+      <b:widget-setting name='link'>http://www.phantaporta.com/search/label/%E4%BA%8C%E4%BB%A3%E7%9B%AE%E8%B3%A2%E8%80%85%E3%81%AE%E5%8F%82%E8%80%83%E6%9B%B8</b:widget-setting>
+      <b:widget-setting name='caption'/>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:tag cond='data:link' expr:href='data:link' name='a'>
+      <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'>
+        <b:attr cond='data:sourceSet' expr:value='data:sourceSet' name='srcset'/>
+      </img>
+    </b:tag>
+    <br/>
+    <b:if cond='data:caption'>
+      <span class='caption'><data:caption/></span>
+    </b:if>
+  </div>
+</b:includable>
+  </b:widget>
   <b:widget id='Image2' locked='false' title='連載記事' type='Image' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-OGo7ntJIFvk/Wk2BWXBZKQI/AAAAAAAAEoA/OrPcLncLuwIvF81epwjUWnEMAoVMDIw3wCK4BGAYYCw/s1600/uchifan.png</b:widget-setting>
@@ -1966,8 +2075,8 @@ fjs.parentNode.insertBefore(js, fjs);
   </b:widget>
   <b:widget id='Image3' locked='false' title='' type='Image' visible='true'>
     <b:widget-settings>
-      <b:widget-setting name='displayUrl'>http://3.bp.blogspot.com/-5gIHzNh-CMw/Wk2BgOK3aYI/AAAAAAAAEoI/VDM3dGe9aEM_wGvJi_RpU98XoRkgyqmNACK4BGAYYCw/s1600/manga.png</b:widget-setting>
-      <b:widget-setting name='displayHeight'>85</b:widget-setting>
+      <b:widget-setting name='displayUrl'>http://2.bp.blogspot.com/-v_8NKd4H10w/WnLkr7qaqII/AAAAAAAAFMg/xK42stL3N54fVluUDRIhiszi-bqHK2OuACK4BGAYYCw/s790/%25E3%2583%2595%25E3%2582%25A1%25E3%2583%25B3%25E3%2582%25BF%25E3%2582%25B8%25E3%2583%25BC%25E6%25BC%25AB%25E7%2594%25BB%25E3%2583%25AD%25E3%2582%25B4%2B%25281%2529.png</b:widget-setting>
+      <b:widget-setting name='displayHeight'>65</b:widget-setting>
       <b:widget-setting name='sectionWidth'>790</b:widget-setting>
       <b:widget-setting name='shrinkToFit'>true</b:widget-setting>
       <b:widget-setting name='displayWidth'>240</b:widget-setting>
@@ -2024,7 +2133,7 @@ fjs.parentNode.insertBefore(js, fjs);
     <b:widget-settings>
       <b:widget-setting name='showSnippet'>false</b:widget-setting>
       <b:widget-setting name='showPostTitle'>true</b:widget-setting>
-      <b:widget-setting name='postId'>1877645120465653688</b:widget-setting>
+      <b:widget-setting name='postId'>5623071399964380126</b:widget-setting>
       <b:widget-setting name='showFirstImage'>true</b:widget-setting>
       <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
     </b:widget-settings>
@@ -2035,9 +2144,9 @@ fjs.parentNode.insertBefore(js, fjs);
   </div>
 </b:includable>
   </b:widget>
-  <b:widget id='PageList2' locked='false' title='アンケート' type='PageList' visible='false'>
+  <b:widget id='PageList2' locked='false' title='アンケート' type='PageList' visible='true'>
     <b:widget-settings>
-      <b:widget-setting name='pageListJson'>{}</b:widget-setting>
+      <b:widget-setting name='pageListJson'><![CDATA[{'3576081116603038024': {'href': 'http://www.phantaporta.com/p/blog-page_73.html', 'title': 'コミカライズ マンガ家募集', 'position': 0}}]]></b:widget-setting>
       <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
@@ -2089,7 +2198,7 @@ fjs.parentNode.insertBefore(js, fjs);
     <b:widget-settings>
       <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
       <b:widget-setting name='display'>CLOUD</b:widget-setting>
-      <b:widget-setting name='selectedLabelsList'>インタビュー,オカルト,コラム,タダ読み,小説,幻想生物,日本史,神話,西洋史</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'>インタビュー,オカルト,中世の生活,図解シリーズ,幻想生物,日本史,神話,西洋史,食の歴史</b:widget-setting>
       <b:widget-setting name='showType'>USER_SELECTED</b:widget-setting>
       <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
     </b:widget-settings>
@@ -2206,51 +2315,16 @@ fjs.parentNode.insertBefore(js, fjs);
         <button class='btn btn-default' type='submit'>Search</button>
       </b:includable>
   </b:widget>
-  <b:widget id='Navbar1' locked='false' title='Navbar' type='Navbar' visible='true'>
-    <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
-    function setAttributeOnload(object, attribute, val) {
-      if(window.addEventListener) {
-        window.addEventListener(&#39;load&#39;,
-          function(){ object[attribute] = val; }, false);
-      } else {
-        window.attachEvent(&#39;onload&#39;, function(){ object[attribute] = val; });
-      }
-    }
-  &lt;/script&gt;
-&lt;div id=&quot;navbar-iframe-container&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://apis.google.com/js/plusone.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-      gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {
-        if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
-          gapi.iframes.getContext().openChild({
-              url: &#39;https://www.blogger.com/navbar.g?targetBlogID\x3d1629064471288162354\x26blogName\x3d+%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E6%96%B0%E7%B4%80%E5%85%83%E7%A4%BE\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://shinkigensha.blogspot.com/search\x26blogLocale\x3dja\x26v\x3d2\x26homepageUrl\x3dhttps://shinkigensha.blogspot.com/\x26readAccessMode\x3dPRIVATE\x26vt\x3d2361161557443350093&#39;,
-              where: document.getElementById(&quot;navbar-iframe-container&quot;),
-              id: &quot;navbar-iframe&quot;
-          });
-        }
-      });
-    &lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;
-(function() {
-var script = document.createElement(&#39;script&#39;);
-script.type = &#39;text/javascript&#39;;
-script.src = &#39;//pagead2.googlesyndication.com/pagead/js/google_top_exp.js&#39;;
-var head = document.getElementsByTagName(&#39;head&#39;)[0];
-if (head) {
-head.appendChild(script);
-}})();
-&lt;/script&gt;
-</b:includable>
-  </b:widget>
   <b:widget id='BlogArchive1' locked='false' title='月別記事' type='BlogArchive' version='1'>
     <b:widget-settings>
-      <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
+      <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
       <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
       <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-      <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+      <b:widget-setting name='monthPattern'>MMMM yyyy</b:widget-setting>
       <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
       <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
       <b:widget-setting name='chronological'>false</b:widget-setting>
-      <b:widget-setting name='showPosts'>true</b:widget-setting>
+      <b:widget-setting name='showPosts'>false</b:widget-setting>
       <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
@@ -2321,5 +2395,40 @@ head.appendChild(script);
           </span>
         </a>
       </b:includable>
+  </b:widget>
+  <b:widget id='Navbar1' locked='false' title='Navbar' type='Navbar' version='2' visible='true'>
+    <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener(&#39;load&#39;,
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent(&#39;onload&#39;, function(){ object[attribute] = val; });
+      }
+    }
+  &lt;/script&gt;
+&lt;div id=&quot;navbar-iframe-container&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://apis.google.com/js/plusone.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+      gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {
+        if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: &#39;https://www.blogger.com/navbar.g?targetBlogID\x3d6144655530126189217\x26blogName\x3d%E3%83%91%E3%83%B3%E3%82%BF%E3%83%9D%E3%83%AB%E3%82%BF\x26publishMode\x3dPUBLISH_MODE_HOSTED\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttp://www.phantaporta.com/search\x26blogLocale\x3dja\x26v\x3d2\x26homepageUrl\x3dhttp://www.phantaporta.com/\x26vt\x3d-1027052876735234947&#39;,
+              where: document.getElementById(&quot;navbar-iframe-container&quot;),
+              id: &quot;navbar-iframe&quot;
+          });
+        }
+      });
+    &lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+(function() {
+var script = document.createElement(&#39;script&#39;);
+script.type = &#39;text/javascript&#39;;
+script.src = &#39;//pagead2.googlesyndication.com/pagead/js/google_top_exp.js&#39;;
+var head = document.getElementsByTagName(&#39;head&#39;)[0];
+if (head) {
+head.appendChild(script);
+}})();
+&lt;/script&gt;
+</b:includable>
   </b:widget>
 </b:section-contents><b:section-contents id='footer-1'/></html>
